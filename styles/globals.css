@@ -1,0 +1,12 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+  background: #ffd092;
+  background: linear-gradient(180deg, #ffd092 0%, #ffc48c 100%);
+}
+
+* {
+  box-sizing: border-box;
+}

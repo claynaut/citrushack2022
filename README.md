@@ -1,77 +1,84 @@
-## Example app using MongoDB
+# Citrus Hack 2022
+> Author: J.S. Pescasio
 
-[MongoDB](https://www.mongodb.com/) is a general purpose, document-based, distributed database built for modern application developers and for the cloud era. This example will show you how to connect to and use MongoDB as your backend for your Next.js app.
+> Contributors: 
+> 
+> J.S. Pescasio
 
-If you want to learn more about MongoDB, visit the following pages:
+This is the codebase for Citrus Hack 2022. Below is a guide for setting up a local environment to run the website locally for development purposes.
 
-- [MongoDB Atlas](https://mongodb.com/atlas)
-- [MongoDB Documentation](https://docs.mongodb.com/)
+## Prerequisites
+#### Windows
+- **[Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701):** This is used to navigate through the project/repo and to run the development server.
+- **[Ubuntu WSL](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6) (Recommended):** This is to use the bash terminal found in Linux. I recommend using a WSL to use Linux commands for developing this project. Follow [this guide](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to install.
 
-## Deploy your own
+#### Mac
+- **Terminal:** This is used to navigate through the project/repo and to run the development server.
+- **[Homebrew](https://brew.sh/):** This is a package manager for Mac. Run the following command in a terminal to install:
+  - `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
-Once you have access to the environment variables you'll need, deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+#### All OSes
+- Install **[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)**
+- Install **[Node.JS](https://nodejs.org/en/)**
+- Install **[Yarn](https://yarnpkg.com/getting-started/install)**
+  - Run the following command to install: `npm install yarn`
+- Install a code editor of your choice (e.g [VScode](https://code.visualstudio.com/), [Atom](https://atom.io/), [Sublime](https://www.sublimetext.com/), etc.)
+- Install at least two popular browsers (e.g. Chrome, Firefox, Safari, etc.). This is for testing for cross compatibility for different browsers.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-mongodb&project-name=with-mongodb&repository-name=with-mongodb&env=MONGODB_URI,MONGODB_DB&envDescription=Required%20to%20connect%20the%20app%20with%20MongoDB)
+## Setting Up Your Local Environment
+Run the following commands in a terminal.
+### Clone the Project
+- `git clone https://github.com/citrushack/cutiehack2021`
+- `cd cutiehack2021`
+  - This is to navigate into the directory generated for the cloned repo.
+- If you are using VScode, run `code .` to open the current directory in VScode (this is mainly for easier navigation)
+  - You may need to install **code** so run `sudo apt install code`
 
-## How to use
+### Install Necessary Packages
+- `yarn` or `yarn install`
+  - This will install all necessary packages for the project. 
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+### Run the Development Server
+- `yarn dev`
+- Go to http://localhost:3000/
+  - This is the port where the development server is run on. Any changes you make to the code will reflect almost instantly while the server is running.
 
-```bash
-npx create-next-app --example with-mongodb with-mongodb-app
-# or
-yarn create next-app --example with-mongodb with-mongodb-app
-```
+## Contributing to the Project
+### Forking
+> Forking the repo to work on your own code.
+- Fork the repo by clicking the `Fork` button in the upper right corner
+  - This creates a copy of the repository in your own account.
 
-## Configuration
+### Committing Changes
+- Check what files you edited: `git status`
+- Adding files to commit: `git add <file-name>` or `git add .` to commit all files
+- Commit files: `git commit -m <useful-message>`
+  - Try committing frequently and writing useful messages to describe the changes you made.
+- Push your changes: `git push`
+  - If it's your first time pushing changes from a new branch, you may need to run `git push -u origin <branch-name>`
 
-### Set up a MongoDB database
+### Creating Pull Requests
+> Make a pull request when you have code to merge.
+- Go to your forked repo on Github and click the "Contribute" option near the top. 
+  - Click `Open Pull Request`.
+  - Compare your branch to the main branch. Then click `Create Pull Request`.
+  - Assign the webdev lead to review your code (see the righthand side).
+  - Leave a comment if you want to. Then click `Create Pull Request`.
 
-Set up a MongoDB database either locally or with [MongoDB Atlas for free](https://mongodb.com/atlas).
+### Fetching Upstream
+> Match your repository to the master branch.
+- Go to your forked repo on Github and click the "Fetch upstream" option near the top. 
+- Click `Fetch and Merge` to fetch the master branch and merge the master code into your repo.
+  - This will merge any new changes made in the master branch into your repo.
+  - I recommend committing any of your changes to your forked repo before doing this, so you can see if there will be any conflicts.
 
-### Set up environment variables
+### Assigning Yourself to Issues
+> Issues are tasks to be done for the project.
+- Go to the repo on Github and open the "Issues" tab.
+  - This acts as a taskboard for what needs to be done for the project.
+- Click on an issue to read more information about it.
+- If you want to work on an issue, assign yourself to the issue (see the righthand side).
 
-Copy the `env.local.example` file in this directory to `.env.local` (which will be ignored by Git):
-
-```bash
-cp .env.local.example .env.local
-```
-
-Set each variable on `.env.local`:
-
-- `MONGODB_URI` - Your MongoDB connection string. If you are using [MongoDB Atlas](https://mongodb.com/atlas) you can find this by clicking the "Connect" button for your cluster.
-- `MONGODB_DB` - The name of the MongoDB database you want to use.
-
-### Run Next.js in development mode
-
-```bash
-npm install
-npm run dev
-
-# or
-
-yarn install
-yarn dev
-```
-
-Your app should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
-
-You will either see a message stating "You are connected to MongoDB" or "You are NOT connected to MongoDB". Ensure that you have provided the correct `MONGODB_URI` and `MONGODB_DB` environment variables.
-
-When you are successfully connected, you can refer to the [MongoDB Node.js Driver docs](https://mongodb.github.io/node-mongodb-native/3.4/tutorials/collections/) for further instructions on how to query your database.
-
-## Deploy on Vercel
-
-You can deploy this app to the cloud with [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-#### Deploy Your Local Project
-
-To deploy your local project to Vercel, push it to GitHub/GitLab/Bitbucket and [import to Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example).
-
-**Important**: When you import your project on Vercel, make sure to click on **Environment Variables** and set them to match your `.env.local` file.
-
-#### Deploy from Our Template
-
-Alternatively, you can deploy using our template by clicking on the Deploy button below.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-mongodb&project-name=with-mongodb&repository-name=with-mongodb&env=MONGODB_URI,MONGODB_DB&envDescription=Required%20to%20connect%20the%20app%20with%20MongoDB)
+## Tech Stack
+- **[NextJS](https://nextjs.org/)**: This is the frontend framework for this project.
+- **MongoDB**: This is the database used for the backend for this project.

@@ -1,18 +1,20 @@
-import Nav from '../components/Nav'
-import Footer from '../components/Footer'
+import { ThemeProvider } from 'next-themes'
+import Nav from '@/components/Nav'
+import UserBar from '@/components/UserBar'
+import ThemeButton from '@/components/ThemeButton'
+import Footer from '@/components/Footer'
 
 import 'tailwindcss/tailwind.css'
+import 'tailwind.source.css'
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <div className="flex flex-col items-center min-h-screen w-full dark:bg-gray-500">
-        <div className="w-full max-w-6xl">
-          <Nav />
-          <Component {...pageProps} />
-        </div>
-        <Footer />
-      </div>
-    </>
+    <ThemeProvider>
+      <Nav />
+      <UserBar/>
+      <ThemeButton />
+      <Component {...pageProps} />
+      <Footer />
+    </ThemeProvider>
   )
 }

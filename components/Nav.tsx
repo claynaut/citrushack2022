@@ -80,7 +80,7 @@ export default function Nav() {
         <div
           className={
             'flex flex-col gap-2.5 rounded-md bg-gray-200 shadow overflow-hidden transition-size duration-200 '
-            + (navOpen ? 'p-2 w-48 h-[27.25rem]' : 'w-12 h-12')
+            + (navOpen ? 'p-2 w-48 h-[27.75rem]' : 'w-12 h-12')
           }
         >
           <div className='flex w-full justify-between'>

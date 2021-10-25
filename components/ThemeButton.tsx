@@ -6,7 +6,6 @@ import {
   BiMoon
 } from 'react-icons/bi'
 
-
 export default function ThemeButton() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()

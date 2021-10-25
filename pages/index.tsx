@@ -11,7 +11,7 @@ import Faq from '@/pages/faq'
 
 export default function Home() {
   return (
-    <Page>
+    <Page title=''>
       <Element name='Home' className='flex justify-center w-full'>
         <Landing />
       </Element>

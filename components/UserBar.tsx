@@ -23,7 +23,7 @@ export default function ThemeButton() {
   }, [theme, selectedTheme])
 
   return (
-    <div
+    <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.995 }}
       className='z-[100] fixed top-3 right-20 h-14 flex flex-col rounded-md bg-gray-200 shadow'
@@ -35,6 +35,6 @@ export default function ThemeButton() {
       >
         Apply
       </motion.button>
-    </div>
+    </motion.div>
   )
 }

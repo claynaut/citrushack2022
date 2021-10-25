@@ -26,7 +26,7 @@ export default function ThemeButton() {
     <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.995 }}
-      className='z-[100] fixed top-3 right-20 h-14 flex flex-col rounded-md bg-gray-200 shadow'
+      className='z-[100] fixed top-3 right-[4.5rem] h-12 flex flex-col rounded-md bg-gray-200 shadow'
     >
       <motion.button
         whileHover={{ scale: 1.05 }}

@@ -16,7 +16,7 @@ module.exports = {
         'white-50': '#ffffff32',
       },
       transitionProperty: {
-        'size': 'width, max-width, height, max-height',
+        'size': 'width, max-width, height, max-height, margin, padding',
        },
     },
   },

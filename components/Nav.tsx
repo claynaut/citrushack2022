@@ -79,13 +79,13 @@ export default function Nav() {
       <div className='z-[100] fixed top-4 xl:hidden px-4'>
         <div
           className={
-            'flex flex-col gap-2.5 p-2 rounded-md bg-gray-200 shadow overflow-hidden transition-size duration-200 '
-            + (navOpen ? 'w-48 h-[27.25rem]' : 'w-14 h-14')
+            'flex flex-col gap-2.5 rounded-md bg-gray-200 shadow overflow-hidden transition-size duration-200 '
+            + (navOpen ? 'p-2 w-48 h-[27.25rem]' : 'w-12 h-12')
           }
         >
           <div className='flex w-full justify-between'>
             <span
-              className='flex gap-2.5 items-center p-2 w-20 max-w-min text-lg rounded-md hover:bg-accent-primary cursor-pointer'
+              className='flex items-center p-3 text-lg rounded-md hover:bg-accent-primary cursor-pointer'
               onClick={() => setNavOpen(!navOpen)}
             >
               { navOpen

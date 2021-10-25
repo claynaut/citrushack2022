@@ -9,7 +9,7 @@ import 'tailwind.source.css'
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider>
+    <ThemeProvider enableSystem={false}>
       <Nav />
       <UserBar/>
       <ThemeButton />

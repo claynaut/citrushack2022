@@ -32,8 +32,8 @@ export default function ThemeButton() {
         className='flex items-center self-center p-2 max-w-min text-2xl rounded-md hover:bg-accent-primary cursor-pointer'
         onClick={() => toggleDarkMode()}
       >
-        { theme === 'light' && <BiSun /> }
-        { theme === 'dark' && <BiMoon /> }
+        { selectedTheme.current === 'light' && <BiSun /> }
+        { selectedTheme.current === 'dark' && <BiMoon /> }
       </motion.span>
     </div>
   )

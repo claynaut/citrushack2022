@@ -27,8 +27,13 @@ This is the codebase for Citrus Hack 2022. Below is a guide for setting up a loc
 
 ## Setting Up Your Local Environment
 Run the following commands in a terminal.
+### Forking
+> Forking the repo to work on your own code.
+- Fork the repo by clicking the `Fork` button in the upper right corner
+  - This creates a copy of the repository in your own account.
+
 ### Clone the Project
-- `git clone https://github.com/citrushack/citrushack2022.git`
+- `git clone <forked_repo_link>`
 - `cd citrushack2022`
   - This is to navigate into the directory generated for the cloned repo.
 - If you are using VScode, run `code .` to open the current directory in VScode (this is mainly for easier navigation)
@@ -44,11 +49,6 @@ Run the following commands in a terminal.
   - This is the port where the development server is run on. Any changes you make to the code will reflect almost instantly while the server is running.
 
 ## Contributing to the Project
-### Forking
-> Forking the repo to work on your own code.
-- Fork the repo by clicking the `Fork` button in the upper right corner
-  - This creates a copy of the repository in your own account.
-
 ### Committing Changes
 - Check what files you edited: `git status`
 - Adding files to commit: `git add <file-name>` or `git add .` to commit all files

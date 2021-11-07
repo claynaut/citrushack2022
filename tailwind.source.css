@@ -15,4 +15,16 @@
   [data-theme='dark'] {
 
   }
+
+  h1 {
+    @apply text-7xl;
+  }
+
+  h2 {
+    @apply text-5xl;
+  }
+
+  p {
+    @apply text-lg;
+  }
 }

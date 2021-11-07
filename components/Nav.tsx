@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link as NavLink } from 'react-scroll'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
 import {
   BiHomeAlt,
   BiInfoCircle,
@@ -13,11 +15,10 @@ import {
   BiX
 } from 'react-icons/bi'
 
-
 export default function Nav() {
   const [navOpen, setNavOpen] = useState(false)
-
-  const tabs = [
+  const router = useRouter()
+  const hometabs = [
     {
       icon: <BiHomeAlt />,
       title: 'Home'
@@ -47,6 +48,12 @@ export default function Nav() {
       title: 'FAQ'
     },
   ]
+  const applytabs = [
+    {
+      icon: <BiHomeAlt />,
+      title: 'Home'
+    },
+  ]
 
   return (
     <>
@@ -55,7 +62,10 @@ export default function Nav() {
         whileHover={{ width: 200 }}
         className='z-[100] fixed top-1/2 left-4 transform -translate-y-1/2 hidden xl:flex flex-col gap-2.5 w-14 p-2 rounded-md bg-gray-200 shadow'
       >
-        {tabs.map(({icon, title}) =>
+        <div className='self-center p-2 text-2xl'>
+          <BiMenu />
+        </div>
+        {router.pathname === '/' && (hometabs.map(({icon, title}) =>
           <motion.span
             whileHover={{ scale: 1.05, x: 20 }}
             whileTap={{ scale: 0.995 }}
@@ -69,18 +79,32 @@ export default function Nav() {
               duration={500}
               className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'
             >
-                <span className='text-2xl'>{icon}</span>
-                <span>{title}</span>
+              <span className='text-2xl'>{icon}</span>
+              <span>{title}</span>
             </NavLink>
           </motion.span>
-        )}
+        ))}
+        { router.pathname !== '/' &&
+          <motion.span
+            whileHover={{ scale: 1.05, x: 20 }}
+            whileTap={{ scale: 0.995 }}
+          >
+            <Link passHref href='/'>
+              <span className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'>
+                <span className='text-2xl'><BiHomeAlt /></span>
+                <span>Home</span>
+              </span>
+            </Link>
+          </motion.span>
+        }
       </motion.div>
       {/* mobile navbar */}
       <div className='z-[100] fixed top-4 xl:hidden px-4'>
         <div
           className={
             'flex flex-col gap-2.5 rounded-md bg-gray-200 shadow overflow-hidden transition-size duration-200 '
-            + (navOpen ? 'p-2 w-48 h-[27.75rem]' : 'w-12 h-12')
+            + (navOpen ? 'p-2 ' : 'w-12 h-12 ')
+            + (navOpen && (router.pathname === '/' ? 'w-48 h-[27.75rem]' : 'w-48 h-[7.25rem]'))
           }
         >
           <div className='flex w-full justify-between'>
@@ -94,7 +118,7 @@ export default function Nav() {
               }
             </span>
           </div>
-          {tabs.map(({icon, title}) =>
+          {router.pathname === '/' && (hometabs.map(({icon, title}) =>
             <NavLink 
               activeClass='bg-accent-primary text-white'
               to={title}
@@ -108,7 +132,15 @@ export default function Nav() {
               <span className='text-2xl'>{icon}</span>
               <span>{title}</span>
             </NavLink>
-          )}
+          ))}
+          { router.pathname !== '/' &&
+            <Link passHref href='/'>
+              <span className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'>
+                <span className='text-2xl'><BiHomeAlt /></span>
+                <span>Home</span>
+              </span>
+            </Link>
+          }
         </div>
       </div>
       <div

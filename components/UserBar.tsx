@@ -7,12 +7,12 @@ import {
   BiMoon,
   BiUser
 } from 'react-icons/bi'
-import router from 'next/router'
-
+import { useRouter } from 'next/router'
 
 export default function UserBar() {
   const { theme, setTheme } = useTheme()
   const selectedTheme = useRef('light')
+  const router = useRouter()
 
   const toggleDarkMode = () => {
     var selected = theme === 'light' ? 'dark' : 'light'

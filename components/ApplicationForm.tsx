@@ -1,5 +1,6 @@
 import { useForm, useFormState } from 'react-hook-form'
 import { motion } from 'framer-motion'
+import axios from 'axios'
 
 const Input = ({ type, label, variable, register, required, errors }) => (
   <div>
@@ -123,7 +124,7 @@ export default function ApplicationForm() {
     'Graduate',
     'International',
   ]
-  const firstTImeHacker = [
+  const firstTimeHacker = [
     'Yes',
     'No',
   ]
@@ -137,11 +138,28 @@ export default function ApplicationForm() {
       school,
       major,
       grade,
-      graduation_date,
+      grad_date,
       first_time,
     } = data
     
-    console.log(data)
+    axios.post('/api/applications/create', {
+      first_name,
+      last_name,
+      gender,
+      ethnicity,
+      school,
+      major,
+      grade,
+      grad_date,
+      first_time,
+      id: 'test',
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }
 
   return (
@@ -224,7 +242,7 @@ export default function ApplicationForm() {
         <Radio
           label='First time hacker?'
           variable='first_time'
-          options={firstTImeHacker}
+          options={firstTimeHacker}
           register={register}
           errors={errors}
           required

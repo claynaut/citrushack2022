@@ -60,7 +60,7 @@ export default function Nav() {
       {/* desktop navbar */}
       <motion.div
         whileHover={{ width: 200 }}
-        className='z-[100] fixed top-1/2 left-4 transform -translate-y-1/2 hidden xl:flex flex-col gap-2.5 w-14 p-2 rounded-md bg-gray-200 shadow'
+        className='z-[100] fixed top-1/2 left-3 transform -translate-y-1/2 hidden xl:flex flex-col gap-2.5 w-14 p-2 rounded-md bg-gray-200 shadow'
       >
         <div className='self-center p-2 text-2xl'>
           <BiMenu />
@@ -90,7 +90,10 @@ export default function Nav() {
             whileTap={{ scale: 0.995 }}
           >
             <Link passHref href='/'>
-              <span className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'>
+              <span
+                className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'
+                onClick={() => setNavOpen(false)}
+              >
                 <span className='text-2xl'><BiHomeAlt /></span>
                 <span>Home</span>
               </span>
@@ -99,7 +102,7 @@ export default function Nav() {
         }
       </motion.div>
       {/* mobile navbar */}
-      <div className='z-[100] fixed top-4 xl:hidden px-4'>
+      <div className='z-[100] fixed top-3 -left-1 xl:hidden px-4'>
         <div
           className={
             'flex flex-col gap-2.5 rounded-md bg-gray-200 shadow overflow-hidden transition-size duration-200 '
@@ -135,7 +138,10 @@ export default function Nav() {
           ))}
           { router.pathname !== '/' &&
             <Link passHref href='/'>
-              <span className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'>
+              <span
+                className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'
+                onClick={() => setNavOpen(false)}
+              >
                 <span className='text-2xl'><BiHomeAlt /></span>
                 <span>Home</span>
               </span>

@@ -34,7 +34,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "lib/mongodb.js"
   ],
   "exclude": [
     "node_modules"

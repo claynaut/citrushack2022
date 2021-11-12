@@ -9,11 +9,6 @@ export default function ProtectedPage({ title, restrictions, children }) {
   const router = useRouter()
   const { data: session, status } = useSession()
   const [mounted, setMounted] = useState(false)
-  const restrictions = 
-    (restrictions.includes('signin')
-    || (restrictions.includes('admin') && session.user.admin)
-    || (restrictions.includes('applied') && !session.user.uid)
-    || (restrictions.includes('qualified') && session.user.qualified))
 
   useEffect(() => {
     if (status !== 'loading' && !session) {
@@ -59,7 +54,10 @@ export default function ProtectedPage({ title, restrictions, children }) {
       </Head>
       <section className='flex flex-col w-full'>
         {
-          session && restrictions && 
+          session && (restrictions.includes('signin')
+          || (restrictions.includes('admin') && session.user.admin)
+          || (restrictions.includes('applied') && !session.user.uid)
+          || (restrictions.includes('qualified') && session.user.qualified)) && 
           <>
             {children}
           </> 

@@ -1,5 +1,4 @@
 import { Element } from 'react-scroll'
-import { connectToDatabase } from '@/lib/mongodb'
 import Page from '@/components/Page'
 import Landing from '@/pages/landing'
 import About from '@/pages/about'
@@ -35,12 +34,4 @@ export default function Home() {
       </Element>
     </Page>
   )
-}
-
-export async function getServerSideProps() {
-  await connectToDatabase()
-
-  return {
-    props: {},
-  }
 }

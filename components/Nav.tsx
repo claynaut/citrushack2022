@@ -65,7 +65,7 @@ export default function Nav() {
         <div className='self-center p-2 text-2xl'>
           <BiMenu />
         </div>
-        {router.pathname === '/' && (hometabs.map(({icon, title}) =>
+        { router.pathname === '/' && (hometabs.map(({icon, title}) =>
           <motion.span
             whileHover={{ scale: 1.05, x: 20 }}
             whileTap={{ scale: 0.995 }}
@@ -106,13 +106,13 @@ export default function Nav() {
         <div
           className={
             'flex flex-col gap-2.5 rounded-md bg-gray-200 shadow overflow-hidden transition-size duration-200 '
-            + (navOpen ? 'p-2 ' : 'w-12 h-12 ')
-            + (navOpen && (router.pathname === '/' ? 'w-48 h-[27.75rem]' : 'w-48 h-[7.25rem]'))
+            + (navOpen ? 'p-2 ' : 'w-11 h-11 ')
+            + (navOpen && (router.pathname === '/' ? 'w-48 h-[27.5rem]' : 'w-48 h-[7.25rem]'))
           }
         >
           <div className='flex w-full justify-between'>
             <span
-              className='flex items-center p-3 text-lg rounded-md hover:bg-accent-primary cursor-pointer'
+              className='flex items-center p-2.5 text-lg rounded-md hover:bg-accent-primary cursor-pointer'
               onClick={() => setNavOpen(!navOpen)}
             >
               { navOpen
@@ -121,7 +121,7 @@ export default function Nav() {
               }
             </span>
           </div>
-          {router.pathname === '/' && (hometabs.map(({icon, title}) =>
+          { router.pathname === '/' && (hometabs.map(({icon, title}) =>
             <NavLink 
               activeClass='bg-accent-primary text-white'
               to={title}

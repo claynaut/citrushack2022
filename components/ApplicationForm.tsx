@@ -141,7 +141,20 @@ export default function ApplicationForm() {
       grad_date,
       first_time,
     } = data
-    
+
+    const [year, month, day] = grad_date.split('-')
+    let criteria_met = true
+
+    if (grade === 'Graduate')
+      criteria_met = false
+    if (parseInt(year) > 2022)
+      criteria_met = false
+    else if (parseInt(year) === 2022)
+      if (parseInt(month) > 4)
+        criteria_met = false
+      else if (parseInt(month) === 4 && parseInt(day) >= 10)
+        criteria_met = false
+
     axios.post('/api/applications/create', {
       first_name,
       last_name,
@@ -152,7 +165,7 @@ export default function ApplicationForm() {
       grade,
       grad_date,
       first_time,
-      id: 'test',
+      criteria_met,
     })
     .then((response) => {
       console.log(response);

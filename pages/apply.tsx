@@ -1,12 +1,12 @@
-import Page from '@/components/Page'
+import ProtectedPage from '@/components/ProtectedPage'
 import ApplicationForm from '@/components/ApplicationForm'
 
 export default function Apply() {
   return (
-    <Page title='Apply'>
+    <ProtectedPage title='Apply' restrictions={['signin', 'applied']}>
       <section className='flex w-full h-screen min-h-[68rem] items-center'>
         <ApplicationForm />
       </section>
-    </Page>
+    </ProtectedPage>
   )
 }

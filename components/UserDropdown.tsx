@@ -4,7 +4,14 @@ import { useRouter } from 'next/router'
 import { useSession, signOut } from 'next-auth/react'
 import { motion } from 'framer-motion'
 import { toast } from 'react-hot-toast'
-import { BiUser, BiX, BiGroup, BiLogOutCircle, BiHelpCircle } from 'react-icons/bi'
+import {
+  BiUser,
+  BiX,
+  BiGroup,
+  BiLogOutCircle,
+  BiHelpCircle,
+  BiCategory
+} from 'react-icons/bi'
 
 export default function UserDropdown() {
   const router = useRouter()
@@ -111,6 +118,25 @@ export default function UserDropdown() {
                     </div>
                     <div className='p-1.5 group-hover:text-accent-primary'>
                       My Group
+                    </div>
+                  </motion.button>
+                </Link>
+              }
+              { status === 'authenticated' 
+                && session.user.uid
+                && session.user.admin &&
+                <Link passHref href='/admin'>
+                  <motion.button
+                    whileHover={{ scale: 1.03}} 
+                    whileTap={{ scale: 0.995 }}
+                    className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500'
+                    onClick={() => setOpen(!open)}
+                  >
+                    <div className='p-1.5 group-hover:bg-accent-primary rounded-md bg-gray-300 text-2xl text-white'>
+                      <BiCategory />
+                    </div>
+                    <div className='p-1.5 group-hover:text-accent-primary'>
+                      Admin Dashboard
                     </div>
                   </motion.button>
                 </Link>

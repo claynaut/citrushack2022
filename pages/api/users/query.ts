@@ -7,9 +7,9 @@ export default async function queryApplications(req: NextApiRequest, res: NextAp
   if (session && session.user.admin) {
     const db = (await clientPromise).db(process.env.MONGODB_DB)
     
-    const apps = await db.collection('users').find({ uid: { $exists: true } }).toArray()
+    const users = await db.collection('users').find().toArray()
 
-    res.status(200).json({ apps })
+    res.status(200).json({ users })
   }
   else {
     res.status(401).json({})

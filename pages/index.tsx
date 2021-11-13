@@ -1,5 +1,10 @@
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { Element } from 'react-scroll'
+import { useSession } from 'next-auth/react'
 import Page from '@/components/Page'
+import Modal from '@/components/Modal'
 import Landing from '@/pages/landing'
 import About from '@/pages/about'
 import Tracks from '@/pages/tracks'
@@ -9,6 +14,13 @@ import Staff from '@/pages/staff'
 import Faq from '@/pages/faq'
 
 export default function Home() {
+  const { data: session } = useSession()
+  const [modalOpen, setModalOpen] = useState(session && !session.user.uid)
+
+  useEffect(() => {
+    setModalOpen(session && !session.user.uid)
+  }, [session, setModalOpen])
+
   return (
     <Page title=''>
       <Element name='Home' className='flex justify-center w-full'>
@@ -32,6 +44,23 @@ export default function Home() {
       <Element name='FAQ' className='flex justify-center w-full'>
         <Faq />
       </Element>
+      <Modal
+        title='Apply for Citrus Hack 2022'
+        description='It looks like you haven&apos;t applied to Citrus Hack yet! Be sure to apply before time runs out.'
+        show={modalOpen}
+        handler={setModalOpen}
+      >
+        <Link passHref href='/apply'>
+          <motion.button
+            whileHover={{ scale: 1.03}} 
+            whileTap={{ scale: 0.995 }}
+            className='w-full max-w-lg py-1.5 rounded bg-accent-primary hover:bg-accent-primary-dark font-semibold text-white'
+            onClick={() => setModalOpen(false)}
+          >
+            Apply Here
+          </motion.button>
+        </Link>
+      </Modal>
     </Page>
   )
 }

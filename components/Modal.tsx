@@ -1,9 +1,22 @@
+import React, { useState, useEffect } from 'react'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { BiX } from 'react-icons/bi'
 
 export default function Modal({ show, handler, title, description, children }) {
+  const [targetElement, setTargetElement] = useState(null)
+
+  useEffect(() => {
+    setTargetElement(document.querySelector('#modal'))
+    if (targetElement) {
+      if (show) disableBodyScroll(targetElement)
+      else enableBodyScroll(targetElement)
+    }
+  }, [targetElement, show])
+
   return(
     <>
       <div
+        id='modal'
         className={
           'fixed top-1/2 left-1/2 w-11/12 sm:w-[32rem] p-4 rounded bg-white transform -translate-x-1/2 -translate-y-1/2 transition-opacity duration-150 '
           + ( show ? 'z-[110] visible opacity-100' : 'z-0 invisible opacity-0' )

@@ -62,10 +62,10 @@ export default function UserDropdown() {
         >
           <div className='flex flex-col gap-3 items-center w-full text-lg'>
             <div className='flex flex-col gap-2 items-center w-full pb-3 border-b-[1px] border-gray-300'>
-              <p className='flex text-center text-gray-500 text-sm'>
+              <span className='flex text-center text-gray-500 text-sm'>
                 Signed in as <br/>
                 {session.user.email}
-              </p>
+              </span>
               { session && !session.user.uid &&
                 <Link passHref href='/apply'>
                   <motion.button
@@ -80,13 +80,13 @@ export default function UserDropdown() {
               }
               { session && session.user.uid &&
                 <>
-                  <p className='flex text-center font-semibold text-sm'>
+                  <span className='flex text-center font-semibold text-sm'>
                     Your Application Status
                     <BiHelpCircle 
                       className='text-gray-400 hover:text-accent-primary cursor-pointer'
                       onClick={() => triggerInfo()}
                     />
-                  </p>
+                  </span>
                   <div
                     className='w-full py-1.5 text-center rounded-md bg-accent-primary font-semibold text-white'
                   >

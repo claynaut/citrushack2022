@@ -8,7 +8,7 @@ import { BiUser, BiX, BiGroup, BiLogOutCircle, BiHelpCircle } from 'react-icons/
 
 export default function UserDropdown() {
   const router = useRouter()
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   const [open, setOpen] = useState(false)
 
   const triggerInfo = () => {
@@ -66,7 +66,8 @@ export default function UserDropdown() {
                 Signed in as <br/>
                 {session.user.email}
               </span>
-              { session && !session.user.uid &&
+              { status === 'authenticated' 
+                && (!session.user.uid ?
                 <Link passHref href='/apply'>
                   <motion.button
                     whileHover={{ scale: 1.05}} 
@@ -77,8 +78,7 @@ export default function UserDropdown() {
                     Apply Now
                   </motion.button>
                 </Link>
-              }
-              { session && session.user.uid &&
+                :
                 <>
                   <span className='flex text-center font-semibold text-sm'>
                     Your Application Status
@@ -95,8 +95,10 @@ export default function UserDropdown() {
                     { session.user.qualified === 'nope' && 'Rejected' }
                   </div>
                 </>
-              }
-              { session && session.user.uid && session.user.qualified === 'yeah' &&
+              )}
+              { status === 'authenticated' 
+                && session.user.uid
+                && session.user.qualified === 'yeah' &&
                 <Link passHref href='/group/dashboard'>
                   <motion.button
                     whileHover={{ scale: 1.03}} 

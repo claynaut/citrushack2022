@@ -14,12 +14,13 @@ import Staff from '@/pages/staff'
 import Faq from '@/pages/faq'
 
 export default function Home() {
-  const { data: session } = useSession()
-  const [modalOpen, setModalOpen] = useState(session && !session.user.uid)
+  const { data: session, status } = useSession()
+  const [modalOpen, setModalOpen] = useState(status === 'authenticated' && !session.user.uid)
 
   useEffect(() => {
-    setModalOpen(session && !session.user.uid)
-  }, [session, setModalOpen])
+    if (status === 'authenticated') 
+      setModalOpen(!session.user.uid)
+  }, [session, status, setModalOpen])
 
   return (
     <Page title=''>

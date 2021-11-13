@@ -6,7 +6,7 @@ const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export default function Landing() {
   const { data, error } = useSWR('/api/applications/query', fetcher)
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
 
   if (error) 
     return (
@@ -31,7 +31,8 @@ export default function Landing() {
       <section className='flex w-full my-24 items-center'>
         <div className='flex flex-col w-full'>
           <h1>Admin</h1>
-          { session && session.user.admin &&
+          { status === 'authenticated' 
+            && session.user.admin &&
             data.apps.map(({uid, name, grade, graduationDate, firstTimeHacker}) =>
               <div className='grid grid-cols-2'>
                 <div className='grid grid-cols-1'>

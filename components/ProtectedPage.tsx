@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import { toast } from 'react-hot-toast'
@@ -8,16 +8,15 @@ import Layout from '@/components/Layout'
 export default function ProtectedPage({ title, restrictions, children }) {
   const router = useRouter()
   const { data: session, status } = useSession()
-  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    if (status !== 'loading' && !session) {
+    if (status === 'unauthenticated') {
       if (restrictions.includes('signin')) {
         toast.error('Access denied. Please sign in first!', {id: 'signinRestriction'})
         router.push('/')
       }
     }
-    else if (status !== 'loading' && session) {
+    else if (status === 'authenticated') {
       if (restrictions.includes('admin') && !session.user.admin) {
         toast.error('Access denied. Unauthorized user.', {id: 'adminRestriction'})
         router.push('/')
@@ -31,8 +30,7 @@ export default function ProtectedPage({ title, restrictions, children }) {
         router.push('/')
       }
     }
-    setMounted(true)
-  }, [status, session, router, mounted])
+  }, [status, session, router])
 
   if (status === 'loading') {
     return (
@@ -54,7 +52,7 @@ export default function ProtectedPage({ title, restrictions, children }) {
       </Head>
       <section className='flex flex-col w-full'>
         {
-          session && (restrictions.includes('signin')
+          status === 'authenticated' && (restrictions.includes('signin')
           || (restrictions.includes('admin') && session.user.admin)
           || (restrictions.includes('applied') && !session.user.uid)
           || (restrictions.includes('qualified') && session.user.qualified === 'yeah')) && 

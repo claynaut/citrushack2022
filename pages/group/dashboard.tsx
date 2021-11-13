@@ -14,7 +14,7 @@ import Modal from '@/components/Modal'
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export default function GroupDashboard() {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
   const { register, handleSubmit, control } = useForm()
   const { errors } = useFormState({ control })
@@ -82,7 +82,8 @@ export default function GroupDashboard() {
   return (
     <ProtectedPage title='My Group' restrictions={['signin', 'qualified']}>
       <div className='flex flex-col gap-10 items-center'>
-        { session && (session.user.gid === '' ?
+        { status === 'authenticated' 
+          && (session.user.gid === '' ?
           <>
             <div className='flex flex-col max-w-md'>
               <h2>
@@ -164,7 +165,8 @@ export default function GroupDashboard() {
           </div>
         )}
         <div className='flex flex-col w-full gap-4 max-w-md'>
-          { session && session.user.gid !== '' &&
+          { status === 'authenticated' 
+            && session.user.gid !== '' &&
             <motion.button
               whileHover={{ scale: 1.03}} 
               whileTap={{ scale: 0.995 }}

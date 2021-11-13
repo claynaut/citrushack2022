@@ -16,7 +16,7 @@ export default function UserBar() {
   const { theme, setTheme } = useTheme()
   const selectedTheme = useRef('light')
   const router = useRouter()
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
 
   const toggleDarkMode = () => {
     var selected = theme === 'light' ? 'dark' : 'light'
@@ -31,7 +31,7 @@ export default function UserBar() {
 
   return (
     <div className='z-[100] fixed top-3 right-3 flex gap-3'>
-      { session && !session.user.uid && router.pathname !== '/apply' &&
+      { status === 'authenticated' && !session.user.uid && router.pathname !== '/apply' &&
         <Link passHref href='/apply'>
           <motion.button
             whileHover={{ scale: 1.05 }}

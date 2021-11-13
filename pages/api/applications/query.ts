@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import clientPromise from '@/lib/mongodb'
 import { getSession } from 'next-auth/react'
 
-export default async function createApplication(req: NextApiRequest, res: NextApiResponse) {
+export default async function queryApplications(req: NextApiRequest, res: NextApiResponse) {
   const session = await getSession({ req })
   if (session && session.user.admin) {
     const db = (await clientPromise).db(process.env.MONGODB_DB)

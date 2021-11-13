@@ -124,7 +124,6 @@ export default function GroupDashboard() {
               <motion.button
                 whileHover={{ scale: 1.03}} 
                 whileTap={{ scale: 0.995 }}
-                type='submit'
                 className='w-full py-1.5 rounded bg-accent-primary hover:bg-accent-primary-dark font-semibold text-white'
                 onClick={() => createGroup()}
               >
@@ -169,7 +168,6 @@ export default function GroupDashboard() {
             <motion.button
               whileHover={{ scale: 1.03}} 
               whileTap={{ scale: 0.995 }}
-              type='submit'
               className='w-full max-w-lg py-1.5 rounded bg-accent-primary hover:bg-accent-primary-dark font-semibold text-white'
               onClick={() => setModalOpen(true)}
             >
@@ -180,7 +178,6 @@ export default function GroupDashboard() {
             <motion.button
               whileHover={{ scale: 1.03}} 
               whileTap={{ scale: 0.995 }}
-              type='submit'
               className='w-full max-w-lg py-1.5 rounded bg-accent-primary hover:bg-accent-primary-dark font-semibold text-white'
             >
               Go Back to Homepage
@@ -198,7 +195,6 @@ export default function GroupDashboard() {
           <motion.button
             whileHover={{ scale: 1.03}} 
             whileTap={{ scale: 0.995 }}
-            type='submit'
             className='w-full max-w-lg py-1.5 rounded bg-accent-primary hover:bg-accent-primary-dark font-semibold text-white'
             onClick={() => leaveGroup()}
           >
@@ -207,7 +203,6 @@ export default function GroupDashboard() {
           <motion.button
             whileHover={{ scale: 1.03}} 
             whileTap={{ scale: 0.995 }}
-            type='submit'
             className='w-full max-w-lg py-1.5 rounded bg-accent-primary hover:bg-accent-primary-dark font-semibold text-white'
             onClick={() => setModalOpen(false)}
           >

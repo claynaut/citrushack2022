@@ -11,7 +11,7 @@ export default function Landing() {
   if (error) 
     return (
       <ProtectedPage title='Admin' restrictions={['signin', 'admin']}>
-        <section className='flex flex-col w-full h-screen min-h-[68rem] justify-center items-center'>
+        <section className='flex flex-col w-full justify-center items-center'>
           Error...
         </section>
       </ProtectedPage>
@@ -20,7 +20,7 @@ export default function Landing() {
   if (!data) 
     return (
       <ProtectedPage title='Admin' restrictions={['signin', 'admin']}>
-        <section className='flex flex-col w-full h-screen min-h-[68rem] justify-center items-center'>
+        <section className='flex flex-col w-full justify-center items-center'>
           Loading...
         </section>
       </ProtectedPage>
@@ -28,7 +28,7 @@ export default function Landing() {
 
   return (
     <ProtectedPage title='Admin' restrictions={['signin', 'admin']}>
-      <section className='flex w-full h-screen min-h-[68rem] items-center'>
+      <section className='flex w-full my-24 items-center'>
         <div className='flex flex-col w-full'>
           <h1>Admin</h1>
           { session && session.user.admin &&

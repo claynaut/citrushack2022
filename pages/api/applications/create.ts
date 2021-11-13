@@ -4,9 +4,9 @@ import { getSession } from 'next-auth/react'
 import { nanoid } from 'nanoid'
 
 export default async function createApplication(req: NextApiRequest, res: NextApiResponse) {
-  const session = await getSession({ req });
+  const session = await getSession({ req })
   if (session) {
-    const db = (await clientPromise).db(process.env.MONGODB_DB);
+    const db = (await clientPromise).db(process.env.MONGODB_DB)
     const {
       first_name,
       last_name,
@@ -18,7 +18,7 @@ export default async function createApplication(req: NextApiRequest, res: NextAp
       grad_date,
       first_time,
       criteria_met
-    } = req.body;
+    } = req.body
     
     await db.collection('users').updateOne(
       {
@@ -45,11 +45,11 @@ export default async function createApplication(req: NextApiRequest, res: NextAp
           appliedAt: new Date()
         }
       }
-    );
+    )
   
-    res.status(200).json({});
+    res.status(200).json({})
   }
   else {
-    res.status(401).json({});
+    res.status(401).json({})
   }
 }

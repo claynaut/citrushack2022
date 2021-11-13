@@ -97,19 +97,21 @@ export default function UserDropdown() {
                 </>
               }
               { session && session.user.uid && session.user.qualified === 'yeah' &&
-                <motion.button
-                  whileHover={{ scale: 1.03}} 
-                  whileTap={{ scale: 0.995 }}
-                  className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500'
-                  onClick={() => setOpen(!open)}
-                >
-                  <div className='p-1.5 group-hover:bg-accent-primary rounded-md bg-gray-300 text-2xl text-white'>
-                    <BiGroup />
-                  </div>
-                  <div className='p-1.5 group-hover:text-accent-primary'>
-                    My Group
-                  </div>
-                </motion.button>
+                <Link passHref href='/group/dashboard'>
+                  <motion.button
+                    whileHover={{ scale: 1.03}} 
+                    whileTap={{ scale: 0.995 }}
+                    className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500'
+                    onClick={() => setOpen(!open)}
+                  >
+                    <div className='p-1.5 group-hover:bg-accent-primary rounded-md bg-gray-300 text-2xl text-white'>
+                      <BiGroup />
+                    </div>
+                    <div className='p-1.5 group-hover:text-accent-primary'>
+                      My Group
+                    </div>
+                  </motion.button>
+                </Link>
               }
             </div>
             <motion.button

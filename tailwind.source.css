@@ -17,14 +17,22 @@
   }
 
   h1 {
+    @apply my-3;
     @apply text-7xl;
   }
 
   h2 {
+    @apply my-2;
     @apply text-5xl;
   }
 
+  h3 {
+    @apply my-2;
+    @apply text-3xl;
+  }
+
   p {
+    @apply my-2;
     @apply text-lg;
   }
 }

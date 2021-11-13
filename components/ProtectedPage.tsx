@@ -26,7 +26,7 @@ export default function ProtectedPage({ title, restrictions, children }) {
         toast.error('Access denied. You already applied!', {id: 'appliedAlreadyRestriction'})
         router.push('/')
       }
-      if (restrictions.includes('qualified') && !session.user.qualified) {
+      if (restrictions.includes('qualified') && session.user.qualified !== 'yeah') {
         toast.error('Access denied. Unauthorized user.', {id: 'qualifiedRestriction'})
         router.push('/')
       }
@@ -57,7 +57,7 @@ export default function ProtectedPage({ title, restrictions, children }) {
           session && (restrictions.includes('signin')
           || (restrictions.includes('admin') && session.user.admin)
           || (restrictions.includes('applied') && !session.user.uid)
-          || (restrictions.includes('qualified') && session.user.qualified)) && 
+          || (restrictions.includes('qualified') && session.user.qualified === 'yeah')) && 
           <>
             {children}
           </> 

@@ -2,15 +2,22 @@ import React, { useState } from 'react'
 import useSWR from 'swr'
 import ProtectedPage from '@/components/ProtectedPage'
 import { motion } from 'framer-motion'
-import { BiCheckbox, BiCheckboxSquare } from 'react-icons/bi'
+import {
+  BiCheckbox,
+  BiCheckboxSquare,
+  BiDetail,
+  BiX,
+  BiDotsVerticalRounded
+} from 'react-icons/bi'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export default function Landing() {
   const { data, error } = useSWR('/api/users/query', fetcher)
   const [selectedView, setSelectedView] = useState('All Users')
-  const [selectedUsers, setSelectedUsers] = useState([{}])
+  const [selectedUsers, setSelectedUsers] = useState([])
   const [allSelected, setAllSelected] = useState(false)
+  const [expandedUser, setExpandedUser] = useState({})
 
   const viewOptions = [
     'All Users',
@@ -20,9 +27,34 @@ export default function Landing() {
     'Rejected',
   ]
 
-  const toggleAllSelected = (users) => {
-    setAllSelected(!allSelected)
-    setSelectedUsers(users)
+  const selectView = (view: string) => {
+    setAllSelected(false)
+    setSelectedUsers([{}])
+    setSelectedView(view)
+  }
+
+  const toggleSelectAllUsers = (selectAll: boolean) => {
+    setAllSelected(selectAll)
+    if (selectAll) {
+      if (selectedView === 'All Users') {
+        setSelectedUsers(data.users)
+      }
+      else if (selectedView === 'Not Applied') {
+        setSelectedUsers(data.users.filter(user => !user.uid))
+      }
+      else if (selectedView === 'Pending') {
+        setSelectedUsers(data.users.filter(user => user.qualified === ''))
+      }
+      else if (selectedView === 'Approved') {
+        setSelectedUsers(data.users.filter(user => user.qualified === 'yeah'))
+      }
+      else if (selectedView === 'Rejected') {
+        setSelectedUsers(data.users.filter(user => user.qualified === 'nope'))
+      }
+    }
+    else {
+      setSelectedUsers([])
+    }
   }
 
   if (error) 
@@ -76,25 +108,28 @@ export default function Landing() {
                   'py-1.5 rounded font-semibold text-white '
                   + (selectedView === option ? 'bg-accent-primary hover:bg-accent-primary-dark' : 'bg-gray-300 hover:bg-gray-400')
                 }
-                onClick={() => setSelectedView(option)}
+                onClick={() => selectView(option)}
               >
                 {option}
               </motion.button>
             )}
           </div>
+          <div className='flex mt-3 text-2xl'>
+            <div className='p-2 cursor-pointer' onClick={() => toggleSelectAllUsers(!allSelected)}>
+              {
+                allSelected ? <BiCheckboxSquare title='Select' /> : <BiCheckbox title='Select' />
+              }
+            </div>
+            <div className='p-2 cursor-pointer'>
+              <BiDotsVerticalRounded title='More Options' onClick={() => console.log(selectedUsers)} />
+            </div>
+          </div>
+          {/* all users */}
           {
             selectedView === viewOptions[0] &&
             <div className='flex flex-col gap-2 mt-3'>
-              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300'>
-                <div className='text-2xl'>
-                  {
-                    allSelected ?
-                    <BiCheckboxSquare className='cursor-pointer' onClick={() => toggleAllSelected([{}])}/>
-                    :
-                    <BiCheckbox className='cursor-pointer' onClick={() => toggleAllSelected(data.users)}/>
-                  }
-                </div>
-                <div className='col-span-3'>
+              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300 font-semibold'>
+                <div className='col-start-2 col-span-3'>
                   UID
                 </div>
                 <div className='col-span-3'>
@@ -105,7 +140,7 @@ export default function Landing() {
                 <motion.div
                   whileHover={{ y: -2 }}
                   className={
-                    'group grid grid-cols-7 p-2 border-2 rounded-md bg-white shadow-md cursor-pointer '
+                    'relative group grid grid-cols-7 p-2 border-2 rounded-md bg-white shadow-md cursor-pointer '
                     + (selectedUsers.includes(user) ? 'border-accent-primary' : '')
                   }
                 >
@@ -117,9 +152,9 @@ export default function Landing() {
                   >
                     {
                       selectedUsers.includes(user) ?
-                      <BiCheckboxSquare onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
+                      <BiCheckboxSquare title='Select' onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
                       :
-                      <BiCheckbox onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
+                      <BiCheckbox title='Select' onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
                     }
                   </div>
                   <div className='col-span-3'>
@@ -128,23 +163,21 @@ export default function Landing() {
                   <div className='col-span-3'>
                     {user.email}
                   </div>
+                  <div className='absolute bottom-[-1px] right-[-3.25rem] invisible group-hover:visible pl-2 cursor-default'>
+                    <div className='p-2 border-2 hover:border-accent-primary rounded-md bg-white shadow-md text-gray-400 hover:text-accent-primary cursor-pointer'>
+                      <BiDetail title='View Details' className='text-2xl'/>
+                    </div>
+                  </div>
                 </motion.div>
               )}
             </div>
           }
+          {/* users who haven't applied yet */}
           {
             selectedView === viewOptions[1] &&
             <div className='flex flex-col gap-2 mt-3'>
-              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300'>
-                <div className='text-2xl'>
-                  {
-                    allSelected ?
-                    <BiCheckboxSquare className='cursor-pointer' onClick={() => toggleAllSelected([{}])}/>
-                    :
-                    <BiCheckbox className='cursor-pointer' onClick={() => toggleAllSelected(data.users)}/>
-                  }
-                </div>
-                <div className='col-span-6'>
+              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300 font-semibold'>
+                <div className='col-start-2 col-span-6'>
                   Email
                 </div>
               </div>
@@ -161,9 +194,9 @@ export default function Landing() {
                   >
                     {
                       selectedUsers.includes(user) ?
-                      <BiCheckboxSquare onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
+                      <BiCheckboxSquare title='Select' onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
                       :
-                      <BiCheckbox onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
+                      <BiCheckbox title='Select' onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
                     }
                   </div>
                   <div className='col-span-6'>
@@ -173,19 +206,12 @@ export default function Landing() {
               )}
             </div>
           }
+          {/* pending applications */}
           {
             selectedView === viewOptions[2] &&
             <div className='flex flex-col gap-2 mt-3'>
-              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300'>
-                <div className='text-2xl'>
-                  {
-                    allSelected ?
-                    <BiCheckboxSquare className='cursor-pointer' onClick={() => toggleAllSelected([{}])}/>
-                    :
-                    <BiCheckbox className='cursor-pointer' onClick={() => toggleAllSelected(data.users)}/>
-                  }
-                </div>
-                <div className='col-span-6'>
+              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300 font-semibold'>
+                <div className='col-start-2 col-span-6'>
                   Email
                 </div>
               </div>
@@ -202,9 +228,9 @@ export default function Landing() {
                   >
                     {
                       selectedUsers.includes(user) ?
-                      <BiCheckboxSquare onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
+                      <BiCheckboxSquare title='Select' onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
                       :
-                      <BiCheckbox onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
+                      <BiCheckbox title='Select' onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
                     }
                   </div>
                   <div className='col-span-6'>
@@ -214,19 +240,12 @@ export default function Landing() {
               )}
             </div>
           }
+          {/* approved hackers */}
           {
             selectedView === viewOptions[3] &&
             <div className='flex flex-col gap-2 mt-3'>
-              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300'>
-                <div className='text-2xl'>
-                  {
-                    allSelected ?
-                    <BiCheckboxSquare className='cursor-pointer' onClick={() => toggleAllSelected([{}])}/>
-                    :
-                    <BiCheckbox className='cursor-pointer' onClick={() => toggleAllSelected(data.users)}/>
-                  }
-                </div>
-                <div className='col-span-6'>
+              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300 font-semibold'>
+                <div className='col-start-2 col-span-6'>
                   Email
                 </div>
               </div>
@@ -243,9 +262,9 @@ export default function Landing() {
                   >
                     {
                       selectedUsers.includes(user) ?
-                      <BiCheckboxSquare onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
+                      <BiCheckboxSquare title='Select' onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
                       :
-                      <BiCheckbox onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
+                      <BiCheckbox title='Select' onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
                     }
                   </div>
                   <div className='col-span-6'>
@@ -255,19 +274,12 @@ export default function Landing() {
               )}
             </div>
           }
+          {/* rejected applicants */}
           {
             selectedView === viewOptions[4] &&
             <div className='flex flex-col gap-2 mt-3'>
-              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300'>
-                <div className='text-2xl'>
-                  {
-                    allSelected ?
-                    <BiCheckboxSquare className='cursor-pointer' onClick={() => toggleAllSelected([{}])}/>
-                    :
-                    <BiCheckbox className='cursor-pointer' onClick={() => toggleAllSelected(data.users)}/>
-                  }
-                </div>
-                <div className='col-span-6'>
+              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300 font-semibold'>
+                <div className='col-start-2 col-span-6'>
                   Email
                 </div>
               </div>
@@ -284,9 +296,9 @@ export default function Landing() {
                   >
                     {
                       selectedUsers.includes(user) ?
-                      <BiCheckboxSquare onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
+                      <BiCheckboxSquare title='Select' onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
                       :
-                      <BiCheckbox onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
+                      <BiCheckbox title='Select' onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
                     }
                   </div>
                   <div className='col-span-6'>

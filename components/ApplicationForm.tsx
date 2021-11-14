@@ -73,12 +73,12 @@ export default function ApplicationForm() {
     // determine if criteria to participate is met
     if (grade === 'Graduate')
       criteria_met = false
-    if (parseInt(year) > 2022)
+    if (parseInt(year) < 2022)
       criteria_met = false
     else if (parseInt(year) === 2022)
-      if (parseInt(month) > 4)
+      if (parseInt(month) < 4)
         criteria_met = false
-      else if (parseInt(month) === 4 && parseInt(day) >= 10)
+      else if (parseInt(month) === 4 && parseInt(day) <= 10)
         criteria_met = false
 
     axios.post('/api/applications/create', {

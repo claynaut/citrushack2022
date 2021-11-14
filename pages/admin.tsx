@@ -8,7 +8,9 @@ import {
   BiDetail,
   BiX,
   BiExpand,
-  BiCollapse
+  BiCollapse,
+  BiTask,
+  BiTaskX
 } from 'react-icons/bi'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
@@ -165,7 +167,7 @@ export default function Landing() {
               </div>
               { data.users.map((user, idx) =>
                 <motion.div 
-                whileHover={{ y: -2 }}
+                  whileHover={{ y: -2 }}
                   className='relative group'
                 >
                   <div
@@ -201,23 +203,23 @@ export default function Landing() {
                       <div className='col-start-3 col-span-8 py-2'>
                         {user.email}
                       </div>
-                      <div className='flex items-center col-span-2 py-1 text-sm font-semibold'>
+                      <div className='flex items-center col-span-2 py-1 text-sm font-semibold uppercase'>
                         {
                           user.qualified === '' &&
                           <div className='rounded-full bg-gray-200 text-gray-500 p-1 px-2'>
-                            PENDING
+                            Pending
                           </div>
                         }
                         {
                           user.qualified === 'yeah' &&
                           <div className='rounded-full bg-green-200 text-green-700 p-1 px-2'>
-                            APPROVED
+                            Approved
                           </div>
                         }
                         {
                           user.qualified === 'nope' &&
                           <div className='rounded-full bg-red-200 text-red-700 p-1 px-2'>
-                            REJECTED
+                            Rejected
                           </div>
                         }
                       </div>
@@ -266,23 +268,22 @@ export default function Landing() {
                     </div>
                   </div>
                   <div className='absolute top-[-1px] right-[-3rem] invisible group-hover:visible pl-2 cursor-default'>
-                    {
-                      expandedUsers.includes(user) ?
-                      <div
-                        className='p-2 border-2 hover:border-accent-primary rounded-md bg-white shadow-md text-2xl text-gray-400 hover:text-accent-primary cursor-pointer'
-                        onClick={() => setExpandedUsers(expandedUsers.filter(expandedUser => expandedUser !== user))}
-                      >
-                        <BiX title='Close Details'/>
-                      </div>
-                      :
-
-                      <div
-                        className='p-2 border-2 hover:border-accent-primary rounded-md bg-white shadow-md text-2xl text-gray-400 hover:text-accent-primary cursor-pointer'
-                        onClick={() => setExpandedUsers(expandedUsers.concat([user]))}
-                      >
+                    <div
+                      className='p-2 border-2 hover:border-accent-primary rounded-md bg-white shadow-md text-2xl text-gray-400 hover:text-accent-primary cursor-pointer'
+                      onClick={() => setExpandedUsers(
+                        expandedUsers.includes(user) ?
+                        expandedUsers.filter(expandedUser => expandedUser !== user) :
+                        expandedUsers.concat([user])
+                      )}
+                    >
+                      {
+                        expandedUsers.includes(user) ? 
+                        <BiX title='Close Details'/> 
+                        : 
                         <BiDetail title='View Details'/>
-                      </div>
-                    }
+                      }
+
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -292,31 +293,109 @@ export default function Landing() {
           {
             selectedView === viewOptions[1] &&
             <div className='flex flex-col gap-2 mt-3'>
-              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300 font-semibold'>
-                <div className='col-start-2 col-span-6'>
+              <div className='grid grid-cols-12 rounded-md bg-gray-300 font-semibold'>
+                <div className='col-start-3 col-span-8 py-2'>
                   Email
                 </div>
               </div>
               { data.users.filter(user => !user.uid).map((user, idx) =>
-                <motion.div
+                <motion.div 
                   whileHover={{ y: -2 }}
-                  className='grid grid-cols-7 p-2 border-2 rounded-md bg-white shadow-md'
+                  className='relative group'
                 >
-                  <div 
+                  <div
                     className={
-                      'text-2xl group-hover:text-black '
-                      + (selectedUsers.includes(user) ? 'text-black' : 'text-gray-400')
+                      'border-2 rounded-md bg-white shadow-md cursor-pointer transition-size duration-150 overflow-hidden '
+                      + (selectedUsers.includes(user) ? 'border-accent-primary ' : ' ')
+                      + (expandedUsers.includes(user) ? 'h-60' : 'h-11')
                     }
                   >
-                    {
-                      selectedUsers.includes(user) ?
-                      <BiCheckboxSquare title='Select' onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
-                      :
-                      <BiCheckbox title='Select' onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
-                    }
+                    <div className='grid grid-cols-12'>
+                      <div>
+                        <div 
+                          className={
+                            'max-w-min p-2 rounded-full hover:bg-gray-100 text-2xl group-hover:text-black '
+                            + (selectedUsers.includes(user) ? 'text-black' : 'text-gray-400')
+                          }
+                          onClick={
+                            () => setSelectedUsers(
+                              selectedUsers.includes(user) ? 
+                                selectedUsers.filter(selectedUser => selectedUser !== user) :
+                                selectedUsers.concat([user])
+                            )
+                          }
+                        >
+                          {
+                            selectedUsers.includes(user) ?
+                            <BiCheckboxSquare title='Select'/>
+                            :
+                            <BiCheckbox title='Select'/>
+                          }
+                        </div>
+                      </div>
+                      <div className='col-start-3 col-span-8 py-2'>
+                        {user.email}
+                      </div>
+                    </div>
+                    <div className='py-4 border-t-2'>
+                      { user.uid ?
+                        <div className='grid grid-cols-12'>
+                          <div className='col-start-3 col-span-10'>
+                            <ul>
+                              <li>
+                                <b>UID:</b> {user.uid}
+                              </li>
+                              <li>
+                                <b>Full Name:</b> {user.name.first} {user.name.last}
+                              </li>
+                              <li>
+                                <b>School:</b> {user.school}
+                              </li>
+                              <li>
+                                <b>Grade:</b> {user.grade}
+                              </li>
+                              <li>
+                                <b>Graduation Date:</b> {user.graduationDate}
+                              </li>
+                              <li>
+                                <b>App Status: </b>
+                                { user.qualified === '' && (user.criteriaMet ?
+                                  'Pending Approval'
+                                  :
+                                  'Pending Rejection'
+                                )}
+                                { user.qualified !== '' && (user.qualified === 'yeah' ?
+                                  'Approved'
+                                  :
+                                  'Rejected'
+                                )}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        :
+                        <div className='text-center text-gray-400'>
+                          No information available yet. User has yet to apply.
+                        </div>
+                      }
+                    </div>
                   </div>
-                  <div className='col-span-6'>
-                    {user.email}
+                  <div className='absolute top-[-1px] right-[-3rem] invisible group-hover:visible pl-2 cursor-default'>
+                    <div
+                      className='p-2 border-2 hover:border-accent-primary rounded-md bg-white shadow-md text-2xl text-gray-400 hover:text-accent-primary cursor-pointer'
+                      onClick={() => setExpandedUsers(
+                        expandedUsers.includes(user) ?
+                        expandedUsers.filter(expandedUser => expandedUser !== user) :
+                        expandedUsers.concat([user])
+                      )}
+                    >
+                      {
+                        expandedUsers.includes(user) ? 
+                        <BiX title='Close Details'/> 
+                        : 
+                        <BiDetail title='View Details'/>
+                      }
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -326,31 +405,126 @@ export default function Landing() {
           {
             selectedView === viewOptions[2] &&
             <div className='flex flex-col gap-2 mt-3'>
-              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300 font-semibold'>
-                <div className='col-start-2 col-span-6'>
+              <div className='grid grid-cols-12 rounded-md bg-gray-300 font-semibold'>
+                <div className='col-start-3 col-span-8 py-2'>
                   Email
                 </div>
               </div>
               { data.users.filter(user => user.qualified === '' ).map((user, idx) =>
-                <motion.div
+                <motion.div 
                   whileHover={{ y: -2 }}
-                  className='grid grid-cols-7 p-2 border-2 rounded-md bg-white shadow-md'
+                  className='relative group'
                 >
-                  <div 
+                  <div
                     className={
-                      'text-2xl group-hover:text-black '
-                      + (selectedUsers.includes(user) ? 'text-black' : 'text-gray-400')
+                      'border-2 rounded-md shadow-md cursor-pointer transition-size duration-150 overflow-hidden '
+                      + (selectedUsers.includes(user) ? 'border-accent-primary ' : ' ')
+                      + (expandedUsers.includes(user) ? 'h-60 ' : 'h-11 ')
+                      + (user.criteriaMet ? 'bg-green-100 border-green-300' : 'bg-red-100 border-red-300')
                     }
                   >
-                    {
-                      selectedUsers.includes(user) ?
-                      <BiCheckboxSquare title='Select' onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
-                      :
-                      <BiCheckbox title='Select' onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
-                    }
+                    <div className='grid grid-cols-12'>
+                      <div>
+                        <div 
+                          className={
+                            'max-w-min p-2 rounded-full text-2xl group-hover:text-black '
+                            + (selectedUsers.includes(user) ? 'text-black ' : ' ')
+                            + (user.criteriaMet ? 'hover:bg-green-200 text-green-300' : 'hover:bg-red-200 text-red-300')
+                          }
+                          onClick={
+                            () => setSelectedUsers(
+                              selectedUsers.includes(user) ? 
+                                selectedUsers.filter(selectedUser => selectedUser !== user) :
+                                selectedUsers.concat([user])
+                            )
+                          }
+                        >
+                          {
+                            selectedUsers.includes(user) ?
+                            <BiCheckboxSquare title='Select'/>
+                            :
+                            <BiCheckbox title='Select'/>
+                          }
+                        </div>
+                      </div>
+                      <div className='col-start-3 col-span-8 py-2'>
+                        {user.email}
+                      </div>
+                    </div>
+                    <div 
+                      className={
+                        'py-4 border-t-2 ' 
+                        + (user.criteriaMet ? 'border-green-300' : 'border-red-300')
+                      }
+                    >
+                      { user.uid ?
+                        <div className='grid grid-cols-12'>
+                          <div className='col-start-3 col-span-10'>
+                            <ul>
+                              <li>
+                                <b>UID:</b> {user.uid}
+                              </li>
+                              <li>
+                                <b>Full Name:</b> {user.name.first} {user.name.last}
+                              </li>
+                              <li>
+                                <b>School:</b> {user.school}
+                              </li>
+                              <li>
+                                <b>Grade:</b> {user.grade}
+                              </li>
+                              <li>
+                                <b>Graduation Date:</b> {user.graduationDate}
+                              </li>
+                              <li>
+                                <b>App Status: </b>
+                                { user.qualified === '' && (user.criteriaMet ?
+                                  'Pending Approval'
+                                  :
+                                  'Pending Rejection'
+                                )}
+                                { user.qualified !== '' && (user.qualified === 'yeah' ?
+                                  'Approved'
+                                  :
+                                  'Rejected'
+                                )}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        :
+                        <div className='text-center text-gray-400'>
+                          No information available yet. User has yet to apply.
+                        </div>
+                      }
+                    </div>
                   </div>
-                  <div className='col-span-6'>
-                    {user.email}
+                  <div className='absolute top-[-1px] right-[-9rem] invisible group-hover:visible flex gap-1 pl-2 cursor-default'>
+                    <div
+                      className='p-2 border-2 hover:border-accent-primary rounded-md bg-white shadow-md text-2xl text-gray-400 hover:text-accent-primary cursor-pointer'
+                      onClick={() => setExpandedUsers(
+                        expandedUsers.includes(user) ?
+                        expandedUsers.filter(expandedUser => expandedUser !== user) :
+                        expandedUsers.concat([user])
+                      )}
+                    >
+                      {
+                        expandedUsers.includes(user) ? 
+                        <BiX title='Close Details'/> 
+                        : 
+                        <BiDetail title='View Details'/>
+                      }
+                    </div>
+                    <div
+                      className='p-2 border-2 hover:border-green-500 rounded-md bg-white shadow-md text-2xl text-gray-400 hover:text-green-500 cursor-pointer'
+                    >
+                      <BiTask title='Approve'/> 
+                    </div>
+                    <div
+                      className='p-2 border-2 hover:border-red-500 rounded-md bg-white shadow-md text-2xl text-gray-400 hover:text-red-500 cursor-pointer'
+                    >
+                      <BiTaskX title='Reject'/> 
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -360,31 +534,109 @@ export default function Landing() {
           {
             selectedView === viewOptions[3] &&
             <div className='flex flex-col gap-2 mt-3'>
-              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300 font-semibold'>
-                <div className='col-start-2 col-span-6'>
+              <div className='grid grid-cols-12 rounded-md bg-gray-300 font-semibold'>
+                <div className='col-start-3 col-span-8 py-2'>
                   Email
                 </div>
               </div>
               { data.users.filter(user => user.qualified === 'yeah' ).map((user, idx) =>
-                <motion.div
+                <motion.div 
                   whileHover={{ y: -2 }}
-                  className='grid grid-cols-7 p-2 border-2 rounded-md bg-white shadow-md'
+                  className='relative group'
                 >
-                  <div 
+                  <div
                     className={
-                      'text-2xl group-hover:text-black '
-                      + (selectedUsers.includes(user) ? 'text-black' : 'text-gray-400')
+                      'border-2 rounded-md bg-white shadow-md cursor-pointer transition-size duration-150 overflow-hidden '
+                      + (selectedUsers.includes(user) ? 'border-accent-primary ' : ' ')
+                      + (expandedUsers.includes(user) ? 'h-60' : 'h-11')
                     }
                   >
-                    {
-                      selectedUsers.includes(user) ?
-                      <BiCheckboxSquare title='Select' onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
-                      :
-                      <BiCheckbox title='Select' onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
-                    }
+                    <div className='grid grid-cols-12'>
+                      <div>
+                        <div 
+                          className={
+                            'max-w-min p-2 rounded-full hover:bg-gray-100 text-2xl group-hover:text-black '
+                            + (selectedUsers.includes(user) ? 'text-black' : 'text-gray-400')
+                          }
+                          onClick={
+                            () => setSelectedUsers(
+                              selectedUsers.includes(user) ? 
+                                selectedUsers.filter(selectedUser => selectedUser !== user) :
+                                selectedUsers.concat([user])
+                            )
+                          }
+                        >
+                          {
+                            selectedUsers.includes(user) ?
+                            <BiCheckboxSquare title='Select'/>
+                            :
+                            <BiCheckbox title='Select'/>
+                          }
+                        </div>
+                      </div>
+                      <div className='col-start-3 col-span-8 py-2'>
+                        {user.email}
+                      </div>
+                    </div>
+                    <div className='py-4 border-t-2'>
+                      { user.uid ?
+                        <div className='grid grid-cols-12'>
+                          <div className='col-start-3 col-span-10'>
+                            <ul>
+                              <li>
+                                <b>UID:</b> {user.uid}
+                              </li>
+                              <li>
+                                <b>Full Name:</b> {user.name.first} {user.name.last}
+                              </li>
+                              <li>
+                                <b>School:</b> {user.school}
+                              </li>
+                              <li>
+                                <b>Grade:</b> {user.grade}
+                              </li>
+                              <li>
+                                <b>Graduation Date:</b> {user.graduationDate}
+                              </li>
+                              <li>
+                                <b>App Status: </b>
+                                { user.qualified === '' && (user.criteriaMet ?
+                                  'Pending Approval'
+                                  :
+                                  'Pending Rejection'
+                                )}
+                                { user.qualified !== '' && (user.qualified === 'yeah' ?
+                                  'Approved'
+                                  :
+                                  'Rejected'
+                                )}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        :
+                        <div className='text-center text-gray-400'>
+                          No information available yet. User has yet to apply.
+                        </div>
+                      }
+                    </div>
                   </div>
-                  <div className='col-span-6'>
-                    {user.email}
+                  <div className='absolute top-[-1px] right-[-3rem] invisible group-hover:visible pl-2 cursor-default'>
+                    <div
+                      className='p-2 border-2 hover:border-accent-primary rounded-md bg-white shadow-md text-2xl text-gray-400 hover:text-accent-primary cursor-pointer'
+                      onClick={() => setExpandedUsers(
+                        expandedUsers.includes(user) ?
+                        expandedUsers.filter(expandedUser => expandedUser !== user) :
+                        expandedUsers.concat([user])
+                      )}
+                    >
+                      {
+                        expandedUsers.includes(user) ? 
+                        <BiX title='Close Details'/> 
+                        : 
+                        <BiDetail title='View Details'/>
+                      }
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -394,31 +646,109 @@ export default function Landing() {
           {
             selectedView === viewOptions[4] &&
             <div className='flex flex-col gap-2 mt-3'>
-              <div className='grid grid-cols-7 p-2 rounded-md bg-gray-300 font-semibold'>
-                <div className='col-start-2 col-span-6'>
+              <div className='grid grid-cols-12 rounded-md bg-gray-300 font-semibold'>
+                <div className='col-start-3 col-span-8 py-2'>
                   Email
                 </div>
               </div>
               { data.users.filter(user => user.qualified === 'nope' ).map((user, idx) =>
-                <motion.div
+                <motion.div 
                   whileHover={{ y: -2 }}
-                  className='grid grid-cols-7 p-2 border-2 rounded-md bg-white shadow-md'
+                  className='relative group'
                 >
-                  <div 
+                  <div
                     className={
-                      'text-2xl group-hover:text-black '
-                      + (selectedUsers.includes(user) ? 'text-black' : 'text-gray-400')
+                      'border-2 rounded-md bg-white shadow-md cursor-pointer transition-size duration-150 overflow-hidden '
+                      + (selectedUsers.includes(user) ? 'border-accent-primary ' : ' ')
+                      + (expandedUsers.includes(user) ? 'h-60' : 'h-11')
                     }
                   >
-                    {
-                      selectedUsers.includes(user) ?
-                      <BiCheckboxSquare title='Select' onClick={() => setSelectedUsers(selectedUsers.filter(selectedUser => selectedUser !== user))}/>
-                      :
-                      <BiCheckbox title='Select' onClick={() => setSelectedUsers(selectedUsers.concat([user]))}/>
-                    }
+                    <div className='grid grid-cols-12'>
+                      <div>
+                        <div 
+                          className={
+                            'max-w-min p-2 rounded-full hover:bg-gray-100 text-2xl group-hover:text-black '
+                            + (selectedUsers.includes(user) ? 'text-black' : 'text-gray-400')
+                          }
+                          onClick={
+                            () => setSelectedUsers(
+                              selectedUsers.includes(user) ? 
+                                selectedUsers.filter(selectedUser => selectedUser !== user) :
+                                selectedUsers.concat([user])
+                            )
+                          }
+                        >
+                          {
+                            selectedUsers.includes(user) ?
+                            <BiCheckboxSquare title='Select'/>
+                            :
+                            <BiCheckbox title='Select'/>
+                          }
+                        </div>
+                      </div>
+                      <div className='col-start-3 col-span-8 py-2'>
+                        {user.email}
+                      </div>
+                    </div>
+                    <div className='py-4 border-t-2'>
+                      { user.uid ?
+                        <div className='grid grid-cols-12'>
+                          <div className='col-start-3 col-span-10'>
+                            <ul>
+                              <li>
+                                <b>UID:</b> {user.uid}
+                              </li>
+                              <li>
+                                <b>Full Name:</b> {user.name.first} {user.name.last}
+                              </li>
+                              <li>
+                                <b>School:</b> {user.school}
+                              </li>
+                              <li>
+                                <b>Grade:</b> {user.grade}
+                              </li>
+                              <li>
+                                <b>Graduation Date:</b> {user.graduationDate}
+                              </li>
+                              <li>
+                                <b>App Status: </b>
+                                { user.qualified === '' && (user.criteriaMet ?
+                                  'Pending Approval'
+                                  :
+                                  'Pending Rejection'
+                                )}
+                                { user.qualified !== '' && (user.qualified === 'yeah' ?
+                                  'Approved'
+                                  :
+                                  'Rejected'
+                                )}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        :
+                        <div className='text-center text-gray-400'>
+                          No information available yet. User has yet to apply.
+                        </div>
+                      }
+                    </div>
                   </div>
-                  <div className='col-span-6'>
-                    {user.email}
+                  <div className='absolute top-[-1px] right-[-3rem] invisible group-hover:visible pl-2 cursor-default'>
+                    <div
+                      className='p-2 border-2 hover:border-accent-primary rounded-md bg-white shadow-md text-2xl text-gray-400 hover:text-accent-primary cursor-pointer'
+                      onClick={() => setExpandedUsers(
+                        expandedUsers.includes(user) ?
+                        expandedUsers.filter(expandedUser => expandedUser !== user) :
+                        expandedUsers.concat([user])
+                      )}
+                    >
+                      {
+                        expandedUsers.includes(user) ? 
+                        <BiX title='Close Details'/> 
+                        : 
+                        <BiDetail title='View Details'/>
+                      }
+                    </div>
                   </div>
                 </motion.div>
               )}

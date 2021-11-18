@@ -4,9 +4,9 @@ import { getSession } from 'next-auth/react'
 
 export default async function leaveGroup(req: NextApiRequest, res: NextApiResponse) {
   const session = await getSession({ req })
+  const db = (await clientPromise).db(process.env.MONGODB_DB)
+  
   if (session && session.user.qualified === 'yeah' && session.user.gid !== '') {
-    const db = (await clientPromise).db(process.env.MONGODB_DB)
-    
     await db.collection('users').updateOne(
       { email: session.user.email },
       { $set: { gid: '' } }

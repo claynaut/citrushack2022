@@ -4,7 +4,7 @@ module.exports = {
   darkMode: '', // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
+      sans: ['Rubik', 'sans-serif'],
     },
     extend: {
       colors: {

@@ -5,8 +5,9 @@ import { nanoid } from 'nanoid'
 
 export default async function createGroup(req: NextApiRequest, res: NextApiResponse) {
   const session = await getSession({ req })
+  const db = (await clientPromise).db(process.env.MONGODB_DB)
+  
   if (session && session.user.qualified === 'yeah') {
-    const db = (await clientPromise).db(process.env.MONGODB_DB)
     const newGroupId = nanoid()
     
     await db.collection('users').updateOne(

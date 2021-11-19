@@ -20,7 +20,7 @@ export default function UserDropdown() {
 
   const triggerInfo = () => {
     toast(
-      <div className='flex flex-col gap-4 text-base'>
+      <div className='flex flex-col gap-3 text-base'>
         <span>
           This determines your eligibility to participate in Citrus Hack.
         </span>

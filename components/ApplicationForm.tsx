@@ -96,23 +96,23 @@ export default function ApplicationForm() {
     .then(() => {
       toast.success(
         'Successfully submitted your application!',
-        { id: 'submitApplicationSuccess'}
+        { id: 'submitApplicationSuccess' }
       )
-      router.push('/')
+      router.reload()
     })
     .catch(() => {
       toast.error(
         'Uh oh. Something went wrong. If this issue persists, let us know.',
-        { id: 'submitApplicationError'}
+        { id: 'submitApplicationError' }
       )
-    });
+    })
   }
 
   const triggerErrorNotification = () => {
     if (Object.keys(errors).length > 0) {
-      toast.error('Please fill out all required fields.', {
-        id: 'applicationNotFilledOut',
-      })
+      toast.error('Please fill out all required fields.', 
+        { id: 'applicationNotFilledOut' }
+      )
     }
   }
 

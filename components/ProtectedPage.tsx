@@ -22,7 +22,7 @@ export default function ProtectedPage({ title, restrictions, children }) {
         router.push('/')
       }
       if (restrictions.includes('applied') && session.user.uid) {
-        toast.error('Access denied. You already applied!', {id: 'appliedAlreadyRestriction'})
+        // toast.error('Access denied. You already applied!', {id: 'appliedAlreadyRestriction'})
         router.push('/')
       }
       if (restrictions.includes('qualified') && session.user.qualified !== 'yeah') {

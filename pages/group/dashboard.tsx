@@ -40,7 +40,7 @@ export default function GroupDashboard() {
           { id: 'joinGroupInvalidRequestError'}
         )
       }
-    });
+    })
   }
 
   const createGroup = () => {
@@ -54,7 +54,7 @@ export default function GroupDashboard() {
         'Uh oh. Something went wrong. If this issue persists, let us know.',
         { id: 'createGroupError'}
       )
-    });
+    })
   }
 
   const leaveGroup = () => {
@@ -68,7 +68,7 @@ export default function GroupDashboard() {
         'Uh oh. Something went wrong. If this issue persists, let us know.',
         { id: 'leaveGroupError'}
       )
-    });
+    })
   }
 
   const triggerErrorNotification = () => {

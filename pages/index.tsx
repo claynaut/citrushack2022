@@ -23,7 +23,7 @@ export default function Home() {
   }, [session, status, setModalOpen])
 
   return (
-    <Page title=''>
+    <Page>
       <Element name='Home' className='flex justify-center w-full'>
         <Landing />
       </Element>

@@ -2,7 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { BiX } from 'react-icons/bi'
 
-export default function Modal({ show, handler, title, description, children }) {
+interface Props {
+  show: boolean
+  handler: (arg0: boolean) => void
+  title: string
+  description: string
+  children: React.ReactNode | React.ReactNode[]
+}
+
+export default function Modal({ show, handler, title, description, children }: Props) {
   const [targetElement, setTargetElement] = useState(null)
 
   useEffect(() => {

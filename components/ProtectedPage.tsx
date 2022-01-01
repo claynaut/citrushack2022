@@ -5,7 +5,13 @@ import { useSession } from 'next-auth/react'
 import { toast } from 'react-hot-toast'
 import Layout from '@/components/Layout'
 
-export default function ProtectedPage({ title, restrictions, children }) {
+interface Props {
+  children: React.ReactNode | React.ReactNode[]
+  restrictions: string[]
+  title?: string
+}
+
+export default function ProtectedPage({ title, restrictions, children }: Props) {
   const router = useRouter()
   const { data: session, status } = useSession()
 

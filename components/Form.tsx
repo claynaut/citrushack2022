@@ -33,7 +33,7 @@ const Select = ({ label, variable, register, required, options, errors }) => (
         selected
         hidden
       >
-        Select your {label.toLowerCase()}...
+        Select {label.toLowerCase()}...
       </option>
       {
         options.map((option: string) =>
@@ -47,9 +47,9 @@ const Select = ({ label, variable, register, required, options, errors }) => (
 const Radio = ({ register, label, variable, required, options, errors }) => (
   <div>
     <legend className='font-semibold'>{label}</legend>
-    <div className='flex flex-col gap-2 pl-2'>
+    <div className='flex gap-6 pl-2'>
       {
-        options.map((option) =>
+        options.map((option: string) =>
           <div id={label} className='flex items-center gap-2'>
             <input
               type='radio'

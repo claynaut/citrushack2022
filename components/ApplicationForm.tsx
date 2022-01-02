@@ -5,6 +5,18 @@ import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
 import { Input, Select, Radio } from '@/components/Form'
 
+interface GroupProps {
+  title: string
+  children: React.ReactNode | React.ReactNode[]
+}
+
+const Group = ({title, children}: GroupProps) => (
+  <div className='flex flex-col gap-3 p-6 border-2 border-gray-300 rounded shadow-sm '>
+    <h4 className='mt-0 font-semibold'>{title}</h4>
+    {children}
+  </div>
+)
+
 export default function ApplicationForm() {
   const { register, handleSubmit, control } = useForm()
   const { errors } = useFormState({ control })
@@ -119,88 +131,102 @@ export default function ApplicationForm() {
   return (
     <main className='flex flex-col items-center my-24 px-4 w-full'>
       <h2 className='mb-6'>Application Form</h2>
-      <p className='pb-4 w-full sm:max-w-md'>
+      <p className='pb-4 w-full sm:max-w-2xl'>
         Fill out this form to apply for Citrus Hack 2022!
       </p>
-      <p className='pb-4 w-full sm:max-w-md'>
+      <p className='pb-4 w-full sm:max-w-2xl'>
         Within 24 hours of submitting, you will be notified via email about your application status.
       </p>
       <form 
-        className='flex flex-col gap-3 w-full sm:max-w-md self-center'
+        className='flex flex-col gap-4 w-full sm:max-w-2xl self-center'
         onSubmit={handleSubmit(onSubmit)}
       >
-        <Input
-          type='text'
-          label='First Name'
-          variable='first_name'
-          register={register}
-          errors={errors}
-          required
-        />
-        <Input
-          type='text'
-          label='Last Name'
-          variable='last_name'
-          register={register}
-          errors={errors}
-          required
-        />
-        <Select
-          label='Gender'
-          variable='gender'
-          register={register}
-          errors={errors}
-          options={genders}
-          required
-        />
-        <Select
-          label='Ethnicity'
-          variable='ethnicity'
-          register={register}
-          errors={errors}
-          options={ethnicities}
-          required
-        />
-        <Input
-          type='text'
-          label='School'
-          variable='school'
-          register={register}
-          errors={errors}
-          required
-        />
-        <Select
-          label='Major'
-          variable='major'
-          register={register}
-          errors={errors}
-          options={majors}
-          required
-        />
-        <Select
-          label='Grade'
-          variable='grade'
-          register={register}
-          errors={errors}
-          options={grades}
-          required
-        />
-        <Input
-          type='date'
-          label='Graduation Date'
-          variable='grad_date'
-          register={register}
-          errors={errors}
-          required
-        />
-        <Radio
-          label='First time hacker?'
-          variable='first_time'
-          options={firstTimeHacker}
-          register={register}
-          errors={errors}
-          required
-        />
+        <Group title='Personal Info'>
+          <div className='grid sm:grid-cols-2 gap-3'>
+            <Input
+              type='text'
+              label='First Name'
+              variable='first_name'
+              register={register}
+              errors={errors}
+              required
+            />
+            <Input
+              type='text'
+              label='Last Name'
+              variable='last_name'
+              register={register}
+              errors={errors}
+              required
+            />
+          </div>
+          <div className='grid sm:grid-cols-3 gap-3'>
+            <Select
+              label='Gender'
+              variable='gender'
+              register={register}
+              errors={errors}
+              options={genders}
+              required
+            />
+            <span className='sm:col-span-2'>
+              <Select
+                label='Ethnicity'
+                variable='ethnicity'
+                register={register}
+                errors={errors}
+                options={ethnicities}
+                required
+              />
+            </span>
+          </div>
+        </Group>
+        <Group title='Education'>
+          <Input
+            type='text'
+            label='School'
+            variable='school'
+            register={register}
+            errors={errors}
+            required
+          />
+          <Select
+            label='Major'
+            variable='major'
+            register={register}
+            errors={errors}
+            options={majors}
+            required
+          />
+          <div className='grid sm:grid-cols-2 gap-3'>
+            <Select
+              label='Grade'
+              variable='grade'
+              register={register}
+              errors={errors}
+              options={grades}
+              required
+            />
+            <Input
+              type='date'
+              label='Graduation Date'
+              variable='grad_date'
+              register={register}
+              errors={errors}
+              required
+            />
+          </div>
+        </Group>
+        <Group title='Hacker Survey'>
+          <Radio
+            label='First time hacker?'
+            variable='first_time'
+            options={firstTimeHacker}
+            register={register}
+            errors={errors}
+            required
+          />
+        </Group>
         <motion.button
           whileHover={{ scale: 1.03}} 
           whileTap={{ scale: 0.995 }}

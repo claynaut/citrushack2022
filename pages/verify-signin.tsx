@@ -5,11 +5,11 @@ export default function Error404() {
     <Page title='Verify Sign In'>
       <section className='flex flex-col w-full my-24 justify-center items-center text-center'>
         <h1>Verify Sign In</h1>
-        <p className='max-w-lg'>
+        <p className='max-w-2xl'>
           Check your email for a verification request to sign in to Citrus Hack.
           Once you&apos;ve verified your email, feel free to close this tab.
         </p>
-        <p className='max-w-lg'>
+        <p className='max-w-2xl'>
           Still can&apos;t find an email from us? Make sure you used the correct email to sign in.
         </p>
       </section>

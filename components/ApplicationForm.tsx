@@ -2,7 +2,6 @@ import { useForm, useFormState } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import axios from 'axios'
 import { useRouter } from 'next/router'
-import { useSession } from 'next-auth/react'
 import { nanoid } from 'nanoid'
 import { toast } from 'react-hot-toast'
 import storage from '@/lib/firebase'
@@ -22,7 +21,6 @@ const Group = ({title, children}: GroupProps) => (
 )
 
 export default function ApplicationForm() {
-  const { data: session, status } = useSession()
   const { register, handleSubmit, control } = useForm()
   const { errors } = useFormState({ control })
   const router = useRouter()
@@ -96,7 +94,7 @@ export default function ApplicationForm() {
     else if (parseInt(year) === 2022)
       if (parseInt(month) < 4)
         criteria_met = false
-      else if (parseInt(month) === 4 && parseInt(day) <= 10)
+      else if (parseInt(month) === 4 && parseInt(day) <= 2)
         criteria_met = false
 
     const uid = nanoid()

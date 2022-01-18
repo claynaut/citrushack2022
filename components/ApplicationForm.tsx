@@ -102,7 +102,7 @@ export default function ApplicationForm() {
     const uid = nanoid()
 
     const file = resume[0]
-    const filename = session.user.name.first + '_' + session.user.name.last + '_' + uid
+    const filename = first_name + '_' + last_name + '_' + uid
     const fileRef = ref(storage, 'resumes/' + filename)
     uploadBytes(fileRef, file) // upload file
 

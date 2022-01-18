@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import clientPromise from '@/lib/mongodb'
 import { getSession } from 'next-auth/react'
-import { nanoid } from 'nanoid'
 
 export default async function createApplication(req: NextApiRequest, res: NextApiResponse) {
   const session = await getSession({ req })
   const db = (await clientPromise).db(process.env.MONGODB_DB)
   if (session) {
     const {
+      uid,
       first_name,
       last_name,
       gender,
@@ -26,7 +26,7 @@ export default async function createApplication(req: NextApiRequest, res: NextAp
       },
       {
         $set: {
-          uid: nanoid(),
+          uid: uid,
           gid: '',
           name: {
             first: first_name,

@@ -2,7 +2,11 @@ import { useForm, useFormState } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/react'
+import { nanoid } from 'nanoid'
 import { toast } from 'react-hot-toast'
+import storage from '@/lib/firebase'
+import { ref, uploadBytes } from 'firebase/storage'
 import { Input, Select, Radio } from '@/components/Form'
 
 interface GroupProps {
@@ -18,6 +22,7 @@ const Group = ({title, children}: GroupProps) => (
 )
 
 export default function ApplicationForm() {
+  const { data: session, status } = useSession()
   const { register, handleSubmit, control } = useForm()
   const { errors } = useFormState({ control })
   const router = useRouter()
@@ -77,6 +82,7 @@ export default function ApplicationForm() {
     major,
     grade,
     grad_date,
+    resume,
     first_time,
   }) => {
     const [year, month, day] = grad_date.split('-')
@@ -93,7 +99,15 @@ export default function ApplicationForm() {
       else if (parseInt(month) === 4 && parseInt(day) <= 10)
         criteria_met = false
 
+    const uid = nanoid()
+
+    const file = resume[0]
+    const filename = session.user.name.first + '_' + session.user.name.last + '_' + uid
+    const fileRef = ref(storage, 'resumes/' + filename)
+    uploadBytes(fileRef, file) // upload file
+
     axios.post('/api/applications/create', {
+      uid,      
       first_name,
       last_name,
       gender,
@@ -217,7 +231,15 @@ export default function ApplicationForm() {
             />
           </div>
         </Group>
-        <Group title='Hacker Survey'>
+        <Group title='Hacker App'>
+          <Input
+            type='file'
+            label='Resume'
+            variable='resume'
+            register={register}
+            errors={errors}
+            required={Boolean(false)}
+          />
           <Radio
             label='First time hacker?'
             variable='first_time'

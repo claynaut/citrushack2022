@@ -4,6 +4,12 @@ const Input = ({ type, label, variable, register, required, errors }) => (
       {label}
       {!required && <span className='text-gray-400'> (optional)</span>}
     </label>
+    {
+      type === 'file' &&
+      <p className='m-0 mb-1 text-sm italic'>
+        Will be used for recruiting purposes.
+      </p>
+    }
     <input
       type={type}
       {...register(variable, {required})}

@@ -14,8 +14,9 @@ const Input = ({ type, label, variable, register, required, errors }) => (
       type={type}
       {...register(variable, {required})}
       className={
-        'w-full px-2 rounded border-2 focus:border-accent-primary focus:outline-none focus:ring-accent-primary '
+        'w-full rounded focus:border-accent-primary focus:outline-none focus:ring-accent-primary file:px-4 file:py-1.5 file:rounded-full file:border-0 file:bg-gray-200 file:text-sm file:font-semibold file:cursor-pointer hover:file:bg-gray-300 '
         + (type === 'date' ? 'py-1.5 ' : 'py-1 ')
+        + (type === 'file' ? '' : 'px-2 border-2 ' )
         + (errors[variable] ? 'border-red-500' : 'border-gray-300')
       }
     />

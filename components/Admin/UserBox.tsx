@@ -31,7 +31,7 @@ export function UserBox({
           <div>
             <div 
               className={
-                'max-w-min p-2 rounded-full text-2xl group-hover:text-black '
+                'w-10 p-2 rounded-full text-2xl group-hover:text-black '
                 + (!pending ? 'hover:bg-gray-100 ' : (user.criteriaMet ? 'hover:bg-green-200 ' : 'hover:bg-red-200 '))
                 + (selectedUsers.includes(user) ? 'text-black' : (pending ? (user.criteriaMet ? 'text-green-300' : 'text-red-300') : 'text-gray-400' ))
               }

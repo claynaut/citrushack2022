@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
 import {
   BiCheckbox,
@@ -20,6 +21,8 @@ export function UserActions({
   selectedView,
   viewOptions
 }) {
+  const router = useRouter()
+  
   const remindToApply = (users) => {
     axios.post('/api/applications/remind', { users })
     .then(() => {
@@ -43,6 +46,7 @@ export function UserActions({
         'Auto-reviewed selected successfully!',
         { id: 'autoReviewSuccess' }
       )
+      router.reload()
     })
     .catch(() => {
       toast.error(
@@ -59,6 +63,7 @@ export function UserActions({
         'Approved selected successfully!',
         { id: 'approvedSelectedSuccess' }
       )
+      router.reload()
     })
     .catch(() => {
       toast.error(
@@ -75,6 +80,7 @@ export function UserActions({
         'Rejected selected successfully!',
         { id: 'rejectedSelectedSuccess' }
       )
+      router.reload()
     })
     .catch(() => {
       toast.error(

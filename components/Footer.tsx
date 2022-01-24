@@ -35,7 +35,7 @@ export default function Footer() {
       <div className='flex flex-col gap-4 items-center w-full mx-4 text-md font-semibold'>
         <div className='flex gap-2.5 text-2xl'>
           { socials.map(({ icon, link }) =>
-            <a target='_blank' rel='noreferrer noopener' href={link}>
+            <a key={link} target='_blank' rel='noreferrer noopener' href={link}>
               <motion.div 
                 whileHover={{ y: -4 }}
                 className='hover:text-accent-primary cursor-pointer'

@@ -18,8 +18,7 @@ export function UserActions({
   expandedUsers,
   toggleExpandAllUsers,
   selectedUsers,
-  selectedView,
-  viewOptions
+  selectedView
 }) {
   const router = useRouter()
   
@@ -124,9 +123,9 @@ export function UserActions({
           }
         </div>
         {
-          selectedUsers.length > 0 && (selectedView == viewOptions[1] || selectedView == viewOptions[2]) &&
+          selectedUsers.length > 0 && (selectedView == 'Not Applied' || selectedView == 'Pending') &&
           <div className='flex gap-1 items-center pl-2 border-l-2'>
-            { selectedView === viewOptions[1] &&
+            { selectedView === 'Not Applied' &&
               <div
                 className='p-2 rounded-full hover:bg-gray-100 cursor-pointer'
                 onClick={() => remindToApply(selectedUsers)}
@@ -134,7 +133,7 @@ export function UserActions({
                 <BiBell title='Remind Selected to Apply' />
               </div>
             }
-            { selectedView === viewOptions[2] &&
+            { selectedView === 'Pending' &&
               <>
                 <div
                   className='p-2 rounded-full hover:text-blue-500 hover:bg-blue-100 cursor-pointer'

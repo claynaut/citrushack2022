@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import useSWR from 'swr'
-import { BiSearch, BiX, BiFilter } from 'react-icons/bi'
+import { BiSearch, BiX } from 'react-icons/bi'
 import ProtectedPage from '@/components/ProtectedPage'
 import {
   UserBox,
@@ -25,16 +25,16 @@ export default function Landing() {
   const [sorted, setSorted] = useState(false)
 
   const viewOptions = [
-    'All Users',
-    'Not Applied',
     'Pending',
+    'Not Applied',
     'Approved',
     'Rejected',
+    'All Users',
   ]
   
   const makeFilterOptions = () => {
     var filterOptions = []
-    if (selectedView === viewOptions[0]) {
+    if (selectedView === 'All Users') {
       filterOptions = [
         'Default',
         'Sort by Pending',
@@ -46,14 +46,14 @@ export default function Landing() {
         'Sort Z to A by Email',
       ]
     }
-    else if (selectedView === viewOptions[1]) {
+    else if (selectedView ==='Not Applied') {
       filterOptions = [
         'Default',
         'Sort A to Z by Email',
         'Sort Z to A by Email',
       ]
     }
-    else if (selectedView === viewOptions[2]) {
+    else if (selectedView === 'Pending') {
       filterOptions = [
         'Default',
         'Sort by Pending Approval',
@@ -64,7 +64,7 @@ export default function Landing() {
         'Sort Z to A by Email',
       ]
     }
-    else if (selectedView === viewOptions[3] || selectedView === viewOptions[4]) {
+    else if (selectedView === 'Approved' || selectedView === 'Rejected') {
       filterOptions = [
         'Default',
         'Sort A to Z by Name',
@@ -386,10 +386,9 @@ export default function Landing() {
             toggleExpandAllUsers={toggleExpandAllUsers}
             selectedUsers={selectedUsers}
             selectedView={selectedView}
-            viewOptions={viewOptions}
           />
           { /* all users */
-            selectedView === viewOptions[0] &&
+            selectedView === 'All Users' &&
             <div className='flex flex-col gap-2 mt-3'>
               { !validSearch && (!sorted ? data.users.map((user, idx) =>
                 <UserBox
@@ -427,7 +426,7 @@ export default function Landing() {
             </div>
           }
           { /* users who haven't applied yet */
-            selectedView === viewOptions[1] &&
+            selectedView === 'Not Applied' &&
             <div className='flex flex-col gap-2 mt-3'>
               { !validSearch && (!sorted ? data.users.filter(user => !user.uid && userMatch(user)).map((user, idx) =>
                 <UserBox
@@ -465,7 +464,7 @@ export default function Landing() {
             </div>
           }
           { /* pending applications */
-            selectedView === viewOptions[2] &&
+            selectedView === 'Pending' &&
             <div className='flex flex-col gap-2 mt-3'>
               { !validSearch && (!sorted ? data.users.filter(user => user.qualified === '' && userMatch(user)).map((user, idx) =>
                 <UserBox
@@ -503,7 +502,7 @@ export default function Landing() {
             </div>
           }
           { /* approved hackers */
-            selectedView === viewOptions[3] &&
+            selectedView === 'Approved' &&
             <div className='flex flex-col gap-2 mt-3'>
               { !validSearch && (!sorted ? data.users.filter(user => user.qualified === 'yeah' && userMatch(user)).map((user, idx) =>
                 <UserBox
@@ -541,7 +540,7 @@ export default function Landing() {
             </div>
           }
           { /* rejected applicants */
-            selectedView === viewOptions[4] &&
+            selectedView === 'Rejected' &&
             <div className='flex flex-col gap-2 mt-3'>
               { !validSearch && (!sorted ? data.users.filter(user => user.qualified === 'nope' && userMatch(user)).map((user, idx) =>
                 <UserBox

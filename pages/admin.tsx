@@ -195,7 +195,7 @@ export default function Landing() {
               { searchFilter.length > 0 &&
                 <div
                   className='p-2 rounded-full text-2xl text-gray-500 hover:bg-gray-50 cursor-pointer'
-                  onClick={() => setSearchFilter('')}
+                  onClick={() => { setSearchFilter(''); setSearchQuery('') }}
                 >
                   <BiX title='Clear Search' />
                 </div>

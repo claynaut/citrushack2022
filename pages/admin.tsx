@@ -143,7 +143,7 @@ export default function Landing() {
         else if (x.qualified === 'yeah') {
           if (y.qualified === 'yeah') { return 0 }
           else if (y.qualified === 'nope') { return -1 }
-          else if (y.qualified === '') { return -1 }
+          else if (y.qualified === '') { return 1 }
         }
         else if (x.qualified === 'nope') {
           if (y.qualified === 'yeah') { return 1 }

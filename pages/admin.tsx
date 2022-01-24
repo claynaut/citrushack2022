@@ -376,6 +376,8 @@ export default function Landing() {
             viewOptions={viewOptions}
             selectedView={selectedView}
             selectView={selectView}
+            setFilter={setFilter}
+            setSorted={setSorted}
           />
           <UserActions
             allSelected={allSelected}

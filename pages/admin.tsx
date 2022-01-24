@@ -134,6 +134,9 @@ export default function Landing() {
             toggleSelectAllUsers={toggleSelectAllUsers}
             expandedUsers={expandedUsers}
             toggleExpandAllUsers={toggleExpandAllUsers}
+            selectedUsers={selectedUsers}
+            selectedView={selectedView}
+            viewOptions={viewOptions}
           />
           { /* all users */
             selectedView === viewOptions[0] &&

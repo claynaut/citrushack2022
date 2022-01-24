@@ -137,20 +137,6 @@ export function UserBox({
           }
         </div>
       </div>
-      { pending &&
-        <div className='absolute top-[-1px] right-[-6rem] invisible group-hover:visible flex gap-1 pl-2 cursor-default'>
-          <div
-            className='p-2 border-2 hover:border-green-500 rounded-md bg-white shadow-md text-2xl text-gray-400 hover:text-green-500 cursor-pointer'
-          >
-            <BiTask title='Approve'/> 
-          </div>
-          <div
-            className='p-2 border-2 hover:border-red-500 rounded-md bg-white shadow-md text-2xl text-gray-400 hover:text-red-500 cursor-pointer'
-          >
-            <BiTaskX title='Reject'/> 
-          </div>
-        </div>
-      }
     </motion.div>
   )
 }

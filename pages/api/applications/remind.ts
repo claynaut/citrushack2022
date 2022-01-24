@@ -12,7 +12,7 @@ export default async function remindApply(req: NextApiRequest, res: NextApiRespo
       await sendEmail({
         email: users[i].email,
         template_id: process.env.APPLY_REMINDER_EMAIL_ID,
-        name: users[i].name.first,
+        name: '',
         members: '',
         invite_code: '',
         newcomer: ''

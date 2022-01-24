@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import clientPromise from '@/lib/mongodb'
+import { sendEmail } from '@/lib/sendgrid'
 import { getSession } from 'next-auth/react'
 
 export default async function createApplication(req: NextApiRequest, res: NextApiResponse) {
@@ -19,6 +20,16 @@ export default async function createApplication(req: NextApiRequest, res: NextAp
       first_time,
       criteria_met
     } = req.body
+
+    // send email notification to user applying
+    await sendEmail({
+      email: session.user.email,
+      template_id: process.env.APP_CONFIRMATION_EMAIL_ID,
+      name: first_name,
+      members: '',
+      invite_code: '',
+      newcomer: ''
+    })
     
     await db.collection('users').updateOne(
       {

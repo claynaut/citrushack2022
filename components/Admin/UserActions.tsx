@@ -142,7 +142,7 @@ export function UserActions({
                   <BiHighlight title='Auto-Review Selected' />
                 </div>
                 <div
-                  className='p-2 rounded-full hover:text-green-500 hover:bg-green-100 cursor-pointer'
+                  className='p-2 rounded-full hover:text-green-600 hover:bg-green-100 cursor-pointer'
                   onClick={() => approveSelected(selectedUsers, true)}
                 >
                   <BiTask title='Approve Selected' />

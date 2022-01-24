@@ -65,7 +65,7 @@ export function UserBox({
                 <div 
                   className={
                     'rounded-full p-1 px-2 w-full '
-                    + (pending ? (user.criteriaMet ? 'bg-green-100 border-2 border-green-200 text-green-500' : 'bg-red-100 border-2 border-red-200 text-red-500') : 'bg-amber-100 text-amber-500')
+                    + (pending ? (user.criteriaMet ? 'bg-green-100 border-2 border-green-200 text-green-600' : 'bg-red-100 border-2 border-red-200 text-red-500') : 'bg-amber-100 text-amber-500')
                   }
                 >
                   Pending

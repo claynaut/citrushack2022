@@ -1,10 +1,5 @@
 import { motion } from 'framer-motion'
-import {
-  BiCheckbox,
-  BiCheckboxSquare,
-  BiTask,
-  BiTaskX
-} from 'react-icons/bi'
+import { BiCheckbox, BiCheckboxSquare } from 'react-icons/bi'
 
 export function UserBox({
   user, 

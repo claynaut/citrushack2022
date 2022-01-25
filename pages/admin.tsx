@@ -14,7 +14,7 @@ const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export default function Landing() {
   const { data, error } = useSWR('/api/users/query', fetcher)
-  const [selectedView, setSelectedView] = useState('All Users')
+  const [selectedView, setSelectedView] = useState('Pending')
   const [selectedUsers, setSelectedUsers] = useState([])
   const [allSelected, setAllSelected] = useState(false)
   const [expandedUsers, setExpandedUsers] = useState([])
@@ -351,7 +351,7 @@ export default function Landing() {
               <div className='w-full flex items-center pl-2 border-2 border-gray-400 rounded-md'>
                 <BiSearch className='text-2xl text-gray-500'/>
                 <input
-                  className='w-full ml-2 py-2 outline-0'
+                  className='w-full ml-2 py-2 outline-0 rounded-tr-md rounded-br-md'
                   value={searchFilter}
                   onChange={handleSearchFilter}
                 />

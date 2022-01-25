@@ -11,6 +11,7 @@ import {
   BiTaskX,
   BiHighlight
 } from 'react-icons/bi'
+import { Legend } from './Legend'
 
 export function UserActions({
   allSelected,
@@ -92,10 +93,14 @@ export function UserActions({
   return (
     <>
       {
-        (selectedView === 'Not Applied' || selectedView === 'Pending') &&
-        <p className='mt-3 font-normal text-base'>
+        selectedUsers.length === 0 && (selectedView === 'Not Applied' || selectedView === 'Pending') &&
+        <p className='m-0 mt-3 mb-2 font-normal text-base'>
           <span className='font-medium'>Tip:</span> Select a row to perform more actions.
         </p>
+      }
+      {
+        selectedUsers.length > 0 &&
+        <Legend selectedView={selectedView} />
       }
       <div
         className={
@@ -127,7 +132,7 @@ export function UserActions({
           <div className='flex gap-1 items-center pl-2 border-l-2'>
             { selectedView === 'Not Applied' &&
               <div
-                className='p-2 rounded-full hover:bg-gray-100 cursor-pointer'
+                className='p-2 rounded-full hover:text-amber-500 hover:bg-amber-100 cursor-pointer'
                 onClick={() => remindToApply(selectedUsers)}
               >
                 <BiBell title='Remind Selected to Apply' />

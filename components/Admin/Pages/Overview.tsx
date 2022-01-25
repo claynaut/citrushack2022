@@ -16,7 +16,7 @@ export function Overview({ data }) {
   const [searchFilter, setSearchFilter] = useState('')
   const [searchQuery, setSearchQuery] = useState(Object)
   const [validSearch, setValidSearch] = useState(false)
-  const [filter, setFilter] = useState('')
+  const [filter, setFilter] = useState('Default')
   const [sorted, setSorted] = useState(false)
 
   const viewOptions = [

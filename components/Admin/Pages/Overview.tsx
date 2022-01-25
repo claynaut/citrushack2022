@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { BiSearch, BiX } from 'react-icons/bi'
 import {
   UserBox,
-  UserStatistics,
+  OverviewStats,
   Overviews,
   UserActions,
   Filter
@@ -304,7 +304,7 @@ export function Overview({ data }) {
 
   return (
     <>
-      <UserStatistics
+      <OverviewStats
         numSignedUp={numSignedUp}
         numNotApplied={numNotApplied}
         numPending={numPending}

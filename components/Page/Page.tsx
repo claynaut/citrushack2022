@@ -1,12 +1,12 @@
 import Head from 'next/head'
-import Layout from '@/components/Layout'
+import { Layout } from './Layout'
 
 interface Props {
   children: React.ReactNode | React.ReactNode[]
   title?: string
 }
 
-export default function Page({ title, children }: Props) {
+export function Page({ title, children }: Props) {
   return (
     <Layout>
       <Head>

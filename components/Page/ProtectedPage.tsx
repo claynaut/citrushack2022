@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import { toast } from 'react-hot-toast'
-import Layout from '@/components/Layout'
+import { Layout } from './Layout'
 
 interface Props {
   children: React.ReactNode | React.ReactNode[]
@@ -11,7 +11,7 @@ interface Props {
   title?: string
 }
 
-export default function ProtectedPage({ title, restrictions, children }: Props) {
+export function ProtectedPage({ title, restrictions, children }: Props) {
   const router = useRouter()
   const { data: session, status } = useSession()
 

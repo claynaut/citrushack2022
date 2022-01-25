@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
-import ProtectedPage from '@/components/ProtectedPage'
+import { ProtectedPage } from '@/components/Page'
 import { Input } from '@/components/Form'
 import Modal from '@/components/Modal'
 

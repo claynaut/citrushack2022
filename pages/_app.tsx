@@ -1,9 +1,8 @@
 import { ThemeProvider } from 'next-themes'
 import { SessionProvider } from 'next-auth/react'
 import { Toaster } from 'react-hot-toast'
-import Nav from '@/components/Nav'
-import UserBar from '@/components/UserBar'
-import Footer from '@/components/Footer'
+import { Nav, Footer } from '@/components/Page'
+import { UserBar } from '@/components/UserBar'
 
 import 'tailwindcss/tailwind.css'
 import 'tailwind.source.css'

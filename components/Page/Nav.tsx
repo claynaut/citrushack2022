@@ -15,7 +15,7 @@ import {
   BiX
 } from 'react-icons/bi'
 
-export default function Nav() {
+export function Nav() {
   const [navOpen, setNavOpen] = useState(false)
   const router = useRouter()
   const hometabs = [

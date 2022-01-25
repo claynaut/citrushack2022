@@ -1,5 +1,5 @@
-import ProtectedPage from '@/components/ProtectedPage'
-import ApplicationForm from '@/components/ApplicationForm'
+import { ProtectedPage } from '@/components/Page'
+import { ApplicationForm } from '@/components/Form'
 
 export default function Apply() {
   return (

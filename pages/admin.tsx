@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import useSWR from 'swr'
-import ProtectedPage from '@/components/ProtectedPage'
+import { ProtectedPage } from '@/components/Page'
 import {
   Pages,
   Overview,

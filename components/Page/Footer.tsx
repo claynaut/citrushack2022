@@ -7,7 +7,7 @@ import {
   FiLinkedin,
 } from 'react-icons/fi'
 
-export default function Footer() {
+export function Footer() {
   const socials = [
     {
       icon: <FiMail title='Email' />,

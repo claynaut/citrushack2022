@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import Page from '@/components/Page'
+import { Page } from '@/components/Page'
 
 export default function Error404() {
   return (

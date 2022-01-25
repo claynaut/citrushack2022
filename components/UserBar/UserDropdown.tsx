@@ -13,7 +13,7 @@ import {
   BiCategory
 } from 'react-icons/bi'
 
-export default function UserDropdown() {
+export function UserDropdown() {
   const router = useRouter()
   const { data: session, status } = useSession()
   const [open, setOpen] = useState(false)

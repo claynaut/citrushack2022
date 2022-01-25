@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid'
 import { toast } from 'react-hot-toast'
 import storage from '@/lib/firebase'
 import { ref, uploadBytes } from 'firebase/storage'
-import { Input, Select, Radio } from '@/components/Form'
+import { Input, Select, Radio } from './components'
 
 interface GroupProps {
   title: string
@@ -20,7 +20,7 @@ const Group = ({title, children}: GroupProps) => (
   </div>
 )
 
-export default function ApplicationForm() {
+export function ApplicationForm() {
   const { register, handleSubmit, control } = useForm()
   const { errors } = useFormState({ control })
   const router = useRouter()

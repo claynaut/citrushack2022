@@ -9,10 +9,10 @@ import {
 } from 'react-icons/bi'
 import { useRouter } from 'next/router'
 import { useSession, signIn } from 'next-auth/react'
-import ThemeButton from '@/components/ThemeButton'
-import UserDropdown from '@/components/UserDropdown'
+import { ThemeButton } from './ThemeButton'
+import { UserDropdown } from './UserDropdown'
 
-export default function UserBar() {
+export function UserBar() {
   const { theme, setTheme } = useTheme()
   const selectedTheme = useRef('light')
   const router = useRouter()

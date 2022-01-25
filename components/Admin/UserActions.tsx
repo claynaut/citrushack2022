@@ -1,4 +1,6 @@
+import React, { useState } from 'react'
 import axios from 'axios'
+import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
 import {
@@ -12,6 +14,7 @@ import {
   BiHighlight
 } from 'react-icons/bi'
 import { Legend } from './Legend'
+import Modal from '@/components/Modal'
 
 export function UserActions({
   allSelected,
@@ -22,6 +25,10 @@ export function UserActions({
   selectedView
 }) {
   const router = useRouter()
+  const [confirmReminder, setConfirmReminder] = useState(false)
+  const [confirmAuto, setConfirmAuto] = useState(false)
+  const [confirmApprove, setConfirmApprove] = useState(false)
+  const [confirmReject, setConfirmReject] = useState(false)
   
   const remindToApply = (users) => {
     axios.post('/api/applications/remind', { users })
@@ -133,7 +140,7 @@ export function UserActions({
             { selectedView === 'Not Applied' &&
               <div
                 className='p-2 rounded-full hover:text-amber-500 hover:bg-amber-100 cursor-pointer'
-                onClick={() => remindToApply(selectedUsers)}
+                onClick={() => setConfirmReminder(true)}
               >
                 <BiBell title='Remind Selected to Apply' />
               </div>
@@ -142,19 +149,19 @@ export function UserActions({
               <>
                 <div
                   className='p-2 rounded-full hover:text-blue-500 hover:bg-blue-100 cursor-pointer'
-                  onClick={() => autoReviewSelected(selectedUsers)}
+                  onClick={() => setConfirmAuto(true)}
                 >
                   <BiHighlight title='Auto-Review Selected' />
                 </div>
                 <div
                   className='p-2 rounded-full hover:text-green-600 hover:bg-green-100 cursor-pointer'
-                  onClick={() => approveSelected(selectedUsers, true)}
+                  onClick={() => setConfirmApprove(true)}
                 >
                   <BiTask title='Approve Selected' />
                 </div>
                 <div
                   className='p-2 rounded-full hover:text-red-500 hover:bg-red-100 cursor-pointer'
-                  onClick={() => rejectSelected(selectedUsers, false)}
+                  onClick={() => setConfirmReject(true)}
                 >
                   <BiTaskX title='Reject Selected' />
                 </div>
@@ -163,6 +170,74 @@ export function UserActions({
           </div>
         }
       </div>
+      <Modal
+        show={confirmReminder}
+        handler={setConfirmReminder}
+        title='Confirm Action'
+        description='Are you sure you want to remind all of the selected users to apply?'
+      >
+        <div className='flex justify-center'>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.995 }}
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-amber-500 text-white cursor-pointer'
+            onClick={() => { remindToApply(selectedUsers); setConfirmReminder(false) }}
+          >
+            Remind Selected to Apply
+          </motion.button>
+        </div>
+      </Modal>
+      <Modal
+        show={confirmAuto}
+        handler={setConfirmAuto}
+        title='Confirm Action'
+        description='Are you sure you want to auto-review all of the selected users?'
+      >
+        <div className='flex justify-center'>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.995 }}
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-blue-500 text-white cursor-pointer'
+            onClick={() => { autoReviewSelected(selectedUsers); setConfirmAuto(false) }}
+          >
+            Auto-Review Selected
+          </motion.button>
+        </div>
+      </Modal>
+      <Modal
+        show={confirmApprove}
+        handler={setConfirmApprove}
+        title='Confirm Action'
+        description='Are you sure you want to approve all selected users?'
+      >
+        <div className='flex justify-center'>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.995 }}
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-green-500 text-white cursor-pointer'
+            onClick={() => { approveSelected(selectedUsers, true); setConfirmApprove(false) }}
+          >
+            Approve Selected
+          </motion.button>
+        </div>
+      </Modal>
+      <Modal
+        show={confirmReject}
+        handler={setConfirmReject}
+        title='Confirm Action'
+        description='Are you sure you want to reject all selected users?'
+      >
+        <div className='flex justify-center'>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.995 }}
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-red-500 text-white cursor-pointer'
+            onClick={() => { rejectSelected(selectedUsers, false); setConfirmReject(false) }}
+          >
+            Reject Selected
+          </motion.button>
+        </div>
+      </Modal>
     </>
   )
 }

@@ -13,7 +13,6 @@ import {
   BiTaskX,
   BiHighlight
 } from 'react-icons/bi'
-import { Legend } from './Legend'
 import Modal from '@/components/Modal'
 
 export function UserActions({
@@ -46,11 +45,11 @@ export function UserActions({
     })
   }
 
-  const autoReviewSelected = (users) => {
+  const autoDecideSelected = (users) => {
     axios.post('/api/applications/auto-review', { users })
     .then(() => {
       toast.success(
-        'Auto-reviewed selected successfully!',
+        'Auto-decided selected successfully!',
         { id: 'autoReviewSuccess' }
       )
       router.reload()
@@ -100,14 +99,10 @@ export function UserActions({
   return (
     <>
       {
-        selectedUsers.length === 0 && (selectedView === 'Not Applied' || selectedView === 'Pending') &&
+        (selectedView === 'Not Applied' || selectedView === 'Pending') &&
         <p className='m-0 mt-3 mb-2 font-normal text-base'>
           <span className='font-medium'>Tip:</span> Select a row to perform more actions.
         </p>
-      }
-      {
-        selectedUsers.length > 0 &&
-        <Legend selectedView={selectedView} />
       }
       <div
         className={
@@ -148,22 +143,25 @@ export function UserActions({
             { selectedView === 'Pending' &&
               <>
                 <div
-                  className='p-2 rounded-full hover:text-blue-500 hover:bg-blue-100 cursor-pointer'
+                  className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-blue-500 hover:bg-blue-100 cursor-pointer'
                   onClick={() => setConfirmAuto(true)}
                 >
-                  <BiHighlight title='Auto-Review Selected' />
+                  <BiHighlight title='Auto-Decide Selected' />
+                  <span className='text-base'>Auto-Decide</span>
                 </div>
                 <div
-                  className='p-2 rounded-full hover:text-green-600 hover:bg-green-100 cursor-pointer'
+                  className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-green-600 hover:bg-green-100 cursor-pointer'
                   onClick={() => setConfirmApprove(true)}
                 >
                   <BiTask title='Approve Selected' />
+                  <span className='text-base'>Approve</span>
                 </div>
                 <div
-                  className='p-2 rounded-full hover:text-red-500 hover:bg-red-100 cursor-pointer'
+                  className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-red-500 hover:bg-red-100 cursor-pointer'
                   onClick={() => setConfirmReject(true)}
                 >
                   <BiTaskX title='Reject Selected' />
+                  <span className='text-base'>Reject</span>
                 </div>
               </>
             }
@@ -191,16 +189,16 @@ export function UserActions({
         show={confirmAuto}
         handler={setConfirmAuto}
         title='Confirm Action'
-        description='Are you sure you want to auto-review all of the selected users?'
+        description='Are you sure you want to auto-decide all of the selected users?'
       >
         <div className='flex justify-center'>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.995 }}
             className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-blue-500 text-white cursor-pointer'
-            onClick={() => { autoReviewSelected(selectedUsers); setConfirmAuto(false) }}
+            onClick={() => { autoDecideSelected(selectedUsers); setConfirmAuto(false) }}
           >
-            Auto-Review Selected
+            Auto-Decide Selected
           </motion.button>
         </div>
       </Modal>

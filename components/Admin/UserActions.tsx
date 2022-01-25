@@ -11,7 +11,7 @@ import {
   BiBell,
   BiTask,
   BiTaskX,
-  BiHighlight
+  BiBot
 } from 'react-icons/bi'
 import Modal from '@/components/Modal'
 
@@ -146,7 +146,7 @@ export function UserActions({
                   className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-blue-500 hover:bg-blue-100 cursor-pointer'
                   onClick={() => setConfirmAuto(true)}
                 >
-                  <BiHighlight title='Auto-Decide Selected' />
+                  <BiBot title='Auto-Decide Selected' />
                   <span className='text-base'>Auto-Decide</span>
                 </div>
                 <div

@@ -146,6 +146,7 @@ export function Overview({ data }) {
           else if (y.qualified === '') { return 1 }
         }
       }
+      else if (x.uid) { return -1 }
       else { return 0 } // not applied
     }
     else if (filter === 'Sort by Approved') {
@@ -166,6 +167,7 @@ export function Overview({ data }) {
           else if (y.qualified === '') { return -1 }
         }
       }
+      else if (x.uid) { return -1 }
       else { return 0 } // not applied
     }
     else if (filter === 'Sort by Rejected') {
@@ -186,6 +188,7 @@ export function Overview({ data }) {
           else if (y.qualified === '') { return -1 }
         }
       }
+      else if (x.uid) { return -1 }
       else { return 0 } // not applied
     }
     else if (filter === 'Sort A to Z by Name') {
@@ -196,6 +199,7 @@ export function Overview({ data }) {
         else if (xFullName < yFullName) { return -1 }
         else { return 0}
       }
+      else if (x.uid) { return -1 }
       else { return 0 } // not applied
     }
     else if (filter === 'Sort Z to A by Name') {
@@ -206,6 +210,7 @@ export function Overview({ data }) {
         else if (xFullName < yFullName) { return 1 }
         else { return 0}
       }
+      else if (x.uid) { return -1 }
       else { return 0 } // not applied
     }
     else if (filter === 'Sort A to Z by Email') {
@@ -228,6 +233,7 @@ export function Overview({ data }) {
         else if (y.criteriaMet && x.criteriaMet != y.criteriaMet) { return 1 }
         else { return 0 }
       }
+      else if (x.uid) { return -1 }
       else { return 0 } // not applied
     }
     else if (filter === 'Sort by Pending Rejection') {
@@ -236,6 +242,7 @@ export function Overview({ data }) {
         else if (y.criteriaMet && x.criteriaMet != y.criteriaMet) { return -1 }
         else { return 0 }
       }
+      else if (x.uid) { return -1 }
       else { return 0 } // not applied
     }
   }

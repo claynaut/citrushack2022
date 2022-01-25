@@ -296,7 +296,7 @@ export default function Landing() {
       setValidSearch(true)
     }
     else {
-      setSearchQuery(Object)
+      setSearchQuery({})
       setValidSearch(false)
     }
   }
@@ -329,7 +329,8 @@ export default function Landing() {
     <ProtectedPage title='Admin' restrictions={['signin', 'admin']}>
       <section className='flex w-full my-24 items-center'>
         <div className='flex flex-col w-full'>
-          <h2 className='mb-8 font-medium'>Dashboard</h2>
+          <h2 className='m-0 font-medium'>Dashboard</h2>
+          <h3 className='w-full my-8 font-medium'>Overview</h3>
           <UserStatistics
             numSignedUp={numSignedUp}
             numNotApplied={numNotApplied}
@@ -337,8 +338,7 @@ export default function Landing() {
             numApproved={numApproved}
             numRejected={numRejected}
           />
-          <h3 className='w-full my-8 font-medium'>Overview</h3>
-          <div className='flex'>
+          <div className='flex mt-8'>
             <div>
               <Filter 
                 filters={filterOptions}

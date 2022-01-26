@@ -44,7 +44,7 @@ export function FileBox({ doc, selectedDocs, setSelectedDocs }) {
             >
               {
                 selectedDocs.includes(doc) ?
-                <BiCheckboxSquare title='Select'/>
+                <BiCheckboxSquare title='Deselect'/>
                 :
                 <BiCheckbox title='Select'/>
               }

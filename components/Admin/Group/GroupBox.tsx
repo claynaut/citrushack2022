@@ -123,7 +123,7 @@ export function GroupBox({ group, expandedGroups, setExpandedGroups }) {
                       className='w-9 p-2 rounded-full hover:bg-red-100 hover:text-red-600'
                       onClick={() => {setSelectedUser(user); setCurrentGroup(group); setConfirmDelete(true)}}
                     >
-                      <BiTrash />
+                      <BiTrash title='Remove' />
                     </div>
                   </div>
                 </div>

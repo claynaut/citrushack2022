@@ -18,7 +18,7 @@ export function FileActions({ allSelected, toggleSelectAllDocs, selectedDocs, se
           onClick={() => toggleSelectAllDocs(!allSelected)}
         >
           {
-            allSelected ? <BiCheckboxSquare title='Select All' /> : <BiCheckbox title='Select All' />
+            allSelected ? <BiCheckboxSquare title='Deselect All' /> : <BiCheckbox title='Select All' />
           }
         </div>
         <div

@@ -39,7 +39,7 @@ export function UserBox({
             >
               {
                 selectedUsers.includes(user) ?
-                <BiCheckboxSquare title='Select'/>
+                <BiCheckboxSquare title='Deselect'/>
                 :
                 <BiCheckbox title='Select'/>
               }

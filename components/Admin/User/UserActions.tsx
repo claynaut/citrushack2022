@@ -115,7 +115,7 @@ export function UserActions({
           onClick={() => toggleSelectAllUsers(!allSelected)}
         >
           {
-            allSelected ? <BiCheckboxSquare title='Select All' /> : <BiCheckbox title='Select All' />
+            allSelected ? <BiCheckboxSquare title='Deselect All' /> : <BiCheckbox title='Select All' />
           }
         </div>
         <div

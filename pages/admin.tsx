@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import useSWR from 'swr'
+import useMultSWR from '@/lib/multswr'
 import { ProtectedPage } from '@/components/Page'
 import {
   Pages,
@@ -9,10 +9,8 @@ import {
   Resumes
 } from '@/components/Admin'
 
-const fetcher = (url: string) => fetch(url).then(res => res.json())
-
 export default function Admin() {
-  const { data, error } = useSWR('/api/users/query', fetcher)
+  const { data, error } = useMultSWR(['/api/users/query', '/api/groups/query-all'])
   const [selectedPage, setSelectedPage] = useState('Overview')
 
   const pageOptions = [
@@ -50,9 +48,9 @@ export default function Admin() {
             selectedPage={selectedPage}
             selectPage={setSelectedPage}
           />
-          { selectedPage === 'Overview' && <Overview data={data} /> }
-          { selectedPage === 'Statistics' && <Statistics data={data} /> }
-          { selectedPage === 'Groups' && <Groups data={data} /> }
+          { selectedPage === 'Overview' && <Overview data={data[0]} /> }
+          { selectedPage === 'Statistics' && <Statistics data={data[0]} /> }
+          { selectedPage === 'Groups' && <Groups data={data[1]} /> }
           { selectedPage === 'Resumes' && <Resumes /> }
         </div>
       </section>

@@ -1,6 +1,10 @@
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { loadFiles } from '@/components/Admin'
 
 export function Pages({ pageOptions, selectedPage, selectPage }) {
+  const [docs, setDocs] = useState(localStorage.getItem('docs') ? JSON.parse(localStorage.getItem('docs')) : [])
+
   return (
     <div className='flex gap-6 my-8'>
     { pageOptions.map((option) =>
@@ -10,7 +14,7 @@ export function Pages({ pageOptions, selectedPage, selectPage }) {
           'flex flex-col items-center group text-2xl '
           + (selectedPage === option ? 'font-semibold text-black' : 'font-normal text-gray-400')
         }
-        onClick={() => selectPage(option) }
+        onClick={() => { selectPage(option); if (option === 'Resumes'){loadFiles(setDocs)} }}
       >
         <motion.div
           whileHover={{ y: -3 }}

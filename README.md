@@ -1,9 +1,12 @@
+![vercel](./documentation/powered-by-vercel.svg)
+
 # Citrus Hack 2022
 > Author: J.S. Pescasio
 
 > Contributors: 
 > 
-> J.S. Pescasio
+> J.S. Pescasio  
+> Rajbir Johar
 
 This is the codebase for Citrus Hack 2022. Below is a guide for setting up a local environment to run the website locally for development purposes.
 

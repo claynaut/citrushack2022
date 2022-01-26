@@ -100,7 +100,7 @@ export function UserActions({
     <>
       {
         (selectedView === 'Not Applied' || selectedView === 'Pending') &&
-        <p className='m-0 mt-3 mb-2 font-normal text-base'>
+        <p className='mt-3 font-normal text-base'>
           <span className='font-medium'>Tip:</span> Select a row to perform more actions.
         </p>
       }

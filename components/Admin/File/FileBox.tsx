@@ -7,7 +7,7 @@ import {
 } from 'react-icons/bi'
 import { downloadFile, openFile } from './methods'
 
-export function FileBox({ doc, selectedDocs, setSelectedDocs, setDocs }) {
+export function FileBox({ doc, selectedDocs, setSelectedDocs }) {
   const selectDoc = (doc) => {
     if (selectedDocs.includes(doc)) {
       localStorage.setItem('selectedDocs', JSON.stringify(selectedDocs.filter(selectedDoc => selectedDoc !== doc)))

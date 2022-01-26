@@ -1,64 +1,114 @@
-import React, { useState, useEffect } from 'react'
-import storage from '@/lib/firebase'
-import { ref, listAll, getDownloadURL, getBlob } from 'firebase/storage'
-import JSZip from 'jszip'
+import React, { useState } from 'react'
+import { BiSearch, BiX } from 'react-icons/bi'
+import { FileBox, FileActions } from '@/components/Admin'
 
 export function Resumes() {
-  const zip = new JSZip()
   const [docs, setDocs] = useState(localStorage.getItem('docs') ? JSON.parse(localStorage.getItem('docs')) : [])
-  const listRef = ref(storage, 'resumes/')
+  const [selectedDocs, setSelectedDocs] = useState([])
+  const [allSelected, setAllSelected] = useState(false)
+  const [searchFilter, setSearchFilter] = useState('')
+  const [searchQuery, setSearchQuery] = useState(Object)
+  const [validSearch, setValidSearch] = useState(false)
 
-  const downloadFile = (doc) => {
-    getDownloadURL(doc.ref)
-    .then((url) => {
-      const xhr = new XMLHttpRequest()
-      xhr.responseType = 'blob'
-      xhr.onload = () => {
-        const blob = xhr.response
-        saveBlob(blob, doc.name)
+  const toggleSelectAllDocs = (selectAll: boolean) => {
+    setAllSelected(selectAll)
+    if (selectAll) { setSelectedDocs(docs) }
+    else { setSelectedDocs([]) }
+  }
+
+  // regex for searching users by uid, email, or name
+  const regex = /(uid|name):\s*[a-zA-Z0-9._]+/
+
+  // check if a search matches
+  const userMatch = (user) => {
+    var uidMatch = true
+    var nameMatch = true
+    var match = true
+    if (searchQuery.uid) {
+      if (!(user.uid && user.uid.includes(searchQuery.uid))) { uidMatch = false }
+    }
+    if (searchQuery.name) {
+      if (user.name && user.name.first && user.name.last) {
+        var full_name = user.name.first + ' ' + user.name.last
+        if (!(full_name.toLowerCase().includes(searchQuery.name.toLowerCase()))) { nameMatch = false }
       }
-      xhr.open('GET', url)
-      xhr.send()
-    })
+      else { nameMatch = false }
+    }
+    if (!uidMatch || !nameMatch) { match = false }
+    return match
   }
 
-  const saveBlob = (blob, fileName) => {
-    var a = document.createElement('a')
-    a.href = window.URL.createObjectURL(blob)
-    a.download = fileName
-    a.click()
-  }
-
-  useEffect(() => {
-    listAll(listRef)
-    .then((res) => {
-      var currentDocs = []
-      res.items.forEach((itemRef) => {
-        const doc = {
-          ref: itemRef,
-          name: itemRef.toString().replace('gs://citrus-hack-2022.appspot.com/resumes/', '')
+  const handleSearchFilter = (e) => {
+    setSearchFilter(e.target.value)
+    const queries = e.target.value.split(',')
+    var validQueries = ''
+    var numPassed = 0
+    for (let i = 0; i < queries.length; i++) {
+      if(regex.test(queries[i])) {
+        var query = queries[i].split(':')
+        if (validQueries === '') {
+          validQueries += '{"' + query[0].replace(/\s+/, '') + '": "' + query[1].replace(/\s+/, '') + '"'
         }
-        currentDocs = [...currentDocs, doc]
-      })
-      setDocs(currentDocs)
-      localStorage.setItem('docs', JSON.stringify(currentDocs))
-    })
-  }, [listRef]);
+        else {
+          validQueries += ', "' + query[0].replace(/\s+/, '') + '": "' + query[1].replace(/\s+/, '') + '"'
+        }
+        if (i === queries.length-1) {
+          validQueries += '}'
+        }
+        numPassed += 1
+      }
+    }
+    if (numPassed === queries.length) {
+      setSearchQuery(JSON.parse(validQueries))
+      setValidSearch(true)
+    }
+    else {
+      setSearchQuery({})
+      setValidSearch(false)
+    }
+  }
 
   return (
     <>
-      { docs.map((doc) => 
-        <div className='flex'>
-          <div>
-            {doc.name}
+      <div className='flex'>
+        <div className='w-full mb-3'>
+          <div className='w-full flex items-center pl-2 border-2 border-gray-400 rounded-md'>
+            <BiSearch className='text-2xl text-gray-500'/>
+            <input
+              className='w-full ml-2 py-2 outline-0 rounded-tr-md rounded-br-md'
+              value={searchFilter}
+              onChange={handleSearchFilter}
+            />
+            { searchFilter.length > 0 &&
+              <div
+                className='p-2 rounded-full text-2xl text-gray-500 hover:bg-gray-100 cursor-pointer'
+                onClick={() => { setSearchFilter(''); setSearchQuery('') }}
+              >
+                <BiX title='Clear Search' />
+              </div>
+            }
           </div>
-          <div>
-            <button className='border-2' onClick={() => downloadFile(doc)}>
-              Download
-            </button>
-          </div>
+          { searchFilter.length > 0 && !validSearch &&
+            <p className='mb-0 text-sm'>Not a valid search.</p>
+          }
         </div>
-      )}
+      </div>
+      <FileActions
+        allSelected={allSelected}
+        toggleSelectAllDocs={toggleSelectAllDocs}
+        selectedDocs={selectedDocs}
+        setDocs={setDocs}
+      />
+      <div className='flex flex-col gap-2 mt-3'>
+        { docs.map((doc) => 
+          <FileBox
+            doc={doc}
+            selectedDocs={selectedDocs}
+            setSelectedDocs={setSelectedDocs}
+            setDocs={setDocs}
+          />
+        )}
+      </div>
     </>
   )
 }

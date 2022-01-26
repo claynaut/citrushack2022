@@ -264,8 +264,8 @@ export function Overview({ data }) {
     }
     if (searchQuery.name) {
       if (user.name && user.name.first && user.name.last) {
-        var full_name = (user.name.first + user.name.last).toLowerCase().replace(' ', '')
-        if (!(full_name.includes(searchQuery.name.toLowerCase().replace(' ', '')))) { nameMatch = false }
+        var full_name = (user.name.first + user.name.last).toLowerCase().replace(/\s/g, '')
+        if (!(full_name.includes(searchQuery.name.toLowerCase().replace(/\s/g, '')))) { nameMatch = false }
       }
       else { nameMatch = false }
     }

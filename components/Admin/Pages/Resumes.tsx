@@ -20,19 +20,17 @@ export function Resumes() {
   const regex = /(uid|name):\s*[a-zA-Z0-9._]+/
 
   // check if a search matches
-  const userMatch = (user) => {
+  const docMatch = (doc) => {
     var uidMatch = true
     var nameMatch = true
     var match = true
+    var [first_name, last_name, uid] = doc.name.split('###')
     if (searchQuery.uid) {
-      if (!(user.uid && user.uid.includes(searchQuery.uid))) { uidMatch = false }
+      if (!uid.includes(searchQuery.uid)) { uidMatch = false }
     }
     if (searchQuery.name) {
-      if (user.name && user.name.first && user.name.last) {
-        var full_name = user.name.first + ' ' + user.name.last
-        if (!(full_name.toLowerCase().includes(searchQuery.name.toLowerCase()))) { nameMatch = false }
-      }
-      else { nameMatch = false }
+      var full_name = (first_name + last_name).toLowerCase().replace(/\s/g, '')
+      if (!(full_name.includes(searchQuery.name.toLowerCase().replace(/\s/g, '')))) { nameMatch = false }
     }
     if (!uidMatch || !nameMatch) { match = false }
     return match
@@ -91,6 +89,9 @@ export function Resumes() {
           { searchFilter.length > 0 && !validSearch &&
             <p className='mb-0 text-sm'>Not a valid search.</p>
           }
+          { searchFilter.length === 0 &&
+            <p className='mb-0 text-sm'>Search for a user's resume by a user's UID or name. Note that UID is case-sensitive while name is not.</p>
+          }
         </div>
       </div>
       <FileActions
@@ -100,13 +101,23 @@ export function Resumes() {
         setDocs={setDocs}
       />
       <div className='flex flex-col gap-2 mt-3'>
-        { docs.map((doc) => 
-          <FileBox
-            doc={doc}
-            selectedDocs={selectedDocs}
-            setSelectedDocs={setSelectedDocs}
-            setDocs={setDocs}
-          />
+        { !validSearch ? docs.map((doc) => 
+            <FileBox
+              doc={doc}
+              selectedDocs={selectedDocs}
+              setSelectedDocs={setSelectedDocs}
+              setDocs={setDocs}
+            />
+          )
+          :
+          ( docs.filter(doc => docMatch(doc)).map((doc) => 
+            <FileBox
+              doc={doc}
+              selectedDocs={selectedDocs}
+              setSelectedDocs={setSelectedDocs}
+              setDocs={setDocs}
+            />
+          )
         )}
       </div>
     </>

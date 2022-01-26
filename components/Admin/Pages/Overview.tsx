@@ -345,10 +345,10 @@ export function Overview({ data }) {
             }
           </div>
           { sorted && 
-            <p className='p-0 text-sm'>Filter applied: {filter}. </p>
+            <p className='mb-0 text-sm'>Filter applied: {filter}. </p>
           }
           { searchFilter.length > 0 && !validSearch &&
-            <p className='p-0 text-sm'>Not a valid search.</p>
+            <p className='mb-0 text-sm'>Not a valid search.</p>
           }
         </div>
       </div>

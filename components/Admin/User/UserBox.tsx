@@ -30,11 +30,10 @@ export function UserBox({
                 + (!pending ? 'hover:bg-gray-100 ' : (user.criteriaMet ? 'hover:bg-green-200 ' : 'hover:bg-red-200 '))
                 + (selectedUsers.includes(user) ? 'text-black' : (pending ? (user.criteriaMet ? 'text-green-300' : 'text-red-300') : 'text-gray-400' ))
               }
-              onClick={
-                () => setSelectedUsers(
+              onClick={() => setSelectedUsers(
                   selectedUsers.includes(user) ? 
-                    selectedUsers.filter(selectedUser => selectedUser !== user) :
-                    selectedUsers.concat([user])
+                  selectedUsers.filter(selectedUser => selectedUser !== user) :
+                  selectedUsers.concat([user])
                 )
               }
             >

@@ -35,11 +35,10 @@ export function FileBox({ doc, selectedDocs, setSelectedDocs, setDocs }) {
                 'w-10 p-2 rounded-full text-2xl group-hover:text-black hover:bg-gray-100 '
                 + (selectedDocs.includes(doc) ? 'text-black' : 'text-gray-400')
               }
-              onClick={
-                () => { setSelectedDocs(
+              onClick={() => { setSelectedDocs(
                   selectedDocs.includes(doc) ? 
-                    selectedDocs.filter(selectedDoc => selectedDoc !== doc) :
-                    selectedDocs.concat([doc])
+                  selectedDocs.filter(selectedDoc => selectedDoc !== doc) :
+                  selectedDocs.concat([doc])
                 ); selectDoc(doc) }
               }
             >

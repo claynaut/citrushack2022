@@ -5,7 +5,8 @@ import {
   Pages,
   Overview,
   Statistics,
-  Groups
+  Groups,
+  Resumes
 } from '@/components/Admin'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
@@ -18,6 +19,7 @@ export default function Admin() {
     'Overview',
     'Statistics',
     'Groups',
+    'Resumes',
   ]
   
   if (error) 
@@ -51,6 +53,7 @@ export default function Admin() {
           { selectedPage === 'Overview' && <Overview data={data} /> }
           { selectedPage === 'Statistics' && <Statistics data={data} /> }
           { selectedPage === 'Groups' && <Groups data={data} /> }
+          { selectedPage === 'Resumes' && <Resumes /> }
         </div>
       </section>
     </ProtectedPage>

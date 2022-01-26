@@ -67,6 +67,7 @@ export function Nav() {
         </div>
         { router.pathname === '/' && (hometabs.map(({icon, title}) =>
           <motion.span
+            key={title}
             whileHover={{ scale: 1.05, x: 20 }}
             whileTap={{ scale: 0.995 }}
           >
@@ -123,6 +124,7 @@ export function Nav() {
           </div>
           { router.pathname === '/' && (hometabs.map(({icon, title}) =>
             <NavLink 
+              key={'mobile'+title}
               activeClass='bg-accent-primary text-white'
               to={title}
               spy={true}

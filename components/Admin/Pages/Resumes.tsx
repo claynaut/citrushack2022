@@ -103,6 +103,7 @@ export function Resumes() {
       <div className='flex flex-col gap-2 mt-3'>
         { !validSearch ? docs.map((doc) => 
             <FileBox
+              key={doc.name}
               doc={doc}
               selectedDocs={selectedDocs}
               setSelectedDocs={setSelectedDocs}
@@ -112,6 +113,7 @@ export function Resumes() {
           :
           ( docs.filter(doc => docMatch(doc)).map((doc) => 
             <FileBox
+              key={doc.name}
               doc={doc}
               selectedDocs={selectedDocs}
               setSelectedDocs={setSelectedDocs}

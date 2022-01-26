@@ -156,7 +156,7 @@ export default function GroupDashboard() {
               {
                 !error && data && 
                 data.members.map(({ name }) =>
-                  <li>
+                  <li key={name}>
                     {name.first} {name.last}
                   </li>
                 )

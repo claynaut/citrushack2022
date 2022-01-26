@@ -52,7 +52,7 @@ export function FileBox({ doc, selectedDocs, setSelectedDocs }) {
           </div>
           <div className='flex justify-between w-full'>
             <div className='py-2'>
-              {doc.name.replace(/###/g, '_')}
+              {doc.name.replace(/___/g, '_')}
             </div>
             <div className='flex gap-1 items-center'>
               <div

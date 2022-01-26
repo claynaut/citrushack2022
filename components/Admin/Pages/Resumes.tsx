@@ -24,7 +24,7 @@ export function Resumes() {
     var uidMatch = true
     var nameMatch = true
     var match = true
-    var [first_name, last_name, uid] = doc.name.split('###')
+    var [first_name, last_name, uid] = doc.name.split('___')
     if (searchQuery.uid) {
       if (!uid.includes(searchQuery.uid)) { uidMatch = false }
     }

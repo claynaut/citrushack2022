@@ -107,7 +107,6 @@ export function Resumes() {
               doc={doc}
               selectedDocs={selectedDocs}
               setSelectedDocs={setSelectedDocs}
-              setDocs={setDocs}
             />
           )
           :
@@ -117,7 +116,6 @@ export function Resumes() {
               doc={doc}
               selectedDocs={selectedDocs}
               setSelectedDocs={setSelectedDocs}
-              setDocs={setDocs}
             />
           )
         )}

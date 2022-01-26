@@ -29,7 +29,7 @@ export function FileBox({ doc, selectedDocs, setSelectedDocs, setDocs }) {
         }
       >
         <div className='flex'>
-          <div>
+          <div className='mr-3'>
             <div 
               className={
                 'w-10 p-2 rounded-full text-2xl group-hover:text-black hover:bg-gray-100 '

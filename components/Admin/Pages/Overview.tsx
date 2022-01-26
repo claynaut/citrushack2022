@@ -350,6 +350,9 @@ export function Overview({ data }) {
           { searchFilter.length > 0 && !validSearch &&
             <p className='mb-0 text-sm'>Not a valid search.</p>
           }
+          { searchFilter.length === 0 &&
+            <p className='mb-0 text-sm'>Search for a user by UID, name, or email. Note that UID is case-sensitive while name and email are not.</p>
+          }
         </div>
       </div>
       <Overviews

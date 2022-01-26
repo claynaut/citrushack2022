@@ -5,7 +5,7 @@ import {
   OverviewStats,
   Overviews,
   UserActions,
-  Filter
+  UserFilter
 } from '@/components/Admin'
 
 export function Overview({ data }) {
@@ -320,7 +320,7 @@ export function Overview({ data }) {
       />
       <div className='flex mt-8'>
         <div>
-          <Filter 
+          <UserFilter 
             filters={filterOptions}
             setFilter={setFilter}
             currentFilter={filter}

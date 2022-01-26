@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { BiFilter } from 'react-icons/bi'
 
-export function Filter({ filters, setFilter, currentFilter, setSorted }) {
+export function UserFilter({ filters, setFilter, currentFilter, setSorted }) {
   const router = useRouter()
   const [open, setOpen] = useState(false)
 

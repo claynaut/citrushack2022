@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { loadFiles } from '@/components/Admin'
+import { loadFiles } from '../File/methods'
 
 export function Pages({ pageOptions, selectedPage, selectPage }) {
   const [docs, setDocs] = useState(localStorage.getItem('docs') ? JSON.parse(localStorage.getItem('docs')) : [])

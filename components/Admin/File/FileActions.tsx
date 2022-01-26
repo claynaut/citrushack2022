@@ -4,7 +4,7 @@ import {
   BiDownload,
   BiRefresh
 } from 'react-icons/bi'
-import { loadFiles, downloadFiles } from '@/components/Admin'
+import { loadFiles, downloadFiles } from './methods'
 
 export function FileActions({ allSelected, toggleSelectAllDocs, selectedDocs, setDocs }) {
   return (

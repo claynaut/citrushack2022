@@ -5,7 +5,7 @@ import {
   BiDownload,
   BiLinkExternal
 } from 'react-icons/bi'
-import { downloadFile, openFile } from '@/components/Admin'
+import { downloadFile, openFile } from './methods'
 
 export function FileBox({ doc, selectedDocs, setSelectedDocs, setDocs }) {
   const selectDoc = (doc) => {

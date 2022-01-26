@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { 
   FiMail,
   FiFacebook,
@@ -6,6 +7,7 @@ import {
   FiTwitter,
   FiLinkedin,
 } from 'react-icons/fi'
+import vercel from '../../documentation/powered-by-vercel.svg'
 
 export function Footer() {
   const socials = [
@@ -48,6 +50,12 @@ export function Footer() {
         <div>
           Made with 🧡 by the Citrus Hack Team.
         </div>
+        <a target='_blank' rel='noreferrer noopener' href='https://vercel.com/?utm_source=citrushack&utm_campaign=oss'>
+          <Image
+            src={vercel}
+            height={40}
+          />
+        </a>
       </div>
     </footer>
   )

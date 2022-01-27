@@ -94,7 +94,7 @@ export function GroupBox({ group, expandedGroups, setExpandedGroups }) {
             </div>
             {
               group.users.map((user, idx) =>
-                <div className='flex w-full'>
+                <div key={'groupMember'+user.id} className='flex w-full'>
                   <div
                     className={
                       'w-10 p-2 text-center '

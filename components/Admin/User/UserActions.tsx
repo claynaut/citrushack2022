@@ -134,10 +134,11 @@ export function UserActions({
           <div className='flex gap-1 items-center pl-2 border-l-2'>
             { selectedView === 'Not Applied' &&
               <div
-                className='p-2 rounded-full hover:text-amber-500 hover:bg-amber-100 cursor-pointer'
+                className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-amber-500 hover:bg-amber-100 cursor-pointer'
                 onClick={() => setConfirmReminder(true)}
               >
                 <BiBell title='Remind Selected to Apply' />
+                <span className='text-base'>Remind</span>
               </div>
             }
             { selectedView === 'Pending' &&

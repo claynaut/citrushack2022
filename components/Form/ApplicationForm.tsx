@@ -159,7 +159,11 @@ export function ApplicationForm() {
           <div className='grid sm:grid-cols-2 gap-3'>
             <Input
               type='text'
-              defaultValue={session.user.name ? session.user.name.first : undefined}
+              defaultValue={
+                (session.user.name && session.user.name.first !== 'undefined')
+                ? session.user.name.first 
+                : undefined
+              }
               label='First Name'
               variable='first_name'
               register={register}
@@ -168,7 +172,11 @@ export function ApplicationForm() {
             />
             <Input
               type='text'
-              defaultValue={session.user.name ? session.user.name.last : undefined}
+              defaultValue={
+                (session.user.name && session.user.name.last !== 'undefined')
+                ? session.user.name.last 
+                : undefined
+              }
               label='Last Name'
               variable='last_name'
               register={register}

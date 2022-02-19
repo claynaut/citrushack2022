@@ -2,6 +2,7 @@ import { useForm, useFormState } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/react'
 import { nanoid } from 'nanoid'
 import { toast } from 'react-hot-toast'
 import storage from '@/lib/firebase'
@@ -21,6 +22,7 @@ const Group = ({title, children}: GroupProps) => (
 )
 
 export function ApplicationForm() {
+  const { data: session } = useSession()
   const { register, handleSubmit, control } = useForm()
   const { errors } = useFormState({ control })
   const router = useRouter()
@@ -157,6 +159,7 @@ export function ApplicationForm() {
           <div className='grid sm:grid-cols-2 gap-3'>
             <Input
               type='text'
+              defaultValue={session.user.name ? session.user.name.first : undefined}
               label='First Name'
               variable='first_name'
               register={register}
@@ -165,6 +168,7 @@ export function ApplicationForm() {
             />
             <Input
               type='text'
+              defaultValue={session.user.name ? session.user.name.last : undefined}
               label='Last Name'
               variable='last_name'
               register={register}

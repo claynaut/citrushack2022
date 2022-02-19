@@ -1,4 +1,4 @@
-export const Input = ({ type, label, variable, register, required, errors }) => (
+export const Input = ({ type, defaultValue = undefined, label, variable, register, required, errors }) => (
     <div>
       <label className='font-semibold'>
         {label}
@@ -12,6 +12,7 @@ export const Input = ({ type, label, variable, register, required, errors }) => 
       }
       <input
         type={type}
+        defaultValue={defaultValue}
         {...register(variable, {required})}
         className={
           'w-full rounded focus:border-accent-primary focus:outline-none focus:ring-accent-primary file:px-4 file:py-1.5 file:rounded-full file:border-0 file:bg-gray-200 file:text-sm file:font-semibold file:cursor-pointer hover:file:bg-gray-300 '

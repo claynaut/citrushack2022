@@ -72,12 +72,28 @@ export function ApplicationForm() {
     'Yes',
     'No',
   ]
+  const foodPreference = [
+    'Meat',
+    'Vegetarian',
+    'Vegan'
+  ]
+  const shirtSize = [
+    'XXS',
+    'XS',
+    'S',
+    'M',
+    'L',
+    'XL',
+    'XXL'
+  ]
 
   const onSubmit = ({
     first_name,
     last_name,
     gender,
     ethnicity,
+    food_preference,
+    shirt_size,
     school,
     major,
     grade,
@@ -112,6 +128,8 @@ export function ApplicationForm() {
       last_name,
       gender,
       ethnicity,
+      food_preference,
+      shirt_size,
       school,
       major,
       grade,
@@ -204,6 +222,22 @@ export function ApplicationForm() {
               />
             </span>
           </div>
+          <Radio
+            label='Food Preference'
+            variable='food_preference'
+            options={foodPreference}
+            register={register}
+            errors={errors}
+            required
+          />
+          <Radio
+            label='T-Shirt Size'
+            variable='shirt_size'
+            options={shirtSize}
+            register={register}
+            errors={errors}
+            required
+          />
         </Group>
         <Group title='Education'>
           <Input
@@ -248,7 +282,6 @@ export function ApplicationForm() {
             variable='resume'
             register={register}
             errors={errors}
-            required={Boolean(false)}
           />
           <Radio
             label='First time hacker?'

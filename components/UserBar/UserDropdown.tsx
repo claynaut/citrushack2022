@@ -12,7 +12,6 @@ import {
   BiHelpCircle,
   BiCategory
 } from 'react-icons/bi'
-import { ThemeButton } from './ThemeButton'
 
 export function UserDropdown() {
   const router = useRouter()
@@ -156,9 +155,6 @@ export function UserDropdown() {
                 Sign Out
               </div>
             </motion.button>
-            <span className='block md:hidden'>
-              <ThemeButton />
-            </span>
           </div>
         </div>
       </div>

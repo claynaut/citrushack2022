@@ -14,6 +14,7 @@ import {
   BiMenu,
   BiX
 } from 'react-icons/bi'
+import { ThemeButton } from '@/components/UserBar/ThemeButton'
 
 export function Nav() {
   const [navOpen, setNavOpen] = useState(false)
@@ -105,9 +106,9 @@ export function Nav() {
       <div className='z-[100] fixed top-3 -left-1 xl:hidden px-4'>
         <div
           className={
-            'flex flex-col gap-2.5 rounded-md bg-gray-200 shadow overflow-hidden transition-size duration-200 '
+            'flex flex-col gap-1.5 rounded-md bg-gray-200 shadow overflow-hidden transition-size duration-200 '
             + (navOpen ? 'p-2 ' : 'w-11 h-11 ')
-            + (navOpen && (router.pathname === '/' ? 'w-48 h-[27.5rem]' : 'w-48 h-[7.25rem]'))
+            + (navOpen && (router.pathname === '/' ? 'w-48 h-[29rem]' : 'w-48 h-[7.25rem]'))
           }
         >
           <div className='flex w-full justify-between'>
@@ -148,6 +149,9 @@ export function Nav() {
               </span>
             </Link>
           }
+          <span className='block self-center'>
+            <ThemeButton />
+          </span>
         </div>
       </div>
       <div

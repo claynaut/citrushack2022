@@ -1,1 +1,1 @@
-export { SupportCard } from './components'
+export * from './components'

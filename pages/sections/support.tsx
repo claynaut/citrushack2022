@@ -18,7 +18,7 @@ export default function Support() {
       title: 'Sponsors', 
       description: 'Sponsors are companies or individuals that want to help Cutie Hack and Citrus Hack come to life! If you are interested in contributing, please don\'t hesitate to contact us!',
       buttonLabel: 'Sponsor', 
-      buttonLink: '/'
+      buttonLink: '/citrushack-2022-sponsorship-packet.pdf'
     }
   ]
 

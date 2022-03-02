@@ -57,7 +57,7 @@ const faq = [
   },
   {
     question: 'How long is Citrus Hack?',
-    answer: 'Citrus Hack will be a 36-hour event.'
+    answer: 'Citrus Hack will be a 24-hour event.'
   },
   {
     question: 'Who can come to Citrus Hack?',

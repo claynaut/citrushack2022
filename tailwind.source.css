@@ -31,13 +31,15 @@
 
   h3 {
     @apply my-2;
-    @apply text-3xl;
+    @apply text-2xl;
+    @apply md:text-3xl;
     @apply font-medium;
   }
 
   h4 {
     @apply my-2;
-    @apply text-2xl;
+    @apply text-xl;
+    @apply md:text-2xl;
   }
 
   p {

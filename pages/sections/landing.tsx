@@ -3,7 +3,7 @@ import { CountdownWrapper } from '@/components/Countdown'
 
 export default function Landing() {
   return (
-    <section className='flex flex-col w-full h-screen min-h-[60rem] max-w-[60rem] justify-center'>
+    <section className='flex flex-col w-full h-screen md:min-h-[60rem] max-w-[60rem] justify-center mb-20 md:mb-0'>
       <div className='flex flex-col max-w-xl'>
         <div className='flex flex-col sm:flex-row items-center text-center sm:text-left mb-10'>
           <Image

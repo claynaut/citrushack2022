@@ -15,7 +15,7 @@ export default function About() {
   ]
 
   return (
-    <section className='flex flex-col w-full h-full mb-20 min-h-[60rem] max-w-[60rem] justify-center items-center'>
+    <section className='flex flex-col w-full h-full mb-20 md:min-h-[60rem] max-w-[60rem] justify-center items-center'>
       <h1>About Us</h1>
       <p className='text-center lg:mb-20'>
         Citrus Hack is where hundreds of students from all over the world come together and form teams, aiming to build a project from scratch in just 24 hours.

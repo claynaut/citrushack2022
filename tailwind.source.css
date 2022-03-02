@@ -19,6 +19,7 @@
   h1 {
     @apply my-3;
     @apply text-7xl;
+    @apply font-bold;
   }
 
   h2 {

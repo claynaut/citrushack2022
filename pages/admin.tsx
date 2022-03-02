@@ -40,7 +40,7 @@ export default function Admin() {
 
   return (
     <ProtectedPage title='Admin' restrictions={['signin', 'admin']}>
-      <section className='flex w-full my-24 items-center'>
+      <section className='flex w-full my-24 max-w-[60rem] items-center'>
         <div className='flex flex-col w-full'>
           <h2 className='m-0 font-medium'>Dashboard</h2>
           <Pages

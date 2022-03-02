@@ -47,9 +47,9 @@ export function Footer() {
             </a>
           )}
         </div>
-        <div>
+        <p className='text-center'>
           Made with 🧡 by the Citrus Hack Team.
-        </div>
+        </p>
         <a target='_blank' rel='noreferrer noopener' href='https://vercel.com/?utm_source=citrushack&utm_campaign=oss'>
           <Image
             src={vercel}

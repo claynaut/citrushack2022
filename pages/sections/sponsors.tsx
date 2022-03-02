@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 export default function Sponsors() {
   return (
-    <section className='flex flex-col w-full h-screen min-h-[60rem] max-w-[60rem] items-center'>
+    <section className='flex flex-col w-full h-screen max-w-[60rem] justify-center items-center'>
       <h1>Sponsors</h1>
       <motion.button
         whileHover={{ scale: 1.05 }}

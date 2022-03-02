@@ -18,18 +18,21 @@
 
   h1 {
     @apply my-3;
-    @apply text-7xl;
+    @apply text-6xl;
+    @apply md:text-7xl;
     @apply font-bold;
   }
 
   h2 {
     @apply my-2;
     @apply text-5xl;
+    @apply font-semibold;
   }
 
   h3 {
     @apply my-2;
     @apply text-3xl;
+    @apply font-medium;
   }
 
   h4 {
@@ -39,6 +42,12 @@
 
   p {
     @apply my-2;
-    @apply text-lg;
+    @apply text-base;
+    @apply md:text-lg;
+  }
+
+  li {
+    @apply text-base;
+    @apply md:text-lg;
   }
 }

@@ -76,7 +76,6 @@ export function Nav() {
               to={title}
               spy={true}
               smooth={true}
-              offset={-90}
               duration={500}
               className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'
             >
@@ -129,7 +128,7 @@ export function Nav() {
               to={title}
               spy={true}
               smooth={true}
-              offset={-90}
+              offset={-50}
               duration={500}
               className='flex gap-2.5 items-center p-2 font-semibold text-lg rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'
               onClick={() => setNavOpen(false)}

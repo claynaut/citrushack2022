@@ -54,7 +54,9 @@ export function UserBar() {
             Sign In
           </motion.button>
       }
-      <ThemeButton />
+      <span className='hidden md:block'>
+        <ThemeButton />
+      </span>
     </div>
   )
 }

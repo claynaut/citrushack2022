@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { BiX } from 'react-icons/bi'
+import ExternalLink from '@/components/ExternalLink'
 
 interface Props {
   question: string,
@@ -70,7 +71,14 @@ const faq = [
   },
   {
     question: 'What will I need to participate?',
-    answer: 'If you\'re participating in-person, you\'ll need to wear a mask and fill out this daily wellness check-in form per UCR\'s guidelines. Otherwise, if you\'re staying online, all you need is a working device (i.e your laptop or PC) and a stable internet connection.'
+    answer: 
+    <>
+      If you&apos;re participating in-person, you&apos;ll need to wear a mask 
+      and fill out <ExternalLink name='this daily wellness check-in form' link='http://visitorwellnesscheck.ucr.edu/'/> per UCR&apos;s guidelines. 
+      Otherwise, if you&apos;re staying online, all you need is a working device
+      (i.e your laptop or PC) and a stable internet connection.
+    
+    </>
   },
   {
     question: 'Where will we submit?',
@@ -94,7 +102,10 @@ const faq = [
   },
   {
     question: 'My question isn\'t listed?',
-    answer: 'Feel free to email us at citrushack@gmail.com if you have any more questions.'
+    answer: 
+      <>
+        Feel free to email us at <ExternalLink name='citrushack@gmail.com' link='mailto:citrushack@gmail.com'/> if you have any more questions.
+      </>
   },
 ]
 

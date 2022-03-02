@@ -15,8 +15,7 @@ export const Block = ({ image, title, animation }: Props) => (
       animate={{ y: animation }}
       transition={{
         repeat: Infinity,
-        duration: 10,
-        delay: 0.1
+        duration: 10
       }}
     >
       <Image

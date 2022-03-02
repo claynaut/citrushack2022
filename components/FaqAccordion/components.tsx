@@ -17,12 +17,14 @@ export function FaqAccordion({ question, answer }: Props) {
         onClick={() => setOpen(!open)}
       >
         <h4 className='grow font-medium'>{question}</h4>
-        <BiX 
-          className={
-            'group-hover:text-accent-primary text-4xl transition-transform duration-150 '
-            + (open ? 'rotate-0' : 'rotate-45')
-          }
-        />
+        <div>
+          <BiX 
+            className={
+              'group-hover:text-accent-primary text-4xl transition-transform duration-150 '
+              + (open ? 'rotate-0' : 'rotate-45')
+            }
+          />
+        </div>
       </div>
       <div 
         className={

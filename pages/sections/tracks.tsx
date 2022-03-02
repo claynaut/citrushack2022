@@ -1,25 +1,22 @@
-import TypeAnimation from 'react-type-animation'
 import { TrackBlocks } from '@/components/TrackBlocks'
+import { motion } from 'framer-motion'
 
 export default function Tracks() {
   return (
     <section className='flex flex-col w-full h-full mb-20 min-h-[60rem] max-w-[60rem] justify-center items-center'>
       <h1>Tracks</h1>
-      <div className='flex w-full mb-20'>
-        <TypeAnimation
-          cursor={true}
-          sequence={[
-            '// hack for diversity & inclusion',
-            2000,
-            '// hack for sustainability',
-            1000,
-            '// hack for health & wellness',
-            1000
-          ]}
-          className='text-lg sm:text-2xl font-semibold'
-          repeat={Infinity}
-        />
-      </div>
+      <h3 className='w-full mb-20'>
+        // hack for&nbsp;
+        {/* <span>
+          diversity & inclusion
+        </span>
+        <span>
+          sustainability
+        </span>
+        <span>
+          health & wellness
+        </span> */}
+      </h3>
       <TrackBlocks />
     </section>
   )

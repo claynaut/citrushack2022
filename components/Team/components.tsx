@@ -92,6 +92,7 @@ export const TeamGrid = () => (
   <div className='flex flex-wrap justify-center gap-6 md:gap-y-12'>
     { staff.map(({ link, image, name, role }) =>
       <TeamProfile
+        key={link}
         link={link}
         image={image}
         name={name}

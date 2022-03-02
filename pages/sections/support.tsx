@@ -33,6 +33,7 @@ export default function Support() {
       <div className='flex flex-col md:flex-row flex-wrap lg:flex-nowrap justify-center gap-6'>
       { cards.map(({ title, description, buttonLabel, buttonLink }) =>
         <SupportCard
+          key={title}
           title={title}
           description={description}
           buttonLabel={buttonLabel}

@@ -108,7 +108,7 @@ export function Nav() {
           className={
             'flex flex-col gap-1.5 rounded-md bg-gray-200 shadow overflow-hidden transition-size duration-200 '
             + (navOpen ? 'p-2 ' : 'w-11 h-11 ')
-            + (navOpen && (router.pathname === '/' ? 'w-48 h-[29rem]' : 'w-48 h-[7.25rem]'))
+            + (navOpen && (router.pathname === '/' ? 'w-48 h-[29rem] md:h-[25.75rem]' : 'w-48 h-[10.25rem] md:h-[7rem]'))
           }
         >
           <div className='flex w-full justify-between'>
@@ -149,7 +149,7 @@ export function Nav() {
               </span>
             </Link>
           }
-          <span className='block self-center'>
+          <span className='block md:hidden self-center'>
             <ThemeButton />
           </span>
         </div>

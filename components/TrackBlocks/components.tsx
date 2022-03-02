@@ -15,8 +15,7 @@ export const Block = ({ image, title, animation }: Props) => (
       animate={{ y: animation }}
       transition={{
         repeat: Infinity,
-        // repeatType: 'reverse',
-        duration: 11,
+        duration: 10,
         delay: 0.1
       }}
     >
@@ -33,37 +32,22 @@ export const Block = ({ image, title, animation }: Props) => (
   </div>
 )
 
-const tracksLight = [
+const tracks = [
   {
     image: '/assets/tracks/diversity-light.svg',
+    imageDark: '/assets/tracks/diversity-dark.svg',
     title: 'Diversity & Inclusion',
-    animation: [0, -20, 0],
+    animation: [0, -20, 0, 0],
   },
   {
     image: '/assets/tracks/sustainability-light.svg',
-    title: 'Sustainability',
-    animation: [0, 0, -20, 0],
-  },
-  {
-    image: '/assets/tracks/health-light.svg',
-    title: 'Health & Wellness',
-    animation: [0, 0, 0, -20, 0],
-  },
-]
-
-const tracksDark = [
-  {
-    image: '/assets/tracks/diversity-dark.svg',
-    title: 'Diversity & Inclusion',
-    animation: [0, -20, 0, 0, 0],
-  },
-  {
-    image: '/assets/tracks/sustainability-dark.svg',
+    imageDark: '/assets/tracks/sustainability-dark.svg',
     title: 'Sustainability',
     animation: [0, 0, -20, 0, 0],
   },
   {
-    image: '/assets/tracks/health-dark.svg',
+    image: '/assets/tracks/health-light.svg',
+    imageDark: '/assets/tracks/health-dark.svg',
     title: 'Health & Wellness',
     animation: [0, 0, 0, -20, 0],
   },
@@ -79,20 +63,10 @@ export function TrackBlocks() {
 
   return (
     <div className='flex flex-wrap justify-center gap-y-6'>
-      { theme === 'light' ?
-        tracksLight.map(({ image, title, animation }) => 
+      { tracks.map(({ image, imageDark, title, animation }) => 
           <Block
             key={image}
-            image={image}
-            title={title}
-            animation={animation}
-          />
-        )
-        :
-        tracksDark.map(({ image, title, animation }) => 
-          <Block
-            key={image}
-            image={image}
+            image={theme === 'light' ? image : imageDark}
             title={title}
             animation={animation}
           />

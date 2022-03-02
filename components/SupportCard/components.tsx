@@ -9,10 +9,10 @@ interface Props {
 export const SupportCard = ({ title, description, buttonLabel, buttonLink }: Props) => (
   <motion.div 
     whileHover={{ y: -8 }}
-    className='flex flex-col items-center w-full p-10 shadow-lg rounded-md cursor-default'
+    className='flex flex-col items-center w-full md:max-w-md p-10 shadow-lg rounded-md cursor-default'
   >
     <h3>{title}</h3>
-    <p className='grow mb-10 text-center'>
+    <p className='grow mb-8 text-center'>
       {description}
     </p>
     <a target='_blank' rel='noreferrer noopener' href={buttonLink}>

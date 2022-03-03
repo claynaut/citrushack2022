@@ -113,7 +113,7 @@ export const Radio = ({
 }: RadioProps ) => (
   <div>
     <legend className='font-semibold'>{label}</legend>
-    <div className={(direction === 'row') ? 'flex gap-6 pl-2 ' : 'flex flex-col gap-3 pl-2'}>
+    <div className={(direction === 'row') ? 'flex flex-col sm:flex-row gap-3 sm:gap-6 pl-2 ' : 'flex flex-col gap-3 pl-2'}>
       {
         options.map((option: string) =>
           <div id={label} className='flex items-center gap-2'>

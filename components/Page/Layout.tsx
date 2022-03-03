@@ -4,7 +4,7 @@ interface Props {
 
 export function Layout({ children }: Props) {
   return (
-    <main className='flex flex-col justify-center items-center px-4 w-full min-h-screen'>
+    <main className='flex flex-col justify-center items-center w-full min-h-screen'>
       {children}
     </main>
   )

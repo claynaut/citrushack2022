@@ -56,7 +56,7 @@ export function ProtectedPage({ title, restrictions, children }: Props) {
       <Head>
         <title>Citrus Hack 2022 { title && ('| ' + title) }</title>
       </Head>
-      <section className='flex flex-col w-full justify-center items-center'>
+      <section className='flex flex-col w-full px-4 justify-center items-center'>
         {
           status === 'authenticated' && (restrictions.includes('signin')
           || (restrictions.includes('admin') && session.user.admin)

@@ -13,14 +13,14 @@ export function FaqAccordion({ question, answer }: Props) {
   return (
     <div className='flex flex-col w-full border-b-2'>
       <div 
-        className='group flex py-3 items-center cursor-pointer'
+        className='flex py-3 items-center hover:text-accent-primary cursor-pointer'
         onClick={() => setOpen(!open)}
       >
         <h4 className='grow font-medium'>{question}</h4>
         <div>
           <BiX 
             className={
-              'group-hover:text-accent-primary text-4xl transform-gpu transition-transform duration-150 '
+              'text-4xl transform-gpu transition-transform duration-150 '
               + (open ? 'rotate-0' : 'rotate-45')
             }
           />

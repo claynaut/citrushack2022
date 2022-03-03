@@ -14,8 +14,8 @@ export const TeamProfile = ({ link, image, name, role }: ProfileProps) => (
       <a target='_blank' rel='noreferrer noopener' href={link}>
         <Image
           src={image}
-          width={100}
-          height={100}
+          width={120}
+          height={120}
           objectFit='contain'
         />
       </a>
@@ -89,7 +89,7 @@ const staff = [
 ]
 
 export const TeamGrid = () => (
-  <div className='flex flex-wrap justify-center gap-6 md:gap-y-12'>
+  <div className='flex flex-wrap justify-center gap-6 md:gap-12 md:gap-y-12'>
     { staff.map(({ link, image, name, role }) =>
       <TeamProfile
         key={link}

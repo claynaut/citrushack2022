@@ -128,7 +128,7 @@ export const SponsorsGrid = () => (
       .filter(({ sponsors }) => sponsors.length > 0) // only map tiers with sponsors
       .map(({ type, sponsors }) =>
       <>
-        <div className='relative flex flex-wrap justify-center w-full gap-6 p-10 bg-gray-100 rounded-md shadow'>
+        <div className='relative flex flex-wrap justify-center w-full gap-6 p-10 rounded-md shadow-lg'>
           <h4 className='absolute top-0 left-[1.75rem] font-semibold uppercase rotate-90 origin-left'>
             {type}
           </h4>

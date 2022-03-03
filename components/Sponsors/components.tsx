@@ -127,23 +127,25 @@ export const SponsorsGrid = () => (
     { tiers
       .filter(({ sponsors }) => sponsors.length > 0) // only map tiers with sponsors
       .map(({ type, sponsors }) =>
-      <>
-        <div className='relative flex flex-wrap justify-center w-full gap-6 p-10 rounded-md shadow-lg'>
-          <h4 className='absolute top-0 left-[1.75rem] font-semibold uppercase rotate-90 origin-left'>
-            {type}
-          </h4>
-          { sponsors.map(({ image, width, height, link, shrink }) =>
-            <Sponsor
-              type={type}
-              image={image}
-              width={width}
-              height={height}
-              link={link}
-              shrink={shrink}
-            />
-          )}
-        </div>
-      </>
+      <div
+        key={type}
+        className='relative flex flex-wrap justify-center w-full gap-6 p-10 rounded-md shadow-lg'
+      >
+        <h4 className='absolute top-0 left-[1.75rem] font-semibold uppercase rotate-90 origin-left'>
+          {type}
+        </h4>
+        { sponsors.map(({ image, width, height, link, shrink }) =>
+          <Sponsor
+            key={link}
+            type={type}
+            image={image}
+            width={width}
+            height={height}
+            link={link}
+            shrink={shrink}
+          />
+        )}
+      </div>
     )}
   </div>
 )

@@ -3,8 +3,11 @@ import { SponsorsGrid } from '@/components/Sponsors'
 
 export default function Sponsors() {
   return (
-    <section className='flex flex-col w-full h-full min-h-[60rem] max-w-[60rem] justify-center items-center'>
-      <h1 className='mb-12'>Sponsors</h1>
+    <section className='flex flex-col w-full h-full min-h-[60rem] max-w-[60rem] mb-20 justify-center items-center'>
+      <h1 className='text-center'>Our Sponsors</h1>
+      <p className='mb-12 text-center'>
+        Thank you to all of those who made this hackathon possible.
+      </p>
       <a target='_blank' rel='noreferrer noopener' href='/citrushack-2022-sponsorship-packet.pdf' className='mb-16'>
         <motion.button
           whileHover={{ scale: 1.05 }}

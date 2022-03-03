@@ -11,7 +11,7 @@ export const SupportCard = ({ title, description, buttonLabel, buttonLink }: Pro
     whileHover={{ y: -8 }}
     className='flex flex-col items-center w-full md:max-w-md p-10 shadow-lg rounded-md cursor-default'
   >
-    <h3>{title}</h3>
+    <h3 className='font-bold'>{title}</h3>
     <p className='grow mb-8 text-center'>
       {description}
     </p>

@@ -1,3 +1,25 @@
+interface StatProps {
+  stat: string,
+  label: string,
+  idx: number
+}
+
+const Stat = ({ stat, label, idx }: StatProps) => (
+  <div 
+    className={
+      'flex flex-col items-center py-10 lg:py-0 lg:px-12 '
+      + (idx <= 1 ? 'border-b-2 lg:border-b-0 lg:border-r-2' : '')
+    }
+  >
+    <h1 className='text-7xl md:text-8xl font-bold'>
+      {stat}
+    </h1>
+    <p className='m-0 leading-3 text-2xl md:text-4xl font-medium'>
+      {label}
+    </p>
+  </div>
+)
+
 export default function About() {
   const stats = [
     { 
@@ -22,19 +44,12 @@ export default function About() {
       </p>
       <div className='flex flex-col lg:flex-row'>
         { stats.map(({ stat, label }, idx) =>
-          <div 
-            className={
-              'flex flex-col items-center py-10 lg:py-0 lg:px-12 '
-              + (idx <= 1 ? 'border-b-2 lg:border-b-0 lg:border-r-2' : '')
-            }
-          >
-            <h1 className='text-7xl md:text-8xl'>
-              {stat}
-            </h1>
-            <p className='m-0 leading-3 text-2xl md:text-4xl font-medium'>
-              {label}
-            </p>
-          </div>
+          <Stat
+            key={stat+label}
+            stat={stat}
+            label={label}
+            idx={idx}
+          />
         )}
       </div>
     </section>

@@ -27,6 +27,12 @@ module.exports = {
       transitionProperty: {
         'size': 'width, max-width, height, max-height, margin, padding',
       },
+      keyframes: {
+        blink: {
+          '0%, 100%': { opacity: 0 },
+          '50%': { opacity: 1 },
+        }
+      }
     },
   },
   variants: {},

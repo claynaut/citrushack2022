@@ -17,6 +17,7 @@ export const Block = ({ image, title, animation }: Props) => (
         repeat: Infinity,
         duration: 10
       }}
+      className='transform-gpu'
     >
       <Image
         src={image}

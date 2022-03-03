@@ -16,7 +16,7 @@ export function UserBox({
     >
       <div
         className={
-          'border-2 rounded-md bg-white shadow-md cursor-pointer transition-size duration-150 overflow-hidden '
+          'border-2 rounded-md bg-white shadow-md cursor-pointer transform-gpu transition-size duration-150 overflow-hidden '
           + (selectedUsers.includes(user) ? 'border-gray-500 ' : ' ')
           + (expandedUsers.includes(user) ? (user.uid ? 'h-56 ' : 'h-[6.5rem] ') : 'h-11 ')
           + (pending && (user.criteriaMet ? 'bg-green-100 border-green-300' : 'bg-red-100 border-red-300'))

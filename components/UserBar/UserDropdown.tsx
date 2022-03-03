@@ -63,7 +63,7 @@ export function UserDropdown() {
         </motion.button>
         <div
           className={
-            'absolute top-14 right-0 w-64 p-4 rounded bg-white shadow-md transition-all duration-150 '
+            'absolute top-14 right-0 w-64 p-4 rounded bg-white shadow-md transform-gpu transition-all duration-150 '
             + ( open ? 'z-[100] visible opacity-100' : 'z-0 invisible opacity-0' )
           }
         >
@@ -160,7 +160,7 @@ export function UserDropdown() {
       </div>
       <div
         className={
-          'fixed top-0 left-0 w-full h-full transition-all duration-150 '
+          'fixed top-0 left-0 w-full h-full transform-gpu transition-all duration-150 '
           + ( open ? 'z-[90] visible opacity-100' : 'z-0 invisible opacity-0' )
         }
         onClick={() => setOpen(false)}

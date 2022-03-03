@@ -24,7 +24,7 @@ export function FileBox({ doc, selectedDocs, setSelectedDocs }) {
     >
       <div
         className={
-          'border-2 rounded-md bg-white shadow-md cursor-pointer transition-size duration-150 overflow-hidden '
+          'border-2 rounded-md bg-white shadow-md cursor-pointer transform-gpu transition-size duration-150 overflow-hidden '
           + (selectedDocs.includes(doc) ? 'border-gray-500 ' : ' ')
         }
       >

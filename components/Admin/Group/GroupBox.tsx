@@ -38,7 +38,7 @@ export function GroupBox({ group, expandedGroups, setExpandedGroups }) {
       >
         <div
           className={
-            'border-2 rounded-md bg-white shadow-md cursor-pointer transition-size duration-150 overflow-hidden '
+            'border-2 rounded-md bg-white shadow-md cursor-pointer transform-gpu transition-size duration-150 overflow-hidden '
             + (!expandedGroups.includes(group) ? 'h-11 ' : ' ')
             + ((expandedGroups.includes(group) && group.users.length === 1) ? 'h-[7.625rem] ' : ' ')
             + ((expandedGroups.includes(group) && group.users.length === 2) ? 'h-40 ' : ' ')

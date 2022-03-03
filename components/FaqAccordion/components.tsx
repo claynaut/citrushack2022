@@ -20,7 +20,7 @@ export function FaqAccordion({ question, answer }: Props) {
         <div>
           <BiX 
             className={
-              'group-hover:text-accent-primary text-4xl transition-transform duration-150 '
+              'group-hover:text-accent-primary text-4xl transform-gpu transition-transform duration-150 '
               + (open ? 'rotate-0' : 'rotate-45')
             }
           />

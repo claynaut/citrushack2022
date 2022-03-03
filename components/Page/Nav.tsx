@@ -106,7 +106,7 @@ export function Nav() {
       <div className='z-[100] fixed top-3 -left-1 xl:hidden px-4'>
         <div
           className={
-            'flex flex-col gap-1.5 rounded-md bg-gray-200 shadow overflow-hidden transition-size duration-200 '
+            'flex flex-col gap-1.5 rounded-md bg-gray-200 shadow overflow-hidden transform-gpu transition-size duration-200 '
             + (navOpen ? 'p-2 ' : 'w-11 h-11 ')
             + (navOpen && (router.pathname === '/' ? 'w-48 h-[29rem] md:h-[25.75rem]' : 'w-48 h-[10.25rem] md:h-[7rem]'))
           }
@@ -156,7 +156,7 @@ export function Nav() {
       </div>
       <div
         className={
-          'fixed top-0 left-0 w-full h-full bg-transparent transition-all duration-150 '
+          'fixed top-0 left-0 w-full h-full bg-transparent transform-gpu transition-all duration-150 '
           + ( navOpen ? 'z-[90] visible' : 'z-0 invisible' )
         }
         onClick={() => setNavOpen(false)}

@@ -26,7 +26,7 @@ export default function Modal({ show, handler, title, description, children }: P
       <div
         id='modal'
         className={
-          'fixed top-1/2 left-1/2 w-11/12 sm:w-[32rem] p-4 rounded bg-white transform -translate-x-1/2 -translate-y-1/2 transition-opacity duration-150 '
+          'fixed top-1/2 left-1/2 w-11/12 sm:w-[32rem] p-4 rounded bg-white transform -translate-x-1/2 -translate-y-1/2 transform-gpu transition-opacity duration-150 '
           + ( show ? 'z-[110] visible opacity-100' : 'z-0 invisible opacity-0' )
         }
       >
@@ -48,7 +48,7 @@ export default function Modal({ show, handler, title, description, children }: P
       </div>
       <div
         className={
-          'fixed top-0 left-0 w-full h-full bg-overlay transition-opacity duration-150 '
+          'fixed top-0 left-0 w-full h-full bg-overlay transform-gpu transition-opacity duration-150 '
           + ( show ? 'z-[100] visible opacity-100' : 'z-0 invisible opacity-0' )
         }
         onClick={() => handler(false)}

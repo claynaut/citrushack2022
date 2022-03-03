@@ -31,17 +31,19 @@ export default function Modal({ show, handler, title, description, children }: P
         }
       >
         <div className='flex flex-col gap-4 items-center w-full mb-8'>
-          <BiX
-            className='self-end text-3xl hover:text-red-500 cursor-pointer'
-            onClick={() => handler(false)}
-          />
-          <h3 className='text-center w-full max-w-md font-semibold'>
+          <div className='self-end'>
+            <BiX
+              className='text-3xl hover:text-red-500 cursor-pointer'
+              onClick={() => handler(false)}
+            />
+          </div>
+          <h3 className='text-center w-full max-w-sm md:max-w-md font-semibold'>
             {title}
           </h3>
-          <p className='text-center w-full max-w-md'>
+          <p className='text-center w-full max-w-sm md:max-w-md'>
             {description}
           </p>
-          <div className='w-full max-w-md'>
+          <div className='w-full max-w-sm md:max-w-md'>
             {children}
           </div>
         </div>

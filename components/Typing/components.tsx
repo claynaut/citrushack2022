@@ -43,7 +43,7 @@ export function Typing({ base, phrases, delay, cursor }: Props) {
         <span 
           className={
             (pauseLength !== delay && pauseLength !== 0) ?
-            'animate-[blink_1s_ease-in-out_infinite]' : ''
+            'animate-[blink_1s_ease-in-out_infinite] transform-gpu' : ''
           }
         >
           |

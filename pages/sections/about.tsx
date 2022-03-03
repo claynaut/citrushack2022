@@ -39,8 +39,17 @@ export default function About() {
   return (
     <section className='flex flex-col w-full h-full mb-20 md:min-h-[60rem] max-w-[60rem] justify-center items-center'>
       <h1>About Us</h1>
+      <p className='text-center'>
+        Citrus Hack is one of SoCal's largest 24-hour hackathons, hosted by UC Riverside. At
+        Citrus Hack, hundreds of students from all over the world come together and collaborate 
+        in teams, challenging their creativity as they aim to build a project from scratch in 
+        just 24 hours.
+      </p>
       <p className='text-center lg:mb-20'>
-        Citrus Hack is where hundreds of students from all over the world come together and form teams, aiming to build a project from scratch in just 24 hours.
+        This year, Citrus Hack 2022 will be a hybrid event to accomodate those who prefer to
+        participate from the comfort of their own home. We are working hard to ensure that all
+        participants have an exciting and streamlined experience whether they attend online or
+        in-person.
       </p>
       <div className='flex flex-col lg:flex-row'>
         { stats.map(({ stat, label }, idx) =>

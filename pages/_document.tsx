@@ -19,6 +19,20 @@ export default class MyDocument extends Document {
           <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
           <link rel='manifest' href='/site.webmanifest' />
           <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#5bbad5' />
+          <link rel='preload' as='image' href='/assets/logo.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/gcap.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/wolfram.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/fedex.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/sketch.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/triad.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/acm-ucr.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/ieee.svg' />
+          <link rel='preload' as='image' href='/assets/tracks/diversity-light.svg' />
+          <link rel='preload' as='image' href='/assets/tracks/diversity-dark.svg' />
+          <link rel='preload' as='image' href='/assets/tracks/sustainability-light.svg' />
+          <link rel='preload' as='image' href='/assets/tracks/sustainability-dark.svg' />
+          <link rel='preload' as='image' href='/assets/tracks/health-light.svg' />
+          <link rel='preload' as='image' href='/assets/tracks/health-dark.svg' />
         </Head>
         <body>
           <Main />

@@ -129,9 +129,9 @@ export const SponsorsGrid = () => (
       .map(({ type, sponsors }) =>
       <div
         key={type}
-        className='relative flex flex-wrap justify-center w-full gap-6 gap-y-12 sm:gap-y-6 p-10 rounded-md shadow-lg'
+        className='relative flex flex-wrap justify-center w-full gap-6 gap-y-12 sm:gap-y-6 p-10 rounded-md'
       >
-        <h4 className='absolute top-0 left-[1.75rem] font-semibold uppercase rotate-90 origin-left'>
+        <h4 className='absolute top-0 left-2 font-semibold uppercase rotate-90 origin-left'>
           {type}
         </h4>
         { sponsors.map(({ image, width, height, link, shrink }) =>

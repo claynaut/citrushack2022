@@ -6,13 +6,13 @@ export default function Support() {
       title: 'Mentors', 
       description: 'Mentors are in charge of helping the hackers with new technologies and working through any bugs or obstacles they encounter. We recommend this position if you are well versed in a particular stack to offer the best guidance.', 
       buttonLabel: 'Apply', 
-      buttonLink: '/'
+      buttonLink: 'https://forms.gle/DDdaTdDrxVierqwi9'
     },
     {
       title: 'Volunteers', 
       description: 'Volunteers help out with the majority of day-of event tasks including, but not limited to, matching hackers to mentors, helping hackers find teams, hosting activities, and answering general questions.', 
       buttonLabel: 'Apply', 
-      buttonLink: '/'
+      buttonLink: 'https://forms.gle/vwRa9wkwBdnBXFuFA'
     },
     {
       title: 'Sponsors', 

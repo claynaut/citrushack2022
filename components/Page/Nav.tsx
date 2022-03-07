@@ -61,7 +61,7 @@ export function Nav() {
       {/* desktop navbar */}
       <motion.div
         whileHover={{ width: 200 }}
-        className='z-[100] fixed top-1/2 left-3 transform -translate-y-1/2 hidden xl:flex flex-col gap-2.5 w-14 p-2 rounded-md bg-gray-200 shadow'
+        className='z-[100] fixed top-1/2 left-3 transform -translate-y-1/2 hidden xl:flex flex-col gap-2.5 w-14 p-2 rounded-md bg-secondary shadow'
       >
         <div className='self-center p-2 text-2xl'>
           <BiMenu />
@@ -73,7 +73,7 @@ export function Nav() {
             whileTap={{ scale: 0.995 }}
           >
             <NavLink 
-              activeClass='bg-accent-primary text-white'
+              activeClass='bg-accent-primary dark:bg-accent-primary-dark text-white'
               to={title}
               spy={true}
               smooth={true}
@@ -106,7 +106,7 @@ export function Nav() {
       <div className='z-[100] fixed top-3 -left-1 xl:hidden px-4'>
         <div
           className={
-            'flex flex-col gap-1.5 rounded-md bg-gray-200 shadow overflow-hidden transform-gpu transition-size duration-200 '
+            'flex flex-col gap-1.5 rounded-md bg-secondary shadow overflow-hidden transform-gpu transition-size duration-200 '
             + (navOpen ? 'p-2 ' : 'w-11 h-11 ')
             + (navOpen && (router.pathname === '/' ? 'w-48 h-[29rem] md:h-[25.75rem]' : 'w-48 h-[10.25rem] md:h-[7rem]'))
           }

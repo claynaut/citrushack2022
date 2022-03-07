@@ -24,25 +24,25 @@ export default function Home() {
 
   return (
     <Page>
-      <Element name='Home' className='flex justify-center px-4 w-full'>
+      <Element name='Home' className='flex justify-center px-4 w-full bg-primary'>
         <Landing />
       </Element>
-      <Element name='About' className='flex justify-center px-4 w-full'>
+      <Element name='About' className='flex justify-center px-4 w-full bg-secondary'>
         <About />
       </Element>
-      <Element name='Tracks' className='flex justify-center px-4 w-full'>
+      <Element name='Tracks' className='flex justify-center px-4 w-full bg-primary'>
         <Tracks />
       </Element>
-      <Element name='Support' className='flex justify-center px-4 w-full'>
+      <Element name='Support' className='flex justify-center px-4 w-full bg-accent'>
         <Support />
       </Element>
-      <Element name='Sponsors' className='flex justify-center px-4 w-full'>
+      <Element name='Sponsors' className='flex justify-center px-4 w-full bg-accent-secondary'>
         <Sponsors />
       </Element>
-      <Element name='Staff' className='flex justify-center px-4 w-full'>
+      <Element name='Staff' className='flex justify-center px-4 w-full bg-primary'>
         <Staff />
       </Element>
-      <Element name='FAQ' className='flex justify-center px-4 w-full'>
+      <Element name='FAQ' className='flex justify-center px-4 w-full bg-secondary'>
         <Faq />
       </Element>
       <Modal

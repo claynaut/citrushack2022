@@ -33,7 +33,7 @@ export function Footer() {
     },
   ]
   return (
-    <footer className='flex justify-center w-full py-12 bg-gray-200'>
+    <footer className='flex justify-center w-full py-12 bg-primary'>
       <div className='flex flex-col gap-4 items-center w-full mx-4 text-md font-semibold'>
         <div className='flex gap-2.5 text-2xl'>
           { socials.map(({ icon, link }) =>
@@ -48,7 +48,7 @@ export function Footer() {
           )}
         </div>
         <p className='text-center'>
-          Made with 🧡 by the Citrus Hack Team.
+          Made with 🤍 by the Citrus Hack Team.
         </p>
         <a target='_blank' rel='noreferrer noopener' href='https://vercel.com/?utm_source=citrushack&utm_campaign=oss'>
           <Image

@@ -5,15 +5,30 @@
 @layer base {
   :root {
     /* default light theme */
-
+    --primary: #8CDCFF;
+    --secondary: #F3FBFF;
+    --accent: #FFF5EB;
+    --accent-secondary: #FFE4C8; /* same color for card buttons */
+    --card: #FFF;
+    --text: #453535;
   }
 
   [data-theme='light'] {
-
+    --primary: #8CDCFF;
+    --secondary: #F3FBFF;
+    --accent: #FFF5EB;
+    --accent-secondary: #FFE4C8;
+    --card: #FFF;
+    --text: #453535;
   }
 
   [data-theme='dark'] {
-
+    --primary: #0B3749;
+    --secondary: #152A38;
+    --accent: #145361;
+    --accent-secondary: #184659;
+    --card: #193243;
+    --text: #F2F3F4;
   }
 
   h1 {
@@ -52,5 +67,9 @@
   li {
     @apply text-base;
     @apply md:text-lg;
+  }
+
+  button {
+    @apply bg-accent-secondary;
   }
 }

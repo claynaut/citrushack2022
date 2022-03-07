@@ -110,7 +110,7 @@ export function UserDropdown() {
                   <motion.button
                     whileHover={{ scale: 1.03}} 
                     whileTap={{ scale: 0.995 }}
-                    className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500'
+                    className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500 bg-transparent'
                     onClick={() => setOpen(!open)}
                   >
                     <div className='p-1.5 group-hover:bg-accent-primary rounded-md bg-gray-300 text-2xl text-white'>
@@ -129,7 +129,7 @@ export function UserDropdown() {
                   <motion.button
                     whileHover={{ scale: 1.03}} 
                     whileTap={{ scale: 0.995 }}
-                    className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500'
+                    className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500 bg-transparent'
                     onClick={() => setOpen(!open)}
                   >
                     <div className='p-1.5 group-hover:bg-accent-primary rounded-md bg-gray-300 text-2xl text-white'>
@@ -145,7 +145,7 @@ export function UserDropdown() {
             <motion.button
               whileHover={{ scale: 1.03}} 
               whileTap={{ scale: 0.995 }}
-              className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500'
+              className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500 bg-transparent'
               onClick={() => signOut()}
             >
               <div className='p-1.5 group-hover:bg-accent-primary rounded-md bg-gray-300 text-2xl text-white'>

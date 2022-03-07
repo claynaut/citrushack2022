@@ -17,12 +17,17 @@ module.exports = {
     },
     extend: {
       colors: {
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
         accent: {
+          DEFAULT: 'var(--accent)',
+          secondary: 'var(--accent-secondary)',
           primary: '#fa9932',
           'primary-dark': '#e37c22',
         },
+        card: 'var(--card)',
+        text: 'var(--text)',
         overlay: '#00000032',
-        'white-50': '#ffffff32',
       },
       transitionProperty: {
         'size': 'width, max-width, height, max-height, margin, padding',

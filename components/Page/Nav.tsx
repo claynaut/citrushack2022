@@ -61,7 +61,7 @@ export function Nav() {
       {/* desktop navbar */}
       <motion.div
         whileHover={{ width: 200 }}
-        className='z-[100] fixed top-1/2 left-3 transform -translate-y-1/2 hidden 2xl:flex flex-col gap-2.5 w-14 p-2 rounded-md bg-secondary shadow'
+        className='z-[100] fixed top-1/2 left-3 transform -translate-y-1/2 hidden xl:flex flex-col gap-2.5 w-14 p-2 rounded-md bg-secondary shadow'
       >
         <div className='self-center p-2 text-2xl'>
           <BiMenu />
@@ -103,7 +103,7 @@ export function Nav() {
         }
       </motion.div>
       {/* mobile navbar */}
-      <div className='z-[100] fixed top-3 -left-1 2xl:hidden px-4'>
+      <div className='z-[100] fixed top-3 -left-1 xl:hidden px-4'>
         <div
           className={
             'flex flex-col gap-1.5 rounded-md bg-secondary shadow overflow-hidden transform-gpu transition-size duration-200 '

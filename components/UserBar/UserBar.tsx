@@ -38,7 +38,7 @@ export function UserBar() {
 
   return (
     <>
-      <div className='z-[100] fixed top-3 right-3 flex gap-3'>
+      <div className='z-[100] fixed top-3 right-[5.25rem] md:right-32 flex gap-3'>
         { status === 'authenticated' && !session.user.uid && router.pathname !== '/apply' &&
           <Link passHref href='/apply'>
             <motion.button

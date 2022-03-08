@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -40,7 +41,7 @@ export const Sponsor = ({ type, image, width, height, link, shrink }: SponsorPro
           width={width}
           height={height}
           quality={50}
-          // priority={Boolean(true)}
+          priority={Boolean(true)}
           layout='responsive'
           objectFit='contain'
         />
@@ -161,7 +162,12 @@ const tiers = [
 ]
 
 export function SponsorsGrid() {
+  const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()
+  
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
 
   return (
     <div className='grid grid-cols-2 flex flex-col gap-6'>

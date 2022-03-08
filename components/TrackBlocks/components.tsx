@@ -1,10 +1,11 @@
-import { useTheme } from 'next-themes';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import React, { useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 interface Props {
-  image: string;
-  title: string;
+  image: string,
+  title: string,
 }
 
 const tracksAnim = {
@@ -16,7 +17,7 @@ const tracksAnim = {
     },
   },
   hidden: { opacity: 0 },
-};
+}
 
 const trackAnim = {
   visible: {
@@ -26,17 +27,24 @@ const trackAnim = {
       repeat: Infinity,
     },
   },
-};
+}
 
 export function Block({ image, title }: Props) {
   return (
     <div className='relative flex flex-col items-center'>
       <motion.div variants={trackAnim} className='transform-gpu'>
-        <Image src={image} width={380} height={380} objectFit='contain' />
+        <Image
+          src={image}
+          width={380}
+          height={380} 
+          quality={50}
+          priority={Boolean(true)}
+          objectFit='contain' 
+        />
       </motion.div>
       <h4 className='absolute bottom-8 md:bottom-4 font-normal'>{title}</h4>
     </div>
-  );
+  )
 }
 
 const tracks = [
@@ -58,7 +66,12 @@ const tracks = [
 ];
 
 export function TrackBlocks() {
-  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false)
+  const { theme } = useTheme()
+  
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
 
   return (
     <motion.div
@@ -75,5 +88,5 @@ export function TrackBlocks() {
         />
       ))}
     </motion.div>
-  );
+  )
 }

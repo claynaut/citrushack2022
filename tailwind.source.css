@@ -14,6 +14,8 @@
     --highlight: #9DC300;
     --highlight-dark: #88A900;
     --overlay: #00000059;
+    --sub: #B9CCDC;
+    --sub-dark: #A1B3C4;
   }
 
   [data-theme='light'] {
@@ -26,6 +28,8 @@
     --highlight: #9DC300;
     --highlight-dark: #88A900;
     --overlay: #00000059;
+    --sub: #B9CCDC;
+    --sub-dark: #A1B3C4;
   }
 
   [data-theme='dark'] {
@@ -38,6 +42,8 @@
     --highlight: #FB9A36;
     --highlight-dark: #E37C22;
     --overlay: #00000080;
+    --sub: #375264;
+    --sub-dark: #2B475C;
   }
 
   h1 {

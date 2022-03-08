@@ -23,7 +23,7 @@ export const Input = ({
   <div>
     <label className='font-semibold'>
       {label}
-      {!required && <span className='text-gray-400'> (optional)</span>}
+      {!required && <span className='text-sub'> (optional)</span>}
     </label>
     {
       type === 'file' &&
@@ -36,10 +36,10 @@ export const Input = ({
       defaultValue={defaultValue}
       {...register(variable, {required})}
       className={
-        'w-full rounded focus:border-accent-primary focus:outline-none focus:ring-accent-primary file:px-4 file:py-1.5 file:rounded-full file:border-0 file:bg-gray-200 file:text-sm file:font-semibold file:cursor-pointer hover:file:bg-gray-300 '
+        'w-full border-sub rounded focus:border-highlight focus:outline-none focus:ring-highlight file:px-4 file:py-1.5 file:rounded-full file:border-0 file:bg-sub file:text-sm file:font-semibold file:cursor-pointer hover:file:bg-sub-dark '
         + (type === 'date' ? 'py-1.5 ' : 'py-1 ')
-        + (type === 'file' ? '' : 'px-2 border-2 ' )
-        + (errors[variable] ? 'border-red-500' : 'border-gray-300')
+        + (type === 'file' ? '' : 'bg-card px-2 border-2 ' )
+        + (errors[variable] ? 'border-red-500' : 'border-sub')
       }
     />
   </div>
@@ -69,8 +69,8 @@ export const Select = ({
     <select
       {...register(variable, {required})}
       className={
-        'w-full px-2 py-1.5 rounded border-2 focus:border-accent-primary focus:outline-none focus:ring-accent-primary overflow-ellipsis '
-        + (errors[variable] ? 'border-red-500' : 'border-gray-300')
+        'w-full px-2 py-1.5 rounded border-2 focus:border-highlight focus:outline-none focus:ring-highlight bg-card overflow-ellipsis '
+        + (errors[variable] ? 'border-red-500' : 'border-sub')
       }
     >
       <option 
@@ -123,7 +123,7 @@ export const Radio = ({
               value={option}
               {...register(variable, {required})}
               className={
-                'cursor-pointer ' + (errors[variable] && 'border-red-500')
+                'focus:checked:bg-highlight hover:checked:bg-highlight checked:ring-highlight checked:bg-highlight cursor-pointer ' + (errors[variable] && 'border-red-500')
               }
             />
             <label

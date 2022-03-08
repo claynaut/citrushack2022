@@ -65,8 +65,8 @@ export function SigninForm({ csrfToken = '' }) {
         </motion.button>
       </form>
       <div className='flex flex-col gap-6 pt-6 justify-center w-full'>
-        <div className='text-center border-b-2 border-gray-300 leading-[0.1rem]'>
-          <span className='px-4 bg-secondary text-gray-400'>or</span>
+        <div className='text-center border-b-2 border-sub leading-[0.1rem]'>
+          <span className='px-4 bg-secondary text-sub'>or</span>
         </div>
         <motion.button
           whileHover={{ scale: 1.05 }}

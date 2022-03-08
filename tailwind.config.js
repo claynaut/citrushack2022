@@ -22,8 +22,6 @@ module.exports = {
         accent: {
           DEFAULT: 'var(--accent)',
           secondary: 'var(--accent-secondary)',
-          primary: '#fa9932',
-          'primary-dark': '#e37c22',
         },
         highlight: {
           DEFAULT: 'var(--highlight)',
@@ -32,6 +30,10 @@ module.exports = {
         card: 'var(--card)',
         text: 'var(--text)',
         overlay: 'var(--overlay)',
+        sub: {
+          DEFAULT: 'var(--sub)',
+          dark: 'var(--sub-dark)',
+        }
       },
       transitionProperty: {
         'size': 'width, max-width, height, max-height, margin, padding',

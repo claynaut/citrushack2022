@@ -1,22 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { useTheme } from 'next-themes'
-import {
-  BiSun,
-  BiMoon,
-  BiUser
-} from 'react-icons/bi'
 import { useRouter } from 'next/router'
-import { useSession, signIn } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import { ThemeButton } from './ThemeButton'
 import { UserDropdown } from './UserDropdown'
 import Modal from '@/components/Modal'
 import { SigninForm } from '@/components/Form'
 
 export function UserBar() {
-  const { theme, setTheme } = useTheme()
-  const selectedTheme = useRef('light')
   const router = useRouter()
   const { data: session, status } = useSession()
   const [signinModalOpen, setSigninModalOpen] = useState(false)
@@ -25,26 +17,15 @@ export function UserBar() {
     setSigninModalOpen(!signinModalOpen)
   }
 
-  const toggleDarkMode = () => {
-    var selected = theme === 'light' ? 'dark' : 'light'
-    setTheme(selected)
-    localStorage.setItem('theme', selected)
-    selectedTheme.current = selected
-  }
-
-  useEffect(() =>{
-    selectedTheme.current = localStorage.getItem('theme')
-  }, [theme, selectedTheme])
-
   return (
     <>
-      <div className='z-[100] fixed top-3 right-[5.25rem] md:right-32 flex gap-3'>
+      <div className='z-[1000] fixed top-3 right-3 flex gap-3'>
         { status === 'authenticated' && !session.user.uid && router.pathname !== '/apply' &&
           <Link passHref href='/apply'>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.995 }}
-              className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-highlight shadow cursor-pointer'
+              className='flex justify-center items-center self-center w-24 h-11 px-4 font-semibold text-lg rounded-md bg-highlight shadow cursor-pointer'
             >
               Apply
             </motion.button>
@@ -56,7 +37,7 @@ export function UserBar() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.995 }}
-              className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-highlight shadow cursor-pointer'
+              className='flex justify-center items-center self-center w-24 h-11 px-4 font-semibold text-lg rounded-md bg-highlight shadow cursor-pointer'
               onClick={() => toggleSigninModal()}
             >
               Sign In

@@ -52,7 +52,7 @@ export function UserDropdown() {
         <motion.button
           whileHover={{ scale: 1.05}} 
           whileTap={{ scale: 0.995 }}
-          className='z-[100] flex justify-center items-center w-11 h-11 rounded-md bg-highlight hover:bg-highlight-dark'
+          className='z-[1000] flex justify-center items-center w-11 h-11 rounded-md bg-highlight hover:bg-highlight-dark'
           onClick={() => setOpen(!open)}
         >
           {
@@ -64,7 +64,7 @@ export function UserDropdown() {
         <div
           className={
             'absolute top-14 right-0 w-56 xs:w-64 p-4 rounded bg-secondary shadow-md transform-gpu transition-all duration-150 '
-            + ( open ? 'z-[100] visible opacity-100' : 'z-0 invisible opacity-0' )
+            + ( open ? 'z-[1000] visible opacity-100' : 'z-0 invisible opacity-0' )
           }
         >
           <div className='flex flex-col gap-3 items-center w-full text-lg'>
@@ -161,7 +161,7 @@ export function UserDropdown() {
       <div
         className={
           'fixed top-0 left-0 w-full h-full transform-gpu transition-all duration-150 '
-          + ( open ? 'z-[90] visible opacity-100' : 'z-0 invisible opacity-0' )
+          + ( open ? 'z-[900] visible opacity-100' : 'z-0 invisible opacity-0' )
         }
         onClick={() => setOpen(false)}
       />

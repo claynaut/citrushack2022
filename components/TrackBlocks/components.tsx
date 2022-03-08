@@ -80,7 +80,7 @@ export function TrackBlocks() {
       variants={tracksAnim}
       className='flex flex-wrap justify-center gap-y-6'
     >
-      {tracks.map(({ image, imageDark, title }, idx) => (
+      {tracks.map(({ image, imageDark, title }) => (
         <Block
           key={image}
           image={theme === 'light' ? image : imageDark}

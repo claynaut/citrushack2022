@@ -13,6 +13,7 @@
     --text: #453535;
     --highlight: #9DC300;
     --highlight-dark: #88A900;
+    --overlay: #00000059;
   }
 
   [data-theme='light'] {
@@ -24,6 +25,7 @@
     --text: #453535;
     --highlight: #9DC300;
     --highlight-dark: #88A900;
+    --overlay: #00000059;
   }
 
   [data-theme='dark'] {
@@ -35,6 +37,7 @@
     --text: #F2F3F4;
     --highlight: #FB9A36;
     --highlight-dark: #E37C22;
+    --overlay: #00000080;
   }
 
   h1 {

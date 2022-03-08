@@ -31,7 +31,7 @@ module.exports = {
         },
         card: 'var(--card)',
         text: 'var(--text)',
-        overlay: '#00000032',
+        overlay: 'var(--overlay)',
       },
       transitionProperty: {
         'size': 'width, max-width, height, max-height, margin, padding',

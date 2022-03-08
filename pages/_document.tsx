@@ -20,13 +20,20 @@ export default class MyDocument extends Document {
           <link rel='manifest' href='/site.webmanifest' />
           <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#5bbad5' />
           <link rel='preload' as='image' href='/assets/logo.svg' />
-          <link rel='preload' as='image' href='/assets/sponsors/gcap.svg' />
-          <link rel='preload' as='image' href='/assets/sponsors/wolfram.svg' />
-          <link rel='preload' as='image' href='/assets/sponsors/fedex.svg' />
-          <link rel='preload' as='image' href='/assets/sponsors/sketch.svg' />
-          <link rel='preload' as='image' href='/assets/sponsors/triad.svg' />
-          <link rel='preload' as='image' href='/assets/sponsors/acm-ucr.svg' />
-          <link rel='preload' as='image' href='/assets/sponsors/ieee.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/gcap-light.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/gcap-dark.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/wolfram-light.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/wolfram-dark.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/fedex-light.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/fedex-dark.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/sketch-light.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/sketch-dark.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/triad-light.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/triad-dark.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/acm-light.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/acm-dark.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/ieee-light.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/ieee-dark.svg' />
           <link rel='preload' as='image' href='/assets/tracks/diversity-light.svg' />
           <link rel='preload' as='image' href='/assets/tracks/diversity-dark.svg' />
           <link rel='preload' as='image' href='/assets/tracks/sustainability-light.svg' />

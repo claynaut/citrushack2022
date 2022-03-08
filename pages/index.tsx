@@ -12,6 +12,7 @@ import Support from '@/pages/sections/support'
 import Sponsors from '@/pages/sections/sponsors'
 import Staff from '@/pages/sections/staff'
 import Faq from '@/pages/sections/faq'
+import { Wave } from '@/components/Wave'
 
 export default function Home() {
   const { data: session, status } = useSession()
@@ -27,21 +28,27 @@ export default function Home() {
       <Element name='Home' className='flex justify-center px-4 w-full bg-primary'>
         <Landing />
       </Element>
+      <Wave bgColor='primary' fillColor='secondary'/>
       <Element name='About' className='flex justify-center px-4 w-full bg-secondary'>
         <About />
       </Element>
+      <Wave type={2} bgColor='secondary' fillColor='primary'/>
       <Element name='Tracks' className='flex justify-center px-4 w-full bg-primary'>
         <Tracks />
       </Element>
+      <Wave bgColor='primary' fillColor='accent'/>
       <Element name='Support' className='flex justify-center px-4 w-full bg-accent'>
         <Support />
       </Element>
+      <Wave type={3} bgColor='accent' fillColor='accent-secondary'/>
       <Element name='Sponsors' className='flex justify-center px-4 w-full bg-accent-secondary'>
         <Sponsors />
       </Element>
+      <Wave bgColor='accent-secondary' fillColor='primary'/>
       <Element name='Staff' className='flex justify-center px-4 w-full bg-primary'>
         <Staff />
       </Element>
+      <Wave type={2} bgColor='primary' fillColor='secondary'/>
       <Element name='FAQ' className='flex justify-center px-4 w-full bg-secondary'>
         <Faq />
       </Element>

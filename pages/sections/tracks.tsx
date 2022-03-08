@@ -5,7 +5,7 @@ export default function Tracks() {
   return (
     <section className='flex flex-col w-full h-full mb-20 min-h-[60rem] max-w-[72rem] justify-center items-center'>
       <h1>Tracks</h1>
-      <h2 className='w-full mb-20 text-center'>
+      <h2 className='w-full mb-20 text-center text-3xl sm:text-4xl md:text-5xl'>
         <Typing
           base='// hack for'
           phrases={[

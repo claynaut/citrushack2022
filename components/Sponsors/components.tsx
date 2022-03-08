@@ -15,18 +15,18 @@ export const Sponsor = ({ type, image, width, height, link, shrink }: SponsorPro
   <div
     className={
       'flex items-center '
-      + ( type === 'kumquat' ? 'w-52 '
+      + ( type === 'kumquat' ? 'w-44 md:w-52 '
         : (
-        type === 'cutie' ? 'w-52 '
+        type === 'cutie' ? 'w-44 md:w-52 '
         : (
-        type === 'tangerine' ? 'w-52 '
+        type === 'tangerine' ? 'w-44 md:w-52 '
         : (
-        type === 'orange' ? 'w-64 '
+        type === 'orange' ? 'w-48 md:w-60 '
         : (
-        type === 'pomelo' ? 'w-72 '
+        type === 'pomelo' ? 'w-52 md:w-64 '
         : ''
       )))))
-      + (shrink ? 'w-36' : '')
+      + (shrink ? 'w-28 md:w-36' : '')
     }
   >
     <motion.div

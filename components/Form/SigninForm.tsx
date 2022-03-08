@@ -59,19 +59,19 @@ export function SigninForm({ csrfToken = '' }) {
           type='submit'
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.995 }}
-          className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark  font-semibold text-white'
+          className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
         >
           Sign In With Email
         </motion.button>
       </form>
       <div className='flex flex-col gap-6 pt-6 justify-center w-full'>
         <div className='text-center border-b-2 border-gray-300 leading-[0.1rem]'>
-          <span className='px-4 bg-white text-gray-400'>or</span>
+          <span className='px-4 bg-secondary text-gray-400'>or</span>
         </div>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.995 }}
-          className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark  font-semibold text-white'
+          className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
           onClick={() => signIn('google')}
         >
           Sign In With Google

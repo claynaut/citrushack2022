@@ -73,7 +73,7 @@ export function Nav() {
             whileTap={{ scale: 0.995 }}
           >
             <NavLink 
-              activeClass='bg-highlight dark:bg-highlight-dark  text-white'
+              activeClass='bg-highlight dark:bg-highlight-dark text-white'
               to={title}
               spy={true}
               smooth={true}

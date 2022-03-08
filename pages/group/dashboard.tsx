@@ -108,7 +108,7 @@ export default function GroupDashboard() {
                   whileHover={{ scale: 1.03}} 
                   whileTap={{ scale: 0.995 }}
                   type='submit'
-                  className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark  font-semibold text-white'
+                  className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
                   onClick={() => triggerErrorNotification()}
                 >
                   Join Group
@@ -125,7 +125,7 @@ export default function GroupDashboard() {
               <motion.button
                 whileHover={{ scale: 1.03}} 
                 whileTap={{ scale: 0.995 }}
-                className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark  font-semibold text-white'
+                className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
                 onClick={() => createGroup()}
               >
                 Create Group
@@ -170,7 +170,7 @@ export default function GroupDashboard() {
             <motion.button
               whileHover={{ scale: 1.03}} 
               whileTap={{ scale: 0.995 }}
-              className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark  font-semibold text-white'
+              className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
               onClick={() => setModalOpen(true)}
             >
               Leave Group
@@ -180,7 +180,7 @@ export default function GroupDashboard() {
             <motion.button
               whileHover={{ scale: 1.03}} 
               whileTap={{ scale: 0.995 }}
-              className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark  font-semibold text-white'
+              className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
             >
               Go Back to Homepage
             </motion.button>
@@ -197,7 +197,7 @@ export default function GroupDashboard() {
           <motion.button
             whileHover={{ scale: 1.03}} 
             whileTap={{ scale: 0.995 }}
-            className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark  font-semibold text-white'
+            className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
             onClick={() => leaveGroup()}
           >
             Confirm
@@ -205,7 +205,7 @@ export default function GroupDashboard() {
           <motion.button
             whileHover={{ scale: 1.03}} 
             whileTap={{ scale: 0.995 }}
-            className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark  font-semibold text-white'
+            className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
             onClick={() => setModalOpen(false)}
           >
             Cancel

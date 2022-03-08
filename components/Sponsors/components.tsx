@@ -15,18 +15,18 @@ export const Sponsor = ({ type, image, width, height, link, shrink }: SponsorPro
   <div
     className={
       'flex items-center '
-      + ( type === 'kumquat' ? 'w-44 md:w-52 '
+      + ( type === 'kumquat' ? 'w-32 md:w-36 '
         : (
-        type === 'cutie' ? 'w-44 md:w-52 '
+        type === 'cutie' ? 'w-32 md:w-36 '
         : (
-        type === 'tangerine' ? 'w-44 md:w-52 '
+        type === 'tangerine' ? 'w-32 md:w-36 '
         : (
-        type === 'orange' ? 'w-48 md:w-60 '
+        type === 'orange' ? 'w-40 md:w-48 '
         : (
-        type === 'pomelo' ? 'w-52 md:w-64 '
+        type === 'pomelo' ? 'w-40 md:w-48 '
         : ''
       )))))
-      + (shrink ? 'w-28 md:w-36' : '')
+      + (shrink ? 'w-16 md:w-24' : '')
     }
   >
     <motion.div
@@ -40,7 +40,7 @@ export const Sponsor = ({ type, image, width, height, link, shrink }: SponsorPro
           width={width}
           height={height}
           quality={50}
-          priority={Boolean(true)}
+          // priority={Boolean(true)}
           layout='responsive'
           objectFit='contain'
         />
@@ -52,6 +52,7 @@ export const Sponsor = ({ type, image, width, height, link, shrink }: SponsorPro
 const tiers = [
   {
     type: 'pomelo',
+    wide: null,
     sponsors: [
       {
         image: '/assets/sponsors/twilio-light.svg',
@@ -65,10 +66,12 @@ const tiers = [
   },
   {
     type: 'orange',
+    wide: null,
     sponsors: []
   },
   {
     type: 'tangerine',
+    wide: null,
     sponsors: [
       {
         image: '/assets/sponsors/gcap-light.svg',
@@ -82,6 +85,7 @@ const tiers = [
   },
   {
     type: 'cutie',
+    wide: Boolean(true),
     sponsors: [
       {
         image: '/assets/sponsors/wolfram-light.svg',
@@ -151,6 +155,7 @@ const tiers = [
   },
   {
     type: 'kumquat',
+    wide: null,
     sponsors: []
   },
 ]
@@ -159,17 +164,20 @@ export function SponsorsGrid() {
   const { theme } = useTheme()
 
   return (
-    <div className='flex flex-col gap-6'>
+    <div className='grid grid-cols-2 flex flex-col gap-6'>
       { tiers
         .filter(({ sponsors }) => sponsors.length > 0) // only map tiers with sponsors
-        .map(({ type, sponsors }) =>
+        .map(({ type, sponsors, wide }) =>
         <div
           key={type}
-          className='relative flex flex-wrap justify-center w-full gap-6 gap-y-12 sm:gap-y-6 p-10 rounded-md'
+          className={
+            'relative flex flex-wrap justify-center w-full gap-6 gap-y-12 sm:gap-y-6 p-10 rounded-md overflow-hidden '
+            + (wide ? 'col-span-2' : 'col-span-2 sm:col-span-1')
+          }
         >
-          <h4 className='absolute top-0 left-2 font-semibold uppercase rotate-90 origin-left'>
-            {type}
-          </h4>
+          <h3 className='absolute top-0 left-4 flex w-full items-center transform font-black uppercase rotate-90 origin-left'>
+            {type}&nbsp;<span className='w-full border-text border-t-4'></span>
+          </h3>
           { sponsors.map(({ image, imageDark, width, height, link, shrink }) =>
             <Sponsor
               key={link}

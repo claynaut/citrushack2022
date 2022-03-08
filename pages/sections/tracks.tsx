@@ -3,9 +3,9 @@ import { Typing } from '@/components/Typing'
 
 export default function Tracks() {
   return (
-    <section className='flex flex-col w-full h-full mb-20 min-h-[60rem] max-w-[60rem] justify-center items-center'>
+    <section className='flex flex-col w-full h-full mb-20 min-h-[60rem] max-w-[72rem] justify-center items-center'>
       <h1>Tracks</h1>
-      <h3 className='w-full mb-20'>
+      <h2 className='w-full mb-20 text-center'>
         <Typing
           base='// hack for'
           phrases={[
@@ -13,10 +13,10 @@ export default function Tracks() {
             'sustainability',
             'health & wellness'
           ]}
-          delay={15}
+          delay={20}
           cursor
         />
-      </h3>
+      </h2>
       <TrackBlocks />
     </section>
   )

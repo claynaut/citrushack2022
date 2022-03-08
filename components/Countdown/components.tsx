@@ -29,7 +29,7 @@ function TimeBlock({ condition, num, label, separator }: TimeBlockProps) {
             </motion.div>
           )}
         </div>
-        <p className='absolute top-8 xs:top-10 sm:top-[3.25rem] text-lg xs:text-xl leading-3 font-medium'>
+        <p className='absolute top-8 xs:top-10 sm:top-[3.25rem] text-lg xs:text-xl leading-3 font-semibold'>
           {label}
         </p>
       </div>

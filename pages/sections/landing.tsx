@@ -13,25 +13,25 @@ export default function Landing() {
   if (!mounted) return null
 
   return (
-    <section className='relative flex flex-col w-full h-screen md:min-h-[60rem] max-w-[72rem] justify-center mb-20 md:mb-0'>
-      <motion.div
-        animate={{ y: [0, -15, 0] }}
-        transition={{
-          repeat: Infinity,
-          duration: 5
-        }}
-        className='self-end w-5/12 xl:w-1/2 hidden lg:block transform-gpu'
-      >
-        <Image
-          src={theme == 'light' ? '/assets/island-light.svg' : '/assets/island-dark.svg'}
-          width={ 1712.57}
-          height={1734.07}
-          quality={50}
-          priority={Boolean(true)}
-          objectFit='contain'
-        />
-      </motion.div>
-      <div className='absolute flex flex-col left-0'>
+    <section className='relative flex flex-col-reverse w-full h-screen md:min-h-[60rem] max-w-[80rem] justify-center items-center my-36 lg:my-0 mb-20 md:mb-0 gap-6'>
+    <motion.div
+      animate={{ y: [0, -15, 0] }}
+      transition={{
+        repeat: Infinity,
+        duration: 5
+      }}
+      className='lg:self-end max-w-[30rem] lg:max-w-[80rem] lg:w-5/12 xl:w-7/12 transform-gpu'
+    >
+      <Image
+        src={theme == 'light' ? '/assets/island-light.svg' : '/assets/island-dark.svg'}
+        width={ 1712.57}
+        height={1734.07}
+        quality={50}
+        priority={Boolean(true)}
+        objectFit='contain'
+      />
+    </motion.div>
+      <div className='lg:absolute flex flex-col left-4 2xl:left-0'>
         <div className='flex flex-col max-w-xl'>
           <div className='flex flex-col sm:flex-row items-center text-center sm:text-left sm:mb-10'>
             <Image
@@ -41,11 +41,11 @@ export default function Landing() {
               objectFit='contain'
             />
             <div>
-              <h1>Citrus Hack</h1>
-              <h3>April 2-3, 2022</h3>
+              <h1 className='font-black uppercase'>Citrus Hack</h1>
+              <h3 className='font-bold'>April 2-3, 2022</h3>
             </div>
           </div>
-          <h3 className='text-center sm:text-left font-semibold'>
+          <h3 className='text-center sm:text-left font-bold'>
             Grow your potential in...
           </h3>
         </div>

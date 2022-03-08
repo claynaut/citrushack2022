@@ -39,7 +39,8 @@ export const Sponsor = ({ type, image, width, height, link, shrink }: SponsorPro
           src={image}
           width={width}
           height={height}
-          quality={80}
+          quality={50}
+          priority={Boolean(true)}
           layout='responsive'
           objectFit='contain'
         />
@@ -51,7 +52,16 @@ export const Sponsor = ({ type, image, width, height, link, shrink }: SponsorPro
 const tiers = [
   {
     type: 'pomelo',
-    sponsors: []
+    sponsors: [
+      {
+        image: '/assets/sponsors/twilio-light.svg',
+        imageDark: '/assets/sponsors/twilio-dark.svg',
+        width: 60,
+        height: 60,
+        link: 'https://www.twilio.com/',
+        shrink: null,
+      }
+    ]
   },
   {
     type: 'orange',
@@ -104,6 +114,22 @@ const tiers = [
         height: 95,
         link: 'https://www.triadmagnetics.com/',
         shrink: null,
+      },
+      {
+        image: '/assets/sponsors/vercel-light.svg',
+        imageDark: '/assets/sponsors/vercel-dark.svg',
+        width: 4437.5,
+        height: 1000,
+        link: 'https://vercel.com/?utm_source=citrushack&utm_campaign=oss',
+        shrink: null,
+      },
+      {
+        image: '/assets/sponsors/snapchat.svg',
+        imageDark: '/assets/sponsors/snapchat.svg',
+        width: 391.39,
+        height: 385.49,
+        link: 'https://www.snapchat.com/',
+        shrink: Boolean(true),
       },
       {
         image: '/assets/sponsors/acm-light.svg',

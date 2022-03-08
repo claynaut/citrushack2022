@@ -52,7 +52,7 @@ export function UserDropdown() {
         <motion.button
           whileHover={{ scale: 1.05}} 
           whileTap={{ scale: 0.995 }}
-          className='z-[100] flex justify-center items-center w-11 h-11 rounded-md bg-highlight hover:bg-highlight-dark text-white'
+          className='z-[100] flex justify-center items-center w-11 h-11 rounded-md bg-highlight hover:bg-highlight-dark'
           onClick={() => setOpen(!open)}
         >
           {

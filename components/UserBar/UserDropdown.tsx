@@ -52,7 +52,7 @@ export function UserDropdown() {
         <motion.button
           whileHover={{ scale: 1.05}} 
           whileTap={{ scale: 0.995 }}
-          className='z-[100] flex justify-center items-center w-11 h-11 rounded-md bg-accent-primary hover:bg-accent-primary-dark text-white'
+          className='z-[100] flex justify-center items-center w-11 h-11 rounded-md bg-highlight hover:bg-highlight-dark text-white'
           onClick={() => setOpen(!open)}
         >
           {
@@ -63,7 +63,7 @@ export function UserDropdown() {
         </motion.button>
         <div
           className={
-            'absolute top-14 right-0 w-56 xs:w-64 p-4 rounded bg-white shadow-md transform-gpu transition-all duration-150 '
+            'absolute top-14 right-0 w-56 xs:w-64 p-4 rounded bg-secondary shadow-md transform-gpu transition-all duration-150 '
             + ( open ? 'z-[100] visible opacity-100' : 'z-0 invisible opacity-0' )
           }
         >
@@ -79,7 +79,7 @@ export function UserDropdown() {
                   <motion.button
                     whileHover={{ scale: 1.05}} 
                     whileTap={{ scale: 0.995 }}
-                    className='w-full py-1.5 rounded-md bg-accent-primary hover:bg-accent-primary-dark font-semibold text-white'
+                    className='w-full py-1.5 rounded-md bg-highlight hover:bg-highlight-dark  font-semibold text-white'
                     onClick={() => setOpen(!open)}
                   >
                     Apply Now
@@ -90,12 +90,12 @@ export function UserDropdown() {
                   <span className='flex text-center font-semibold text-sm'>
                     Your Application Status
                     <BiHelpCircle 
-                      className='text-gray-400 hover:text-accent-primary cursor-pointer'
+                      className='text-gray-400 hover:text-highlight cursor-pointer'
                       onClick={() => triggerInfo()}
                     />
                   </span>
                   <div
-                    className='w-full py-1.5 text-center rounded-md bg-accent-primary font-semibold text-white'
+                    className='w-full py-1.5 text-center rounded-md bg-highlight font-semibold text-white'
                   >
                     { session.user.qualified === '' && 'Pending' }
                     { session.user.qualified === 'yeah' && 'Approved' }
@@ -113,10 +113,10 @@ export function UserDropdown() {
                     className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500 bg-transparent'
                     onClick={() => setOpen(!open)}
                   >
-                    <div className='p-1.5 group-hover:bg-accent-primary rounded-md bg-gray-300 text-2xl text-white'>
+                    <div className='p-1.5 group-hover:bg-highlight rounded-md bg-accent-secondary text-2xl text-white'>
                       <BiGroup />
                     </div>
-                    <div className='p-1.5 group-hover:text-accent-primary'>
+                    <div className='p-1.5 group-hover:text-highlight'>
                       My Group
                     </div>
                   </motion.button>
@@ -132,10 +132,10 @@ export function UserDropdown() {
                     className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500 bg-transparent'
                     onClick={() => setOpen(!open)}
                   >
-                    <div className='p-1.5 group-hover:bg-accent-primary rounded-md bg-gray-300 text-2xl text-white'>
+                    <div className='p-1.5 group-hover:bg-highlight rounded-md bg-accent-secondary text-2xl text-white'>
                       <BiCategory />
                     </div>
-                    <div className='p-1.5 group-hover:text-accent-primary'>
+                    <div className='p-1.5 group-hover:text-highlight'>
                       Admin Dashboard
                     </div>
                   </motion.button>
@@ -148,10 +148,10 @@ export function UserDropdown() {
               className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500 bg-transparent'
               onClick={() => signOut()}
             >
-              <div className='p-1.5 group-hover:bg-accent-primary rounded-md bg-gray-300 text-2xl text-white'>
+              <div className='p-1.5 group-hover:bg-highlight rounded-md bg-accent-secondary text-2xl text-white'>
                 <BiLogOutCircle />
               </div>
-              <div className='p-1.5 group-hover:text-accent-primary'>
+              <div className='p-1.5 group-hover:text-highlight'>
                 Sign Out
               </div>
             </motion.button>

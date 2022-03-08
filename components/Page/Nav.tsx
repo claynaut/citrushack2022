@@ -73,12 +73,12 @@ export function Nav() {
             whileTap={{ scale: 0.995 }}
           >
             <NavLink 
-              activeClass='bg-accent-primary dark:bg-accent-primary-dark text-white'
+              activeClass='bg-highlight dark:bg-highlight-dark  text-white'
               to={title}
               spy={true}
               smooth={true}
               duration={500}
-              className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'
+              className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-highlight hover:text-white cursor-pointer'
             >
               <span className='text-2xl'>{icon}</span>
               <span>{title}</span>
@@ -92,7 +92,7 @@ export function Nav() {
           >
             <Link passHref href='/'>
               <span
-                className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'
+                className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-highlight hover:text-white cursor-pointer'
                 onClick={() => setNavOpen(false)}
               >
                 <span className='text-2xl'><BiHomeAlt /></span>
@@ -113,7 +113,7 @@ export function Nav() {
         >
           <div className='flex w-full justify-between'>
             <span
-              className='flex items-center p-2.5 text-lg rounded-md hover:bg-accent-primary cursor-pointer'
+              className='flex items-center p-2.5 text-lg rounded-md hover:bg-highlight cursor-pointer'
               onClick={() => setNavOpen(!navOpen)}
             >
               { navOpen
@@ -125,13 +125,13 @@ export function Nav() {
           { router.pathname === '/' && (hometabs.map(({icon, title}) =>
             <NavLink 
               key={'mobile'+title}
-              activeClass='bg-accent-primary text-white'
+              activeClass='bg-highlight text-white'
               to={title}
               spy={true}
               smooth={true}
               offset={-50}
               duration={500}
-              className='flex gap-2.5 items-center p-2 font-semibold text-lg rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'
+              className='flex gap-2.5 items-center p-2 font-semibold text-lg rounded-md hover:bg-highlight hover:text-white cursor-pointer'
               onClick={() => setNavOpen(false)}
             >
               <span className='text-2xl'>{icon}</span>
@@ -141,7 +141,7 @@ export function Nav() {
           { router.pathname !== '/' &&
             <Link passHref href='/'>
               <span
-                className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-accent-primary hover:text-white cursor-pointer'
+                className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-highlight hover:text-white cursor-pointer'
                 onClick={() => setNavOpen(false)}
               >
                 <span className='text-2xl'><BiHomeAlt /></span>

@@ -55,7 +55,7 @@ export default function Home() {
           <motion.button
             whileHover={{ scale: 1.03}} 
             whileTap={{ scale: 0.995 }}
-            className='w-full py-1.5 rounded bg-accent-primary hover:bg-accent-primary-dark font-semibold text-white'
+            className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark  font-semibold text-white'
             onClick={() => setModalOpen(false)}
           >
             Apply Here

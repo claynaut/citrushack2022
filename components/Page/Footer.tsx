@@ -40,7 +40,7 @@ export function Footer() {
             <a key={link} target='_blank' rel='noreferrer noopener' href={link}>
               <motion.div 
                 whileHover={{ y: -4 }}
-                className='hover:text-accent-primary cursor-pointer'
+                className='hover:text-highlight cursor-pointer'
               >
                 {icon}
               </motion.div>

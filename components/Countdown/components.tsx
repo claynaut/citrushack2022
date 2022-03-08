@@ -48,7 +48,7 @@ const Completionist = () => (
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.995 }}
-          className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-amber-500 text-white cursor-pointer'
+          className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-highlight text-white cursor-pointer'
         >
           Live
         </motion.button>

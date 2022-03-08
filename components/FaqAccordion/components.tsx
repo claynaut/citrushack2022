@@ -13,7 +13,7 @@ export function FaqAccordion({ question, answer }: Props) {
   return (
     <div className='flex flex-col w-full border-b-2'>
       <div 
-        className='flex py-3 items-center hover:text-accent-primary cursor-pointer'
+        className='flex py-3 items-center hover:text-highlight cursor-pointer'
         onClick={() => setOpen(!open)}
       >
         <h4 className='grow font-medium'>{question}</h4>

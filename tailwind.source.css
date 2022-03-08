@@ -11,6 +11,8 @@
     --accent-secondary: #FFE4C8; /* same color for card buttons */
     --card: #FFF;
     --text: #453535;
+    --highlight: #799602;
+    --highlight-dark: #647D01;
   }
 
   [data-theme='light'] {
@@ -20,6 +22,8 @@
     --accent-secondary: #FFE4C8;
     --card: #FFF;
     --text: #453535;
+    --highlight: #799602;
+    --highlight-dark: #647D01;
   }
 
   [data-theme='dark'] {
@@ -29,6 +33,8 @@
     --accent-secondary: #184659;
     --card: #193243;
     --text: #F2F3F4;
+    --highlight: #FB9A36;
+    --highlight-dark: #E37C22;
   }
 
   h1 {

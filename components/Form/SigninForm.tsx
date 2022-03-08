@@ -59,7 +59,7 @@ export function SigninForm({ csrfToken = '' }) {
           type='submit'
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.995 }}
-          className='w-full py-1.5 rounded bg-accent-primary hover:bg-accent-primary-dark font-semibold text-white'
+          className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark  font-semibold text-white'
         >
           Sign In With Email
         </motion.button>
@@ -71,7 +71,7 @@ export function SigninForm({ csrfToken = '' }) {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.995 }}
-          className='w-full py-1.5 rounded bg-accent-primary hover:bg-accent-primary-dark font-semibold text-white'
+          className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark  font-semibold text-white'
           onClick={() => signIn('google')}
         >
           Sign In With Google

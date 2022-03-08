@@ -25,6 +25,10 @@ module.exports = {
           primary: '#fa9932',
           'primary-dark': '#e37c22',
         },
+        highlight: {
+          DEFAULT: 'var(--highlight)',
+          dark: 'var(--highlight-dark)',
+        },
         card: 'var(--card)',
         text: 'var(--text)',
         overlay: '#00000032',

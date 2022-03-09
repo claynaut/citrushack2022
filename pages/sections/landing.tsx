@@ -64,7 +64,7 @@ export default function Landing() {
           </span>
           { status === 'authenticated' 
             && !session.user.uid &&
-            <span className='flex justify-center w-full'>
+            <span className='flex justify-center w-full z-[500]'>
               <ButtonLink
                 primary
                 label='Apply Now'
@@ -73,7 +73,7 @@ export default function Landing() {
             </span>
           }
           { !session &&
-            <span className='flex justify-center w-full'>
+            <span className='flex justify-center w-full z-[500]'>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.995 }}
@@ -87,7 +87,7 @@ export default function Landing() {
           { status === 'authenticated' 
             && session.user.uid
             && session.user.qualified === 'yeah' &&
-            <span className='flex justify-center w-full'>
+            <span className='flex justify-center w-full z-[500]'>
               <ButtonLink
                 primary
                 label='Join Our Discord'

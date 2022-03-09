@@ -116,14 +116,15 @@ export const Radio = ({
     <div className={(direction === 'row') ? 'flex flex-col sm:flex-row gap-3 sm:gap-6 pl-2 ' : 'flex flex-col gap-3 pl-2'}>
       {
         options.map((option: string) =>
-          <div id={label} className='flex items-center gap-2'>
+          <div key={option} id={label} className='flex items-center gap-2'>
             <input
               type='radio'
               id={variable.toString() + option.toString()}
               value={option}
               {...register(variable, {required})}
               className={
-                'focus:checked:bg-highlight hover:checked:bg-highlight checked:ring-highlight checked:bg-highlight cursor-pointer ' + (errors[variable] && 'border-red-500')
+                'focus:ring-highlight focus:checked:bg-highlight hover:checked:bg-highlight checked:ring-highlight checked:bg-highlight cursor-pointer ' 
+                + (errors[variable] && 'border-red-500')
               }
             />
             <label
@@ -144,3 +145,46 @@ export const Radio = ({
 Radio.defaultProps = {
   direction: 'row'
 }
+
+interface CheckboxProps {
+  label: string,
+  variable: string,
+  register: UseFormRegister<FieldValues>,
+  required?: boolean,
+  options: string[] | React.ReactNode[],
+  errors: {
+    [x: string]: any
+  },
+}
+
+export const Checkbox = ({ register, label, variable, required, options, errors }: CheckboxProps) => (
+  <div>
+    <legend className='font-semibold'>
+      {label}
+    </legend>
+    <div className='flex flex-col gap-2 pl-2'>
+      {
+        options.map((option: string) =>
+          <div key={option} id={label} className='flex gap-2'>
+            <input
+              type='checkbox'
+              id={variable.toString() + option.toString()}
+              value={option}
+              {...register(variable, {required})}
+              className={
+                'mt-1 focus:ring-highlight focus:checked:bg-highlight hover:checked:bg-highlight checked:ring-highlight checked:bg-highlight cursor-pointer  '
+                + (errors[variable] && 'border-red-500')
+              }
+            />
+            <label
+              htmlFor={variable.toString() + option.toString()}
+              className='cursor-pointer'
+            >
+              {option}
+            </label>
+          </div>
+        )
+      }
+    </div>
+  </div>
+)

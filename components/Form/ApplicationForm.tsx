@@ -7,7 +7,8 @@ import { nanoid } from 'nanoid'
 import { toast } from 'react-hot-toast'
 import storage from '@/lib/firebase'
 import { ref, uploadBytes } from 'firebase/storage'
-import { Input, Select, Radio } from './components'
+import { Input, Select, Radio, Checkbox } from './components'
+import ExternalLink from '@/components/ExternalLink'
 
 interface GroupProps {
   title: string
@@ -86,12 +87,32 @@ export function ApplicationForm() {
     'XL',
     'XXL'
   ]
+  const MLH = [
+    [
+      <>
+        I have read and agree to 
+        the <ExternalLink name='MLH Code of Conduct' link='https://github.com/MLH/mlh-policies/blob/master/code-of-conduct.md'/>.
+      </>
+    ],
+    [
+      <>
+        I authorize you to share my application/registration information with Major League Hacking for event
+        administration, ranking, and MLH administration in-line with 
+        the <ExternalLink name='MLH Privacy Policy' link='https://github.com/MLH/mlh-policies/blob/master/privacy-policy.md'/>. 
+        I further agree to the terms of both 
+        the <ExternalLink name='MLH Contest Terms and Conditions' link='https://github.com/MLH/mlh-policies/blob/master/prize-terms-and-conditions/contest-terms.md'/>
+        and the <ExternalLink name='MLH Privacy Policy' link='https://github.com/MLH/mlh-policies/blob/master/privacy-policy.md'/>.
+      </>
+    ],
+    ['I authorize MLH to send me pre- and post-event informational emails, which contain free credit and opportunities from their partners.']
+  ]
 
   const onSubmit = ({
     first_name,
     last_name,
     gender,
     ethnicity,
+    phone_number,
     food_preference,
     shirt_size,
     school,
@@ -100,6 +121,9 @@ export function ApplicationForm() {
     grad_date,
     resume,
     first_time,
+    MLH_code_of_conduct,
+    MLH_privacy_policy,
+    MLH_communication
   }) => {
     const [year, month, day] = grad_date.split('-')
     let criteria_met = true
@@ -128,6 +152,7 @@ export function ApplicationForm() {
       last_name,
       gender,
       ethnicity,
+      phone_number,
       food_preference,
       shirt_size,
       school,
@@ -136,6 +161,9 @@ export function ApplicationForm() {
       grad_date,
       first_time,
       criteria_met,
+      MLH_code_of_conduct,
+      MLH_privacy_policy,
+      MLH_communication
     })
     .then(() => {
       toast.success(
@@ -222,6 +250,15 @@ export function ApplicationForm() {
               />
             </span>
           </div>
+          <div className='grid sm:grid-cols-2'>
+          <Input
+            type='text'
+            label='Phone Number'
+            variable='phone_number'
+            register={register}
+            errors={errors}
+          />
+          </div>
           <Radio
             label='Food Preference'
             variable='food_preference'
@@ -291,6 +328,32 @@ export function ApplicationForm() {
             errors={errors}
             required
           />
+          <span className='flex flex-col mt-4 gap-2'>
+            <Checkbox
+              label=''
+              variable='MLH_code_of_conduct'
+              options={MLH[0]}
+              register={register}
+              errors={errors}
+              required
+            />
+            <Checkbox
+              label=''
+              variable='MLH_privacy_policy'
+              options={MLH[1]}
+              register={register}
+              errors={errors}
+              required
+            />
+            <Checkbox
+              label=''
+              variable='MLH_communication'
+              options={MLH[2]}
+              register={register}
+              errors={errors}
+              required
+            />
+          </span>
         </Group>
         <motion.button
           whileHover={{ scale: 1.03}} 

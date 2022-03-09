@@ -13,6 +13,7 @@ export default async function createApplication(req: NextApiRequest, res: NextAp
       last_name,
       gender,
       ethnicity,
+      phone_number,
       food_preference,
       shirt_size,
       school,
@@ -20,7 +21,10 @@ export default async function createApplication(req: NextApiRequest, res: NextAp
       grade,
       grad_date,
       first_time,
-      criteria_met
+      criteria_met,
+      MLH_code_of_conduct,
+      MLH_privacy_policy,
+      MLH_communication
     } = req.body
 
     // send email notification to user applying
@@ -47,6 +51,7 @@ export default async function createApplication(req: NextApiRequest, res: NextAp
           },
           gender,
           race: ethnicity,
+          phoneNumber: phone_number,
           foodPreference: food_preference,
           shirtSize: shirt_size,
           school,
@@ -55,6 +60,7 @@ export default async function createApplication(req: NextApiRequest, res: NextAp
           graduationDate: grad_date,
           firstTimeHacker: first_time,
           criteriaMet: criteria_met,
+          MLHAcknowledgement: Boolean(MLH_code_of_conduct && MLH_privacy_policy && MLH_communication),
           qualified: '',
           admin: false,
           appliedAt: new Date()

@@ -25,11 +25,11 @@ export default function Home() {
 
   return (
     <Page>
-      <Element name='Home' className='flex justify-center px-4 w-full bg-primary'>
+      <Element name='Home' className='flex justify-center px-4 w-full bg-gradient-to-b from-primary to-accent'>
         <Landing />
       </Element>
-      <Wave bgColor='primary' fillColor='secondary'/>
-      <Element name='About' className='flex justify-center px-4 w-full bg-secondary'>
+      <Wave bgColor='accent' fillColor='primary'/>
+      <Element name='About' className='flex justify-center px-4 w-full bg-gradient-to-b from-primary to-secondary'>
         <About />
       </Element>
       <Wave type={2} bgColor='secondary' fillColor='primary'/>
@@ -37,19 +37,19 @@ export default function Home() {
         <Tracks />
       </Element>
       <Wave bgColor='primary' fillColor='accent'/>
-      <Element name='Support' className='flex justify-center px-4 w-full bg-accent'>
+      <Element name='Support' className='flex justify-center px-4 w-full bg-gradient-to-b from-accent to-card'>
         <Support />
       </Element>
-      <Wave type={3} bgColor='accent' fillColor='accent-secondary'/>
-      <Element name='Sponsors' className='flex justify-center px-4 w-full bg-accent-secondary'>
+      <Wave type={3} bgColor='card' fillColor='accent-secondary'/>
+      <Element name='Sponsors' className='flex justify-center px-4 w-full bg-gradient-to-b from-accent-secondary to-accent'>
         <Sponsors />
       </Element>
-      <Wave bgColor='accent-secondary' fillColor='primary'/>
+      <Wave bgColor='accent' fillColor='primary'/>
       <Element name='Staff' className='flex justify-center px-4 w-full bg-primary'>
         <Staff />
       </Element>
       <Wave type={2} bgColor='primary' fillColor='secondary'/>
-      <Element name='FAQ' className='flex justify-center px-4 w-full bg-secondary'>
+      <Element name='FAQ' className='flex justify-center px-4 w-full bg-gradient-to-b'>
         <Faq />
       </Element>
       <Modal

@@ -41,7 +41,7 @@ export default class MyDocument extends Document {
           <link rel='preload' as='image' href='/assets/tracks/health-light.svg' />
           <link rel='preload' as='image' href='/assets/tracks/health-dark.svg' />
         </Head>
-        <body className='text-text bg-secondary'>
+        <body className='text-text bg-secondary overflow-x-hidden'>
           <Main />
           <NextScript />
         </body>

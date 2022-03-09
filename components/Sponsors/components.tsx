@@ -170,7 +170,7 @@ export function SponsorsGrid() {
   if (!mounted) return null
 
   return (
-    <div className='grid grid-cols-2 flex flex-col gap-6'>
+    <div className='grid grid-cols-2 flex flex-col gap-6 mt-16'>
       { tiers
         .filter(({ sponsors }) => sponsors.length > 0) // only map tiers with sponsors
         .map(({ type, sponsors, wide }) =>

@@ -108,7 +108,7 @@ export default function GroupDashboard() {
                   whileHover={{ scale: 1.03}} 
                   whileTap={{ scale: 0.995 }}
                   type='submit'
-                  className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
+                  className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold'
                   onClick={() => triggerErrorNotification()}
                 >
                   Join Group
@@ -125,7 +125,7 @@ export default function GroupDashboard() {
               <motion.button
                 whileHover={{ scale: 1.03}} 
                 whileTap={{ scale: 0.995 }}
-                className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
+                className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold'
                 onClick={() => createGroup()}
               >
                 Create Group
@@ -170,7 +170,7 @@ export default function GroupDashboard() {
             <motion.button
               whileHover={{ scale: 1.03}} 
               whileTap={{ scale: 0.995 }}
-              className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
+              className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold'
               onClick={() => setModalOpen(true)}
             >
               Leave Group
@@ -180,7 +180,7 @@ export default function GroupDashboard() {
             <motion.button
               whileHover={{ scale: 1.03}} 
               whileTap={{ scale: 0.995 }}
-              className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
+              className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold'
             >
               Go Back to Homepage
             </motion.button>
@@ -195,17 +195,17 @@ export default function GroupDashboard() {
       >
         <div className='flex gap-4 w-full'>
           <motion.button
-            whileHover={{ scale: 1.03}} 
+            whileHover={{ scale: 1.05}} 
             whileTap={{ scale: 0.995 }}
-            className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
+            className='w-full max-w-lg py-1.5 rounded bg-red-500 hover:bg-red-600 font-semibold text-[#F2F3F4]'
             onClick={() => leaveGroup()}
           >
             Confirm
           </motion.button>
           <motion.button
-            whileHover={{ scale: 1.03}} 
+            whileHover={{ scale: 1.05}} 
             whileTap={{ scale: 0.995 }}
-            className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
+            className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold '
             onClick={() => setModalOpen(false)}
           >
             Cancel

@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import { ButtonLink } from '@/components/ButtonLink'
+
 interface Props {
   title: string, 
   description: string, 
@@ -15,14 +17,10 @@ export const SupportCard = ({ title, description, buttonLabel, buttonLink }: Pro
     <p className='grow mb-8 text-center'>
       {description}
     </p>
-    <a target='_blank' rel='noreferrer noopener' href={buttonLink}>
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.995 }}
-        className='flex justify-center items-center self-center h-11 w-40 px-4 font-semibold text-lg rounded-md cursor-pointer'
-      >
-        {buttonLabel}
-      </motion.button>
-    </a>
+    <ButtonLink
+      link={buttonLink}
+      label={buttonLabel}
+      external
+    />
   </motion.div>
 )

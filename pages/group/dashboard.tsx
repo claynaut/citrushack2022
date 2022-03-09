@@ -7,6 +7,8 @@ import { motion } from 'framer-motion'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { BiCopy } from 'react-icons/bi'
 import { ProtectedPage } from '@/components/Page'
 import { Input } from '@/components/Form'
 import Modal from '@/components/Modal'
@@ -146,9 +148,24 @@ export default function GroupDashboard() {
             <h3>
               Invite Code
             </h3>
-            <p>
-              {session.user.gid}
-            </p>
+            <CopyToClipboard 
+              text={session.user.gid} 
+              className='flex justify-between items-center text-lg p-2 rounded-md bg-sub font-medium mb-4'
+            >
+              <motion.button
+                aria-label='Copy to Clipboard Button'
+                whileHover={{ scale: 1.03}} 
+                whileTap={{ scale: 0.995 }}
+                onClick={() => toast.success('Copied to clipboard!')}
+                className=''
+              >
+                <div className='invisible'>
+                  <BiCopy />
+                </div>
+                <div>{session.user.gid}</div>
+                <BiCopy className='text-2xl' />
+              </motion.button>
+            </CopyToClipboard>
             <h3>
               Members
             </h3>

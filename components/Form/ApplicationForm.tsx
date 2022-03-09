@@ -147,7 +147,7 @@ export function ApplicationForm() {
     const uid = nanoid()
 
     const file = resume[0]
-    const filename = first_name.replace(/\s/g, '') + '___' + last_name.replace(/\s/g, '') + '___' + uid
+    const filename = first_name.replace(/\s/g, '') + '___' + last_name.replace(/\s/g, '') + '___' + uid + '.pdf'
     const fileRef = ref(storage, 'resumes/' + filename)
     uploadBytes(fileRef, file) // upload file
 

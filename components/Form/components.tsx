@@ -123,14 +123,14 @@ export const Radio = ({
               value={option}
               {...register(variable, {required})}
               className={
-                'focus:ring-highlight focus:checked:bg-highlight hover:checked:bg-highlight checked:ring-highlight checked:bg-highlight cursor-pointer ' 
-                + (errors[variable] && 'border-red-500')
+                'border-2 bg-card focus:ring-highlight focus:checked:bg-highlight hover:checked:bg-highlight checked:ring-highlight checked:bg-highlight cursor-pointer ' 
+                + (errors[variable] ? 'border-red-500' : 'border-sub')
               }
             />
             <label
               htmlFor={variable.toString() + option.toString()}
               className={
-                'cursor-pointer ' + (errors[variable] && 'text-red-500')
+                'cursor-pointer ' + (errors[variable] ? 'text-red-500' : '')
               }
             >
               {option}
@@ -172,8 +172,8 @@ export const Checkbox = ({ register, label, variable, required, options, errors 
               value={option}
               {...register(variable, {required})}
               className={
-                'mt-1 focus:ring-highlight focus:checked:bg-highlight hover:checked:bg-highlight checked:ring-highlight checked:bg-highlight cursor-pointer  '
-                + (errors[variable] && 'border-red-500')
+                'mt-1 bg-card border-2 focus:ring-highlight focus:checked:bg-highlight hover:checked:bg-highlight checked:ring-highlight checked:bg-highlight cursor-pointer  '
+                + (errors[variable] ? 'border-red-500' : 'border-sub')
               }
             />
             <label

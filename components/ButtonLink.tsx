@@ -52,16 +52,16 @@ export const ButtonLink = ({ primary, label, link, external, skinny, minWidth }:
         />
       </a>
       :
-      <span className='flex justify-center w-full'>
-        <Link passHref href={link}>
-          <Button 
-            primary={primary}
-            label={label}
-            skinny={skinny}
-            minWidth={minWidth}
-          />
-        </Link>
-      </span>
+      <Link passHref href={link}>
+        <span className='flex justify-center w-full'>
+            <Button 
+              primary={primary}
+              label={label}
+              skinny={skinny}
+              minWidth={minWidth}
+            />
+        </span>
+      </Link>
     }
   </>
 )

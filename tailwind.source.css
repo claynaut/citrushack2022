@@ -15,7 +15,9 @@
     --highlight-dark: #88A900;
     --overlay: #00000059;
     --sub: #B9CCDC;
-    --sub-dark: #A1B3C4;
+    --sub-secondary: #A1B3C4;
+    --sub-highlight: #92A6B9;
+    --sub-bright: #5B7690;
   }
 
   [data-theme='light'] {
@@ -29,7 +31,9 @@
     --highlight-dark: #88A900;
     --overlay: #00000059;
     --sub: #B9CCDC;
-    --sub-dark: #A1B3C4;
+    --sub-secondary: #A1B3C4;
+    --sub-highlight: #92A6B9;
+    --sub-bright: #5B7690;
   }
 
   [data-theme='dark'] {
@@ -43,7 +47,9 @@
     --highlight-dark: #E37C22;
     --overlay: #00000080;
     --sub: #375264;
-    --sub-dark: #2B475C;
+    --sub-secondary: #2B475C;
+    --sub-highlight: #3F5D72;
+    --sub-bright: #6F8CA0;
   }
 
   h1 {

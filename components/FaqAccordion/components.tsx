@@ -11,7 +11,7 @@ export function FaqAccordion({ question, answer }: Props) {
   const [open, setOpen] = useState(true)
 
   return (
-    <div className='flex flex-col w-full border-b-2'>
+    <div className='flex flex-col w-full border-b-2 border-sub'>
       <div 
         className='flex py-3 items-center hover:text-highlight cursor-pointer'
         onClick={() => setOpen(!open)}

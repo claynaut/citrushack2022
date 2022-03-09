@@ -36,7 +36,7 @@ export const Input = ({
       defaultValue={defaultValue}
       {...register(variable, {required})}
       className={
-        'w-full border-sub rounded focus:border-highlight focus:outline-none focus:ring-highlight file:px-4 file:py-1.5 file:rounded-full file:border-0 file:bg-sub file:text-sm file:font-semibold file:cursor-pointer hover:file:bg-sub-dark '
+        'w-full border-sub rounded focus:border-highlight focus:outline-none focus:ring-highlight file:px-4 file:py-1.5 file:rounded-full file:border-0 file:bg-sub file:text-sm file:font-semibold file:cursor-pointer hover:file:bg-sub-secondary '
         + (type === 'date' ? 'py-1.5 ' : 'py-1 ')
         + (type === 'file' ? '' : 'bg-card px-2 border-2 ' )
         + (errors[variable] ? 'border-red-500' : 'border-sub')

@@ -68,8 +68,8 @@ export function UserDropdown() {
           }
         >
           <div className='flex flex-col gap-3 items-center w-full text-lg'>
-            <div className='flex flex-col gap-2 items-center w-full pb-3 border-b-[1px] border-gray-300'>
-              <span className='flex text-center text-gray-500 text-sm'>
+            <div className='flex flex-col gap-2 items-center w-full pb-3 border-b-[1px] border-sub'>
+              <span className='flex text-center text-sub-highlight text-sm'>
                 Signed in as <br/>
                 {session.user.email}
               </span>
@@ -79,7 +79,7 @@ export function UserDropdown() {
                   <motion.button
                     whileHover={{ scale: 1.05}} 
                     whileTap={{ scale: 0.995 }}
-                    className='w-full py-1.5 rounded-md bg-highlight hover:bg-highlight-dark font-semibold text-white'
+                    className='w-full py-1.5 rounded-md bg-highlight hover:bg-highlight-dark font-semibold'
                     onClick={() => setOpen(!open)}
                   >
                     Apply Now
@@ -87,15 +87,15 @@ export function UserDropdown() {
                 </Link>
                 :
                 <>
-                  <span className='flex text-center font-semibold text-sm'>
+                  <span className='flex text-center font-semibold text-sub-bright text-sm'>
                     Your Application Status
                     <BiHelpCircle 
-                      className='text-gray-400 hover:text-highlight cursor-pointer'
+                      className='text-sub-highlight hover:text-highlight cursor-pointer'
                       onClick={() => triggerInfo()}
                     />
                   </span>
                   <div
-                    className='w-full py-1.5 text-center rounded-md bg-highlight font-semibold text-white'
+                    className='w-full py-1.5 text-center rounded-md bg-highlight font-semibold'
                   >
                     { session.user.qualified === '' && 'Pending' }
                     { session.user.qualified === 'yeah' && 'Approved' }
@@ -110,10 +110,10 @@ export function UserDropdown() {
                   <motion.button
                     whileHover={{ scale: 1.03}} 
                     whileTap={{ scale: 0.995 }}
-                    className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500 bg-transparent'
+                    className='group flex items-center gap-1.5 w-full rounded-md text-sub-highlight font-semibold bg-transparent'
                     onClick={() => setOpen(!open)}
                   >
-                    <div className='p-1.5 group-hover:bg-highlight rounded-md bg-accent-secondary text-2xl text-white'>
+                    <div className='p-1.5 group-hover:bg-highlight group-hover:text-text rounded-md bg-sub text-sub-bright text-2xl'>
                       <BiGroup />
                     </div>
                     <div className='p-1.5 group-hover:text-highlight'>
@@ -129,10 +129,10 @@ export function UserDropdown() {
                   <motion.button
                     whileHover={{ scale: 1.03}} 
                     whileTap={{ scale: 0.995 }}
-                    className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500 bg-transparent'
+                    className='group flex items-center gap-1.5 w-full rounded-md text-sub-highlight font-semibold bg-transparent'
                     onClick={() => setOpen(!open)}
                   >
-                    <div className='p-1.5 group-hover:bg-highlight rounded-md bg-accent-secondary text-2xl text-white'>
+                    <div className='p-1.5 group-hover:bg-highlight group-hover:text-text rounded-md bg-sub text-sub-bright text-2xl'>
                       <BiCategory />
                     </div>
                     <div className='p-1.5 group-hover:text-highlight'>
@@ -145,10 +145,10 @@ export function UserDropdown() {
             <motion.button
               whileHover={{ scale: 1.03}} 
               whileTap={{ scale: 0.995 }}
-              className='group flex items-center gap-1.5 w-full rounded-md font-semibold text-gray-500 bg-transparent'
+              className='group flex items-center gap-1.5 w-full rounded-md text-sub-highlight font-semibold bg-transparent'
               onClick={() => signOut()}
             >
-              <div className='p-1.5 group-hover:bg-highlight rounded-md bg-accent-secondary text-2xl text-white'>
+              <div className='p-1.5 group-hover:bg-highlight group-hover:text-text rounded-md bg-sub text-sub-bright text-2xl'>
                 <BiLogOutCircle />
               </div>
               <div className='p-1.5 group-hover:text-highlight'>

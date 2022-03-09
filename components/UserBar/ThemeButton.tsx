@@ -18,7 +18,7 @@ export function ThemeButton() {
     <motion.button
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.995 }}
-      className='flex flex-col justify-center items-center w-11 h-11 rounded-md md:shadow text-2xl bg-secondary rounded-md cursor-pointer'
+      className='flex flex-col justify-center items-center w-11 h-11 rounded-md md:shadow text-2xl bg-secondary text-sub-bright rounded-md cursor-pointer'
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
     >
       { theme === 'light' ? <BiSun /> : <BiMoon /> }

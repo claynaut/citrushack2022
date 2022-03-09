@@ -32,7 +32,9 @@ module.exports = {
         overlay: 'var(--overlay)',
         sub: {
           DEFAULT: 'var(--sub)',
-          dark: 'var(--sub-dark)',
+          secondary: 'var(--sub-secondary)',
+          highlight: 'var(--sub-highlight)',
+          bright: 'var(--sub-bright)',
         }
       },
       transitionProperty: {

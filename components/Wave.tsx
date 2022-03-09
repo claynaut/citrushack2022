@@ -5,10 +5,10 @@ interface Props {
 }
 
 export const Wave = ({ type, bgColor, fillColor }: Props) => (
-  <div className={'flex justify-center w-full bg-' + bgColor}>
+  <div className={'w-full bg-' + bgColor}>
       {
         type === 1 &&
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 119 1440 200' className='block w-[100%+1.3px]'>
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 119 1440 200' className='block w-[102%]'>
           <path 
             fill={'var(--' + fillColor + ')'} 
             fillOpacity='1' 
@@ -18,7 +18,7 @@ export const Wave = ({ type, bgColor, fillColor }: Props) => (
       }
       {
         type === 2 &&
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 19 1440 300' className='block w-[100%+1.3px]'>
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 19 1440 300' className='block w-[102%]'>
           <path 
             fill={'var(--' + fillColor + ')'} 
             fillOpacity='1' 
@@ -28,7 +28,7 @@ export const Wave = ({ type, bgColor, fillColor }: Props) => (
       }
       {
         type === 3 &&
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 59 1440 260' className='block w-[100%+1.3px]'>
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 59 1440 260' className='block w-[102%]'>
           <path 
             fill={'var(--' + fillColor + ')'} 
             fillOpacity='1' 
@@ -38,7 +38,7 @@ export const Wave = ({ type, bgColor, fillColor }: Props) => (
       }
       {
         type === 4 &&
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 179 1440 140' className='block w-[100%+1.3px]'>
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 179 1440 140' className='block w-[102%]'>
           <path 
             fill={'var(--' + fillColor + ')'} 
             fillOpacity='1' 

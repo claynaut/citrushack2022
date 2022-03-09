@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Countdown from 'react-countdown'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { ButtonLink } from '../ButtonLink'
 
 var buttonVariants = {}
 
@@ -16,7 +17,7 @@ function TimeBlock({ condition, num, label, separator }: TimeBlockProps) {
   return (
     condition &&
     <>
-      <div className='relative flex flex-col col-span-2 items-center'>
+      <div className='relative flex flex-col col-span-2 items-center text-sub-bright'>
         <div className='flex gap-0.5 xs:gap-1 sm:gap-2'>
           { Array.from(num).map((n, idx) =>
             <motion.div
@@ -42,19 +43,16 @@ function TimeBlock({ condition, num, label, separator }: TimeBlockProps) {
 }
 
 const Completionist = () => (
-  <>
-    <div>
-      <Link passHref href='/live'>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.995 }}
-          className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-highlight text-white cursor-pointer'
-        >
-          Live
-        </motion.button>
-      </Link>
-    </div>
-  </>
+  <div className='mb-4'>
+    <h3 className='text-center sm:text-left font-bold'>
+      Grow your potential.
+    </h3>
+    <ButtonLink
+      primary
+      label='Live Page'
+      link='/live'
+    />
+  </div>
 )
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
@@ -68,35 +66,36 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
     const numSeconds = seconds < 10 ? String(`0${seconds}`) : String(seconds)
 
     return (
-      <>
-        <div>
-          <div className='grid grid-cols-11 flex max-w-xl'>
-            <TimeBlock
-              condition={Boolean(days > 0)}
-              num={numDays}
-              label='days'
-              separator
-            />
-            <TimeBlock
-              condition={Boolean(days > 0 || hours > 0)}
-              num={numHours}
-              label='hours'
-              separator
-            />
-            <TimeBlock
-              condition={Boolean(days > 0 || hours > 0 || minutes > 0)}
-              num={numMinutes}
-              label='mins'
-              separator
-            />
-            <TimeBlock
-              condition={Boolean(days > 0 || hours > 0 || minutes > 0 || seconds > 0)}
-              num={numSeconds}
-              label='secs'
-            />
-          </div>
+      <div className='mb-10'>
+        <h3 className='text-center sm:text-left font-bold'>
+          Grow your potential in...
+        </h3>
+        <div className='grid grid-cols-11 flex max-w-xl'>
+          <TimeBlock
+            condition={Boolean(days > 0)}
+            num={numDays}
+            label='days'
+            separator
+          />
+          <TimeBlock
+            condition={Boolean(days > 0 || hours > 0)}
+            num={numHours}
+            label='hours'
+            separator
+          />
+          <TimeBlock
+            condition={Boolean(days > 0 || hours > 0 || minutes > 0)}
+            num={numMinutes}
+            label='mins'
+            separator
+          />
+          <TimeBlock
+            condition={Boolean(days > 0 || hours > 0 || minutes > 0 || seconds > 0)}
+            num={numSeconds}
+            label='secs'
+          />
         </div>
-      </>
+      </div>
     )
   }
 }

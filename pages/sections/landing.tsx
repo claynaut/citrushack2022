@@ -54,15 +54,12 @@ export default function Landing() {
               />
               <div>
                 <h1 className='font-black uppercase'>Citrus Hack</h1>
-                <h3 className='font-bold'>April 2-3, 2022</h3>
+                <h3 className='font-bold text-highlight-dark'>April 2-3, 2022</h3>
               </div>
             </div>
-            <h3 className='text-center sm:text-left font-bold'>
-              Grow your potential in...
-            </h3>
           </div>
           <CountdownWrapper date='2022-04-02T09:00:00' />
-          <span className='flex justify-center w-full mt-10 mb-6'>
+          <span className='flex justify-center w-full mb-6'>
             <SignupCounter />
           </span>
           { status === 'authenticated' 

@@ -10,7 +10,7 @@ export default function SignupCounter() {
     return (
       <div className='flex items-center gap-2'>
         <BiEdit className='text-3xl' />
-        <h4>There seems to be an error.</h4>
+        <h4 className='font-medium'>There seems to be an error.</h4>
       </div>
     )
   }
@@ -18,8 +18,8 @@ export default function SignupCounter() {
     return (
       <div className='flex items-center gap-2'>
         <BiEdit className='text-3xl' />
-        <h4>
-          <span className='font-medium'>...</span> 
+        <h4 className='font-medium'>
+          <span className='font-bold'>...</span> 
           &nbsp;hackers signed up so far!
         </h4>
       </div>
@@ -28,8 +28,8 @@ export default function SignupCounter() {
     return (
       <div className='flex items-center gap-2'>
         <BiEdit className='text-3xl' />
-        <h4>
-          <span className='font-medium'>{data.numUsers} hackers</span>
+        <h4 className='font-medium'>
+          <span className='font-bold'>{data.numUsers} hackers</span>
           &nbsp;signed up so far!
         </h4>
       </div>

@@ -8,7 +8,7 @@ const Stat = ({ stat, label, idx }: StatProps) => (
   <div 
     className={
       'flex flex-col items-center py-10 lg:py-0 lg:px-12 '
-      + (idx <= 1 ? 'border-b-2 lg:border-b-0 lg:border-r-2' : '')
+      + (idx <= 1 ? 'border-b-2 lg:border-b-0 lg:border-r-2 border-sub' : '')
     }
   >
     <h1 className='text-7xl md:text-8xl font-bold'>

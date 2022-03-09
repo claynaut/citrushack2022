@@ -16,7 +16,7 @@ export function FaqAccordion({ question, answer }: Props) {
         className='flex py-3 items-center hover:text-highlight cursor-pointer'
         onClick={() => setOpen(!open)}
       >
-        <h4 className='grow font-medium'>{question}</h4>
+        <h4 className='grow font-semibold'>{question}</h4>
         <div>
           <BiX 
             className={

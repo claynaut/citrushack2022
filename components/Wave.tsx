@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const Wave = ({ type, bgColor, fillColor }: Props) => (
-  <div className={'w-full bg-' + bgColor}>
+  <div className={'flex w-full bg-' + bgColor}>
       {
         type === 1 &&
         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 119 1440 200' className='block w-[102%]'>

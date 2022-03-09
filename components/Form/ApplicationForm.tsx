@@ -336,7 +336,7 @@ export function ApplicationForm() {
           />
           <Radio
             label='Are you participating in-person or online?'
-            subtext='In-person participants will receive free food and swag.'
+            subtext='In-person participants will get free food, swag, and a chance to network with real engineers.'
             variable='participation'
             options={participation}
             register={register}

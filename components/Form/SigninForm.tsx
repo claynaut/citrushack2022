@@ -34,7 +34,7 @@ export function SigninForm({ csrfToken = '' }) {
   return (
     <div className='flex flex-col w-full items-center'>
       <form
-        className='flex flex-col w-full gap-2'
+        className='flex flex-col w-full gap-3'
         onSubmit={handleSubmit(onSubmit)}
       >
         <input
@@ -50,8 +50,8 @@ export function SigninForm({ csrfToken = '' }) {
             {...register('email')}
             onChange={handleEmailChange}
             className={
-              'w-full px-2 py-1 rounded border-2 focus:border-accent-primary focus:outline-none focus:ring-accent-primary '
-              + ( error ? 'border-red-500' : 'border-gray-300')
+              'w-full px-2 py-1 rounded border-2 bg-card focus:border-accent-primary focus:outline-none focus:ring-accent-primary '
+              + ( error ? 'border-red-500' : 'border-sub')
             }
           />
         </div>
@@ -59,7 +59,7 @@ export function SigninForm({ csrfToken = '' }) {
           type='submit'
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.995 }}
-          className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
+          className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold'
         >
           Sign In With Email
         </motion.button>
@@ -71,7 +71,7 @@ export function SigninForm({ csrfToken = '' }) {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.995 }}
-          className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
+          className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold'
           onClick={() => signIn('google')}
         >
           Sign In With Google

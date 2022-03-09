@@ -34,7 +34,7 @@ export function Footer() {
     },
   ]
   return (
-    <>
+    <div className='flex flex-col w-screen'>
       <Wave type={4} bgColor='secondary' fillColor='primary'/>
       <footer className='flex justify-center w-full py-12 bg-primary'>
         <div className='flex flex-col gap-4 items-center w-full mx-4 text-md font-semibold'>
@@ -61,6 +61,6 @@ export function Footer() {
           </a>
         </div>
       </footer>
-    </>
+    </div>
   )
 }

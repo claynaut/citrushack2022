@@ -14,7 +14,7 @@ export function FileActions({ allSelected, toggleSelectAllDocs, selectedDocs, se
       </p>
       <div className='flex gap-2 items-center text-2xl'>
         <div
-          className='p-2 rounded-full hover:bg-gray-100 cursor-pointer'
+          className='p-2 rounded-full hover:bg-sub cursor-pointer'
           onClick={() => toggleSelectAllDocs(!allSelected)}
         >
           {
@@ -22,7 +22,7 @@ export function FileActions({ allSelected, toggleSelectAllDocs, selectedDocs, se
           }
         </div>
         <div
-          className='p-2 rounded-full hover:bg-gray-100 cursor-pointer'
+          className='p-2 rounded-full hover:bg-sub cursor-pointer'
           onClick={() => loadFiles(setDocs)}
         >
           <BiRefresh title='Refresh Files' /> 

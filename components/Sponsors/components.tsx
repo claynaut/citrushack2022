@@ -149,7 +149,7 @@ const tiers = [
         imageDark: '/assets/sponsors/ieee-dark.svg',
         width: 745,
         height: 959,
-        link: 'https://ieee.ee.ucr.edu/',
+        link: 'https://ieee.ucr.edu/',
         shrink: Boolean(true),
       },
     ]

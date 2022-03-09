@@ -7,6 +7,7 @@ import { CountdownWrapper } from '@/components/Countdown'
 import { ButtonLink } from '@/components/ButtonLink'
 import Modal from '@/components/Modal'
 import { SigninForm } from '@/components/Form'
+import SignupCounter from '@/components/SignupCounter'
 
 export default function Landing() {
   const [mounted, setMounted] = useState(false)
@@ -61,9 +62,12 @@ export default function Landing() {
             </h3>
           </div>
           <CountdownWrapper date='2022-04-02T09:00:00' />
+          <span className='flex justify-center w-full mt-10 mb-6'>
+            <SignupCounter />
+          </span>
           { status === 'authenticated' 
             && !session.user.uid &&
-            <span className='w-full mt-12'>
+            <span className='flex justify-center w-full'>
               <ButtonLink
                 primary
                 label='Apply Now'
@@ -72,7 +76,7 @@ export default function Landing() {
             </span>
           }
           { !session &&
-            <span className='flex justify-center w-full mt-12'>
+            <span className='flex justify-center w-full'>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.995 }}
@@ -86,7 +90,7 @@ export default function Landing() {
           { status === 'authenticated' 
             && session.user.uid
             && session.user.qualified === 'yeah' &&
-            <span className='w-full mt-12'>
+            <span className='flex justify-center w-full'>
               <ButtonLink
                 primary
                 label='Join Our Discord'

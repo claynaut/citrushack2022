@@ -99,7 +99,8 @@ interface RadioProps {
   errors: {
     [x: string]: any
   },
-  direction?: 'row' | 'col'
+  direction?: 'row' | 'col',
+  subtext?: string,
 }
 
 export const Radio = ({
@@ -109,10 +110,16 @@ export const Radio = ({
   required,
   options,
   errors,
-  direction
+  direction,
+  subtext
 }: RadioProps ) => (
   <div>
     <legend className='font-semibold'>{label}</legend>
+    { subtext &&
+      <p className='m-0 mb-1 text-sm italic'>
+       {subtext}
+      </p>
+    }
     <div className={(direction === 'row') ? 'flex flex-col sm:flex-row gap-3 sm:gap-6 pl-2 ' : 'flex flex-col gap-3 pl-2'}>
       {
         options.map((option: string) =>
@@ -143,7 +150,8 @@ export const Radio = ({
 )
 
 Radio.defaultProps = {
-  direction: 'row'
+  direction: 'row',
+  subtext: null,
 }
 
 interface CheckboxProps {

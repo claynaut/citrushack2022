@@ -73,6 +73,10 @@ export function ApplicationForm() {
     'Yes',
     'No',
   ]
+  const participation = [
+    'In-Person',
+    'Online',
+  ]
   const foodPreference = [
     'Meat',
     'Vegetarian',
@@ -121,6 +125,7 @@ export function ApplicationForm() {
     grad_date,
     resume,
     first_time,
+    participation,
     MLH_code_of_conduct,
     MLH_privacy_policy,
     MLH_communication
@@ -160,6 +165,7 @@ export function ApplicationForm() {
       grade,
       grad_date,
       first_time,
+      participation,
       criteria_met,
       MLH_code_of_conduct,
       MLH_privacy_policy,
@@ -324,6 +330,15 @@ export function ApplicationForm() {
             label='First time hacker?'
             variable='first_time'
             options={firstTimeHacker}
+            register={register}
+            errors={errors}
+            required
+          />
+          <Radio
+            label='Are you participating in-person or online?'
+            subtext='In-person participants will receive free food and swag.'
+            variable='participation'
+            options={participation}
             register={register}
             errors={errors}
             required

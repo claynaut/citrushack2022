@@ -12,6 +12,7 @@ import {
   BiHelpCircle,
   BiCategory
 } from 'react-icons/bi'
+import { FaDiscord } from 'react-icons/fa'
 
 export function UserDropdown() {
   const router = useRouter()
@@ -63,7 +64,7 @@ export function UserDropdown() {
         </motion.button>
         <div
           className={
-            'absolute top-14 right-0 w-56 xs:w-64 p-4 rounded bg-secondary shadow-md transform-gpu transition-all duration-150 '
+            'absolute top-14 right-0 w-64 p-4 rounded bg-secondary shadow-md transform-gpu transition-all duration-150 '
             + ( open ? 'z-[1000] visible opacity-100' : 'z-0 invisible opacity-0' )
           }
         >
@@ -106,21 +107,38 @@ export function UserDropdown() {
               { status === 'authenticated' 
                 && session.user.uid
                 && session.user.qualified === 'yeah' &&
-                <Link passHref href='/group/dashboard'>
-                  <motion.button
-                    whileHover={{ scale: 1.03}} 
-                    whileTap={{ scale: 0.995 }}
-                    className='group flex items-center gap-1.5 w-full rounded-md text-sub-highlight font-semibold bg-transparent'
-                    onClick={() => setOpen(!open)}
-                  >
-                    <div className='p-1.5 group-hover:bg-highlight group-hover:text-text rounded-md bg-sub text-sub-bright text-2xl'>
-                      <BiGroup />
-                    </div>
-                    <div className='p-1.5 group-hover:text-highlight'>
-                      My Group
-                    </div>
-                  </motion.button>
-                </Link>
+                <>
+                  <Link passHref href='/group/dashboard'>
+                    <motion.button
+                      whileHover={{ scale: 1.03}} 
+                      whileTap={{ scale: 0.995 }}
+                      className='group flex items-center gap-1.5 w-full rounded-md text-sub-highlight font-semibold bg-transparent'
+                      onClick={() => setOpen(!open)}
+                    >
+                      <div className='p-1.5 group-hover:bg-highlight group-hover:text-text rounded-md bg-sub text-sub-bright text-2xl'>
+                        <BiGroup />
+                      </div>
+                      <div className='p-1.5 group-hover:text-highlight'>
+                        My Group
+                      </div>
+                    </motion.button>
+                  </Link>
+                  <a target='_blank' rel='noreferrer noopener' href={process.env.discord} className='w-full'>
+                   <motion.button
+                      whileHover={{ scale: 1.03}} 
+                      whileTap={{ scale: 0.995 }}
+                      className='group flex items-center gap-1.5 w-full rounded-md text-sub-highlight font-semibold bg-transparent'
+                      onClick={() => setOpen(!open)}
+                    >
+                      <div className='p-1.5 group-hover:bg-highlight group-hover:text-text rounded-md bg-sub text-sub-bright text-2xl'>
+                        <FaDiscord />
+                      </div>
+                      <div className='p-1.5 group-hover:text-highlight'>
+                        Discord Server
+                      </div>
+                    </motion.button>
+                  </a>
+                </>
               }
               { status === 'authenticated' 
                 && session.user.uid

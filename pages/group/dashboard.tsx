@@ -12,6 +12,7 @@ import { BiCopy } from 'react-icons/bi'
 import { ProtectedPage } from '@/components/Page'
 import { Input } from '@/components/Form'
 import Modal from '@/components/Modal'
+import ExternalLink from '@/components/ExternalLink'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -140,10 +141,13 @@ export default function GroupDashboard() {
               My Group
             </h2>
             <p>
-              Want others to join your group? Share the invite code below.
+              Join the <ExternalLink name='Discord server' link={process.env.discord} /> to look for more teammates for important updates on the day of.
             </p>
             <p>
               Note that groups can only contain a max total of 4 hackers.
+            </p>
+            <p>
+              Want others to join? Share the invite code below.
             </p>
             <h3>
               Invite Code

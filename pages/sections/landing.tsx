@@ -95,6 +95,7 @@ export default function Landing() {
                 primary
                 label='Join Our Discord'
                 link={process.env.discord}
+                external
               />
             </span>
           }

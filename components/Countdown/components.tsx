@@ -35,7 +35,7 @@ function TimeBlock({ condition, num, label, separator }: TimeBlockProps) {
         </p>
       </div>
       { separator && 
-        <div className='flex flex-col text-xl sm:text-2xl text-center justify-center'>
+        <div className='flex flex-col text-xl xs:text-3xl sm:text-4xl text-center justify-center text-sub-bright'>
           :
         </div> }
     </>

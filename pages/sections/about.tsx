@@ -37,7 +37,7 @@ export default function About() {
   ]
 
   return (
-    <section className='flex flex-col w-full h-full my-20 lg:my-0 md:min-h-[60rem] max-w-[60rem] justify-center items-center'>
+    <section className='flex flex-col w-full h-full my-12 lg:my-0 max-w-[60rem] justify-center items-center'>
       <h1>About Us</h1>
       <p className='text-center'>
         Citrus Hack is one of SoCal's largest 24-hour hackathons, hosted by UC Riverside. At

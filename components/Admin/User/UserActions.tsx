@@ -111,7 +111,7 @@ export function UserActions({
         }
       >
         <div
-          className='p-2 rounded-full hover:bg-gray-100 cursor-pointer'
+          className='p-2 rounded-full hover:bg-sub cursor-pointer'
           onClick={() => toggleSelectAllUsers(!allSelected)}
         >
           {
@@ -119,7 +119,7 @@ export function UserActions({
           }
         </div>
         <div
-          className='p-2 rounded-full hover:bg-gray-100 cursor-pointer'
+          className='p-2 rounded-full hover:bg-sub cursor-pointer'
           onClick={() => toggleExpandAllUsers(!(expandedUsers.length > 0))}
         >
           {

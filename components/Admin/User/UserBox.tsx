@@ -16,8 +16,8 @@ export function UserBox({
     >
       <div
         className={
-          'border-2 rounded-md bg-white shadow-md cursor-pointer transform-gpu transition-size duration-150 overflow-hidden '
-          + (selectedUsers.includes(user) ? 'border-gray-500 ' : ' ')
+          'border-2 border-sub rounded-md bg-card shadow-md cursor-pointer transform-gpu transition-size duration-150 overflow-hidden '
+          + (selectedUsers.includes(user) ? 'border-text ' : ' ')
           + (expandedUsers.includes(user) ? (user.uid ? 'h-56 ' : 'h-[6.5rem] ') : 'h-11 ')
           + (pending && (user.criteriaMet ? 'bg-green-100 border-green-300' : 'bg-red-100 border-red-300'))
         }
@@ -26,9 +26,9 @@ export function UserBox({
           <div>
             <div 
               className={
-                'w-10 p-2 rounded-full text-2xl group-hover:text-black '
-                + (!pending ? 'hover:bg-gray-100 ' : (user.criteriaMet ? 'hover:bg-green-200 ' : 'hover:bg-red-200 '))
-                + (selectedUsers.includes(user) ? 'text-black' : (pending ? (user.criteriaMet ? 'text-green-300' : 'text-red-300') : 'text-gray-400' ))
+                'w-10 p-2 rounded-full text-2xl group-hover:text-text '
+                + (!pending ? 'hover:bg-sub ' : (user.criteriaMet ? 'hover:bg-green-200 ' : 'hover:bg-red-200 '))
+                + (selectedUsers.includes(user) ? 'text-text' : (pending ? (user.criteriaMet ? 'text-green-300' : 'text-red-300') : 'text-sub' ))
               }
               onClick={() => setSelectedUsers(
                   selectedUsers.includes(user) ? 
@@ -85,7 +85,7 @@ export function UserBox({
         </div>
         <div 
           className={
-            'py-4 border-t-2 '
+            'py-4 border-t-2 border-sub '
             + (pending && (user.criteriaMet ? 'border-green-300' : 'border-red-300'))
           }
         >
@@ -93,22 +93,22 @@ export function UserBox({
             <div className='grid grid-cols-12'>
               <div className='col-start-3 col-span-9 ml-8'>
                 <ul>
-                  <li>
+                  <li className='text-base'>
                     <b>UID:</b> {user.uid}
                   </li>
-                  <li>
+                  <li className='text-base'>
                     <b>Full Name:</b> {user.name.first} {user.name.last}
                   </li>
-                  <li>
+                  <li className='text-base'>
                     <b>School:</b> {user.school}
                   </li>
-                  <li>
+                  <li className='text-base'>
                     <b>Grade:</b> {user.grade}
                   </li>
-                  <li className={(pending ? (user.criteriaMet ? 'text-green-500' : 'text-red-500') : 'text-black')}>
+                  <li className={'text-base ' + (pending ? (user.criteriaMet ? 'text-green-500' : 'text-red-500') : '')}>
                     <b>Graduation Date:</b> {user.graduationDate}
                   </li>
-                  <li>
+                  <li className='text-base'>
                     <b>App Status: </b>
                     { user.qualified === '' && (user.criteriaMet ?
                       'Pending Approval'
@@ -125,7 +125,7 @@ export function UserBox({
               </div>
             </div>
             :
-            <div className='text-center text-gray-400'>
+            <div className='text-center'>
               No information available yet. User has yet to apply.
             </div>
           }

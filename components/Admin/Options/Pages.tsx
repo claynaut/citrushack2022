@@ -11,8 +11,8 @@ export function Pages({ pageOptions, selectedPage, selectPage }) {
       <button
         key={option}
         className={
-          'flex flex-col items-center group text-2xl '
-          + (selectedPage === option ? 'font-semibold text-black' : 'font-normal text-gray-400')
+          'flex flex-col items-center group text-2xl bg-transparent '
+          + (selectedPage === option ? 'font-semibold' : 'font-medium text-sub-highlight hover:text-text')
         }
         onClick={() => { selectPage(option); if (option === 'Resumes'){loadFiles(setDocs)} }}
       >
@@ -25,7 +25,7 @@ export function Pages({ pageOptions, selectedPage, selectPage }) {
         <div 
           className={
             'w-10 border-b-2 '
-            + (selectedPage === option ? 'border-black' : 'border-gray-200 group-hover:border-gray-400')
+            + (selectedPage === option ? 'border-text' : 'border-sub-highlight group-hover:border-text')
           }
         />
       </button>

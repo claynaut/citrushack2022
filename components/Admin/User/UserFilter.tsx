@@ -20,7 +20,7 @@ export function UserFilter({ filters, setFilter, currentFilter, setSorted }) {
     <>
       <div className='relative'>
         <div
-          className='grow-0 mr-2 p-2 rounded-full text-2xl text-gray-500 hover:bg-gray-100 cursor-pointer'
+          className='grow-0 mr-2 p-2 rounded-full text-2xl hover:bg-sub cursor-pointer'
           onClick={() => setOpen(!open)}
         >
           <BiFilter title='Filter' />

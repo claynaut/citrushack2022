@@ -24,16 +24,16 @@ export function FileBox({ doc, selectedDocs, setSelectedDocs }) {
     >
       <div
         className={
-          'border-2 rounded-md bg-white shadow-md cursor-pointer transform-gpu transition-size duration-150 overflow-hidden '
-          + (selectedDocs.includes(doc) ? 'border-gray-500 ' : ' ')
+          'border-2 border-sub rounded-md bg-card shadow-md cursor-pointer transform-gpu transition-size duration-150 overflow-hidden '
+          + (selectedDocs.includes(doc) ? 'border-text ' : ' ')
         }
       >
         <div className='flex'>
           <div className='mr-3'>
             <div 
               className={
-                'w-10 p-2 rounded-full text-2xl group-hover:text-black hover:bg-gray-100 '
-                + (selectedDocs.includes(doc) ? 'text-black' : 'text-gray-400')
+                'w-10 p-2 rounded-full text-2xl group-hover:text-text hover:bg-sub '
+                + (selectedDocs.includes(doc) ? 'text-text' : 'text-sub')
               }
               onClick={() => { setSelectedDocs(
                   selectedDocs.includes(doc) ? 
@@ -56,13 +56,13 @@ export function FileBox({ doc, selectedDocs, setSelectedDocs }) {
             </div>
             <div className='flex gap-1 items-center'>
               <div
-                className='w-9 p-2 rounded-full text-xl hover:text-blue-500 hover:bg-blue-100 cursor-pointer'
+                className='w-9 p-2 rounded-full text-xl hover:text-blue-500 hover:bg-blue-200 cursor-pointer'
                 onClick={() => openFile(doc)}
               >
                 <BiLinkExternal title='Open in New Tab' />
               </div>
               <div
-                className='w-9 p-2 rounded-full text-xl hover:text-green-600 hover:bg-green-100 cursor-pointer'
+                className='w-9 p-2 rounded-full text-xl hover:text-green-600 hover:bg-green-200 cursor-pointer'
                 onClick={() => downloadFile(doc)}
               >
                 <BiDownload title='Download' />

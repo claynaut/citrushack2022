@@ -87,10 +87,10 @@ export function Groups({ data }) {
     <>
       <div className='flex'>
         <div className='w-full mb-3'>
-          <div className='w-full flex items-center pl-2 border-2 border-gray-400 rounded-md'>
-            <BiSearch className='text-2xl text-gray-500'/>
+          <div className='w-full flex items-center pl-2 border-2 border-sub-highlight rounded-md bg-card'>
+            <BiSearch className='text-2xl'/>
             <input
-              className='w-full ml-2 py-2 outline-0 rounded-tr-md rounded-br-md'
+              className='w-full ml-2 py-2 outline-0 rounded-tr-md rounded-br-md bg-card'
               value={searchFilter}
               onChange={handleSearchFilter}
             />

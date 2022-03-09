@@ -25,7 +25,7 @@ export default function Landing() {
 
   return (
     <>
-      <section className='relative flex flex-col-reverse w-full h-screen md:min-h-[60rem] xl:max-w-[68rem] 2xl:max-w-[80rem] justify-center items-center my-36 lg:my-0 mb-20 md:mb-0 gap-6'>
+      <section className='relative flex flex-col-reverse w-full h-screen min-h-[48rem] md:min-h-[60rem] xl:max-w-[68rem] 2xl:max-w-[80rem] justify-center items-center my-40 lg:my-0 mb-20 md:mb-0 gap-6'>
         <motion.div
           animate={{ y: [0, -15, 0] }}
           transition={{

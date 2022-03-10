@@ -32,7 +32,7 @@ export default function Landing() {
             repeat: Infinity,
             duration: 5
           }}
-          className='lg:self-end max-w-[30rem] lg:max-w-[80rem] lg:w-5/12 2xl:w-7/12 transform-gpu'
+          className='lg:self-end max-w-[30rem] lg:max-w-[80rem] lg:w-5/12 xl:w-1/2 2xl:w-7/12 transform-gpu'
         >
           <Image
             src={theme == 'light' ? '/assets/island-light.svg' : '/assets/island-dark.svg'}

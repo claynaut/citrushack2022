@@ -50,6 +50,7 @@
     --sub-secondary: #2B475C;
     --sub-highlight: #3F5D72;
     --sub-bright: #6F8CA0;
+    --pattern: url('/assets/stars.svg');
   }
 
   h1 {

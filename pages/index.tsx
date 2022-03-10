@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Element } from 'react-scroll'
 import { useSession } from 'next-auth/react'
@@ -26,19 +27,27 @@ export default function Home() {
   return (
     <Page>
       <Element name='Home' className='flex justify-center px-4 w-full bg-gradient-to-b from-primary to-accent'>
-        <Landing />
+        <span className='flex justify-center w-full bg-pattern bg-repeat bg-contain'>
+          <Landing />
+        </span>
       </Element>
       <Wave bgColor='bg-accent' fillColor='primary'/>
-      <Element name='About' className='flex justify-center px-4 w-full bg-gradient-to-b from-primary to-secondary'>
-        <About />
+      <Element name='About' className='relative flex justify-center px-4 w-full bg-gradient-to-b from-primary to-secondary'>
+        <span className='flex justify-center w-full bg-pattern bg-repeat bg-contain 2xl:bg-cover'>
+          <About />
+        </span>
       </Element>
       <Wave type={2} bgColor='secondary' fillColor='primary'/>
       <Element name='Tracks' className='flex justify-center px-4 w-full bg-primary'>
-        <Tracks />
+        <span className='flex justify-center w-full bg-pattern bg-repeat bg-contain 2xl:bg-cover'>
+          <Tracks />
+        </span>
       </Element>
       <Wave bgColor='bg-primary' fillColor='accent'/>
       <Element name='Support' className='flex justify-center px-4 w-full bg-gradient-to-b from-accent to-card'>
-        <Support />
+        <span className='flex justify-center w-full bg-pattern bg-repeat bg-contain 2xl:bg-cover'>
+          <Support />
+        </span>
       </Element>
       <Wave type={3} bgColor='bg-card' fillColor='accent-secondary'/>
       <Element name='Sponsors' className='flex justify-center px-4 w-full bg-gradient-to-b from-accent-secondary to-accent'>
@@ -46,7 +55,9 @@ export default function Home() {
       </Element>
       <Wave bgColor='bg-accent' fillColor='primary'/>
       <Element name='Staff' className='flex justify-center px-4 w-full bg-primary'>
-        <Staff />
+        <span className='flex justify-center w-full bg-pattern bg-repeat bg-contain 2xl:bg-cover'>
+          <Staff />
+        </span>
       </Element>
       <Wave type={2} bgColor='bg-primary' fillColor='secondary'/>
       <Element name='FAQ' className='flex justify-center px-4 w-full bg-gradient-to-b'>

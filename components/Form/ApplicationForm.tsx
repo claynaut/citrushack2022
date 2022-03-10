@@ -16,7 +16,7 @@ interface GroupProps {
 }
 
 const Group = ({title, children}: GroupProps) => (
-  <div className='flex flex-col gap-3 sm:p-6 sm:rounded-md sm:shadow-md '>
+  <div className='flex flex-col gap-3 sm:p-6 bg-card sm:rounded-md sm:shadow-md '>
     <h4 className='mt-0 font-semibold'>{title}</h4>
     {children}
   </div>
@@ -105,7 +105,7 @@ export function ApplicationForm() {
         the <ExternalLink name='MLH Privacy Policy' link='https://github.com/MLH/mlh-policies/blob/master/privacy-policy.md'/>. 
         I further agree to the terms of both 
         the <ExternalLink name='MLH Contest Terms and Conditions' link='https://github.com/MLH/mlh-policies/blob/master/prize-terms-and-conditions/contest-terms.md'/>
-        and the <ExternalLink name='MLH Privacy Policy' link='https://github.com/MLH/mlh-policies/blob/master/privacy-policy.md'/>.
+        &nbsp;and the <ExternalLink name='MLH Privacy Policy' link='https://github.com/MLH/mlh-policies/blob/master/privacy-policy.md'/>.
       </>
     ],
     ['I authorize MLH to send me pre- and post-event informational emails, which contain free credit and opportunities from their partners.']

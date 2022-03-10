@@ -42,7 +42,7 @@ export function Block({ image, title }: Props) {
           objectFit='contain' 
         />
       </motion.div>
-      <h4 className='absolute bottom-8 md:bottom-4 font-normal'>{title}</h4>
+      <h4 className='absolute bottom-8 md:bottom-4 font-medium'>{title}</h4>
     </div>
   )
 }

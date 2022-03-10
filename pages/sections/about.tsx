@@ -40,16 +40,16 @@ export default function About() {
     <section className='flex flex-col w-full h-full my-12 lg:my-0 max-w-[60rem] justify-center items-center'>
       <h1>About Us</h1>
       <p className='text-center'>
-        Citrus Hack is one of SoCal's largest 24-hour hackathons, hosted by UC Riverside. At
-        Citrus Hack, hundreds of students from all over the world come together and collaborate 
-        in teams, challenging their creativity as they aim to build a project from scratch in 
+        Citrus Hack is <span className='font-medium'>one of SoCal's largest 24-hour hackathons</span>, hosted 
+        by UC Riverside. At Citrus Hack, hundreds of students from all over the world come together and 
+        collaborate in teams, challenging their creativity as they aim to build a project from scratch in 
         just 24 hours.
       </p>
       <p className='text-center lg:mb-20'>
-        This year, Citrus Hack 2022 will be a hybrid event to accomodate those who prefer to
-        participate from the comfort of their own home. We are working hard to ensure that all
-        participants have an exciting and streamlined experience whether they attend online or
-        in-person.
+        This year, <span className='font-medium'>Citrus Hack 2022 will be a hybrid event</span> to accomodate 
+        those who prefer to participate from the comfort of their own home. We are working hard to 
+        ensure that all participants have an exciting and streamlined experience whether they attend 
+        online or in-person.
       </p>
       <div className='flex flex-col lg:flex-row'>
         { stats.map(({ stat, label }, idx) =>

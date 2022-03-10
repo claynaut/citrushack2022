@@ -8,7 +8,12 @@ export const Wave = ({ type, bgColor, fillColor }: Props) => (
   <div className={'w-full ' + bgColor}>
       {
         type === 1 &&
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 120 1440 200' className='w-full -mb-px'>
+        <svg 
+          xmlns='http://www.w3.org/2000/svg' 
+          viewBox='0 120 1440 200'
+          preserveAspectRatio='none'
+          className='w-full -mb-px'
+        >
           <path 
             fill={'var(--' + fillColor + ')'} 
             fillOpacity='1' 
@@ -18,7 +23,12 @@ export const Wave = ({ type, bgColor, fillColor }: Props) => (
       }
       {
         type === 2 &&
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 20 1440 300' className='w-full -mb-px'>
+        <svg 
+          xmlns='http://www.w3.org/2000/svg' 
+          viewBox='0 20 1440 300'
+          preserveAspectRatio='none'
+          className='w-full -mb-px'
+        >
           <path 
             fill={'var(--' + fillColor + ')'} 
             fillOpacity='1' 
@@ -28,7 +38,12 @@ export const Wave = ({ type, bgColor, fillColor }: Props) => (
       }
       {
         type === 3 &&
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 60 1440 260' className='w-full -mb-px'>
+        <svg 
+          xmlns='http://www.w3.org/2000/svg' 
+          viewBox='0 60 1440 260'
+          preserveAspectRatio='none'
+          className='w-full -mb-px'
+        >
           <path 
             fill={'var(--' + fillColor + ')'} 
             fillOpacity='1' 
@@ -38,7 +53,12 @@ export const Wave = ({ type, bgColor, fillColor }: Props) => (
       }
       {
         type === 4 &&
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 180 1440 140' className='w-full -mb-px'>
+        <svg 
+          xmlns='http://www.w3.org/2000/svg' 
+          viewBox='0 180 1440 140'
+          preserveAspectRatio='none'
+          className='w-full -mb-px'
+        >
           <path 
             fill={'var(--' + fillColor + ')'} 
             fillOpacity='1' 

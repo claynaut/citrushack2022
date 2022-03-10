@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { 
@@ -11,6 +13,9 @@ import vercel from '../../documentation/powered-by-vercel.svg'
 import { Wave } from '../Wave'
 
 export function Footer() {
+  const [mounted, setMounted] = useState(false)
+  const { theme } = useTheme()
+
   const socials = [
     {
       icon: <FiMail title='Email' />,
@@ -33,6 +38,11 @@ export function Footer() {
       link: 'https://www.linkedin.com/company/citrus-hack',
     },
   ]
+
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
+
   return (
     <div className='flex flex-col w-screen'>
       <Wave type={4} bgColor='bg-secondary' fillColor='primary'/>
@@ -51,7 +61,7 @@ export function Footer() {
             )}
           </div>
           <p className='text-center'>
-            Made with 🤍 by the Citrus Hack Team.
+            Made with {theme === 'light' ? '🖤': '🤍'} by the Citrus Hack Team.
           </p>
           <a target='_blank' rel='noreferrer noopener' href='https://vercel.com/?utm_source=citrushack&utm_campaign=oss'>
             <Image

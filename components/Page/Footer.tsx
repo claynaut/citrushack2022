@@ -69,6 +69,7 @@ export function Footer() {
               height={40}
             />
           </a>
+          <a className='text-sub-bright' target="_blank" rel="noferrer noopener" href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">MLH Code Of Conduct</a>
         </div>
       </footer>
     </div>

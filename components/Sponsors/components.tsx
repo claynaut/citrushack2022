@@ -10,9 +10,10 @@ interface SponsorProps {
   height: number,
   link: string,
   shrink?: boolean,
+  enlarge?: boolean,
 }
 
-export const Sponsor = ({ type, image, width, height, link, shrink }: SponsorProps) => (
+export const Sponsor = ({ type, image, width, height, link, shrink, enlarge }: SponsorProps) => (
   <div
     className={
       'flex items-center '
@@ -27,7 +28,7 @@ export const Sponsor = ({ type, image, width, height, link, shrink }: SponsorPro
         type === 'pomelo' ? 'w-40 md:w-48 '
         : ''
       )))))
-      + (shrink ? 'w-16 md:w-24' : '')
+      + (shrink ? 'w-16 md:w-24' : (enlarge ? 'w-48 md:w-56' : ''))
     }
   >
     <motion.div
@@ -62,6 +63,7 @@ const tiers = [
         height: 60,
         link: 'https://www.twilio.com/',
         shrink: null,
+        enlarge: null,
       }
     ]
   },
@@ -81,6 +83,7 @@ const tiers = [
         height: 728,
         link: 'https://www.gcapucr.com/aboutgcap',
         shrink: null,
+        enlarge: null,
       },
     ]
   },
@@ -95,6 +98,7 @@ const tiers = [
         height: 154.34,
         link: 'https://www.wolframalpha.com/',
         shrink: null,
+        enlarge: null,
       },
       {
         image: '/assets/sponsors/fedex-light.svg',
@@ -103,14 +107,16 @@ const tiers = [
         height: 1054,
         link: 'https://www.fedex.com/',
         shrink: null,
+        enlarge: null,
       },
       {
         image: '/assets/sponsors/sketch-light.svg',
         imageDark: '/assets/sponsors/sketch-dark.svg',
-        width: 1919,
-        height: 463,
+        width: 1454,
+        height: 512,
         link: 'https://sketch.com/',
         shrink: null,
+        enlarge: null,
       },
       {
         image: '/assets/sponsors/triad-light.svg',
@@ -119,6 +125,7 @@ const tiers = [
         height: 95,
         link: 'https://www.triadmagnetics.com/',
         shrink: null,
+        enlarge: null,
       },
       {
         image: '/assets/sponsors/vercel-light.svg',
@@ -127,6 +134,7 @@ const tiers = [
         height: 1000,
         link: 'https://vercel.com/?utm_source=citrushack&utm_campaign=oss',
         shrink: null,
+        enlarge: null,
       },
       {
         image: '/assets/sponsors/snapchat.svg',
@@ -135,6 +143,16 @@ const tiers = [
         height: 385.49,
         link: 'https://www.snapchat.com/',
         shrink: Boolean(true),
+        enlarge: null,
+      },
+      {
+        image: '/assets/sponsors/interview-cake-light.svg',
+        imageDark: '/assets/sponsors/interview-cake-dark.svg',
+        width: 525,
+        height: 90,
+        link: 'https://www.interviewcake.com/',
+        shrink: null,
+        enlarge: Boolean(true),
       },
       {
         image: '/assets/sponsors/acm-light.svg',
@@ -143,6 +161,7 @@ const tiers = [
         height: 910,
         link: 'https://acmucr.org/',
         shrink: Boolean(true),
+        enlarge: null,
       },
       {
         image: '/assets/sponsors/ieee-light.svg',
@@ -151,6 +170,7 @@ const tiers = [
         height: 959,
         link: 'https://ieee.ucr.edu/',
         shrink: Boolean(true),
+        enlarge: null,
       },
     ]
   },
@@ -184,7 +204,7 @@ export function SponsorsGrid() {
           <h3 className='absolute top-0 left-4 flex w-full items-center transform font-black uppercase rotate-90 origin-left'>
             {type}&nbsp;<span className='w-full border-text border-t-4'></span>
           </h3>
-          { sponsors.map(({ image, imageDark, width, height, link, shrink }) =>
+          { sponsors.map(({ image, imageDark, width, height, link, shrink, enlarge }) =>
             <Sponsor
               key={link}
               type={type}
@@ -193,6 +213,7 @@ export function SponsorsGrid() {
               height={height}
               link={link}
               shrink={shrink}
+              enlarge={enlarge}
             />
           )}
         </div>

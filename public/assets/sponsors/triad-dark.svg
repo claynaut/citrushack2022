@@ -1,10 +1,10 @@
 <svg width="1789" height="2701" viewBox="0 0 1789 2701" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="809" height="279" fill="#F7B927"/>
 <rect y="1933" width="809" height="279" fill="#F7B927"/>
-<rect x="515" y="279" width="294" height="1654" fill="#F7B927"/>
+<rect x="515" width="294" height="2212" fill="#F7B927"/>
 <rect width="809" height="279" transform="matrix(-1 0 0 1 1771 0)" fill="#F7B927"/>
 <rect width="809" height="279" transform="matrix(-1 0 0 1 1771 1933)" fill="#F7B927"/>
-<rect width="294" height="1654" transform="matrix(-1 0 0 1 1256 279)" fill="#F7B927"/>
+<rect width="294" height="2212" transform="matrix(-1 0 0 1 1256 0)" fill="#F7B927"/>
 <path d="M356.643 2335H0V2376.98H153.087V2701H203.556V2376.98H356.643V2335Z" fill="white"/>
 <path d="M820.5 2701L689.607 2548.68C751.851 2540.07 786.618 2502.93 786.618 2442.65C786.618 2373.75 741.757 2335 662.13 2335H433.34V2701H483.808V2550.29H630.727L761 2701H820.5ZM483.808 2376.98H652.597C707.551 2376.98 735.028 2398.51 735.028 2442.65C735.028 2486.78 707.551 2508.31 652.597 2508.31H483.808V2376.98Z" fill="white"/>
 <path d="M883.481 2701H933.949V2335H883.481V2701Z" fill="white"/>

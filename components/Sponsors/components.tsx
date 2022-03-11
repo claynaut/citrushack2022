@@ -77,6 +77,21 @@ const tiers = [
     wide: null,
     sponsors: [
       {
+        image: '/assets/sponsors/amazon-light.svg',
+        imageDark: '/assets/sponsors/amazon-dark.svg',
+        width: 603,
+        height: 182,
+        link: 'https://www.amazon.com/',
+        shrink: null,
+        enlarge: Boolean(true),
+      },
+    ]
+  },
+  {
+    type: 'cutie',
+    wide: Boolean(true),
+    sponsors: [
+      {
         image: '/assets/sponsors/gcap-light.svg',
         imageDark: '/assets/sponsors/gcap-dark.svg',
         width: 727,
@@ -85,12 +100,6 @@ const tiers = [
         shrink: null,
         enlarge: null,
       },
-    ]
-  },
-  {
-    type: 'cutie',
-    wide: Boolean(true),
-    sponsors: [
       {
         image: '/assets/sponsors/wolfram-light.svg',
         imageDark: '/assets/sponsors/wolfram-dark.svg',
@@ -151,6 +160,15 @@ const tiers = [
         width: 525,
         height: 90,
         link: 'https://www.interviewcake.com/',
+        shrink: null,
+        enlarge: Boolean(true),
+      },
+      {
+        image: '/assets/sponsors/google-cloud-light.svg',
+        imageDark: '/assets/sponsors/google-cloud-dark.svg',
+        width: 924,
+        height: 145,
+        link: 'https://cloud.google.com/',
         shrink: null,
         enlarge: Boolean(true),
       },

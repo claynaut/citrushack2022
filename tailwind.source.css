@@ -9,6 +9,7 @@
     --secondary: #F3FBFF;
     --accent: #FFF5EB;
     --accent-secondary: #FFE4C8; /* same color for card buttons */
+    --accent-sub: #F2CAA0;
     --card: #FFF;
     --text: #453535;
     --highlight: #9DC300;
@@ -18,6 +19,7 @@
     --sub-secondary: #A1B3C4;
     --sub-highlight: #92A6B9;
     --sub-bright: #5B7690;
+    --pattern: url('/assets/clouds.svg');
   }
 
   [data-theme='light'] {
@@ -25,6 +27,7 @@
     --secondary: #F3FBFF;
     --accent: #FFF5EB;
     --accent-secondary: #FFE4C8;
+    --accent-sub: #F2CAA0;
     --card: #FFF;
     --text: #453535;
     --highlight: #9DC300;
@@ -34,6 +37,7 @@
     --sub-secondary: #A1B3C4;
     --sub-highlight: #92A6B9;
     --sub-bright: #5B7690;
+    --pattern: url('/assets/clouds.svg');
   }
 
   [data-theme='dark'] {
@@ -41,6 +45,7 @@
     --secondary: #152A38;
     --accent: #145361;
     --accent-secondary: #184659;
+    --accent-sub: #1F5A73;
     --card: #193243;
     --text: #F2F3F4;
     --highlight: #FB9A36;

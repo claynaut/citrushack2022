@@ -25,6 +25,7 @@ module.exports = {
         accent: {
           DEFAULT: 'var(--accent)',
           secondary: 'var(--accent-secondary)',
+          sub: 'var(--accent-sub)',
         },
         highlight: {
           DEFAULT: 'var(--highlight)',

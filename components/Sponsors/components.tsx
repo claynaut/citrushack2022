@@ -10,25 +10,24 @@ interface SponsorProps {
   height: number,
   link: string,
   shrink?: boolean,
-  enlarge?: boolean,
+  tall?: boolean,
 }
 
-export const Sponsor = ({ type, image, width, height, link, shrink, enlarge }: SponsorProps) => (
+export const Sponsor = ({ type, image, width, height, link, shrink, tall }: SponsorProps) => (
   <div
     className={
       'flex items-center min-h-[8rem] '
-      + ( type === 'kumquat' ? 'w-32 md:w-36 '
+      + ( type === 'kumquat' ? 'w-32 md:w-36 ' + (shrink ? 'w-16 md:w-24' : '') + (tall ? 'w-12 md:w-20' : '')
         : (
-        type === 'cutie' ? 'w-32 md:w-36 '
+        type === 'cutie' ? 'w-32 md:w-36 ' + (shrink ? 'w-16 md:w-24' : '') + (tall ? 'w-12 md:w-20' : '')
         : (
-        type === 'tangerine' ? 'w-32 md:w-36 '
+        type === 'tangerine' ? 'w-32 md:w-36 ' + (shrink ? 'w-24 md:w-28' : '') + (tall ? 'w-18 md:w-24' : '')
         : (
-        type === 'orange' ? 'w-40 md:w-48 '
+        type === 'orange' ? 'w-40 md:w-48 ' + (shrink ? 'w-24 md:w-32' : '') + (tall ? 'w-20 md:w-28' : '')
         : (
-        type === 'pomelo' ? 'w-40 md:w-48 '
+        type === 'pomelo' ? 'w-40 md:w-48 ' + (shrink ? 'w-24 md:w-32' : '') + (tall ? 'w-20 md:w-28' : '')
         : ''
       )))))
-      + (shrink ? 'w-16 md:w-24' : (enlarge ? 'w-48 md:w-56' : ''))
     }
   >
     <motion.div
@@ -63,7 +62,7 @@ const tiers = [
         height: 60,
         link: 'https://www.twilio.com/',
         shrink: null,
-        enlarge: null,
+        tall: null,
       }
     ]
   },
@@ -77,13 +76,22 @@ const tiers = [
     wide: null,
     sponsors: [
       {
+        image: '/assets/sponsors/gcap-light.svg',
+        imageDark: '/assets/sponsors/gcap-dark.svg',
+        width: 727,
+        height: 728,
+        link: 'https://www.gcapucr.com/aboutgcap',
+        shrink: null,
+        tall: null,
+      },
+      {
         image: '/assets/sponsors/amazon-light.svg',
         imageDark: '/assets/sponsors/amazon-dark.svg',
-        width: 603,
-        height: 182,
+        width: 2380,
+        height: 2452,
         link: 'https://www.amazon.com/',
-        shrink: null,
-        enlarge: Boolean(true),
+        shrink: Boolean(true),
+        tall: null,
       },
     ]
   },
@@ -92,22 +100,13 @@ const tiers = [
     wide: Boolean(true),
     sponsors: [
       {
-        image: '/assets/sponsors/gcap-light.svg',
-        imageDark: '/assets/sponsors/gcap-dark.svg',
-        width: 727,
-        height: 728,
-        link: 'https://www.gcapucr.com/aboutgcap',
-        shrink: null,
-        enlarge: null,
-      },
-      {
         image: '/assets/sponsors/wolfram-light.svg',
         imageDark: '/assets/sponsors/wolfram-dark.svg',
         width: 198,
         height: 154.34,
         link: 'https://www.wolframalpha.com/',
         shrink: null,
-        enlarge: null,
+        tall: null,
       },
       {
         image: '/assets/sponsors/fedex-light.svg',
@@ -116,34 +115,34 @@ const tiers = [
         height: 1054,
         link: 'https://www.fedex.com/',
         shrink: null,
-        enlarge: null,
+        tall: null,
       },
       {
         image: '/assets/sponsors/sketch-light.svg',
         imageDark: '/assets/sponsors/sketch-dark.svg',
-        width: 1454,
-        height: 512,
+        width: 1407,
+        height: 1288,
         link: 'https://sketch.com/',
-        shrink: null,
-        enlarge: null,
+        shrink: Boolean(true),
+        tall: null,
       },
       {
         image: '/assets/sponsors/triad-light.svg',
         imageDark: '/assets/sponsors/triad-dark.svg',
-        width: 371,
-        height: 95,
+        width: 1789,
+        height: 2701,
         link: 'https://www.triadmagnetics.com/',
-        shrink: null,
-        enlarge: null,
+        shrink: Boolean(true),
+        tall: Boolean(true),
       },
       {
         image: '/assets/sponsors/vercel-light.svg',
         imageDark: '/assets/sponsors/vercel-dark.svg',
-        width: 4437.5,
+        width: 1155,
         height: 1000,
         link: 'https://vercel.com/?utm_source=citrushack&utm_campaign=oss',
-        shrink: null,
-        enlarge: null,
+        shrink: Boolean(true),
+        tall: null,
       },
       {
         image: '/assets/sponsors/snapchat.svg',
@@ -152,25 +151,25 @@ const tiers = [
         height: 385.49,
         link: 'https://www.snapchat.com/',
         shrink: Boolean(true),
-        enlarge: null,
+        tall: null,
       },
       {
         image: '/assets/sponsors/interview-cake-light.svg',
         imageDark: '/assets/sponsors/interview-cake-dark.svg',
-        width: 525,
-        height: 90,
+        width: 1754,
+        height: 1850,
         link: 'https://www.interviewcake.com/',
-        shrink: null,
-        enlarge: Boolean(true),
+        shrink: Boolean(true),
+        tall: null,
       },
       {
-        image: '/assets/sponsors/google-cloud-light.svg',
-        imageDark: '/assets/sponsors/google-cloud-dark.svg',
-        width: 924,
-        height: 145,
+        image: '/assets/sponsors/google-cloud.svg',
+        imageDark: '/assets/sponsors/google-cloud.svg',
+        width: 2278,
+        height: 1833,
         link: 'https://cloud.google.com/',
-        shrink: null,
-        enlarge: Boolean(true),
+        shrink: Boolean(true),
+        tall: null,
       },
       {
         image: '/assets/sponsors/acm-light.svg',
@@ -179,7 +178,7 @@ const tiers = [
         height: 910,
         link: 'https://acmucr.org/',
         shrink: Boolean(true),
-        enlarge: null,
+        tall: null,
       },
       {
         image: '/assets/sponsors/ieee-light.svg',
@@ -188,7 +187,7 @@ const tiers = [
         height: 959,
         link: 'https://ieee.ucr.edu/',
         shrink: Boolean(true),
-        enlarge: null,
+        tall: null,
       },
     ]
   },
@@ -215,14 +214,14 @@ export function SponsorsGrid() {
         <div
           key={type}
           className={
-            'relative flex flex-wrap justify-center w-full gap-6 gap-y-12 sm:gap-y-6 p-10 rounded-md overflow-hidden '
+            'relative flex flex-wrap justify-center w-full gap-16 gap-y-10 md:gap-y-6 p-10 rounded-md overflow-hidden '
             + (wide ? 'col-span-2' : 'col-span-2 sm:col-span-1')
           }
         >
           <h3 className='absolute top-0 left-4 flex w-full items-center transform font-black uppercase rotate-90 origin-left'>
             {type}&nbsp;<span className='w-full border-text border-t-4'></span>
           </h3>
-          { sponsors.map(({ image, imageDark, width, height, link, shrink, enlarge }) =>
+          { sponsors.map(({ image, imageDark, width, height, link, shrink, tall }) =>
             <Sponsor
               key={link}
               type={type}
@@ -231,7 +230,7 @@ export function SponsorsGrid() {
               height={height}
               link={link}
               shrink={shrink}
-              enlarge={enlarge}
+              tall={tall}
             />
           )}
         </div>

@@ -61,11 +61,11 @@ const faq = [
   },
   {
     question: 'Who can come to Citrus Hack?',
-    answer: 'We welcome anyone from any high school or college to come out and hack with us.'
+    answer: 'We welcome anyone from any high school or undergrad college to come out and hack with us.'
   },
   {
     question: 'Where is the event?',
-    answer: 'Since this event will be hybrid, we will have two locations for the event. For those attending in-person, the event will be located in Winston Chung Hall at UCR. And for those attending online, the event will be hosted on Discord so be sure to make an account before you apply. An invite link to our server will be sent via email to those who will be participating and will be also made available on the website for those qualified.'
+    answer: <>Since this event will be hybrid, we will have two locations for the event. <u>Note that only UCR students can attend in person.</u> For those attending in-person, the event will be located in Winston Chung Hall at UCR. And for those attending online, the event will be hosted on Discord so be sure to make an account before you apply. An invite link to our server will be sent via email to those who will be participating and will be also made available on the website for those qualified.</>
   },
   {
     question: 'What if I\'ve never been to a hackathon before?',
@@ -75,10 +75,10 @@ const faq = [
     question: 'What will I need to participate?',
     answer: 
     <>
-      If you&apos;re participating in-person, you&apos;ll need to wear a mask 
-      and fill out <ExternalLink name='this daily wellness check-in form' link='http://visitorwellnesscheck.ucr.edu/'/> per UCR&apos;s guidelines. 
+      If you&apos;re participating in-person, <u>you&apos;ll need to wear a mask, bring proof of vaccination,  
+      and fill out</u> <ExternalLink name='this daily wellness check-in form' link='http://visitorwellnesscheck.ucr.edu/'/>  <u>per UCR&apos;s guidelines.</u>{' '}
       Otherwise, if you&apos;re staying online, all you need is a working device
-      (i.e your laptop or PC) and a stable internet connection.
+      (i.e your laptop or PC) and a stable internet connection. If you haven&apos;t already, create a Discord and/or Zoom to help you participate.
     
     </>
   },

@@ -16,7 +16,7 @@ interface SponsorProps {
 export const Sponsor = ({ type, image, width, height, link, shrink, enlarge }: SponsorProps) => (
   <div
     className={
-      'flex items-center '
+      'flex items-center min-h-[8rem] '
       + ( type === 'kumquat' ? 'w-32 md:w-36 '
         : (
         type === 'cutie' ? 'w-32 md:w-36 '

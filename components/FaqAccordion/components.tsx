@@ -45,7 +45,7 @@ const faq = [
   },
   {
     question: 'How do I apply?',
-    answer: 'You need to sign in first with either your email or Google account. The application form is then accessible on the website after signing in.'
+    answer: 'You need to sign in first with either your Google account. The application form is then accessible on the website after signing in.'
   },
   {
     question: 'When are applications due?',

@@ -17,24 +17,27 @@ export const TeamProfile = ({ link, image, name, role }: ProfileProps) => (
           width={120}
           height={120}
           objectFit='contain'
+          priority={true}
+          quality={100}
+          className="rounded-full"
         />
       </a>
     </motion.span>
-    <p className='mb-0 font-semibold'>{name}</p>
+    <p className='mb-0 w-max font-semibold'>{name}</p>
     <p className='mt-0 leading-4 text-base text-center'>{role}</p>
   </div>
 )
 
 const staff = [
   {
-    link: 'https://www.linkedin.com/in/rajbirjohar/',
-    image: '/assets/logo.svg',
+    link: 'https://www.linkedin.com/in/audrey-kim-696922168/',
+    image: '/assets/leads/audrey.jpeg',
     name: 'Audrey Kim',
     role: 'Director',
   },
   {
-    link: 'https://www.linkedin.com/in/audrey-kim-696922168/',
-    image: '/assets/logo.svg',
+    link: 'https://www.linkedin.com/in/rajbirjohar/',
+    image: '/assets/leads/rajbir.jpeg',
     name: 'Rajbir Johar',
     role: 'Director',
   },
@@ -46,45 +49,57 @@ const staff = [
   },
   {
     link: 'https://www.linkedin.com/in/westin-montano/',
-    image: '/assets/logo.svg',
+    image: '/assets/leads/westin.jpeg',
     name: 'Westin Montano',
     role: 'Operations Lead',
   },
   {
     link: 'https://www.linkedin.com/in/mariam-golwalla-74930949/',
-    image: '/assets/logo.svg',
+    image: '/assets/leads/mariam.jpeg',
     name: 'Mariam Golwalla',
     role: 'Sponsorship Lead',
   },
   {
     link: 'https://www.linkedin.com/in/marshall-jones-0/',
-    image: '/assets/logo.svg',
+    image: '/assets/leads/marshall.jpeg',
     name: 'Marshall Jones',
     role: 'Sponsorship Lead',
   },
   {
     link: 'https://www.linkedin.com/in/kimberlylac/',
-    image: '/assets/logo.svg',
+    image: '/assets/leads/kimmy.jpeg',
     name: 'Kimmy Lac',
     role: 'Marketing Lead',
   },
   {
     link: 'https://www.linkedin.com/in/henry-zheng00/',
-    image: '/assets/logo.svg',
+    image: '/assets/leads/henry.jpeg',
     name: 'Henry Zheng',
     role: 'Marketing Lead',
   },
   {
     link: 'https://www.linkedin.com/in/jspescasio/',
-    image: '/assets/logo.svg',
+    image: '/assets/leads/jamella.jpeg',
     name: 'J.S. Pescasio',
     role: 'Web Dev Lead',
   },
   {
     link: 'https://www.linkedin.com/in/michellesspace/',
-    image: '/assets/logo.svg',
+    image: '/assets/leads/michelle.jpeg',
     name: 'Michelle Kim',
     role: 'UX Design Lead',
+  },
+  {
+    link: 'https://www.linkedin.com/in/abhivishwas/',
+    image: '/assets/leads/abhi.jpeg',
+    name: 'Abhi Vishwasrao',
+    role: 'Volunteer Lead',
+  },
+  {
+    link: 'https://www.linkedin.com/in/jakin200/',
+    image: '/assets/leads/jakin.jpeg',
+    name: 'Jakin Chan',
+    role: 'Volunteer Lead',
   },
 ]
 

@@ -29,7 +29,7 @@ export function FaqAccordion({ question, answer }: Props) {
       <div 
         className={
           'transition-size overflow-hidden duration-250 h-full '
-          + (open ? 'max-h-[20rem]' : 'max-h-0')
+          + (open ? 'max-h-[30rem]' : 'max-h-0')
         }
       >
         <p className='m-0 mb-8'>{answer}</p>

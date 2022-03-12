@@ -100,7 +100,7 @@ export default function Landing() {
       </section>
       <Modal
         title='Sign In'
-        description='Sign in to Citrus Hack via email or Google to apply and access more. No password required.'
+        description='Sign in to Citrus Hack via Google to apply and access more. No password required.'
         show={signinModalOpen}
         handler={setSigninModalOpen}
       >

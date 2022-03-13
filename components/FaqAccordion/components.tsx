@@ -6,7 +6,7 @@ interface Props {
   question: string,
   answer: string | React.ReactNode
 }
-
+ 
 export function FaqAccordion({ question, answer }: Props) {
   const [open, setOpen] = useState(true)
 

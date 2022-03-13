@@ -149,7 +149,10 @@ export function ApplicationForm() {
     const file = resume[0]
     const filename = first_name.replace(/\s/g, '') + '___' + last_name.replace(/\s/g, '') + '___' + uid + '.pdf'
     const fileRef = ref(storage, 'resumes/' + filename)
-    uploadBytes(fileRef, file) // upload file
+    const metadata = {
+      contentType: 'application/pdf',
+    }
+    uploadBytes(fileRef, file, metadata) // upload file
 
     axios.post('/api/applications/create', {
       uid,      

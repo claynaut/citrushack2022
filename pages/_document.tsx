@@ -30,6 +30,16 @@ export default class MyDocument extends Document {
           <link rel='preload' as='image' href='/assets/sponsors/sketch-dark.svg' />
           <link rel='preload' as='image' href='/assets/sponsors/triad-light.svg' />
           <link rel='preload' as='image' href='/assets/sponsors/triad-dark.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/google-cloud.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/snapchat.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/amazon-light.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/amazon-dark.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/twilio-light.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/twilio-dark.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/interview-cake-light.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/interview-cake-dark.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/digital-ocean-light.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/digital-ocean-dark.svg' />
           <link rel='preload' as='image' href='/assets/sponsors/acm-light.svg' />
           <link rel='preload' as='image' href='/assets/sponsors/acm-dark.svg' />
           <link rel='preload' as='image' href='/assets/sponsors/ieee-light.svg' />

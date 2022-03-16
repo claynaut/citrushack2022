@@ -172,6 +172,15 @@ const tiers = [
         tall: null,
       },
       {
+        image: '/assets/sponsors/digital-ocean-light.svg',
+        imageDark: '/assets/sponsors/digital-ocean-dark.svg',
+        width: 176.4,
+        height: 176.5,
+        link: 'https://www.digitalocean.com/',
+        shrink: Boolean(true),
+        tall: null,
+      },
+      {
         image: '/assets/sponsors/acm-light.svg',
         imageDark: '/assets/sponsors/acm-dark.svg',
         width: 910,

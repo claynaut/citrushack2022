@@ -43,7 +43,7 @@ const staff = [
   },
   {
     link: 'https://www.linkedin.com/in/paulianle7/',
-    image: '/assets/logo.svg',
+    image: '/assets/leads/paulian.jpg',
     name: 'Paulian Le',
     role: 'Operations Lead',
   },

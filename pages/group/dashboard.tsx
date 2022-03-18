@@ -23,6 +23,8 @@ export default function GroupDashboard() {
   const { errors } = useFormState({ control })
   const { data, error } = useSWR('/api/groups/query', fetcher)
   const [modalOpen, setModalOpen] = useState(false)
+  const [clickedCreateOnce, setClickedCreateOnce] = useState(false)
+  const [clickedLeaveOnce, setClickedLeaveOnce] = useState(false)
 
   const joinGroup = ({ invite_code }) => {
     axios.post('/api/groups/join', { invite_code })
@@ -47,6 +49,10 @@ export default function GroupDashboard() {
   }
 
   const createGroup = () => {
+    if (clickedCreateOnce) {
+      return
+    }
+    setClickedCreateOnce(Boolean(true))
     axios.post('/api/groups/create')
     .then(() => {
       toast.success('Successfully created a group!', { id: 'createGroupSuccess' })
@@ -61,6 +67,10 @@ export default function GroupDashboard() {
   }
 
   const leaveGroup = () => {
+    if (clickedLeaveOnce) {
+      return
+    }
+    setClickedLeaveOnce(Boolean(true))
     axios.post('/api/groups/leave')
     .then(() => {
       toast.success('Successfully left your group!', { id: 'leaveGroupSuccess' })
@@ -131,7 +141,7 @@ export default function GroupDashboard() {
                 className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold'
                 onClick={() => createGroup()}
               >
-                Create Group
+                {clickedCreateOnce ? 'Creating Group...' : 'Create Group' }
               </motion.button>
             </div>
           </>

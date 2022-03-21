@@ -28,6 +28,7 @@ export function UserActions({
   const [confirmAuto, setConfirmAuto] = useState(false)
   const [confirmApprove, setConfirmApprove] = useState(false)
   const [confirmReject, setConfirmReject] = useState(false)
+  const [confirmRedoApprove, setConfirmRedoApprove] = useState(false)
   
   const remindToApply = (users) => {
     axios.post('/api/applications/remind', { users })
@@ -96,10 +97,27 @@ export function UserActions({
     })
   }
 
+  const redoApproveSelected = (users) => {
+    axios.post('/api/applications/re-review', { users })
+    .then(() => {
+      toast.success(
+        'Approved selected successfully!',
+        { id: 'redoApprovedSelectedSuccess' }
+      )
+      router.reload()
+    })
+    .catch(() => {
+      toast.error(
+        'Uh oh. Something went wrong...',
+        { id: 'redoApprovedSelectedError' }
+      )
+    })
+  }
+
   return (
     <>
       {
-        (selectedView === 'Not Applied' || selectedView === 'Pending') &&
+        (selectedView === 'Not Applied' || selectedView === 'Pending' || selectedView === 'Rejected') &&
         <p className='mt-3 font-normal text-base'>
           <span className='font-medium'>Tip:</span> Select a row to perform more actions.
         </p>
@@ -107,7 +125,7 @@ export function UserActions({
       <div
         className={
           'flex gap-2 items-center text-2xl '
-          + (!(selectedView === 'Not Applied' || selectedView === 'Pending') ? 'mt-3' : '')
+          + (!(selectedView === 'Not Applied' || selectedView === 'Pending' || selectedView === 'Rejected') ? 'mt-3' : '')
         }
       >
         <div
@@ -130,7 +148,7 @@ export function UserActions({
           }
         </div>
         {
-          selectedUsers.length > 0 && (selectedView == 'Not Applied' || selectedView == 'Pending') &&
+          selectedUsers.length > 0 && (selectedView == 'Not Applied' || selectedView == 'Pending' || selectedView == 'Rejected') &&
           <div className='flex gap-1 items-center pl-2 border-l-2'>
             { selectedView === 'Not Applied' &&
               <div
@@ -165,6 +183,15 @@ export function UserActions({
                   <span className='text-base'>Reject</span>
                 </div>
               </>
+            }
+            { selectedView === 'Rejected' &&
+              <div
+                className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-green-600 hover:bg-green-100 cursor-pointer'
+                onClick={() => setConfirmRedoApprove(true)}
+              >
+                <BiTask title='Approve Selected' />
+                <span className='text-base'>Approve</span>
+              </div>
             }
           </div>
         }
@@ -234,6 +261,23 @@ export function UserActions({
             onClick={() => { rejectSelected(selectedUsers, false); setConfirmReject(false) }}
           >
             Reject Selected
+          </motion.button>
+        </div>
+      </Modal>
+      <Modal
+        show={confirmRedoApprove}
+        handler={setConfirmRedoApprove}
+        title='Confirm Action'
+        description='Are you sure you want to approve all originally rejected selected users?'
+      >
+        <div className='flex justify-center'>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.995 }}
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-green-500 text-white cursor-pointer'
+            onClick={() => { redoApproveSelected(selectedUsers); setConfirmRedoApprove(false) }}
+          >
+            Approve Selected
           </motion.button>
         </div>
       </Modal>

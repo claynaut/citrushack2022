@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { useForm, useFormState } from 'react-hook-form'
 import { motion } from 'framer-motion'
 import axios from 'axios'
@@ -27,6 +28,7 @@ export function ApplicationForm() {
   const { register, handleSubmit, control } = useForm()
   const { errors } = useFormState({ control })
   const router = useRouter()
+  const [clickedSubmitOnce, setClickedSubmitOnce] = useState(false)
   const genders = [
     'Male',
     'Female',
@@ -130,6 +132,11 @@ export function ApplicationForm() {
     MLH_privacy_policy,
     MLH_communication
   }) => {
+    if (clickedSubmitOnce) {
+      return
+    }
+    setClickedSubmitOnce(Boolean(true))
+
     const [year, month, day] = grad_date.split('-')
     let criteria_met = true
 
@@ -186,6 +193,7 @@ export function ApplicationForm() {
         'Uh oh. Something went wrong. If this issue persists, let us know.',
         { id: 'submitApplicationError' }
       )
+      setClickedSubmitOnce(Boolean(false))
     })
   }
 
@@ -380,7 +388,7 @@ export function ApplicationForm() {
           className='w-full py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold text-white'
           onClick={() => triggerErrorNotification()}
         >
-          Submit
+          {clickedSubmitOnce ? 'Submitting...' : 'Submit'}
         </motion.button>
       </form>
     </main>

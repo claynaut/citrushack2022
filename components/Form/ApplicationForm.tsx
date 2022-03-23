@@ -29,6 +29,7 @@ export function ApplicationForm() {
   const { errors } = useFormState({ control })
   const router = useRouter()
   const [clickedSubmitOnce, setClickedSubmitOnce] = useState(false)
+  const [fileUploaded, setFileUploaded] = useState(false)
   const genders = [
     'Male',
     'Female',
@@ -153,13 +154,15 @@ export function ApplicationForm() {
 
     const uid = nanoid()
 
-    const file = resume[0]
-    const filename = first_name.replace(/\s/g, '') + '___' + last_name.replace(/\s/g, '') + '___' + uid + '.pdf'
-    const fileRef = ref(storage, 'resumes/' + filename)
-    const metadata = {
-      contentType: 'application/pdf',
+    if (fileUploaded) {
+      const file = resume[0]
+      const filename = first_name.replace(/\s/g, '') + '___' + last_name.replace(/\s/g, '') + '___' + uid + '.pdf'
+      const fileRef = ref(storage, 'resumes/' + filename)
+      const metadata = {
+        contentType: 'application/pdf',
+      }
+      await uploadBytes(fileRef, file, metadata) // upload file
     }
-    await uploadBytes(fileRef, file, metadata) // upload file
 
     axios.post('/api/applications/create', {
       uid,      
@@ -336,6 +339,7 @@ export function ApplicationForm() {
             variable='resume'
             register={register}
             errors={errors}
+            onChange={() => setFileUploaded(Boolean(true))}
           />
           <Radio
             label='First time hacker?'

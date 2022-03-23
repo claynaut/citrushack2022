@@ -8,7 +8,8 @@ interface InputProps {
   required?: boolean,
   errors: {
     [x: string]: any
-  }
+  },
+  onChange?: () => void,
 }
 
 export const Input = ({ 
@@ -18,7 +19,8 @@ export const Input = ({
   variable, 
   register, 
   required, 
-  errors 
+  errors,
+  onChange
 }: InputProps) => (
   <div>
     <label className='font-semibold'>
@@ -41,6 +43,7 @@ export const Input = ({
         + (type === 'file' ? '' : 'bg-card px-2 border-2 ' )
         + (errors[variable] ? 'border-red-500' : 'border-sub')
       }
+      onChange={onChange}
     />
   </div>
 )

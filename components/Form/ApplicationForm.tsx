@@ -113,7 +113,7 @@ export function ApplicationForm() {
     ['I authorize MLH to send me pre- and post-event informational emails, which contain free credit and opportunities from their partners.']
   ]
 
-  const onSubmit = ({
+  const  onSubmit = async({
     first_name,
     last_name,
     gender,
@@ -159,7 +159,7 @@ export function ApplicationForm() {
     const metadata = {
       contentType: 'application/pdf',
     }
-    uploadBytes(fileRef, file, metadata) // upload file
+    await uploadBytes(fileRef, file, metadata) // upload file
 
     axios.post('/api/applications/create', {
       uid,      

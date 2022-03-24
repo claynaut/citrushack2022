@@ -10,12 +10,13 @@ export function Statistics({ data }) {
   var numL = Object.keys(qualifiedUsers.filter(user => user.shirtSize === 'L')).length
   var numXL = Object.keys(qualifiedUsers.filter(user => user.shirtSize === 'XL')).length
   var numXXL = Object.keys(qualifiedUsers.filter(user => user.shirtSize === 'XXL')).length
-  var numMeat = Object.keys(qualifiedUsers.filter(user => user.foodPreference === 'Meat' && user.participation === 'In-Person')).length
-  var numVegetarian = Object.keys(qualifiedUsers.filter(user => user.foodPreference === 'Vegetarian' && user.participation === 'In-Person')).length
-  var numVegan = Object.keys(qualifiedUsers.filter(user => user.foodPreference === 'Vegan' && user.participation === 'In-Person')).length
   var numOnline = Object.keys(qualifiedUsers.filter(user => user.participation === 'Online')).length
   var numInPerson = Object.keys(qualifiedUsers.filter(user => user.participation === 'In-Person')).length
-  var numUCR = Object.keys(qualifiedUsers.filter(user => (user.school).toUpperCase() === 'UCR' || (user.school).toUpperCase() === 'UC RIVERSIDE' || (user.school).toUpperCase() === 'UNIVERSITY OF CALIFORNIA RIVERSIDE' || (user.school).toUpperCase() === 'UNIVERSITY OF CALIFORNIA - RIVERSIDE' || (user.school).toUpperCase() === 'UNIVERSITY OF CALIFORNIA, RIVERSIDE')).length
+  const ucrUsers = qualifiedUsers.filter(user => (user.school).toUpperCase() === 'UCR' || (user.school).toUpperCase() === 'UC RIVERSIDE' || (user.school).toUpperCase() === 'UNIVERSITY OF CALIFORNIA RIVERSIDE' || (user.school).toUpperCase() === 'UNIVERSITY OF CALIFORNIA - RIVERSIDE' || (user.school).toUpperCase() === 'UNIVERSITY OF CALIFORNIA, RIVERSIDE')
+  var numUCR = Object.keys(ucrUsers).length
+  var numMeat = Object.keys(ucrUsers.filter(user => user.foodPreference === 'Meat' && user.participation === 'In-Person')).length
+  var numVegetarian = Object.keys(ucrUsers.filter(user => user.foodPreference === 'Vegetarian' && user.participation === 'In-Person')).length
+  var numVegan = Object.keys(ucrUsers.filter(user => user.foodPreference === 'Vegan' && user.participation === 'In-Person')).length
 
   return (
     <div className='flex flex-col gap-4'>

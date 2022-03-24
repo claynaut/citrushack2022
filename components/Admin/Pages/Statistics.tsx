@@ -15,7 +15,7 @@ export function Statistics({ data }) {
   var numVegan = Object.keys(qualifiedUsers.filter(user => user.foodPreference === 'Vegan' && user.participation === 'In-Person')).length
   var numOnline = Object.keys(qualifiedUsers.filter(user => user.participation === 'Online')).length
   var numInPerson = Object.keys(qualifiedUsers.filter(user => user.participation === 'In-Person')).length
-  var numUCR = Object.keys(qualifiedUsers.filter(user => (user.school).toUpperCase() === 'UCR' || ((user.school).toUpperCase().includes('UNIVERSITY OF CALIFORNIA') && (user.school).toUpperCase().includes('RIVERSIDE')))).length
+  var numUCR = Object.keys(qualifiedUsers.filter(user => (user.school).toUpperCase() === 'UCR' || (user.school).toUpperCase() === 'UC RIVERSIDE' || (user.school).toUpperCase() === 'UNIVERSITY OF CALIFORNIA RIVERSIDE' || (user.school).toUpperCase() === 'UNIVERSITY OF CALIFORNIA - RIVERSIDE' || (user.school).toUpperCase() === 'UNIVERSITY OF CALIFORNIA, RIVERSIDE')).length
 
   return (
     <div className='flex flex-col gap-4'>

@@ -1,32 +1,51 @@
+import { ShirtStats, FoodStats, ParticipationStats } from '../Statistics'
+
 export function Statistics({ data }) {
-  var numSignedUp = Object.keys(data.users).length
-  var numNotApplied = Object.keys(data.users.filter(user => !user.uid)).length
-  var numPending = Object.keys(data.users.filter(user => user.qualified === '')).length
-  var numApproved = Object.keys(data.users.filter(user => user.qualified === 'yeah')).length
-  var numRejected = Object.keys(data.users.filter(user => user.qualified === 'nope')).length
+  var numTotal = Object.keys(data.users.filter(user => user.qualified === 'yeah')).length
+  var numXXS = Object.keys(data.users.filter(user => user.qualified === 'yeah' && user.shirtSize === 'XXS')).length
+  var numXS = Object.keys(data.users.filter(user => user.qualified === 'yeah' && user.shirtSize === 'XS')).length
+  var numS = Object.keys(data.users.filter(user => user.qualified === 'yeah' && user.shirtSize === 'S')).length
+  var numM = Object.keys(data.users.filter(user => user.qualified === 'yeah' && user.shirtSize === 'M')).length
+  var numL = Object.keys(data.users.filter(user => user.qualified === 'yeah' && user.shirtSize === 'L')).length
+  var numXL = Object.keys(data.users.filter(user => user.qualified === 'yeah' && user.shirtSize === 'XL')).length
+  var numXXL = Object.keys(data.users.filter(user => user.qualified === 'yeah' && user.shirtSize === 'XXL')).length
+  var numMeat = Object.keys(data.users.filter(user => user.qualified === 'yeah' && user.foodPreference === 'Meat')).length
+  var numVegetarian = Object.keys(data.users.filter(user => user.qualified === 'yeah' && user.foodPreference === 'Vegetarian')).length
+  var numVegan = Object.keys(data.users.filter(user => user.qualified === 'yeah' && user.foodPreference === 'Vegan')).length
+  var numOnline = Object.keys(data.users.filter(user => user.qualified === 'yeah' && user.participation === 'Online')).length
+  var numInPerson = Object.keys(data.users.filter(user => user.qualified === 'yeah' && user.participation === 'In-Person')).length
 
   return (
-    <>
-      <div className='grid grid-rows-5 grid-flow-col gap-3'>
-        <div className='row-span-5 col-span-2 bg-gray-200'>
-          Test
+    <div className='flex flex-col gap-4'>
+      <ParticipationStats
+        numOnline={numOnline}
+        numInPerson={numInPerson}
+        numTotal={numTotal}
+      />
+      <div className='grid grid-cols-2 gap-4'>
+        <div className='bg-sub-secondary rounded-2xl text-center'>
+          <h4 className='font-medium'>Shirt Statistics</h4>
         </div>
-        <div className='row-span-1 col-span-1 bg-gray-200'>
-          Test
+        <div className='bg-sub-secondary rounded-2xl text-center'>
+          <h4 className='font-medium'>Food Statistics</h4>
         </div>
-        <div className='row-span-1 col-span-1 bg-gray-200'>
-          Test
-        </div>
-        <div className='row-span-1 col-span-1 bg-gray-200'>
-          Test
-        </div>
-        <div className='row-span-1 col-span-1 bg-gray-200'>
-          Test
-        </div>
-        <div className='row-span-1 col-span-1 bg-gray-200'>
-          Test
-        </div>
+        <ShirtStats 
+          numXXS={numXXS}
+          numXS={numXS}
+          numS={numS}
+          numM={numM}
+          numL={numL}
+          numXL={numXL}
+          numXXL={numXXL}
+          numTotal={numTotal}
+        />
+        <FoodStats 
+          numMeat={numMeat}
+          numVegetarian={numVegetarian}
+          numVegan={numVegan}
+          numTotal={numTotal}
+        />
       </div>
-    </>
+    </div>
   )
 }

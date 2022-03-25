@@ -16,14 +16,14 @@ interface SponsorProps {
 export const Sponsor = ({ type, image, width, height, link, shrink, tall }: SponsorProps) => (
   <div
     className={
-      'flex items-center min-h-[8rem] '
+      'flex items-center min-h-[10rem] '
       + ( type === 'kumquat' ? 'w-32 md:w-36 ' + (shrink ? 'w-16 md:w-24' : '') + (tall ? 'w-12 md:w-20' : '')
         : (
         type === 'cutie' ? 'w-32 md:w-36 ' + (shrink ? 'w-16 md:w-24' : '') + (tall ? 'w-12 md:w-20' : '')
         : (
         type === 'tangerine' ? 'w-32 md:w-36 ' + (shrink ? 'w-24 md:w-28' : '') + (tall ? 'w-18 md:w-24' : '')
         : (
-        type === 'orange' ? 'w-40 md:w-48 ' + (shrink ? 'w-24 md:w-32' : '') + (tall ? 'w-20 md:w-28' : '')
+        type === 'orange' ? 'w-32 md:w-36 ' + (shrink ? 'w-[6.5rem] md:w-32' : '') + (tall ? 'w-18 md:w-20' : '')
         : (
         type === 'pomelo' ? 'w-40 md:w-48 ' + (shrink ? 'w-24 md:w-32' : '') + (tall ? 'w-20 md:w-28' : '')
         : ''
@@ -69,11 +69,21 @@ const tiers = [
   {
     type: 'orange',
     wide: null,
-    sponsors: []
+    sponsors: [
+      {
+        image: '/assets/sponsors/spaceforce.svg',
+        imageDark: '/assets/sponsors/spaceforce.svg',
+        width: 2505,
+        height: 3757,
+        link: 'https://www.spaceforce.mil/',
+        shrink: Boolean(true),
+        tall: null,
+      },
+    ]
   },
   {
     type: 'tangerine',
-    wide: null,
+    wide: Boolean(true),
     sponsors: [
       {
         image: '/assets/sponsors/gcap-light.svg',
@@ -181,15 +191,6 @@ const tiers = [
         tall: null,
       },
       {
-        image: '/assets/sponsors/spaceforce.svg',
-        imageDark: '/assets/sponsors/spaceforce.svg',
-        width: 2505,
-        height: 3757,
-        link: 'https://www.spaceforce.mil/',
-        shrink: Boolean(true),
-        tall: Boolean(true),
-      },
-      {
         image: '/assets/sponsors/acm-light.svg',
         imageDark: '/assets/sponsors/acm-dark.svg',
         width: 910,
@@ -232,12 +233,12 @@ export function SponsorsGrid() {
         <div
           key={type}
           className={
-            'relative flex flex-wrap justify-center w-full gap-16 gap-y-10 md:gap-y-6 p-10 rounded-md overflow-hidden '
+            'relative flex flex-wrap justify-center w-full gap-14 gap-y-6 p-10 rounded-md overflow-hidden '
             + (wide ? 'col-span-2' : 'col-span-2 sm:col-span-1')
           }
         >
-          <h3 className='absolute top-0 left-4 flex w-full items-center transform font-black uppercase rotate-90 origin-left'>
-            {type}&nbsp;<span className='w-full border-text border-t-4'></span>
+          <h3 className='absolute top-0 left-4 flex w-[100rem] items-center transform font-black uppercase rotate-90 origin-left'>
+            {type}&nbsp;<span className='w-[100rem] border-text border-t-4'></span>
           </h3>
           { sponsors.map(({ image, imageDark, width, height, link, shrink, tall }) =>
             <Sponsor

@@ -44,6 +44,7 @@ export default class MyDocument extends Document {
           <link rel='preload' as='image' href='/assets/sponsors/acm-dark.svg' />
           <link rel='preload' as='image' href='/assets/sponsors/ieee-light.svg' />
           <link rel='preload' as='image' href='/assets/sponsors/ieee-dark.svg' />
+          <link rel='preload' as='image' href='/assets/sponsors/spaceforce.svg' />
           <link rel='preload' as='image' href='/assets/tracks/diversity-light.svg' />
           <link rel='preload' as='image' href='/assets/tracks/diversity-dark.svg' />
           <link rel='preload' as='image' href='/assets/tracks/sustainability-light.svg' />

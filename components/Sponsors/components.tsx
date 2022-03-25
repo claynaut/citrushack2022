@@ -181,6 +181,15 @@ const tiers = [
         tall: null,
       },
       {
+        image: '/assets/sponsors/spaceforce.svg',
+        imageDark: '/assets/sponsors/spaceforce.svg',
+        width: 2505,
+        height: 3757,
+        link: 'https://www.spaceforce.mil/',
+        shrink: Boolean(true),
+        tall: Boolean(true),
+      },
+      {
         image: '/assets/sponsors/acm-light.svg',
         imageDark: '/assets/sponsors/acm-dark.svg',
         width: 910,

@@ -2,10 +2,10 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 interface ButtonProps {
-  primary?: boolean,
-  label: string,
-  skinny?: boolean,
-  minWidth?: boolean,
+  primary?: boolean
+  label: string
+  skinny?: boolean
+  minWidth?: boolean
 }
 
 const Button = ({ primary, label, skinny, minWidth }: ButtonProps) => (
@@ -30,14 +30,21 @@ Button.defaultProps = {
 }
 
 interface ButtonLinkProps {
-  primary?: boolean,
-  label: string,
-  link: string,
-  external?: boolean,
-  skinny?: boolean,
-  minWidth?: boolean,
+  /** Decides whether the button is a primary color. */
+  primary?: boolean
+  /** Text displayed on button. */
+  label: string
+  /** Link to internal or external source. */
+  link: string
+  /** Decides whether the button is linked to an external source. */
+  external?: boolean
+  /** Decides whether the button is skinny (i.e. short height). */
+  skinny?: boolean
+  /** Decides whether the button is the minimum width needed to contain its label. */
+  minWidth?: boolean
 }
 
+/** Button that links to an internal or external source. */
 export const ButtonLink = ({ primary, label, link, external, skinny, minWidth }: ButtonLinkProps) => (
   <>
     {

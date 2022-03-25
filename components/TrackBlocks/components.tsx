@@ -4,19 +4,10 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 interface Props {
-  image: string,
-  title: string,
-}
-
-const tracksAnim = {
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.5,
-      duration: 0.5,
-    },
-  },
-  hidden: { opacity: 0 },
+  /** Image representing the track. */
+  image: string
+  /** Name of the track. */
+  title: string
 }
 
 const trackAnim = {
@@ -29,6 +20,7 @@ const trackAnim = {
   },
 }
 
+/** Individual wrapper for a track's image and title. */
 export function Block({ image, title }: Props) {
   return (
     <div className='relative flex flex-col items-center'>
@@ -45,6 +37,17 @@ export function Block({ image, title }: Props) {
       <h4 className='absolute bottom-8 md:bottom-4 font-medium'>{title}</h4>
     </div>
   )
+}
+
+const tracksAnim = {
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+      duration: 0.5,
+    },
+  },
+  hidden: { opacity: 0 },
 }
 
 const tracks = [
@@ -65,6 +68,7 @@ const tracks = [
   },
 ];
 
+/** Wrapper for blocks/cards containing each track. */
 export function TrackBlocks() {
   const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()

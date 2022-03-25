@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react'
 
 interface Props {
-  base?: string,
-  phrases: string[],
-  delay: number,
-  cursor?: boolean // decide whether to display cursor
+  /** Starting text that's already displayed. */
+  base?: string
+  /** List of phrases to animate typing through. */
+  phrases: string[]
+  /** Delay for how long to display typed out text (unit is undetermined). */
+  delay: number
+  /** Decides whether to display a cursor. */
+  cursor?: boolean
 }
 
+/** Typing animation component. */
 export function Typing({ base, phrases, delay, cursor }: Props) {
   const [phraseIdx, setPhraseIdx] = useState(0)
   const [idx, setIdx] = useState(0)

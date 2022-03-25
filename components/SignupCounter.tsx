@@ -3,6 +3,7 @@ import { BiEdit } from 'react-icons/bi'
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 
+/** Counter for number of users that created an account. */
 export default function SignupCounter() {
   const { data, error } = useSWR('/api/users/count', fetcher)
 

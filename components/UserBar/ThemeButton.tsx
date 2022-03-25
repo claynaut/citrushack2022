@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
-import {
-  BiSun,
-  BiMoon
-} from 'react-icons/bi'
+import { BiSun, BiMoon } from 'react-icons/bi'
 
+/** Button to toggle light/dark mode. */
 export function ThemeButton() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()

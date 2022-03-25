@@ -4,15 +4,23 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 interface SponsorProps {
-  type: string,
-  image: string,
-  width: number,
-  height: number,
-  link: string,
-  shrink?: boolean,
-  tall?: boolean,
+  /** Sponsor tier (e.g. 'cutie'). */
+  type: string
+  /** Path to sponsor logo (e.g. /assets/sponsors/google-cloud.svg). */
+  image: string
+  /** Width of sponsor logo. */
+  width: number
+  /** Height of sponsor logo. */
+  height: number
+  /** Link to sponsor website. */
+  link: string
+  /** Decides whether to shrink the sponsor logo if it appears larger than others in the same tier. */
+  shrink?: boolean
+  /** Decides whether to shrink the sponsor logo even more if it still appears larger than others in the same tier. */
+  tall?: boolean
 }
 
+/** Individual sponsor logo linked to sponsor website. */
 export const Sponsor = ({ type, image, width, height, link, shrink, tall }: SponsorProps) => (
   <div
     className={
@@ -217,6 +225,7 @@ const tiers = [
   },
 ]
 
+/** Grid of sponsors of all specified tiers. */
 export function SponsorsGrid() {
   const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()

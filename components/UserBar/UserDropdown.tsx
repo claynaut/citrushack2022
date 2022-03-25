@@ -14,11 +14,13 @@ import {
 } from 'react-icons/bi'
 import { FaDiscord } from 'react-icons/fa'
 
+/** Dropdown for more user actions and info (e.g. app status, group page, etc.). */
 export function UserDropdown() {
   const router = useRouter()
   const { data: session, status } = useSession()
   const [open, setOpen] = useState(false)
 
+  /** Display information regarding app status reviews. */
   const triggerInfo = () => {
     toast(
       <div className='flex flex-col gap-3 text-base'>
@@ -38,6 +40,7 @@ export function UserDropdown() {
   }
 
   useEffect(() => {
+    /** Close dropdown on page change. */
     const handleRouteChange = () => {
       setOpen(false)
     }

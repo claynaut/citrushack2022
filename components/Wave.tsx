@@ -1,9 +1,13 @@
 interface Props {
-  type?: number,
-  bgColor: string,
+  /** Variation of border style (1-4). Default value of 1. */
+  type?: number
+  /** Background color (e.g. 'bg-primary'). */
+  bgColor: string
+  /** Fill color of wave SVG. Name of custom CSS property (e.g. 'priamry'). */
   fillColor: string
 }
 
+/** Wavy border used to separate sections. */
 export const Wave = ({ type, bgColor, fillColor }: Props) => (
   <div className={'w-full ' + bgColor}>
       {

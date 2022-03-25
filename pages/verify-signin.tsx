@@ -1,6 +1,6 @@
 import { Page } from '@/components/Page'
 
-export default function Error404() {
+export default function VerifySignin() {
   return (
     <Page title='Verify Sign In'>
       <section className='flex flex-col w-full my-24 px-4 justify-center items-center text-center'>

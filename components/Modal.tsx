@@ -3,10 +3,15 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { BiX } from 'react-icons/bi'
 
 interface Props {
+  /** Decides whether to show the modal. */
   show: boolean
+  /** Toggles the visibility of the modal. */
   handler: (arg0: boolean) => void
+  /** Heading at the top of the modal. */
   title: string
+  /** Short description below the heading. */
   description: string
+  /** Other content in the modal (e.g. input fields, buttons, etc.). */
   children: React.ReactNode | React.ReactNode[]
 }
 

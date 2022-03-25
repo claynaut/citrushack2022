@@ -2,12 +2,17 @@ import { motion } from 'framer-motion'
 import { ButtonLink } from '@/components/ButtonLink'
 
 interface Props {
-  title: string, 
-  description: string, 
-  buttonLabel: string, 
+  /** Heading at the top of the card. */
+  title: string
+  /** Description about the way to support the hackathon. */
+  description: string
+  /** Name of the button to diplsay. */
+  buttonLabel: string
+  /** Link to external source. */
   buttonLink: string
 }
 
+/** Card to display information about ways to support the hackathon. */
 export const SupportCard = ({ title, description, buttonLabel, buttonLink }: Props) => (
   <motion.div 
     whileHover={{ y: -8 }}

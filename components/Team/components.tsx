@@ -2,12 +2,17 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 interface ProfileProps {
-  link: string,
-  image: string,
-  name: string,
-  role: string,
+  /** Link to the lead's LinkedIn profile. */
+  link: string
+  /** Profile picture of the lead. */
+  image: string
+  /** Name of the lead. */
+  name: string
+  /** Role/title of the lead. */
+  role: string
 }
 
+/** Individual profile for each team lead. */
 export const TeamProfile = ({ link, image, name, role }: ProfileProps) => (
   <div className='flex flex-col w-full max-w-[8rem] md:max-w-[9rem] items-center'>
     <motion.span whileHover={{ y: -4 }} className='cursor-pointer'>
@@ -103,6 +108,7 @@ const staff = [
   },
 ]
 
+/** Grid of team lead profiles. */
 export const TeamGrid = () => (
   <div className='flex flex-wrap justify-center gap-6 md:gap-12 md:gap-y-12'>
     { staff.map(({ link, image, name, role }) =>

@@ -49,10 +49,9 @@ export default function GroupDashboard() {
   }
 
   const createGroup = () => {
-    if (clickedCreateOnce) {
-      return
-    }
+    if (clickedCreateOnce) { return }
     setClickedCreateOnce(Boolean(true))
+    
     axios.post('/api/groups/create')
     .then(() => {
       toast.success('Successfully created a group!', { id: 'createGroupSuccess' })
@@ -67,10 +66,9 @@ export default function GroupDashboard() {
   }
 
   const leaveGroup = () => {
-    if (clickedLeaveOnce) {
-      return
-    }
+    if (clickedLeaveOnce) { return }
     setClickedLeaveOnce(Boolean(true))
+
     axios.post('/api/groups/leave')
     .then(() => {
       toast.success('Successfully left your group!', { id: 'leaveGroupSuccess' })

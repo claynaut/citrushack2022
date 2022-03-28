@@ -1,4 +1,20 @@
 import { UseFormRegister, FieldValues } from 'react-hook-form'
+
+interface GroupProps {
+  /** Name of group. */
+  title: string
+  /** Input fields in the same group. */
+  children: React.ReactNode | React.ReactNode[]
+}
+
+/** Group of input fields. */
+export const Group = ({title, children}: GroupProps) => (
+  <div className='flex flex-col gap-3 sm:p-6 bg-card sm:rounded-md sm:shadow-md '>
+    <h4 className='mt-0 font-semibold'>{title}</h4>
+    {children}
+  </div>
+)
+
 interface InputProps {
   type: string
   defaultValue?: string
@@ -76,7 +92,7 @@ export const Select = ({
         + (errors[variable] ? 'border-red-500' : 'border-sub')
       }
     >
-      <option 
+      <option
         value=''
         disabled
         selected
@@ -86,7 +102,7 @@ export const Select = ({
       </option>
       {
         options.map((option: string) =>
-          <option value={option}>{option}</option>
+          <option key={option} value={option}>{option}</option>
         )
       }
     </select>

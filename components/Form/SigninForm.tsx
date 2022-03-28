@@ -5,6 +5,7 @@ import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import { motion } from 'framer-motion'
 
+/** Form displaying user sign-in options. */
 export function SigninForm({ csrfToken = '' }) {
   const { register, handleSubmit } = useForm()
   const [error, setError] = useState(false)
@@ -13,6 +14,7 @@ export function SigninForm({ csrfToken = '' }) {
     setError(false)
   }
 
+  /** Action done on submit to sign-in with email. */
   const onSubmit = ({ email, csrfToken }) => {
     const matchRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)
 

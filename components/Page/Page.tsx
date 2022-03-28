@@ -2,7 +2,9 @@ import Head from 'next/head'
 import { Layout } from './Layout'
 
 interface Props {
+  /** Content of the page. */
   children: React.ReactNode | React.ReactNode[]
+  /** Title of the page displayed in the head tag. */
   title?: string
 }
 

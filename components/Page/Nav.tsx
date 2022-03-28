@@ -16,6 +16,7 @@ import {
 } from 'react-icons/bi'
 import { ThemeButton } from '@/components/UserBar/ThemeButton'
 
+/** Side navbar. */
 export function Nav() {
   const [navOpen, setNavOpen] = useState(false)
   const router = useRouter()
@@ -49,13 +50,7 @@ export function Nav() {
       title: 'FAQ'
     },
   ]
-  const applytabs = [
-    {
-      icon: <BiHomeAlt />,
-      title: 'Home'
-    },
-  ]
-
+  
   return (
     <>
       {/* desktop navbar */}

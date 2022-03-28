@@ -12,10 +12,13 @@ import { Input, Select, Radio, Checkbox } from './components'
 import ExternalLink from '@/components/ExternalLink'
 
 interface GroupProps {
+  /** Name of group. */
   title: string
+  /** Input fields in the same group. */
   children: React.ReactNode | React.ReactNode[]
 }
 
+/** Group of input fields. */
 const Group = ({title, children}: GroupProps) => (
   <div className='flex flex-col gap-3 sm:p-6 bg-card sm:rounded-md sm:shadow-md '>
     <h4 className='mt-0 font-semibold'>{title}</h4>
@@ -114,7 +117,7 @@ export function ApplicationForm() {
     ['I authorize MLH to send me pre- and post-event informational emails, which contain free credit and opportunities from their partners.']
   ]
 
-  const  onSubmit = async({
+  const onSubmit = async({
     first_name,
     last_name,
     gender,

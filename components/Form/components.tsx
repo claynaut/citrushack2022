@@ -1,15 +1,15 @@
 import { UseFormRegister, FieldValues } from 'react-hook-form'
 interface InputProps {
-  type: string,
-  defaultValue?: string,
-  label: string,
-  variable: string,
-  register: UseFormRegister<FieldValues>,
-  required?: boolean,
+  type: string
+  defaultValue?: string
+  label: string
+  variable: string
+  register: UseFormRegister<FieldValues>
+  required?: boolean
   errors: {
     [x: string]: any
-  },
-  onChange?: () => void,
+  }
+  onChange?: () => void
 }
 
 export const Input = ({ 
@@ -49,11 +49,11 @@ export const Input = ({
 )
 
 interface SelectProps {
-  label: string,
-  variable: string,
-  register: UseFormRegister<FieldValues>,
-  required?: boolean,
-  options: string[],
+  label: string
+  variable: string
+  register: UseFormRegister<FieldValues>
+  required?: boolean
+  options: string[]
   errors: {
     [x: string]: any
   }
@@ -94,16 +94,16 @@ export const Select = ({
 )
 
 interface RadioProps {
-  label: string,
-  variable: string,
-  register: UseFormRegister<FieldValues>,
-  required?: boolean,
-  options: string[],
+  label: string
+  variable: string
+  register: UseFormRegister<FieldValues>
+  required?: boolean
+  options: string[]
   errors: {
     [x: string]: any
-  },
-  direction?: 'row' | 'col',
-  subtext?: string,
+  }
+  direction?: 'row' | 'col'
+  subtext?: string
 }
 
 export const Radio = ({
@@ -158,14 +158,14 @@ Radio.defaultProps = {
 }
 
 interface CheckboxProps {
-  label: string,
-  variable: string,
-  register: UseFormRegister<FieldValues>,
-  required?: boolean,
-  options: string[] | React.ReactNode[],
+  label: string
+  variable: string
+  register: UseFormRegister<FieldValues>
+  required?: boolean
+  options: string[] | React.ReactNode[]
   errors: {
     [x: string]: any
-  },
+  }
 }
 
 export const Checkbox = ({ register, label, variable, required, options, errors }: CheckboxProps) => (

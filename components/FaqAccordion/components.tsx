@@ -3,10 +3,13 @@ import { BiX } from 'react-icons/bi'
 import ExternalLink from '@/components/ExternalLink'
 
 interface Props {
-  question: string,
+  /** Heading for accordion. */
+  question: string
+  /** Content in accordion, which could be a string or HTML elements. */
   answer: string | React.ReactNode
 }
- 
+
+/** Accordion for a single FAQ. */
 export function FaqAccordion({ question, answer }: Props) {
   const [open, setOpen] = useState(true)
 

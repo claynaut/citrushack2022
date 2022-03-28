@@ -6,11 +6,15 @@ import { toast } from 'react-hot-toast'
 import { Layout } from './Layout'
 
 interface Props {
+  /** Content of the page. */
   children: React.ReactNode | React.ReactNode[]
+  /** Restrictions for a user to decide whether they can access the page (e.g. signed in, qualified, admin, etc.) */
   restrictions: string[]
+  /** Title of the page displayed in the head tag. */
   title?: string
 }
 
+/** Page protected by specified criteria. */
 export function ProtectedPage({ title, restrictions, children }: Props) {
   const router = useRouter()
   const { data: session, status } = useSession()

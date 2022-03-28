@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import Countdown from 'react-countdown'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { ButtonLink } from '../ButtonLink'
 
 var buttonVariants = {}
 
 interface TimeBlockProps {
-  condition: boolean, // condition to show particular time block
-  num: string,
-  label: string,
-  separator?: boolean, // decide to display a colon separator
+  /** Decides when to show a particular time block (e.g. if 0 days are left, time blocks for days are hidden). */
+  condition: boolean
+  /** Number of seconds, minutes, hours, or days. */
+  num: string
+  /** Label for the time blocks (e.g. 'seconds'). */
+  label: string
+  /** Decides when to show a separator after a pair of time blocks. */
+  separator?: boolean
 }
 
+/** Blocks representing a unit of time in XX format. */
 function TimeBlock({ condition, num, label, separator }: TimeBlockProps) {
   return (
     condition &&
@@ -42,6 +46,7 @@ function TimeBlock({ condition, num, label, separator }: TimeBlockProps) {
   )
 }
 
+/** Content displayed after countdown finishes. */
 const Completionist = () => (
   <div className='mb-4'>
     <h3 className='text-center sm:text-left font-bold'>
@@ -55,6 +60,7 @@ const Completionist = () => (
   </div>
 )
 
+/** Rendered countdown clock. */
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
     return <Completionist />
@@ -100,6 +106,7 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
   }
 }
 
+/** Wrapper for countdown clock. */
 export function CountdownWrapper({ date }) {
   const [isMobile, setIsMobile] = useState(false)
   

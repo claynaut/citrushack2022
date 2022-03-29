@@ -1,7 +1,7 @@
 import { FaqGrid } from '@/components/FaqAccordion'
 import ExternalLink from '@/components/ExternalLink'
 
-export default function Faq() {
+export function Faq() {
   return (
     <section className='flex flex-col w-full h-full my-12 lg:mt-0 max-w-[60rem] items-center'>
       <h1>FAQ</h1>

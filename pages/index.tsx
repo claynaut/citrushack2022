@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Element } from 'react-scroll'
 import { useSession } from 'next-auth/react'
 import { Page } from '@/components/Page'
 import Modal from '@/components/Modal'
-import Landing from '@/pages/sections/landing'
-import About from '@/pages/sections/about'
-import Tracks from '@/pages/sections/tracks'
-import Support from '@/pages/sections/support'
-import Sponsors from '@/pages/sections/sponsors'
-import Staff from '@/pages/sections/staff'
-import Faq from '@/pages/sections/faq'
+import {
+  Landing,
+  About,
+  Tracks,
+  Support,
+  Sponsors,
+  Staff,
+  Faq,
+  Schedule
+} from '@/pages/sections'
 import { Wave } from '@/components/Wave'
 
 export default function Home() {

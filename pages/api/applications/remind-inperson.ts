@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { sendEmail } from '@/lib/sendgrid'
 import { getSession } from 'next-auth/react'
 
-export default async function remindApply(req: NextApiRequest, res: NextApiResponse) {
+export default async function remindInPerson(req: NextApiRequest, res: NextApiResponse) {
   const session = await getSession({ req })
   if (session && session.user.admin) {
     const { users } = req.body
@@ -11,7 +11,7 @@ export default async function remindApply(req: NextApiRequest, res: NextApiRespo
     for (let i = 0; i < users.length; i++) {
       await sendEmail({
         email: users[i].email,
-        template_id: process.env.REMINDER_EMAIL_ID,
+        template_id: process.env.INPERSON_REMINDER_EMAIL_ID,
         name: '',
         members: '',
         invite_code: '',

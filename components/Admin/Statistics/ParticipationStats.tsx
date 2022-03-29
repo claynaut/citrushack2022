@@ -4,13 +4,14 @@ interface Props {
   numOnline: number
   numInPerson: number
   numUCR: number
+  numInPersonUCR: number
   numTotal: number
 }
 
-export function ParticipationStats({ numOnline, numInPerson, numUCR, numTotal }: Props) {
+export function ParticipationStats({ numOnline, numInPerson, numUCR, numInPersonUCR, numTotal }: Props) {
   return (
-    <div className='grid grid-cols-3 gap-4 rounded-2xl'>
-      <div className='col-span-3 bg-sub-secondary rounded-2xl text-center'>
+    <div className='grid grid-cols-2 gap-4 rounded-2xl'>
+      <div className='col-span-2 bg-sub-secondary rounded-2xl text-center'>
         <h4 className='font-medium'>Participation Statistics</h4>
       </div>
       <StatsBlob
@@ -26,7 +27,12 @@ export function ParticipationStats({ numOnline, numInPerson, numUCR, numTotal }:
       <StatsBlob
         num={numUCR}
         numTotal={numTotal}
-        label='From UCR'
+        label='Total From UCR'
+      />
+      <StatsBlob
+        num={numInPersonUCR}
+        numTotal={numTotal}
+        label='In-Person From UCR'
       />
     </div>
   )

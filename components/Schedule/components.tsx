@@ -114,18 +114,18 @@ const saturdaySchedule = {
     },
     {
       name: 'Intro to Unity',
-      startTime: '10',
-      endTime: '11 AM',
+      startTime: '11 AM',
+      endTime: '12 PM',
     },
     {
       name: 'Intro to Discord Bots',
-      startTime: '10',
-      endTime: '11 AM',
+      startTime: '11 AM',
+      endTime: '12 PM',
     },
     {
       name: 'Intro to UI/UX',
-      startTime: '10',
-      endTime: '11 AM',
+      startTime: '11 AM',
+      endTime: '12 PM',
     },
     {
       name: 'Intro to iOS Development',

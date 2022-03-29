@@ -224,12 +224,12 @@ const saturdaySchedule = {
       endTime: '5:30 PM',
     },
     {
-      name: 'Improve Slides',
+      name: 'Improv Slides',
       startTime: '6:30',
       endTime: '7 PM',
     },
     {
-      name: 'Norm Scavenger Hunt',
+      name: 'Norm the Navel',
       startTime: '8',
       endTime: '9 PM',
     },

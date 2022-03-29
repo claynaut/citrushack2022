@@ -1,6 +1,6 @@
 import { SupportCard } from '@/components/SupportCard'
 
-export function Support() {
+export default function Support() {
   const cards = [
     {
       title: 'Mentors', 

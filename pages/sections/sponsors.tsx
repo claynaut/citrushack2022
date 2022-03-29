@@ -1,7 +1,7 @@
 import { SponsorsGrid } from '@/components/Sponsors'
 import { ButtonLink } from '@/components/ButtonLink'
 
-export function Sponsors() {
+export default function Sponsors() {
   return (
     <section className='flex flex-col w-full h-full max-w-[60rem] my-12 lg:my-0 justify-center items-center'>
       <h1 className='text-center'>Our Sponsors</h1>

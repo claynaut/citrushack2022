@@ -20,7 +20,7 @@ const Stat = ({ stat, label, idx }: StatProps) => (
   </div>
 )
 
-export function About() {
+export default function About() {
   const stats = [
     { 
       stat: '24',

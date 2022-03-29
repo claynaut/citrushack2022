@@ -9,7 +9,7 @@ import Modal from '@/components/Modal'
 import { SigninForm } from '@/components/Form'
 import SignupCounter from '@/components/SignupCounter'
 
-export function Landing() {
+export default function Landing() {
   const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()
   const { data: session, status } = useSession()

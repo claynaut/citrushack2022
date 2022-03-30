@@ -50,19 +50,19 @@ export function FileBox({ doc, selectedDocs, setSelectedDocs }) {
               }
             </div>
           </div>
-          <div className='flex justify-between w-full'>
-            <div className='py-2'>
+          <div className='flex items-center w-full '>
+            <div className='grow w-0 py-2 text-sm md:text-base truncate text-ellipsis'>
               {doc.name.replace(/___/g, '_')}
             </div>
             <div className='flex gap-1 items-center'>
               <div
-                className='w-9 p-2 rounded-full text-xl hover:text-blue-500 hover:bg-blue-200 cursor-pointer'
+                className='w-9 p-2 rounded-full text-lg md:text-xl hover:text-blue-500 hover:bg-blue-200 cursor-pointer'
                 onClick={() => openFile(doc)}
               >
                 <BiLinkExternal title='Open in New Tab' />
               </div>
               <div
-                className='w-9 p-2 rounded-full text-xl hover:text-green-600 hover:bg-green-200 cursor-pointer'
+                className='w-9 p-2 rounded-full text-lg md:text-xl hover:text-green-600 hover:bg-green-200 cursor-pointer'
                 onClick={() => downloadFile(doc)}
               >
                 <BiDownload title='Download' />

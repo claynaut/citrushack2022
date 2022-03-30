@@ -177,7 +177,7 @@ const saturdaySchedule = {
       endTime: '6 PM',
     },
     {
-      name: 'Intermediate Unity',
+      name: 'Unity Particle Systems',
       startTime: '7',
       endTime: '8 PM',
     },
@@ -229,7 +229,7 @@ const saturdaySchedule = {
       endTime: '7 PM',
     },
     {
-      name: 'Norm the Navel',
+      name: 'Norm the Navel Photo Op',
       startTime: '8',
       endTime: '9 PM',
     },

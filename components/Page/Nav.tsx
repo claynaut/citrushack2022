@@ -160,7 +160,7 @@ export function Nav() {
           className={
             'flex flex-col gap-1.5 rounded-md bg-secondary shadow overflow-hidden transform-gpu transition-size duration-200 '
             + (navOpen ? 'p-2 ' : 'w-11 h-11 ')
-            + (navOpen && (router.pathname === '/' ? 'w-48 h-[29rem] md:h-[25.75rem]' : 'w-48 h-[10.25rem] md:h-[7rem]'))
+            + (navOpen && (router.pathname === '/' ? 'w-48 h-[32.25rem] md:h-[29rem]' : (router.pathname === '/live' ? 'w-48 h-[29rem] md:h-[25.75rem]' : 'w-48 h-[10.25rem] md:h-[7rem]')))
           }
         >
           <div className='flex w-full justify-between'>

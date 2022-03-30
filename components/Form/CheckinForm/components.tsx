@@ -18,7 +18,9 @@ interface Props {
 }
 
 export function Confirmation({ register, errors, watch }: Props) {
+  const participation_confirmation = watch('participation')
   const lives_in_US = watch('lives_in_US')
+
   return (
     <>
       <Group title='Confirm Details'>
@@ -31,6 +33,16 @@ export function Confirmation({ register, errors, watch }: Props) {
           errors={errors}
           required
         />
+        { participation_confirmation === 'In-Person' &&
+          <Checkbox
+            label='Have you filled out the Daily Wellness Survey?'
+            variable='daily_wellness'
+            options={daily_wellness_completion[0]}
+            register={register}
+            errors={errors}
+            required
+          />
+        }
         <Checkbox
           label='Have you read the MLH Code of Conduct?'
           variable='MLH_code_of_conduct'

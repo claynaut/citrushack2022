@@ -6,9 +6,11 @@ export const participation = [
 ]
 
 export const daily_wellness_completion = [
-  <>
-    I have completed the daily wellness survey <ExternalLink name='Daily Wellness Survey' link='http://visitorwellnesscheck.ucr.edu'/>.
-  </>
+  [
+    <>
+      I have completed the <ExternalLink name='Daily Wellness Survey' link='http://visitorwellnesscheck.ucr.edu'/>.
+    </>
+  ]
 ]
 
 

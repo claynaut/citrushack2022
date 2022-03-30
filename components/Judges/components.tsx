@@ -96,6 +96,11 @@ const judges = [
     role: 'Design@UCR Communications Director',
   },
   {
+    image: '/assets/judges/mitha-senthilkumar.jpg',
+    name: 'Mitha Senthilkumar',
+    role: 'VEXU Lead at SWE@UCR',
+  },
+  {
     image: '/assets/judges/tim-jenkins.jpg',
     name: 'Tim Jenkins',
     role: 'Founder @ Table Needs',
@@ -104,6 +109,11 @@ const judges = [
     image: '/assets/judges/elise-lin.jpg',
     name: 'Elise Lin',
     role: 'Penetration Test @ Accenture',
+  },
+  {
+    image: '/assets/judges/katie-fukuda.jpg',
+    name: 'Katie Fukuda',
+    role: 'SDE @ Amazon',
   },
   {
     image: '/assets/judges/kanin-liang.jpg',

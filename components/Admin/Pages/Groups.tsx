@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { GroupBox, GroupActions } from '@/components/Admin'
-import { SearchBar } from '@/components/Admin/SearchBar'
+import { GroupBox, GroupActions, SearchBar } from '@/components/Admin'
 
 export function Groups({ data }) {
   const [expandedGroups, setExpandedGroups] = useState([])

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { FileBox, FileActions } from '@/components/Admin'
-import { SearchBar } from '@/components/Admin/SearchBar'
+import { FileBox, FileActions, SearchBar } from '@/components/Admin'
 
 export function Resumes() {
   const [docs, setDocs] = useState(localStorage.getItem('docs') ? JSON.parse(localStorage.getItem('docs')) : [])

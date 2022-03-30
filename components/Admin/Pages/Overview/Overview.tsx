@@ -6,7 +6,7 @@ import {
   UserFilter
 } from '@/components/Admin'
 import { QueriedUsers } from './QueriedUsers'
-import { SearchBar } from '@/components/Admin/SearchBar'
+import { SearchBar } from '@/components/Admin'
 
 export function Overview({ data }) {
   const [selectedView, setSelectedView] = useState('Pending')
@@ -60,12 +60,8 @@ export function Overview({ data }) {
   }
 
   const toggleExpandAllUsers = (expandAll: boolean) => {
-    if (expandAll) {
-      setExpandedUsers(data.users)
-    }
-    else {
-      setExpandedUsers([])
-    }
+    if (expandAll) { setExpandedUsers(data.users) }
+    else { setExpandedUsers([]) }
   }
 
   return (

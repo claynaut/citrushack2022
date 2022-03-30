@@ -66,6 +66,11 @@ const judges = [
     role: 'Assistant Teaching Professor @ UCR',
   },
   {
+    image: '/assets/logo.svg',
+    name: 'Miguel Gutierrez',
+    role: 'PhD Candidate @ UCR',
+  },
+  {
     image: '/assets/judges/cristina-lawson.jpg',
     name: 'Cristina Lawson',
     role: 'CS Master\'s Student @ UCR',

@@ -12,6 +12,7 @@ declare module 'next-auth' {
       }
       qualified: string
       admin: boolean
+      checkedIn: boolean
     }
   }
   interface User {
@@ -23,5 +24,6 @@ declare module 'next-auth' {
     }
     qualified: string
     admin: boolean
+    checkedIn: boolean
   }
 }

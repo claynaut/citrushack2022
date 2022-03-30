@@ -74,7 +74,7 @@ export function Confirmation({ register, errors, watch }: Props) {
         <Group title='Address' subtitle='Please input the best address to ship merchandise and/or prizes to you.'>
           <Input
             type='text'
-            label='Address Line 1'
+            label='Street Address'
             variable='address_line_1'
             register={register}
             errors={errors}
@@ -82,11 +82,10 @@ export function Confirmation({ register, errors, watch }: Props) {
           />
           <Input
             type='text'
-            label='Address Line 2'
+            label='Apartment, Suite, etc.'
             variable='address_line_2'
             register={register}
             errors={errors}
-            required
           />
           <div className='grid sm:grid-cols-7 gap-3'>
             <span className='md:col-span-3'>

@@ -39,6 +39,10 @@ export function ProtectedPage({ title, restrictions, children }: Props) {
         toast.error('Access denied. Unauthorized user.', {id: 'qualifiedRestriction'})
         router.push('/')
       }
+      if (restrictions.includes('checkedIn') && session.user.checkedIn) {
+        // toast.error('Access denied. You already checked in!', {id: 'checkedInAlreadyRestriction'})
+        router.push('/')
+      }
     }
   }, [status, session, router])
 
@@ -65,7 +69,8 @@ export function ProtectedPage({ title, restrictions, children }: Props) {
           status === 'authenticated' && (restrictions.includes('signin')
           || (restrictions.includes('admin') && session.user.admin)
           || (restrictions.includes('applied') && !session.user.uid)
-          || (restrictions.includes('qualified') && session.user.qualified === 'yeah')) && 
+          || (restrictions.includes('qualified') && session.user.qualified === 'yeah')) 
+          || (restrictions.includes('checkedIn') && !session.user.checkedIn) && 
           <>
             {children}
           </> 

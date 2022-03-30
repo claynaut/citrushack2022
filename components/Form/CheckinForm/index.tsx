@@ -15,18 +15,34 @@ export function CheckinForm() {
   const [clickedSubmitOnce, setClickedSubmitOnce] = useState(false)
 
   const onSubmit = async({
-    address,
     participation,
-    MLH_code_of_conduct
+    // daily_wellness,
+    MLH_code_of_conduct,
+    lives_in_US,
+    address_line_1,
+    address_line_2,
+    city,
+    state,
+    zipcode
   }) => {
     if (clickedSubmitOnce) { return }
     setClickedSubmitOnce(Boolean(true))
+
+    let address = ''
+
+    if (lives_in_US === 'Yes') {
+      address = address_line_1
+      if (address_line_2 !== '') {
+        address += ', ' + address_line_2
+      }
+      address += ', ' + city + ', ' + state + ' ' + zipcode
+    }
 
     axios.post('/api/users/check-in', {
       uid: session.user.uid,
       participation,
       MLH_code_of_conduct,
-      address,
+      address
     })
     .then(() => {
       toast.success(

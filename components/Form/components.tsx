@@ -122,7 +122,7 @@ interface RadioProps {
     [x: string]: any
   }
   direction?: 'row' | 'col'
-  subtext?: string
+  subtext?: string | React.ReactNode
 }
 
 export const Radio = ({

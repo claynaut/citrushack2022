@@ -26,7 +26,16 @@ export function Confirmation({ register, errors, watch }: Props) {
       <Group title='Confirm Details'>
         <Radio
           label='Are you participating in-person or online?'
-          subtext='Only UCR students can participate in-person. (Though exemptions may be made.) In-person participants will get free food, swag, and a chance to network with real engineers.'
+          subtext={
+            <>
+            <div className='mb-2'>
+              <span className='font-medium'>Only UCR students can participate in-person. (Though exemptions may be made.)</span> In-person participants will also get free food, swag, and a chance to network with real engineers.
+            </div>
+            <div>
+              <span className='font-medium'>If you plan to participate in-person, please have your vaccine cards.</span> We will check for them.
+            </div>
+            </>
+          }
           variable='participation'
           options={participation}
           register={register}

@@ -32,7 +32,7 @@ export default function Home() {
         </span>
       </Element>
       <Wave type={3} bgColor='bg-accent' fillColor='accent-secondary'/>
-      <Element name='About' className='relative flex justify-center px-4 w-full bg-gradient-to-b from-accent-secondary to-accent'>
+      <Element name='Schedule' className='relative flex justify-center px-4 w-full bg-gradient-to-b from-accent-secondary to-accent'>
         <Schedule />
       </Element>
       <Wave bgColor='bg-accent' fillColor='primary'/>

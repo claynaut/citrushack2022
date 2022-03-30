@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import {
   BiHomeAlt,
+  BiCalendarEvent,
   BiInfoCircle,
   BiDirections,
   BiDonateHeart,
@@ -24,6 +25,10 @@ export function Nav() {
     {
       icon: <BiHomeAlt />,
       title: 'Home'
+    },
+    {
+      icon: <BiCalendarEvent />,
+      title: 'Schedule'
     },
     {
       icon: <BiInfoCircle />,

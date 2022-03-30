@@ -18,13 +18,7 @@ export function Statistics({ data }) {
         users={qualifiedUsers}
         ucrUsers={ucrUsers}
       />
-      <div className='grid grid-cols-2 gap-4'>
-        <div className='bg-sub-secondary rounded-2xl text-center'>
-          <h4 className='font-medium'>Shirt Statistics (UCR)</h4>
-        </div>
-        <div className='bg-sub-secondary rounded-2xl text-center'>
-          <h4 className='font-medium'>Food Statistics (In-Person UCR)</h4>
-        </div>
+      <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
         <ShirtStats users={ucrUsers} />
         <FoodStats users={inPersonUcrUsers} />
       </div>

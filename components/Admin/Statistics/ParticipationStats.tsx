@@ -9,37 +9,41 @@ export function ParticipationStats({ users, ucrUsers }) {
   const numInPersonUCR = Object.keys(ucrUsers.filter(user => user.participation === 'In-Person')).length
 
   return (
-    <div className='grid grid-cols-2 gap-4 rounded-2xl'>
-      <div className='col-span-2 bg-sub-secondary rounded-2xl text-center'>
-        <h4 className='font-medium'>Participation Statistics</h4>
+    <div className='flex flex-col gap-4'>
+      <div className='bg-sub-secondary rounded-2xl text-center'>
+        <h4 className='font-medium'>Participation</h4>
       </div>
-      <div className='grid grid-cols-3 gap-4 col-span-2'>
-      <StatsBlob
-        num={numOnline}
-        numTotal={numTotal}
-        label='Online'
-      />
-      <StatsBlob
-        num={numInPerson}
-        numTotal={numTotal}
-        label='In-Person'
-      />
-      <StatsBlob
-        num={numCheckedIn}
-        numTotal={numTotal}
-        label='Checked-In'
-      />
+      <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-2xl'>
+        <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 col-span-2'>
+          <StatsBlob
+            num={numOnline}
+            numTotal={numTotal}
+            label='Online'
+          />
+          <StatsBlob
+            num={numInPerson}
+            numTotal={numTotal}
+            label='In-Person'
+          />
+          <StatsBlob
+            num={numCheckedIn}
+            numTotal={numTotal}
+            label='Checked-In'
+          />
+        </div>
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 col-span-2'>
+          <StatsBlob
+            num={numUCR}
+            numTotal={numTotal}
+            label='Total From UCR'
+          />
+          <StatsBlob
+            num={numInPersonUCR}
+            numTotal={numTotal}
+            label='In-Person From UCR'
+          />
+        </div>
       </div>
-      <StatsBlob
-        num={numUCR}
-        numTotal={numTotal}
-        label='Total From UCR'
-      />
-      <StatsBlob
-        num={numInPersonUCR}
-        numTotal={numTotal}
-        label='In-Person From UCR'
-      />
     </div>
   )
 }

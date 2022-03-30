@@ -1,17 +1,15 @@
 import { StatsBlob } from './StatsBlob'
 
-interface Props {
-  numXXS: number
-  numXS: number
-  numS: number
-  numM: number
-  numL: number
-  numXL: number
-  numXXL: number
-  numTotal: number
-}
+export function ShirtStats({ users }) {
+  const numXXS = Object.keys(users.filter(user => user.shirtSize === 'XXS')).length
+  const numXS = Object.keys(users.filter(user => user.shirtSize === 'XS')).length
+  const numS = Object.keys(users.filter(user => user.shirtSize === 'S')).length
+  const numM = Object.keys(users.filter(user => user.shirtSize === 'M')).length
+  const numL = Object.keys(users.filter(user => user.shirtSize === 'L')).length
+  const numXL = Object.keys(users.filter(user => user.shirtSize === 'XL')).length
+  const numXXL = Object.keys(users.filter(user => user.shirtSize === 'XXL')).length
+  const numTotal = Object.keys(users).length
 
-export function ShirtStats({ numXXS, numXS, numS, numM, numL, numXL, numXXL, numTotal }: Props) {
   return (
     <div className='grid grid-rows-7 gap-4 rounded-2xl'>
       <StatsBlob

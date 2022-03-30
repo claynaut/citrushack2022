@@ -1,14 +1,12 @@
 import { StatsBlob } from './StatsBlob'
 
-interface Props {
-  numOnline: number
-  numInPerson: number
-  numUCR: number
-  numInPersonUCR: number
-  numTotal: number
-}
+export function ParticipationStats({ users, ucrUsers }) {
+  const numOnline = Object.keys(users.filter(user => user.participation === 'Online')).length
+  const numInPerson = Object.keys(users.filter(user => user.participation === 'In-Person')).length
+  const numTotal = Object.keys(users).length
+  const numUCR = Object.keys(ucrUsers).length
+  const numInPersonUCR = Object.keys(ucrUsers.filter(user => user.participation === 'In-Person')).length
 
-export function ParticipationStats({ numOnline, numInPerson, numUCR, numInPersonUCR, numTotal }: Props) {
   return (
     <div className='grid grid-cols-2 gap-4 rounded-2xl'>
       <div className='col-span-2 bg-sub-secondary rounded-2xl text-center'>

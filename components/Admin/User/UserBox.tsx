@@ -1,5 +1,11 @@
 import { motion } from 'framer-motion'
-import { BiCheckbox, BiCheckboxSquare } from 'react-icons/bi'
+import {
+  BiCheckbox,
+  BiCheckboxSquare,
+  BiLoaderCircle,
+  BiUserCheck,
+  BiUserX
+} from 'react-icons/bi'
 
 export function UserBox({
   user, 
@@ -22,7 +28,7 @@ export function UserBox({
           + (pending && (user.criteriaMet ? 'bg-green-100 border-green-300' : 'bg-red-100 border-red-300'))
         }
       >
-        <div className='flex'>
+        <div className='flex items-center'>
           <div>
             <div 
               className={
@@ -53,34 +59,37 @@ export function UserBox({
               expandedUsers.concat([user])
             )}
           >
-            <div className='flex items-center w-32 pl-2 pr-4 py-1 text-center text-sm font-semibold uppercase'>
+            <div className='flex items-center w-10 md:w-28 pr-2 py-1 text-center text-xs md:text-sm font-semibold uppercase'>
               {
                 user.qualified === '' &&
                 <div 
                   className={
-                    'rounded-full p-1 px-2 w-full '
+                    'flex items-center justify-center rounded-full p-1 px-2 w-full '
                     + (pending ? (user.criteriaMet ? 'bg-green-100 border-2 border-green-200 text-green-600' : 'bg-red-100 border-2 border-red-200 text-red-500') : 'bg-amber-100 text-amber-500')
                   }
                 >
-                  Pending
+                  <div className='flex md:hidden text-lg'><BiLoaderCircle /></div> 
+                  <span className='hidden md:flex'>Pending</span>
                 </div>
               }
               {
                 user.qualified === 'yeah' &&
-                <div className='rounded-full bg-green-200 text-green-700 p-1 px-2 w-full'>
-                  Approved
+                <div className='flex items-center justify-center rounded-full bg-green-200 text-green-700 p-1 px-2 w-full'>
+                  <div className='flex md:hidden text-lg'><BiUserCheck /></div> 
+                  <span className='hidden md:flex'>Approved</span>
                 </div>
               }
               {
                 user.qualified === 'nope' &&
-                <div className='rounded-full bg-red-200 text-red-700 p-1 px-2 w-full'>
-                  Rejected
+                <div className='flex items-center justify-center rounded-full bg-red-200 text-red-700 p-1 px-2 w-full'>
+                  <div className='flex md:hidden text-lg'><BiUserX /></div> 
+                  <span className='hidden md:flex'>Rejected</span>
                 </div>
               }
             </div>
-            <div className='py-2'>
+            <span className='py-2 text-sm md:text-base'>
               {user.email}
-            </div>
+            </span>
           </div>
         </div>
         <div 
@@ -91,24 +100,24 @@ export function UserBox({
         >
           { user.uid ?
             <div className='flex'>
-              <div className='ml-[10.5rem]'>
+              <div className='ml-10'>
                 <ul>
-                  <li className='text-base'>
+                  <li className='text-sm md:text-base'>
                     <b>UID:</b> {user.uid}
                   </li>
-                  <li className='text-base'>
+                  <li className='text-sm md:text-base'>
                     <b>Full Name:</b> {user.name.first} {user.name.last}
                   </li>
-                  <li className='text-base'>
+                  <li className='text-sm md:text-base'>
                     <b>School:</b> {user.school}
                   </li>
-                  <li className='text-base'>
+                  <li className='text-sm md:text-base'>
                     <b>Grade:</b> {user.grade}
                   </li>
-                  <li className={'text-base ' + (pending ? (user.criteriaMet ? 'text-green-500' : 'text-red-500') : '')}>
+                  <li className={'text-sm md:text-base ' + (pending ? (user.criteriaMet ? 'text-green-500' : 'text-red-500') : '')}>
                     <b>Graduation Date:</b> {user.graduationDate}
                   </li>
-                  <li className='text-base'>
+                  <li className='text-sm md:text-base'>
                     <b>App Status: </b>
                     { user.qualified === '' && (user.criteriaMet ?
                       'Pending Approval'
@@ -121,11 +130,11 @@ export function UserBox({
                       'Rejected'
                     )}
                   </li>
-                  <li className='text-base'>
+                  <li className='text-sm md:text-base'>
                     <b>Participation:</b> {user.participation}
                   </li>
                   { user.checkedIn &&
-                    <li className='text-base'>
+                    <li className='text-sm md:text-base'>
                       <b>Address:</b> {user.address}
                     </li>
                   }
@@ -133,9 +142,9 @@ export function UserBox({
               </div>
             </div>
             :
-            <div className='text-center'>
+            <p className='m-0 mx-4 text-center text-sm md:text-base'>
               No information available yet. User has yet to apply.
-            </div>
+            </p>
           }
         </div>
       </div>

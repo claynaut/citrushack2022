@@ -16,9 +16,9 @@ export function UserBox({
     >
       <div
         className={
-          'border-2 border-sub rounded-md bg-card shadow-md cursor-pointer transform-gpu transition-size duration-150 overflow-hidden '
+          'h-full border-2 border-sub rounded-md bg-card shadow-md cursor-pointer transform-gpu transition-size duration-150 overflow-hidden '
           + (selectedUsers.includes(user) ? 'border-text ' : ' ')
-          + (expandedUsers.includes(user) ? (user.uid ? 'h-56 ' : 'h-[6.5rem] ') : 'h-11 ')
+          + (expandedUsers.includes(user) ? 'max-h-[40rem] ' : 'max-h-[2.75rem] ')
           + (pending && (user.criteriaMet ? 'bg-green-100 border-green-300' : 'bg-red-100 border-red-300'))
         }
       >
@@ -121,6 +121,14 @@ export function UserBox({
                       'Rejected'
                     )}
                   </li>
+                  <li className='text-base'>
+                    <b>Participation:</b> {user.participation}
+                  </li>
+                  { user.checkedIn &&
+                    <li className='text-base'>
+                      <b>Address:</b> {user.address}
+                    </li>
+                  }
                 </ul>
               </div>
             </div>

@@ -3,7 +3,8 @@ import { CheckinForm } from '@/components/Form'
 
 export default function CheckIn() {
   return (
-    <ProtectedPage title='Check-In' restrictions={['signin', 'qualified', 'checkedIn']}>
+    // change 'admin' to 'checkedIn' to open up form
+    <ProtectedPage title='Check-In' restrictions={['signin', 'qualified', 'admin']}>
       <CheckinForm />
     </ProtectedPage>
   )

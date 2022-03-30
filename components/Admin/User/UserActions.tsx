@@ -259,7 +259,7 @@ export function UserActions({
             { selectedView === 'Not Checked-In' &&
               <div
                 className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-amber-600 hover:bg-amber-200 cursor-pointer'
-                onClick={() => setConfirmApplyReminder(true)}
+                onClick={() => setConfirmCheckInReminder(true)}
               >
                 <BiMailSend title='Remind Selected to Check-In' />
                 <span className='text-base'>Remind to Check-In</span>
@@ -359,7 +359,8 @@ export function UserActions({
             className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-amber-400 text-white cursor-pointer'
             onClick={() => { remindToCheckIn(selectedUsers); setConfirmCheckInReminder(false) }}
           >
-            Remind Selected to Check-In          </motion.button>
+            Remind Selected to Check-In          
+          </motion.button>
         </div>
       </Modal>
       <Modal

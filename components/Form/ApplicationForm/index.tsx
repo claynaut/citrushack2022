@@ -67,8 +67,8 @@ export function ApplicationForm() {
     MLH_privacy_policy,
     MLH_communication
   }) => {
-    // if (clickedSubmitOnce) { return }
-    // setClickedSubmitOnce(Boolean(true))
+    if (clickedSubmitOnce) { return }
+    setClickedSubmitOnce(Boolean(true))
 
     // generate other user attributes
     let criteria_met = determineCriteriaMet(grad_date, grade)

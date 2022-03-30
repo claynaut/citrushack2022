@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
 import { MdArrowRight, MdArrowDropDown } from 'react-icons/md'
-import { BiTrash } from 'react-icons/bi'
+import { BiTrash, BiGroup } from 'react-icons/bi'
 import Modal from '@/components/Modal'
 
 export function GroupBox({ group, expandedGroups, setExpandedGroups }) {
@@ -40,10 +40,10 @@ export function GroupBox({ group, expandedGroups, setExpandedGroups }) {
           className={
             'border-2 border-sub rounded-md bg-card shadow-md cursor-pointer transform-gpu transition-size duration-150 overflow-hidden '
             + (!expandedGroups.includes(group) ? 'h-11 ' : ' ')
-            + ((expandedGroups.includes(group) && group.users.length === 1) ? 'h-[7.625rem] ' : ' ')
-            + ((expandedGroups.includes(group) && group.users.length === 2) ? 'h-40 ' : ' ')
-            + ((expandedGroups.includes(group) && group.users.length === 3) ? 'h-[12.375rem] ' : ' ')
-            + ((expandedGroups.includes(group) && group.users.length === 4) ? 'h-[14.75rem] ' : ' ')
+            + ((expandedGroups.includes(group) && group.users.length === 1) ? 'h-[7.25rem] md:h-[7.625rem] ' : ' ')
+            + ((expandedGroups.includes(group) && group.users.length === 2) ? 'h-[9.5rem] md:h-40 ' : ' ')
+            + ((expandedGroups.includes(group) && group.users.length === 3) ? 'h-[11.75rem] md:h-[12.375rem] ' : ' ')
+            + ((expandedGroups.includes(group) && group.users.length === 4) ? 'h-[14rem] md:h-[14.75rem] ' : ' ')
           }
         >
           <div className='flex'>
@@ -66,7 +66,7 @@ export function GroupBox({ group, expandedGroups, setExpandedGroups }) {
               </div>
             </div>
             <div 
-              className='flex justify-between w-full mr-4'
+              className='flex items-center justify-between w-full mr-4'
               onClick={() => setExpandedGroups(
                   expandedGroups.includes(group) ? 
                   expandedGroups.filter(expandedGroup => expandedGroup !== group) :
@@ -74,20 +74,22 @@ export function GroupBox({ group, expandedGroups, setExpandedGroups }) {
                 )
               }
             >
-              <div className='py-2'>
+              <span className='py-2 text-xs sm:text-sm md:text-base'>
                 {group.gid}
-              </div>
-              <div className='py-2'>
-                {group.users.length} member{group.users.length > 1 && 's'}
-              </div>
+              </span>
+              <span className='flex items-center gap-1.5 py-2 text-sm md:text-base'>
+                {group.users.length} 
+                <div className='block md:hidden text-lg'><BiGroup /></div>
+                <span className='hidden md:block'>member{group.users.length > 1 && 's'}</span>
+              </span>
             </div>
           </div>
-          <div className='border-t-2 border-sub text-sm'>
+          <div className='border-t-2 border-sub text-xs md:text-sm'>
             <div className='flex w-full'>
               <div className='w-10 p-2 border-b-2 border-sub text-center'>#</div>
               <div className='w-full grid grid-cols-12 py-1.5 border-b-2 border-sub'>
                 <div className='col-span-4'>Name</div>
-                <div className='col-span-4'>Email</div>
+                <div className='hidden sm:block col-span-4'>Email</div>
                 <div className='col-span-4'>UID</div>
               </div>
               <div className='w-10 p-2 border-b-2 border-sub text-center'/>
@@ -110,12 +112,12 @@ export function GroupBox({ group, expandedGroups, setExpandedGroups }) {
                     }
                   >
                     <div className='col-span-4'>{user.name.first + ' ' + user.name.last}</div>
-                    <div className='col-span-4'>{user.email}</div>
+                    <div className='hidden sm:block col-span-4'>{user.email}</div>
                     <div className='col-span-4'>{user.id}</div>
                   </div>
                   <div
                     className={
-                      'text-center text-xl '
+                      'text-center text-lg md:text-xl '
                       + (idx+1 < group.users.length ? 'border-b-2 border-sub' : '')
                     }
                   >

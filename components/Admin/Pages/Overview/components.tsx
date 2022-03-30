@@ -158,6 +158,9 @@ export const userViewDisplay = (view, user) => {
     return (user.qualified === 'nope')
   }
   else if (view === 'Checked-In') {
-    return user.checkedIn
+    return user.qualified === 'yeah' && user.checkedIn
+  }
+  else if (view === 'Not Checked-In') {
+    return user.qualified === 'yeah' && !user.checkedIn
   }
 }

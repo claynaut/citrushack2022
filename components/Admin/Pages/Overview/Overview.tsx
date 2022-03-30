@@ -23,6 +23,7 @@ export function Overview({ data }) {
     'Pending',
     'Not Applied',
     'Checked-In',
+    'Not Checked-In',
     'Approved',
     'Rejected',
     'All Users',
@@ -52,6 +53,12 @@ export function Overview({ data }) {
       }
       else if (selectedView === 'Rejected') {
         setSelectedUsers(data.users.filter(user => user.qualified === 'nope'))
+      }
+      else if (selectedView === 'Checked-In') {
+        setSelectedUsers(data.users.filter(user => user.qualified === 'yeah' && user.checkedIn))
+      }
+      else if (selectedView === 'Not Checked-In') {
+        setSelectedUsers(data.users.filter(user => user.qualified === 'yeah' && !user.checkedIn))
       }
     }
     else {
@@ -177,6 +184,20 @@ export function Overview({ data }) {
       <QueriedUsers
         selectedView={selectedView}
         view='Checked-In'
+        showPending={Boolean(false)}
+        validSearch={validSearch}
+        sorted={sorted}
+        users={data.users}
+        selectedUsers={selectedUsers}
+        setSelectedUsers={setSelectedUsers}
+        expandedUsers={expandedUsers}
+        setExpandedUsers={setExpandedUsers}
+        filter={filter}
+        searchQuery={searchQuery}
+      />
+      <QueriedUsers
+        selectedView={selectedView}
+        view='Not Checked-In'
         showPending={Boolean(false)}
         validSearch={validSearch}
         sorted={sorted}

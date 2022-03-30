@@ -46,14 +46,14 @@ export function UserBox({
             </div>
           </div>
           <div 
-            className='grid grid-cols-12'
+            className='flex'
             onClick={() => setExpandedUsers(
               expandedUsers.includes(user) ?
               expandedUsers.filter(expandedUser => expandedUser !== user) :
               expandedUsers.concat([user])
             )}
           >
-            <div className='flex items-center col-span-2 px-6 py-1 text-center text-sm font-semibold uppercase'>
+            <div className='flex items-center w-32 pl-2 pr-4 py-1 text-center text-sm font-semibold uppercase'>
               {
                 user.qualified === '' &&
                 <div 
@@ -90,8 +90,8 @@ export function UserBox({
           }
         >
           { user.uid ?
-            <div className='grid grid-cols-12'>
-              <div className='col-start-3 col-span-9 ml-8'>
+            <div className='flex'>
+              <div className='ml-[10.5rem]'>
                 <ul>
                   <li className='text-base'>
                     <b>UID:</b> {user.uid}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { BiIdCard, BiBarChartAlt2, BiGroup, BiFile } from 'react-icons/bi'
 import useMultSWR from '@/lib/multswr'
 import { ProtectedPage } from '@/components/Page'
 import {
@@ -45,6 +46,12 @@ export default function Admin() {
           <h2 className='m-0 font-medium'>Dashboard</h2>
           <Pages
             pageOptions={pageOptions}
+            icons={[
+              <BiIdCard />,
+              <BiBarChartAlt2 />,
+              <BiGroup />,
+              <BiFile />
+            ]}
             selectedPage={selectedPage}
             selectPage={setSelectedPage}
           />

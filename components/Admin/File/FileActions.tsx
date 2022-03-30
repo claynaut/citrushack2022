@@ -9,7 +9,7 @@ import { loadFiles, downloadFiles } from './methods'
 export function FileActions({ allSelected, toggleSelectAllDocs, selectedDocs, setDocs }) {
   return (
     <>
-      <p className='m-0 mb-2 font-normal text-base'>
+      <p className='m-0 mb-2 font-normal text-sm'>
         <span className='font-medium'>Tip:</span> Select a row to perform more actions.
       </p>
       <div className='flex gap-2 items-center text-2xl'>

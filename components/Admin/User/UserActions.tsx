@@ -135,7 +135,7 @@ export function UserActions({
     <>
       {
         (selectedView === 'Not Applied' || selectedView === 'Pending' || selectedView == 'Approved' || selectedView === 'Rejected') &&
-        <p className='mt-3 font-normal text-base'>
+        <p className='mt-3 font-normal text-sm'>
           <span className='font-medium'>Tip:</span> Select a row to perform more actions.
         </p>
       }

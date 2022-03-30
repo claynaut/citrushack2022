@@ -13,7 +13,7 @@ interface ProfileProps {
 /** Individual profile for each team lead. */
 export const JudgeProfile = ({ image, name, role }: ProfileProps) => (
   <div className='flex flex-col w-full max-w-[8rem] md:max-w-[9rem] items-center'>
-    <motion.span whileHover={{ y: -4 }} className='cursor-pointer'>
+    <motion.span whileHover={{ y: -4 }}>
       <Image
         src={image}
         width={150}

@@ -19,8 +19,8 @@ export const TeamProfile = ({ link, image, name, role }: ProfileProps) => (
       <a target='_blank' rel='noreferrer noopener' href={link}>
         <Image
           src={image}
-          width={120}
-          height={120}
+          width={150}
+          height={150}
           objectFit='contain'
           priority={true}
           quality={100}

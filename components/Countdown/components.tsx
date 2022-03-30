@@ -49,7 +49,7 @@ function TimeBlock({ condition, num, label, separator }: TimeBlockProps) {
 /** Content displayed after countdown finishes. */
 const Completionist = () => (
   <div className='mb-4'>
-    <h3 className='text-center sm:text-left font-bold'>
+    <h3 className='mb-6 text-center font-bold'>
       Grow your potential.
     </h3>
     <ButtonLink
@@ -126,6 +126,85 @@ export function CountdownWrapper({ date }) {
   return (
     <h2 className='text-2xl xs:text-4xl sm:text-5xl'>
       <Countdown date={date} renderer={renderer} />
+    </h2>
+  )
+}
+
+/** Content displayed after hacking countdown finishes. */
+const HackerCompletionist = () => (
+  <div className='mb-4'>
+    <h3 className='text-center font-bold'>
+      Hacking has ended!
+    </h3>
+  </div>
+)
+
+/** Rendered hacking countdown clock. */
+const hackingRenderer = ({ days, hours, minutes, seconds, completed }) => {
+  if (completed) {
+    return <HackerCompletionist />
+  } 
+  else {
+    const numDays = days < 10 ? String(`0${days}`) : String(days)
+    const numHours = hours < 10 ? String(`0${hours}`) : String(hours)
+    const numMinutes = minutes < 10 ? String(`0${minutes}`) : String(minutes)
+    const numSeconds = seconds < 10 ? String(`0${seconds}`) : String(seconds)
+
+    return (
+      <div className='mb-10'>
+        <h3 className='text-center sm:text-left font-bold'>
+          Hacking ends in...
+        </h3>
+        <div className='grid grid-cols-11 flex max-w-xl'>
+          <TimeBlock
+            condition={Boolean(days > 0)}
+            num={numDays}
+            label='days'
+            separator
+          />
+          <TimeBlock
+            condition={Boolean(days > 0 || hours > 0)}
+            num={numHours}
+            label='hours'
+            separator
+          />
+          <TimeBlock
+            condition={Boolean(days > 0 || hours > 0 || minutes > 0)}
+            num={numMinutes}
+            label='mins'
+            separator
+          />
+          <TimeBlock
+            condition={Boolean(days > 0 || hours > 0 || minutes > 0 || seconds > 0)}
+            num={numSeconds}
+            label='secs'
+          />
+        </div>
+      </div>
+    )
+  }
+}
+
+/** Wrapper for hacking countdown clock. */
+export function HackerCountdownWrapper({ date }) {
+  const [isMobile, setIsMobile] = useState(false)
+  
+  if (!isMobile)
+    buttonVariants = { hover: { y: -3 } }
+  else
+    buttonVariants = {}
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 720)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+  })
+
+  return (
+    <h2 className='text-2xl xs:text-4xl sm:text-5xl'>
+      <Countdown date={date} renderer={hackingRenderer} />
     </h2>
   )
 }

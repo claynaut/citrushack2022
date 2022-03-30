@@ -13,7 +13,10 @@ import {
   BiGroup,
   BiHelpCircle,
   BiMenu,
-  BiX
+  BiX,
+  BiAlarm,
+  BiReceipt,
+  BiRocket
 } from 'react-icons/bi'
 import { ThemeButton } from '@/components/UserBar/ThemeButton'
 
@@ -55,6 +58,36 @@ export function Nav() {
       title: 'FAQ'
     },
   ]
+  const livetabs = [
+    {
+      icon: <BiAlarm />,
+      title: 'Countdown'
+    },
+    {
+      icon: <BiCalendarEvent />,
+      title: 'Schedule'
+    },
+    {
+      icon: <BiReceipt />,
+      title: 'Judges'
+    },
+    {
+      icon: <BiDirections />,
+      title: 'Tracks'
+    },
+    {
+      icon: <BiRocket />,
+      title: 'Resources'
+    },
+    {
+      icon: <BiDollarCircle />,
+      title: 'Sponsors'
+    },
+    {
+      icon: <BiGroup />,
+      title: 'Staff'
+    },
+  ]
   
   return (
     <>
@@ -85,7 +118,26 @@ export function Nav() {
             </NavLink>
           </motion.span>
         ))}
-        { router.pathname !== '/' &&
+        { router.pathname === '/live' && (livetabs.map(({icon, title}) =>
+          <motion.span
+            key={title}
+            whileHover={{ scale: 1.05, x: 20 }}
+            whileTap={{ scale: 0.995 }}
+          >
+            <NavLink 
+              activeClass='bg-highlight dark:bg-highlight-dark text-text'
+              to={title}
+              spy={true}
+              smooth={true}
+              duration={500}
+              className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-highlight hover:text-text cursor-pointer'
+            >
+              <span className='text-2xl'>{icon}</span>
+              <span>{title}</span>
+            </NavLink>
+          </motion.span>
+        ))}
+        { router.pathname !== '/' && router.pathname !== '/live' &&
           <motion.span
             whileHover={{ scale: 1.05, x: 20 }}
             whileTap={{ scale: 0.995 }}
@@ -138,7 +190,23 @@ export function Nav() {
               <span>{title}</span>
             </NavLink>
           ))}
-          { router.pathname !== '/' &&
+          { router.pathname === '/live' && (livetabs.map(({icon, title}) =>
+            <NavLink 
+              key={'mobile'+title}
+              activeClass='bg-highlight text-text'
+              to={title}
+              spy={true}
+              smooth={true}
+              offset={-50}
+              duration={500}
+              className='flex gap-2.5 items-center p-2 font-semibold text-lg rounded-md hover:bg-highlight hover:text-text cursor-pointer'
+              onClick={() => setNavOpen(false)}
+            >
+              <span className='text-2xl'>{icon}</span>
+              <span>{title}</span>
+            </NavLink>
+          ))}
+          { router.pathname !== '/' && router.pathname !== '/live' &&
             <Link passHref href='/'>
               <span
                 className='flex gap-2.5 items-center p-2 font-semibold text-lg truncate rounded-md hover:bg-highlight hover:text-text cursor-pointer'

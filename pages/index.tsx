@@ -26,8 +26,8 @@ export default function Home() {
 
   return (
     <Page>
-      <Element name='Home' className='flex justify-center px-4 w-full bg-gradient-to-b from-primary to-accent'>
-        <span className='flex justify-center w-full bg-pattern bg-repeat bg-contain'>
+      <Element name='Home' className='flex justify-center w-full bg-gradient-to-b from-primary to-accent'>
+        <span className='flex justify-center px-4 w-full bg-pattern bg-repeat bg-contain'>
           <Landing />
         </span>
       </Element>
@@ -36,20 +36,20 @@ export default function Home() {
         <Schedule />
       </Element>
       <Wave bgColor='bg-accent' fillColor='primary'/>
-      <Element name='About' className='relative flex justify-center px-4 w-full bg-gradient-to-b from-primary to-secondary'>
-        <span className='flex justify-center w-full bg-pattern bg-repeat bg-contain 2xl:bg-cover'>
+      <Element name='About' className='relative flex justify-center w-full bg-gradient-to-b from-primary to-secondary'>
+        <span className='flex justify-center px-4 w-full bg-pattern bg-repeat bg-contain 2xl:bg-cover'>
           <About />
         </span>
       </Element>
       <Wave type={2} bgColor='secondary' fillColor='primary'/>
-      <Element name='Tracks' className='flex justify-center px-4 w-full bg-primary'>
-        <span className='flex justify-center w-full bg-pattern bg-repeat bg-contain 2xl:bg-cover'>
+      <Element name='Tracks' className='flex justify-center w-full bg-primary'>
+        <span className='flex justify-center px-4 w-full bg-pattern bg-repeat bg-contain 2xl:bg-cover'>
           <Tracks />
         </span>
       </Element>
       <Wave bgColor='bg-primary' fillColor='accent'/>
-      <Element name='Support' className='flex justify-center px-4 w-full bg-gradient-to-b from-accent to-card'>
-        <span className='flex justify-center w-full bg-pattern bg-repeat bg-contain 2xl:bg-cover'>
+      <Element name='Support' className='flex justify-center w-full bg-gradient-to-b from-accent to-card'>
+        <span className='flex justify-center px-4 w-full bg-pattern bg-repeat bg-contain 2xl:bg-cover'>
           <Support />
         </span>
       </Element>
@@ -58,8 +58,8 @@ export default function Home() {
         <Sponsors />
       </Element>
       <Wave bgColor='bg-accent' fillColor='primary'/>
-      <Element name='Staff' className='flex justify-center px-4 w-full bg-primary'>
-        <span className='flex justify-center w-full bg-pattern bg-repeat bg-contain 2xl:bg-cover'>
+      <Element name='Staff' className='flex justify-center w-full bg-primary'>
+        <span className='flex justify-center px-4 w-full bg-pattern bg-repeat bg-contain'>
           <Staff />
         </span>
       </Element>

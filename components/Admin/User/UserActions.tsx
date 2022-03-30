@@ -28,6 +28,7 @@ export function UserActions({
   const [confirmApplyReminder, setConfirmApplyReminder] = useState(false)
   const [confirmInPersonReminder, setConfirmInPersonReminder] = useState(false)
   const [confirmDiscordReminder, setConfirmDiscordReminder] = useState(false)
+  const [confirmCheckInReminder, setConfirmCheckInReminder] = useState(false)
   const [confirmAuto, setConfirmAuto] = useState(false)
   const [confirmApprove, setConfirmApprove] = useState(false)
   const [confirmReject, setConfirmReject] = useState(false)
@@ -77,6 +78,22 @@ export function UserActions({
       toast.error(
         'Uh oh. Something went wrong...',
         { id: 'discordReminderError' }
+      )
+    })
+  }
+
+  const remindToCheckIn = (users) => {
+    axios.post('/api/applications/remind-checkin', { users })
+    .then(() => {
+      toast.success(
+        'Successfully sent reminders!',
+        { id: 'checkinReminderSuccess' }
+      )
+    })
+    .catch(() => {
+      toast.error(
+        'Uh oh. Something went wrong...',
+        { id: 'checkinReminderError' }
       )
     })
   }
@@ -152,7 +169,13 @@ export function UserActions({
   return (
     <>
       {
-        (selectedView === 'Not Applied' || selectedView === 'Pending' || selectedView == 'Approved' || selectedView === 'Rejected') &&
+        (
+          selectedView === 'Not Applied' || 
+          selectedView === 'Pending' || 
+          selectedView == 'Approved' || 
+          selectedView === 'Rejected' || 
+          selectedView === 'Not Checked-In'
+        ) &&
         <p className='mt-3 font-normal text-sm'>
           <span className='font-medium'>Tip:</span> Select a row to perform more actions.
         </p>
@@ -160,7 +183,15 @@ export function UserActions({
       <div
         className={
           'flex gap-2 items-center text-2xl '
-          + (!(selectedView === 'Not Applied' || selectedView === 'Pending' || selectedView == 'Approved' || selectedView === 'Rejected') ? 'mt-3' : '')
+          + (
+              !(selectedView === 'Not Applied' || 
+                selectedView === 'Pending' || 
+                selectedView == 'Approved' || 
+                selectedView === 'Rejected' || 
+                selectedView === 'Not Checked-In'
+              ) 
+              ? 'mt-3' : ''
+            )
         }
       >
         <div
@@ -183,7 +214,13 @@ export function UserActions({
           }
         </div>
         {
-          selectedUsers.length > 0 && (selectedView == 'Not Applied' || selectedView == 'Pending' || selectedView == 'Approved' || selectedView == 'Rejected') &&
+          selectedUsers.length > 0 && (
+            selectedView == 'Not Applied' ||
+            selectedView == 'Pending' ||
+            selectedView == 'Approved' || 
+            selectedView == 'Rejected' || 
+            selectedView == 'Not Checked-In'
+          ) &&
           <div className='flex gap-1 items-center pl-2 border-l-2'>
             { selectedView === 'Not Applied' &&
               <div
@@ -219,6 +256,15 @@ export function UserActions({
                 </div>
               </>
             }
+            { selectedView === 'Not Checked-In' &&
+              <div
+                className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-amber-600 hover:bg-amber-200 cursor-pointer'
+                onClick={() => setConfirmApplyReminder(true)}
+              >
+                <BiMailSend title='Remind Selected to Check-In' />
+                <span className='text-base'>Remind to Check-In</span>
+              </div>
+            }
             { selectedView === 'Approved' &&
               <>
                 <div
@@ -232,7 +278,7 @@ export function UserActions({
                   className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-indigo-600 hover:bg-indigo-200 cursor-pointer'
                   onClick={() => setConfirmDiscordReminder(true)}
                 >
-                  <BiMobileVibration title='Remind Selected About In-Person' />
+                  <BiMobileVibration title='Remind Selected to Join Discord' />
                   <span className='text-base'>Remind to Join Discord</span>
                 </div>
               </>
@@ -298,6 +344,22 @@ export function UserActions({
           >
             Remind Selected About Joining Discord
           </motion.button>
+        </div>
+      </Modal>
+      <Modal
+        show={confirmCheckInReminder}
+        handler={setConfirmCheckInReminder}
+        title='Confirm Action'
+        description='Are you sure you want to remind all of the selected users to check-in?'
+      >
+        <div className='flex justify-center'>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.995 }}
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-amber-400 text-white cursor-pointer'
+            onClick={() => { remindToCheckIn(selectedUsers); setConfirmCheckInReminder(false) }}
+          >
+            Remind Selected to Check-In          </motion.button>
         </div>
       </Modal>
       <Modal

@@ -3,6 +3,7 @@ import { StatsBlob } from './StatsBlob'
 export function ParticipationStats({ users, ucrUsers }) {
   const numOnline = Object.keys(users.filter(user => user.participation === 'Online')).length
   const numInPerson = Object.keys(users.filter(user => user.participation === 'In-Person')).length
+  const numCheckedIn = Object.keys(users.filter(user => user.checkedIn)).length
   const numTotal = Object.keys(users).length
   const numUCR = Object.keys(ucrUsers).length
   const numInPersonUCR = Object.keys(ucrUsers.filter(user => user.participation === 'In-Person')).length
@@ -12,6 +13,7 @@ export function ParticipationStats({ users, ucrUsers }) {
       <div className='col-span-2 bg-sub-secondary rounded-2xl text-center'>
         <h4 className='font-medium'>Participation Statistics</h4>
       </div>
+      <div className='grid grid-cols-3 gap-4 col-span-2'>
       <StatsBlob
         num={numOnline}
         numTotal={numTotal}
@@ -22,6 +24,12 @@ export function ParticipationStats({ users, ucrUsers }) {
         numTotal={numTotal}
         label='In-Person'
       />
+      <StatsBlob
+        num={numCheckedIn}
+        numTotal={numTotal}
+        label='Checked-In'
+      />
+      </div>
       <StatsBlob
         num={numUCR}
         numTotal={numTotal}

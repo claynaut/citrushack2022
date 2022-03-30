@@ -219,7 +219,7 @@ const saturdaySchedule = {
       endTime: '4:30 PM',
     },
     {
-      name: 'MLH Activity',
+      name: 'Painting With Bob Ross',
       startTime: '5',
       endTime: '5:30 PM',
     },

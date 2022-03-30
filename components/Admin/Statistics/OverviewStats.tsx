@@ -1,12 +1,9 @@
-interface Props {
-  numSignedUp: number
-  numNotApplied: number
-  numPending: number
-  numApproved: number
-  numRejected: number
-}
-
-export function OverviewStats({ numSignedUp, numNotApplied, numPending, numApproved, numRejected }: Props) {
+export function OverviewStats({ users }) {
+  var numSignedUp = Object.keys(users).length
+  var numNotApplied = Object.keys(users.filter(user => !user.uid)).length
+  var numPending = Object.keys(users.filter(user => user.qualified === '')).length
+  var numApproved = Object.keys(users.filter(user => user.qualified === 'yeah')).length
+  var numRejected = Object.keys(users.filter(user => user.qualified === 'nope')).length
   return (
     <div className='grid grid-cols-5 gap-4'>
       <div className='grid grid-cols-2 col-span-2 bg-blue-200 text-blue-500 rounded-2xl'>

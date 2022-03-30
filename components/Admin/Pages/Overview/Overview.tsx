@@ -1,17 +1,12 @@
 import React, { useState } from 'react'
 import { BiSearch, BiX } from 'react-icons/bi'
 import {
-  UserBox,
   OverviewStats,
   Overviews,
   UserActions,
   UserFilter
 } from '@/components/Admin'
-import { AllUsers } from './AllUsers'
-import { NotAppliedUsers } from './NotAppliedUsers'
-import { ApprovedUsers } from './ApprovedUsers'
-import { RejectedUsers } from './RejectedUsers'
-import { PendingUsers } from './PendingUsers'
+import { QueriedUsers } from './QueriedUsers'
 
 export function Overview({ data }) {
   const [selectedView, setSelectedView] = useState('Pending')
@@ -27,6 +22,7 @@ export function Overview({ data }) {
   const viewOptions = [
     'Pending',
     'Not Applied',
+    'Checked-In',
     'Approved',
     'Rejected',
     'All Users',
@@ -111,21 +107,7 @@ export function Overview({ data }) {
 
   const toggleExpandAllUsers = (expandAll: boolean) => {
     if (expandAll) {
-      if (selectedView === 'All Users') {
-        setExpandedUsers(data.users)
-      }
-      else if (selectedView === 'Not Applied') {
-        setExpandedUsers(data.users.filter(user => !user.uid))
-      }
-      else if (selectedView === 'Pending') {
-        setExpandedUsers(data.users.filter(user => user.qualified === ''))
-      }
-      else if (selectedView === 'Approved') {
-        setExpandedUsers(data.users.filter(user => user.qualified === 'yeah'))
-      }
-      else if (selectedView === 'Rejected') {
-        setExpandedUsers(data.users.filter(user => user.qualified === 'nope'))
-      }
+      setExpandedUsers(data.users)
     }
     else {
       setExpandedUsers([])
@@ -165,21 +147,9 @@ export function Overview({ data }) {
     }
   }
 
-  var numSignedUp = Object.keys(data.users).length
-  var numNotApplied = Object.keys(data.users.filter(user => !user.uid)).length
-  var numPending = Object.keys(data.users.filter(user => user.qualified === '')).length
-  var numApproved = Object.keys(data.users.filter(user => user.qualified === 'yeah')).length
-  var numRejected = Object.keys(data.users.filter(user => user.qualified === 'nope')).length
-
   return (
     <>
-      <OverviewStats
-        numSignedUp={numSignedUp}
-        numNotApplied={numNotApplied}
-        numPending={numPending}
-        numApproved={numApproved}
-        numRejected={numRejected}
-      />
+      <OverviewStats users={data.users} />
       <div className='flex mt-8'>
         <div>
           <UserFilter 
@@ -232,8 +202,10 @@ export function Overview({ data }) {
         selectedUsers={selectedUsers}
         selectedView={selectedView}
       />
-      <AllUsers
+      <QueriedUsers
         selectedView={selectedView}
+        view='All Users'
+        showPending={Boolean(false)}
         validSearch={validSearch}
         sorted={sorted}
         users={data.users}
@@ -244,8 +216,10 @@ export function Overview({ data }) {
         filter={filter}
         searchQuery={searchQuery}
       />
-      <NotAppliedUsers
+      <QueriedUsers
         selectedView={selectedView}
+        view='Pending'
+        showPending={Boolean(true)}
         validSearch={validSearch}
         sorted={sorted}
         users={data.users}
@@ -256,8 +230,10 @@ export function Overview({ data }) {
         filter={filter}
         searchQuery={searchQuery}
       />
-      <PendingUsers
+      <QueriedUsers
         selectedView={selectedView}
+        view='Not Applied'
+        showPending={Boolean(false)}
         validSearch={validSearch}
         sorted={sorted}
         users={data.users}
@@ -268,8 +244,10 @@ export function Overview({ data }) {
         filter={filter}
         searchQuery={searchQuery}
       />
-      <ApprovedUsers
+      <QueriedUsers
         selectedView={selectedView}
+        view='Approved'
+        showPending={Boolean(false)}
         validSearch={validSearch}
         sorted={sorted}
         users={data.users}
@@ -280,8 +258,24 @@ export function Overview({ data }) {
         filter={filter}
         searchQuery={searchQuery}
       />
-      <RejectedUsers
+      <QueriedUsers
         selectedView={selectedView}
+        view='Rejected'
+        showPending={Boolean(false)}
+        validSearch={validSearch}
+        sorted={sorted}
+        users={data.users}
+        selectedUsers={selectedUsers}
+        setSelectedUsers={setSelectedUsers}
+        expandedUsers={expandedUsers}
+        setExpandedUsers={setExpandedUsers}
+        filter={filter}
+        searchQuery={searchQuery}
+      />
+      <QueriedUsers
+        selectedView={selectedView}
+        view='Checked-In'
+        showPending={Boolean(false)}
         validSearch={validSearch}
         sorted={sorted}
         users={data.users}

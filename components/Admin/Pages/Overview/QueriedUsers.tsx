@@ -1,8 +1,10 @@
-import { userFilter, userMatch } from './components'
+import { userFilter, userMatch, userViewDisplay } from './components'
 import { UserBox } from '@/components/Admin/User'
 
-export function PendingUsers({
+export function QueriedUsers({
   selectedView,
+  view,
+  showPending,
   validSearch,
   sorted,
   users,
@@ -11,44 +13,44 @@ export function PendingUsers({
   expandedUsers,
   setExpandedUsers,
   filter,
-  searchQuery
+  searchQuery,
 }) {
   return (
     <>
-      { /* pending applications */
-        selectedView === 'Pending' &&
+      {
+        selectedView === view &&
         <div className='flex flex-col gap-2 mt-3'>
-          { !validSearch && (!sorted ? users.filter(user => user.qualified === '' && userMatch(searchQuery, user)).map((user, idx) =>
+          { !validSearch && (!sorted ? users.filter(user => userViewDisplay(selectedView, user) && userMatch(searchQuery, user)).map((user, idx) =>
             <UserBox
-              key={'allUsers'+String(idx)}
+              key={'allUsers-'+String(idx)}
               user={user}
               selectedUsers={selectedUsers}
               setSelectedUsers={setSelectedUsers}
               expandedUsers={expandedUsers}
               setExpandedUsers={setExpandedUsers}
-              pending={Boolean(true)}
+              pending={showPending}
             />)
             :
-            [...users.filter(user => user.qualified === '' && userMatch(searchQuery, user))].sort((x, y) => userFilter(filter, x, y)).map((user, idx) =>
+            [...users.filter(user => userViewDisplay(selectedView, user) && userMatch(searchQuery, user))].sort((x, y) => userFilter(filter, x, y)).map((user, idx) =>
             <UserBox
-              key={'filterAllUsers'+String(idx)}
+              key={'filterAllUsers-'+String(idx)}
               user={user}
               selectedUsers={selectedUsers}
               setSelectedUsers={setSelectedUsers}
               expandedUsers={expandedUsers}
               setExpandedUsers={setExpandedUsers}
-              pending={Boolean(true)}
+              pending={showPending}
             />)
           )}
-          { validSearch && users.filter(user => user.qualified === '' && userMatch(searchQuery, user)).map((user, idx) =>
+          { validSearch && users.filter(user => userViewDisplay(selectedView, user) && userMatch(searchQuery, user)).map((user, idx) =>
             <UserBox
-              key={'searchedPendingUsers'+String(idx)}
+              key={'searchedPendingUsers-'+String(idx)}
               user={user}
               selectedUsers={selectedUsers}
               setSelectedUsers={setSelectedUsers}
               expandedUsers={expandedUsers}
               setExpandedUsers={setExpandedUsers}
-              pending={Boolean(true)}
+              pending={showPending}
             />
           )}
         </div>

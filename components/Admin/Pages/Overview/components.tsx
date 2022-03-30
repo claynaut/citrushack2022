@@ -140,3 +140,24 @@ export const userMatch = (searchQuery, user) => {
   if (!uidMatch || !emailMatch || !nameMatch) { match = false }
   return match
 }
+
+export const userViewDisplay = (view, user) => {
+  if (view === 'All Users') {
+    return Boolean(true)
+  }
+  else if (view === 'Pending') {
+    return (user.qualified === '')
+  }
+  else if (view === 'Not Applied') {
+    return !user.uid
+  }
+  else if (view === 'Approved') {
+    return (user.qualified === 'yeah')
+  }
+  else if (view === 'Rejected') {
+    return (user.qualified === 'nope')
+  }
+  else if (view === 'Checked-In') {
+    return user.checkedIn
+  }
+}

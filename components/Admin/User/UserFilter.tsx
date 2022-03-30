@@ -2,9 +2,55 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { BiFilter } from 'react-icons/bi'
 
-export function UserFilter({ filters, setFilter, currentFilter, setSorted }) {
+export function UserFilter({ selectedView, setFilter, currentFilter, setSorted }) {
   const router = useRouter()
   const [open, setOpen] = useState(false)
+
+  const makeFilterOptions = () => {
+    var filterOptions = []
+    if (selectedView === 'All Users') {
+      filterOptions = [
+        'Default',
+        'Sort by Pending',
+        'Sort by Approved',
+        'Sort by Rejected',
+        'Sort A to Z by Name',
+        'Sort Z to A by Name',
+        'Sort A to Z by Email',
+        'Sort Z to A by Email',
+      ]
+    }
+    else if (selectedView ==='Not Applied') {
+      filterOptions = [
+        'Default',
+        'Sort A to Z by Email',
+        'Sort Z to A by Email',
+      ]
+    }
+    else if (selectedView === 'Pending') {
+      filterOptions = [
+        'Default',
+        'Sort by Pending Approval',
+        'Sort by Pending Rejection',
+        'Sort A to Z by Name',
+        'Sort Z to A by Name',
+        'Sort A to Z by Email',
+        'Sort Z to A by Email',
+      ]
+    }
+    else if (selectedView === 'Approved' || selectedView === 'Rejected') {
+      filterOptions = [
+        'Default',
+        'Sort A to Z by Name',
+        'Sort Z to A by Name',
+        'Sort A to Z by Email',
+        'Sort Z to A by Email',
+      ]
+    }
+    return filterOptions
+  }
+
+  const filters = makeFilterOptions()
 
   useEffect(() => {
     const handleRouteChange = () => {

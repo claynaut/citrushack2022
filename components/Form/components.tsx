@@ -3,14 +3,17 @@ import { UseFormRegister, FieldValues } from 'react-hook-form'
 interface GroupProps {
   /** Name of group. */
   title: string
+  /** Option description detailing the group. */
+  subtitle?: string
   /** Input fields in the same group. */
   children: React.ReactNode | React.ReactNode[]
 }
 
 /** Group of input fields. */
-export const Group = ({title, children}: GroupProps) => (
-  <div className='flex flex-col gap-3 sm:p-6 bg-card sm:rounded-md sm:shadow-md '>
+export const Group = ({title, subtitle, children}: GroupProps) => (
+  <div className='flex flex-col gap-3 sm:p-6 bg-secondary sm:bg-card sm:rounded-md sm:shadow-md'>
     <h4 className='mt-0 font-semibold'>{title}</h4>
+    { subtitle && <p className='m-0 text-base'>{subtitle}</p> }
     {children}
   </div>
 )

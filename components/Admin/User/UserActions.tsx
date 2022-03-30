@@ -8,10 +8,11 @@ import {
   BiCheckboxSquare,
   BiExpand,
   BiCollapse,
-  BiBell,
+  BiMailSend,
   BiTask,
   BiTaskX,
-  BiBot
+  BiBot,
+  BiMobileVibration
 } from 'react-icons/bi'
 import Modal from '@/components/Modal'
 
@@ -26,6 +27,7 @@ export function UserActions({
   const router = useRouter()
   const [confirmApplyReminder, setConfirmApplyReminder] = useState(false)
   const [confirmInPersonReminder, setConfirmInPersonReminder] = useState(false)
+  const [confirmDiscordReminder, setConfirmDiscordReminder] = useState(false)
   const [confirmAuto, setConfirmAuto] = useState(false)
   const [confirmApprove, setConfirmApprove] = useState(false)
   const [confirmReject, setConfirmReject] = useState(false)
@@ -59,6 +61,22 @@ export function UserActions({
       toast.error(
         'Uh oh. Something went wrong...',
         { id: 'inPersonReminderError' }
+      )
+    })
+  }
+
+  const remindToJoinDiscord = (users) => {
+    axios.post('/api/applications/remind-discord', { users })
+    .then(() => {
+      toast.success(
+        'Successfully sent reminders!',
+        { id: 'discordReminderSuccess' }
+      )
+    })
+    .catch(() => {
+      toast.error(
+        'Uh oh. Something went wrong...',
+        { id: 'discordReminderError' }
       )
     })
   }
@@ -169,31 +187,31 @@ export function UserActions({
           <div className='flex gap-1 items-center pl-2 border-l-2'>
             { selectedView === 'Not Applied' &&
               <div
-                className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-amber-500 hover:bg-amber-100 cursor-pointer'
+                className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-amber-600 hover:bg-amber-200 cursor-pointer'
                 onClick={() => setConfirmApplyReminder(true)}
               >
-                <BiBell title='Remind Selected to Apply' />
+                <BiMailSend title='Remind Selected to Apply' />
                 <span className='text-base'>Remind to Apply</span>
               </div>
             }
             { selectedView === 'Pending' &&
               <>
                 <div
-                  className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-blue-500 hover:bg-blue-100 cursor-pointer'
+                  className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-blue-600 hover:bg-blue-200 cursor-pointer'
                   onClick={() => setConfirmAuto(true)}
                 >
                   <BiBot title='Auto-Decide Selected' />
                   <span className='text-base'>Auto-Decide</span>
                 </div>
                 <div
-                  className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-green-600 hover:bg-green-100 cursor-pointer'
+                  className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-green-600 hover:bg-green-200 cursor-pointer'
                   onClick={() => setConfirmApprove(true)}
                 >
                   <BiTask title='Approve Selected' />
                   <span className='text-base'>Approve</span>
                 </div>
                 <div
-                  className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-red-500 hover:bg-red-100 cursor-pointer'
+                  className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-red-600 hover:bg-red-200 cursor-pointer'
                   onClick={() => setConfirmReject(true)}
                 >
                   <BiTaskX title='Reject Selected' />
@@ -202,17 +220,26 @@ export function UserActions({
               </>
             }
             { selectedView === 'Approved' &&
-              <div
-                className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-amber-500 hover:bg-amber-100 cursor-pointer'
-                onClick={() => setConfirmInPersonReminder(true)}
-              >
-                <BiBell title='Remind Selected About In-Person' />
-                <span className='text-base'>Remind About In-Person</span>
-              </div>
+              <>
+                <div
+                  className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-amber-600 hover:bg-amber-200 cursor-pointer'
+                  onClick={() => setConfirmInPersonReminder(true)}
+                >
+                  <BiMailSend title='Remind Selected About In-Person' />
+                  <span className='text-base'>Remind About In-Person</span>
+                </div>
+                <div
+                  className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-indigo-600 hover:bg-indigo-200 cursor-pointer'
+                  onClick={() => setConfirmDiscordReminder(true)}
+                >
+                  <BiMobileVibration title='Remind Selected About In-Person' />
+                  <span className='text-base'>Remind to Join Discord</span>
+                </div>
+              </>
             }
             { selectedView === 'Rejected' &&
               <div
-                className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-green-600 hover:bg-green-100 cursor-pointer'
+                className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-green-600 hover:bg-green-200 cursor-pointer'
                 onClick={() => setConfirmRedoApprove(true)}
               >
                 <BiTask title='Approve Selected' />
@@ -232,7 +259,7 @@ export function UserActions({
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.995 }}
-            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-amber-500 text-white cursor-pointer'
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-amber-400 text-white cursor-pointer'
             onClick={() => { remindToApply(selectedUsers); setConfirmApplyReminder(false) }}
           >
             Remind Selected to Apply
@@ -249,10 +276,27 @@ export function UserActions({
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.995 }}
-            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-amber-500 text-white cursor-pointer'
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-amber-400 text-white cursor-pointer'
             onClick={() => { remindAboutInPerson(selectedUsers); setConfirmInPersonReminder(false) }}
           >
             Remind Selected About In-Person
+          </motion.button>
+        </div>
+      </Modal>
+      <Modal
+        show={confirmDiscordReminder}
+        handler={setConfirmDiscordReminder}
+        title='Confirm Action'
+        description='Are you sure you want to remind all of the selected users about joining the Discord server?'
+      >
+        <div className='flex justify-center'>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.995 }}
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-indigo-400 text-white cursor-pointer'
+            onClick={() => { remindToJoinDiscord(selectedUsers); setConfirmDiscordReminder(false) }}
+          >
+            Remind Selected About Joining Discord
           </motion.button>
         </div>
       </Modal>
@@ -266,7 +310,7 @@ export function UserActions({
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.995 }}
-            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-blue-500 text-white cursor-pointer'
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-blue-400 text-white cursor-pointer'
             onClick={() => { autoDecideSelected(selectedUsers); setConfirmAuto(false) }}
           >
             Auto-Decide Selected
@@ -283,7 +327,7 @@ export function UserActions({
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.995 }}
-            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-green-500 text-white cursor-pointer'
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-green-400 text-white cursor-pointer'
             onClick={() => { approveSelected(selectedUsers, true); setConfirmApprove(false) }}
           >
             Approve Selected
@@ -300,7 +344,7 @@ export function UserActions({
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.995 }}
-            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-red-500 text-white cursor-pointer'
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-red-400 text-white cursor-pointer'
             onClick={() => { rejectSelected(selectedUsers, false); setConfirmReject(false) }}
           >
             Reject Selected
@@ -317,7 +361,7 @@ export function UserActions({
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.995 }}
-            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-green-500 text-white cursor-pointer'
+            className='flex items-center self-center h-11 px-4 font-semibold text-lg rounded-md bg-green-400 text-white cursor-pointer'
             onClick={() => { redoApproveSelected(selectedUsers); setConfirmRedoApprove(false) }}
           >
             Approve Selected

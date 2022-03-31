@@ -38,12 +38,8 @@ export function GroupBox({ group, expandedGroups, setExpandedGroups }) {
       >
         <div
           className={
-            'border-2 border-sub rounded-md bg-card shadow-md cursor-pointer transform-gpu transition-size duration-150 overflow-hidden '
-            + (!expandedGroups.includes(group) ? 'h-11 ' : ' ')
-            + ((expandedGroups.includes(group) && group.users.length === 1) ? 'h-[7.25rem] md:h-[7.625rem] ' : ' ')
-            + ((expandedGroups.includes(group) && group.users.length === 2) ? 'h-[9.5rem] md:h-40 ' : ' ')
-            + ((expandedGroups.includes(group) && group.users.length === 3) ? 'h-[11.75rem] md:h-[12.375rem] ' : ' ')
-            + ((expandedGroups.includes(group) && group.users.length === 4) ? 'h-[14rem] md:h-[14.75rem] ' : ' ')
+            'w-full border-2 border-sub rounded-md bg-card shadow-md cursor-pointer transform-gpu transition-size duration-150 overflow-hidden '
+            + (!expandedGroups.includes(group) ? 'max-h-[2.75rem] ' : 'max-h-[20rem] ')
           }
         >
           <div className='flex'>
@@ -87,10 +83,10 @@ export function GroupBox({ group, expandedGroups, setExpandedGroups }) {
           <div className='border-t-2 border-sub text-xs md:text-sm'>
             <div className='flex w-full'>
               <div className='w-10 p-2 border-b-2 border-sub text-center'>#</div>
-              <div className='w-full grid grid-cols-12 py-1.5 border-b-2 border-sub'>
-                <div className='col-span-4'>Name</div>
+              <div className='w-full grid grid-cols-12 py-1.5 gap-4 border-b-2 border-sub'>
+                <div className='col-span-12 xs:col-span-4'>Name</div>
                 <div className='hidden sm:block col-span-4'>Email</div>
-                <div className='col-span-4'>UID</div>
+                <div className='hidden xs:block col-span-8 sm:col-span-4'>UID</div>
               </div>
               <div className='w-10 p-2 border-b-2 border-sub text-center'/>
             </div>
@@ -107,13 +103,18 @@ export function GroupBox({ group, expandedGroups, setExpandedGroups }) {
                   </div>
                   <div
                     className={
-                      'w-full grid grid-cols-12 py-2 '
+                      'w-full grid grid-cols-12 py-2 gap-4 '
                       + (idx+1 < group.users.length ? 'border-b-2 border-sub' : '')
                     }
                   >
-                    <div className='col-span-4'>{user.name.first + ' ' + user.name.last}</div>
-                    <div className='hidden sm:block col-span-4'>{user.email}</div>
-                    <div className='col-span-4'>{user.id}</div>
+                    <div className='col-span-12 xs:col-span-4'>
+                      {user.name.first + ' ' + user.name.last}
+                      <span className='block xs:hidden'>
+                        (UID: {user.id})
+                      </span>
+                    </div>
+                    <div className='hidden sm:block sm:col-span-4'>{user.email}</div>
+                    <div className='hidden xs:block col-span-8 sm:col-span-4'>{user.id}</div>
                   </div>
                   <div
                     className={

@@ -127,15 +127,6 @@ const tiers = [
         tall: null,
       },
       {
-        image: '/assets/sponsors/fedex-light.svg',
-        imageDark: '/assets/sponsors/fedex-dark.svg',
-        width: 2308,
-        height: 1054,
-        link: 'https://www.fedex.com/',
-        shrink: null,
-        tall: null,
-      },
-      {
         image: '/assets/sponsors/sketch-light.svg',
         imageDark: '/assets/sponsors/sketch-dark.svg',
         width: 1407,

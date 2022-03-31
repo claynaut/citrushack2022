@@ -24,8 +24,6 @@ export default class MyDocument extends Document {
           <link rel='preload' as='image' href='/assets/sponsors/gcap-dark.svg' />
           <link rel='preload' as='image' href='/assets/sponsors/wolfram-light.svg' />
           <link rel='preload' as='image' href='/assets/sponsors/wolfram-dark.svg' />
-          <link rel='preload' as='image' href='/assets/sponsors/fedex-light.svg' />
-          <link rel='preload' as='image' href='/assets/sponsors/fedex-dark.svg' />
           <link rel='preload' as='image' href='/assets/sponsors/sketch-light.svg' />
           <link rel='preload' as='image' href='/assets/sponsors/sketch-dark.svg' />
           <link rel='preload' as='image' href='/assets/sponsors/triad-light.svg' />

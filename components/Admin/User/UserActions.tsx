@@ -182,7 +182,7 @@ export function UserActions({
       }
       <div
         className={
-          'flex gap-2 items-center text-2xl '
+          'flex flex-col xs:flex-row gap-2 xs:items-center text-2xl '
           + (
               !(selectedView === 'Not Applied' || 
                 selectedView === 'Pending' || 
@@ -194,24 +194,26 @@ export function UserActions({
             )
         }
       >
-        <div
-          className='p-2 rounded-full hover:bg-sub cursor-pointer'
-          onClick={() => toggleSelectAllUsers(!allSelected)}
-        >
-          {
-            allSelected ? <BiCheckboxSquare title='Deselect All' /> : <BiCheckbox title='Select All' />
-          }
-        </div>
-        <div
-          className='p-2 rounded-full hover:bg-sub cursor-pointer'
-          onClick={() => toggleExpandAllUsers(!(expandedUsers.length > 0))}
-        >
-          {
-            expandedUsers.length > 0 ?
-            <BiCollapse title='Collapse All' />
-            :
-            <BiExpand title='Expand All' />
-          }
+        <div className='flex'>
+          <div
+            className='p-2 rounded-full hover:bg-sub cursor-pointer'
+            onClick={() => toggleSelectAllUsers(!allSelected)}
+          >
+            {
+              allSelected ? <BiCheckboxSquare title='Deselect All' /> : <BiCheckbox title='Select All' />
+            }
+          </div>
+          <div
+            className='p-2 rounded-full hover:bg-sub cursor-pointer'
+            onClick={() => toggleExpandAllUsers(!(expandedUsers.length > 0))}
+          >
+            {
+              expandedUsers.length > 0 ?
+              <BiCollapse title='Collapse All' />
+              :
+              <BiExpand title='Expand All' />
+            }
+          </div>
         </div>
         {
           selectedUsers.length > 0 && (
@@ -221,14 +223,14 @@ export function UserActions({
             selectedView == 'Rejected' || 
             selectedView == 'Not Checked-In'
           ) &&
-          <div className='flex gap-1 items-center pl-2 border-l-2'>
+          <div className='flex flex-col sm:flex-row gap-1 sm:items-center ml-[1.125rem] sm:ml-0 pl-2 border-l-2 border-sub'>
             { selectedView === 'Not Applied' &&
               <div
                 className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-amber-600 hover:bg-amber-200 cursor-pointer'
                 onClick={() => setConfirmApplyReminder(true)}
               >
-                <BiMailSend title='Remind Selected to Apply' />
-                <span className='text-base'>Remind to Apply</span>
+                <div><BiMailSend title='Remind Selected to Apply' /></div>
+                <span className='text-sm sm:text-base'>Remind to Apply</span>
               </div>
             }
             { selectedView === 'Pending' &&
@@ -237,21 +239,21 @@ export function UserActions({
                   className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-blue-600 hover:bg-blue-200 cursor-pointer'
                   onClick={() => setConfirmAuto(true)}
                 >
-                  <BiBot title='Auto-Decide Selected' />
-                  <span className='text-base'>Auto-Decide</span>
+                 <div><BiBot title='Auto-Decide Selected' /></div>
+                  <span className='text-sm sm:text-base'>Auto-Decide</span>
                 </div>
                 <div
                   className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-green-600 hover:bg-green-200 cursor-pointer'
                   onClick={() => setConfirmApprove(true)}
                 >
-                  <BiTask title='Approve Selected' />
-                  <span className='text-base'>Approve</span>
+                  <div><BiTask title='Approve Selected' /></div>
+                  <span className='text-sm sm:text-base'>Approve</span>
                 </div>
                 <div
                   className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-red-600 hover:bg-red-200 cursor-pointer'
                   onClick={() => setConfirmReject(true)}
                 >
-                  <BiTaskX title='Reject Selected' />
+                  <div><BiTaskX title='Reject Selected' /></div>
                   <span className='text-base'>Reject</span>
                 </div>
               </>
@@ -261,7 +263,7 @@ export function UserActions({
                 className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-amber-600 hover:bg-amber-200 cursor-pointer'
                 onClick={() => setConfirmCheckInReminder(true)}
               >
-                <BiMailSend title='Remind Selected to Check-In' />
+                <div><BiMailSend title='Remind Selected to Check-In' /></div>
                 <span className='text-base'>Remind to Check-In</span>
               </div>
             }
@@ -271,14 +273,14 @@ export function UserActions({
                   className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-amber-600 hover:bg-amber-200 cursor-pointer'
                   onClick={() => setConfirmInPersonReminder(true)}
                 >
-                  <BiMailSend title='Remind Selected About In-Person' />
+                  <div><BiMailSend title='Remind Selected About In-Person' /></div>
                   <span className='text-base'>Remind About In-Person</span>
                 </div>
                 <div
                   className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-indigo-600 hover:bg-indigo-200 cursor-pointer'
                   onClick={() => setConfirmDiscordReminder(true)}
                 >
-                  <BiMobileVibration title='Remind Selected to Join Discord' />
+                  <div><BiMobileVibration title='Remind Selected to Join Discord' /></div>
                   <span className='text-base'>Remind to Join Discord</span>
                 </div>
               </>
@@ -288,7 +290,7 @@ export function UserActions({
                 className='flex items-center gap-2 p-2 pl-2.5 pr-3 rounded-full hover:text-green-600 hover:bg-green-200 cursor-pointer'
                 onClick={() => setConfirmRedoApprove(true)}
               >
-                <BiTask title='Approve Selected' />
+                <div><BiTask title='Approve Selected' /></div>
                 <span className='text-base'>Approve</span>
               </div>
             }

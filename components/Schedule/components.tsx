@@ -224,7 +224,7 @@ const saturdaySchedule = {
     },
     {
       name: 'CTF',
-      startTime: '1',
+      startTime: '12',
       endTime: '10:30 PM',
     },
     {

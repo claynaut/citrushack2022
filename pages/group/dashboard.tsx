@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import useSWR from 'swr'
+import useSWR, { useSWRConfig } from 'swr'
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { useForm, useFormState } from 'react-hook-form'
@@ -21,7 +21,19 @@ export default function GroupDashboard() {
   const router = useRouter()
   const { register, handleSubmit, control } = useForm()
   const { errors } = useFormState({ control })
-  const { data, error } = useSWR('/api/groups/query', fetcher)
+  const { cache } = useSWRConfig()
+  const { data, error } = useSWR('/api/groups/query', fetcher, {
+    onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
+      // Never retry on 404.
+      if (error.status === 404) return
+  
+      // Only retry up to 10 times.
+      if (retryCount >= 10) return
+  
+      // Retry after 1.5 seconds.
+      setTimeout(() => revalidate({ retryCount }), 1500)
+    },
+  })
   const [modalOpen, setModalOpen] = useState(false)
   const [clickedCreateOnce, setClickedCreateOnce] = useState(false)
   const [clickedLeaveOnce, setClickedLeaveOnce] = useState(false)
@@ -89,6 +101,8 @@ export default function GroupDashboard() {
       })
     }
   }
+
+  const cachedData = cache.get('/api/groups/query')
 
   return (
     <ProtectedPage title='My Group' restrictions={['signin', 'qualified']}>
@@ -181,16 +195,28 @@ export default function GroupDashboard() {
             <h3>
               Members
             </h3>
-            <ul className='ml-5 list-disc text-lg'>
-              {
-                !error && data && 
-                data.members.map(({ name }) =>
+            { (error || !data)
+              ?
+              (cachedData
+                ?
+                <ul className='ml-5 list-disc text-lg'>
+                  {cachedData.members.map(({ name }) =>
+                    <li key={name}>
+                      {name.first} {name.last}
+                    </li>
+                  )}
+                </ul>
+                : 'Loading...'
+              )
+              :
+              <ul className='ml-5 list-disc text-lg'>
+                {data.members.map(({ name }) =>
                   <li key={name}>
                     {name.first} {name.last}
                   </li>
-                )
-              }
-            </ul>
+                )}
+              </ul>
+            }
           </div>
         )}
         <div className='flex flex-col w-full gap-4 max-w-md'>

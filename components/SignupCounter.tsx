@@ -25,8 +25,8 @@ export default function SignupCounter() {
   if (error || !data) {
     return (
       <div className='flex items-center gap-2'>
-        <BiEdit className='text-3xl' />
-        <h4 className='font-medium'>
+        <div><BiEdit className='text-2xl xs:text-3xl' /></div>
+        <h4 className='text-base xs:text-xl font-medium'>
           <span className='font-bold'>
             { cachedCount ?
               <CountUp
@@ -45,8 +45,8 @@ export default function SignupCounter() {
   } else {
     return (
       <div className='flex items-center gap-2'>
-        <BiEdit className='text-3xl' />
-        <h4 className='font-medium'>
+        <div><BiEdit className='text-2xl xs:text-3xl' /></div>
+        <h4 className='text-base xs:text-xl font-medium'>
           <span className='font-bold'>
             <CountUp
               start={data.numUsers - 100}

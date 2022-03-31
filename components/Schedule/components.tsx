@@ -2,10 +2,11 @@ interface EventBlockProps {
   name: string
   startTime: string
   endTime?: string
-  inPerson?: boolean
+  hybrid?: boolean
+  room?: string
 }
 
-const EventBlock = ({ name, startTime, endTime, inPerson }: EventBlockProps) => (
+const EventBlock = ({ name, startTime, endTime, hybrid, room }: EventBlockProps) => (
   <div className='flex items-center bg-card p-3 rounded-md shadow-md text-left'>
     <div className='flex flex-col w-full max-w-[8.25rem] text-sub-bright font-medium'>
       <span>
@@ -14,7 +15,14 @@ const EventBlock = ({ name, startTime, endTime, inPerson }: EventBlockProps) => 
     </div>
     <div>
       <p className='m-0 text-base font-medium'>{name}</p>
-      { inPerson && <span className='text-sm text-highlight font-medium italic'>In-Person</span> }
+      { hybrid &&
+        <div className='text-sm text-highlight font-medium italic'>
+          Hybrid
+          <div>
+            (In-Person @ {room})
+          </div>
+        </div> 
+      }
     </div>
   </div>
 )
@@ -31,13 +39,14 @@ const EventStack = ({ title, subtitle, events }: EventStackProps) => (
       <h4 className='m-0 font-medium'>{title}</h4>
       { subtitle && <p>{subtitle}</p> }
     </div>
-    { events.map(({ name, startTime, endTime, inPerson }) =>
+    { events.map(({ name, startTime, endTime, hybrid, room }) =>
       <EventBlock
         key={name}
         name={name}
         startTime={startTime}
         endTime={endTime}
-        inPerson={inPerson}
+        hybrid={hybrid}
+        room={room}
       />
     )}
   </div>
@@ -89,11 +98,15 @@ const saturdaySchedule = {
       name: 'Check-In',
       startTime: '7',
       endTime: '8 AM',
+      hybrid: Boolean(true),
+      room: 'MSE 116',
     },
     {
       name: 'Opening Ceremony',
       startTime: '8',
       endTime: '9 AM',
+      hybrid: Boolean(true),
+      room: 'MSE 116',
     },
     {
       name: 'Hackathon Start',
@@ -113,12 +126,15 @@ const saturdaySchedule = {
       name: 'Teambuilding Activity',
       startTime: '9:30',
       endTime: '10 AM',
+      hybrid: Boolean(true),
+      room: 'WCH 202',
     },
     {
       name: 'Intro to Git/GitHub',
       startTime: '10',
       endTime: '11 AM',
-      inPerson: Boolean(true),
+      hybrid: Boolean(true),
+      room: 'Bourns A265',
     },
     {
       name: 'Intro to Unity',
@@ -134,18 +150,22 @@ const saturdaySchedule = {
       name: 'Intro to UI/UX',
       startTime: '11 AM',
       endTime: '12 PM',
+      hybrid: Boolean(true),
+      room: 'Bourns A125',
     },
     {
       name: 'Intro to iOS Development',
       startTime: '12',
       endTime: '1 PM',
-      inPerson: Boolean(true),
+      hybrid: Boolean(true),
+      room: 'Bourns A265',
     },
     {
       name: 'Intro to CTF',
       startTime: '12',
       endTime: '1 PM',
-      inPerson: Boolean(true),
+      hybrid: Boolean(true),
+      room: 'Bourns A125',
     },
     {
       name: 'Snapchat\'s Workshop - Augmented Reality',
@@ -161,18 +181,22 @@ const saturdaySchedule = {
       name: 'Amazon\'s Workshop - Diversity in Tech: Latinx at Amazon',
       startTime: '3',
       endTime: '4 PM',
+      hybrid: Boolean(true),
+      room: 'Bourns A625',
     },
     {
       name: 'Hacking Your Resume',
       startTime: '4',
       endTime: '5 PM',
-      inPerson: Boolean(true),
+      hybrid: Boolean(true),
+      room: 'Bouurns A265',
     },
     {
       name: 'Intro to VR',
       startTime: '4',
       endTime: '5 PM',
-      inPerson: Boolean(true),
+      hybrid: Boolean(true),
+      room: 'Bourns A125',
     },
     {
       name: 'What They Don\'t Tell You About Tech Interviews',
@@ -183,6 +207,8 @@ const saturdaySchedule = {
       name: 'Python Workshop',
       startTime: '5',
       endTime: '6 PM',
+      hybrid: Boolean(true),
+      room: 'Bourns A265',
     },
     {
       name: 'Unity Particle Systems',
@@ -278,6 +304,8 @@ const sundaySchedule = {
       name: 'Closing Ceremony',
       startTime: '2',
       endTime: '3 PM',
+      hybrid: Boolean(true),
+      room: 'MSE 116',
     },
   ],
   activities: [

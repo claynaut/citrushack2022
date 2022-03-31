@@ -35,7 +35,11 @@ export function FaqAccordion({ question, answer }: Props) {
           + (open ? 'max-h-[30rem]' : 'max-h-0')
         }
       >
-        <p className='m-0 mb-8'>{answer}</p>
+        {typeof answer === 'string' ?
+          <p className='m-0 mb-8'>{answer}</p>
+          :
+          <div className='m-0 mb-8'>{answer}</div>
+        }
       </div>
     </div>
   )
@@ -126,9 +130,9 @@ const faq = [
   {
     question: 'My question isn\'t listed?',
     answer: 
-      <>
+      <p>
         Feel free to email us at <ExternalLink name='citrushack@gmail.com' link='mailto:citrushack@gmail.com'/> if you have any more questions.
-      </>
+      </p>
   },
 ]
 

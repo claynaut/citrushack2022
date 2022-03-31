@@ -55,14 +55,23 @@ export default function Landing() {
             { status === 'authenticated' 
               && session.user.uid
               && session.user.qualified === 'yeah' &&
-              <span className='flex justify-center w-full z-[200]'>
-                <ButtonLink
-                  primary
-                  label='Join Our Discord'
-                  link={process.env.discord}
-                  external
-                />
-              </span>
+              <>
+                <span className='flex justify-center w-full z-[200]'>
+                  <ButtonLink
+                    primary
+                    label='Join Our Discord'
+                    link={process.env.discord}
+                    external
+                  />
+                </span>
+                <span className='flex justify-center w-full z-[200]'>
+                  <ButtonLink
+                    primary
+                    label='Group Dashboard'
+                    link='/group/dashboard'
+                  />
+                </span>
+              </>
             }
             {/* uncomment the day before */}
             {/* { status === 'authenticated' 

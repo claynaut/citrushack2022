@@ -41,27 +41,31 @@ export default function Admin() {
     return (
       <ProtectedPage title='Admin' restrictions={['signin', 'admin']}>
         <section className='flex w-full my-24 max-w-[60rem] items-center'>
-          <div className='flex flex-col w-full'>
-            <h2 className='m-0 font-medium'>Dashboard</h2>
-            <p className='italic'>
-              <span className='font-semibold'>Note:</span> Using Cached Data...
-            </p>
-            <Pages
-              pageOptions={pageOptions}
-              icons={[
-                <BiIdCard />,
-                <BiBarChartAlt2 />,
-                <BiGroup />,
-                <BiFile />
-              ]}
-              selectedPage={selectedPage}
-              selectPage={setSelectedPage}
-            />
-            { selectedPage === 'Overview' && <Overview data={cachedData} /> }
-            { selectedPage === 'Statistics' && <Statistics data={cachedData} /> }
-            { selectedPage === 'Groups' && <Groups data={cachedData} /> }
-            { selectedPage === 'Resumes' && <Resumes /> }
-          </div>
+          { cachedData ?
+              <div className='flex flex-col w-full'>
+                <h2 className='m-0 font-medium'>Dashboard</h2>
+                <p className='italic'>
+                  <span className='font-semibold'>Note:</span> Using Cached Data...
+                </p>
+                <Pages
+                  pageOptions={pageOptions}
+                  icons={[
+                    <BiIdCard />,
+                    <BiBarChartAlt2 />,
+                    <BiGroup />,
+                    <BiFile />
+                  ]}
+                  selectedPage={selectedPage}
+                  selectPage={setSelectedPage}
+                />
+                { selectedPage === 'Overview' && <Overview data={cachedData} /> }
+                { selectedPage === 'Statistics' && <Statistics data={cachedData} /> }
+                { selectedPage === 'Groups' && <Groups data={cachedData} /> }
+                { selectedPage === 'Resumes' && <Resumes /> }
+              </div>
+            :
+            'Loading...'
+          }
         </section>
       </ProtectedPage>
     )

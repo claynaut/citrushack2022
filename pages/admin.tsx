@@ -64,7 +64,7 @@ export default function Admin() {
                 { selectedPage === 'Resumes' && <Resumes /> }
               </div>
             :
-            'Loading...'
+            <span className='w-full text-center'>Loading...</span>
           }
         </section>
       </ProtectedPage>

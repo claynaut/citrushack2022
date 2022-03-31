@@ -28,11 +28,15 @@ export default function SignupCounter() {
         <BiEdit className='text-3xl' />
         <h4 className='font-medium'>
           <span className='font-bold'>
-            <CountUp
-              start={cachedCount.numUsers - 100}
-              end={cachedCount.numUsers}
-              duration={1.5}
-            />  
+            { cachedCount ?
+              <CountUp
+                start={cachedCount.numUsers - 100}
+                end={cachedCount.numUsers}
+                duration={1.5}
+              />
+              :
+              '...'
+            }
           </span> 
           &nbsp;hackers signed up so far!
         </h4>

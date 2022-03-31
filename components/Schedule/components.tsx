@@ -44,7 +44,7 @@ const EventStack = ({ title, subtitle, events }: EventStackProps) => (
 )
 
 interface Schedule {
-  setup: EventBlockProps[]
+  event: EventBlockProps[]
   workshops?: EventBlockProps[]
   activities: EventBlockProps[]
 }
@@ -55,16 +55,16 @@ interface ScheduleGridProps {
 }
 
 function ScheduleGrid ({ title, schedule }: ScheduleGridProps) {
-  const { setup, workshops, activities } = schedule
+  const { event, workshops, activities } = schedule
 
   return (
     <div className='flex flex-col gap-2'>
       <h3 className='col-span-3 font-bold'>{title}</h3>
       <div className='flex flex-col justify-center items-center lg:items-baseline lg:flex-row gap-4'>
         <EventStack
-          title='Setup'
+          title='Event'
           subtitle={null}
-          events={setup}
+          events={event}
         />
         { workshops &&
           <EventStack
@@ -84,7 +84,7 @@ function ScheduleGrid ({ title, schedule }: ScheduleGridProps) {
 }
 
 const saturdaySchedule = {
-  setup: [
+  event: [
     {
       name: 'Check-In',
       startTime: '7',
@@ -98,6 +98,14 @@ const saturdaySchedule = {
     {
       name: 'Hackathon Start',
       startTime: '9 AM',
+    },
+    {
+      name: 'Lunch',
+      startTime: '1 PM',
+    },
+    {
+      name: 'Dinner',
+      startTime: '6 PM',
     },
   ],
   workshops: [
@@ -252,9 +260,13 @@ const saturdaySchedule = {
 }
 
 const sundaySchedule = {
-  setup: [
+  event: [
     {
       name: 'Hackathon End',
+      startTime: '9 AM',
+    },
+    {
+      name: 'Breakfast',
       startTime: '9 AM',
     },
     {

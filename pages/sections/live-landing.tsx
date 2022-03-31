@@ -51,18 +51,33 @@ export default function Landing() {
             </div>
           </div>
           <HackerCountdownWrapper date='2022-04-03T09:00:00' />
-          { status === 'authenticated' 
-            && session.user.uid
-            && session.user.qualified === 'yeah' &&
-            <span className='flex justify-center w-full z-[200]'>
-              <ButtonLink
-                primary
-                label='Join Our Discord'
-                link={process.env.discord}
-                external
-              />
-            </span>
-          }
+          <div className='flex flex-col gap-3'>
+            { status === 'authenticated' 
+              && session.user.uid
+              && session.user.qualified === 'yeah' &&
+              <span className='flex justify-center w-full z-[200]'>
+                <ButtonLink
+                  primary
+                  label='Join Our Discord'
+                  link={process.env.discord}
+                  external
+                />
+              </span>
+            }
+            {/* uncomment the day before */}
+            {/* { status === 'authenticated' 
+              && session.user.uid
+              && session.user.qualified === 'yeah'
+              && !session.user.checkedIn &&
+              <span className='flex justify-center w-full z-[200]'>
+                <ButtonLink
+                  primary
+                  label='Check-In Now!'
+                  link='/checkin'
+                />
+              </span>
+            } */}
+          </div>
         </div>
       </section>
     </>

@@ -13,6 +13,7 @@ import {
   BiCategory
 } from 'react-icons/bi'
 import { FaDiscord } from 'react-icons/fa'
+import { ButtonLink } from '../ButtonLink'
 
 /** Dropdown for more user actions and info (e.g. app status, group page, etc.). */
 export function UserDropdown() {
@@ -35,6 +36,21 @@ export function UserDropdown() {
       {
         id: 'appStatusInfo',
         duration: 6000,
+      }
+    )
+  }
+
+  /** Display information regarding check-ins. */
+  const triggerCheckInInfo = () => {
+    toast(
+      <div className='flex flex-col gap-3 text-base'>
+        <span>
+          By checking in, you confirm your participation in Citrus Hack 2022.
+        </span>
+      </div>,
+      {
+        id: 'checkinInfo',
+        duration: 4500,
       }
     )
   }
@@ -86,7 +102,7 @@ export function UserDropdown() {
                     className='w-full py-1.5 rounded-md bg-highlight hover:bg-highlight-dark font-semibold'
                     onClick={() => setOpen(!open)}
                   >
-                    Apply Now
+                    Apply Now!
                   </motion.button>
                 </Link>
                 :
@@ -98,8 +114,11 @@ export function UserDropdown() {
                       onClick={() => triggerInfo()}
                     />
                   </span>
-                  <div
-                    className='w-full py-1.5 text-center rounded-md bg-highlight font-semibold'
+                  <div 
+                    className={
+                      'w-full py-1.5 text-center rounded-md font-semibold '
+                      + (session.user.qualified === '' ? 'bg-sub text-sub-bright' : (session.user.qualified === 'yeah' ? 'bg-[#9DC300] text-lime-800' : 'bg-red-400 text-red-900'))
+                    }
                   >
                     { session.user.qualified === '' && 'Pending' }
                     { session.user.qualified === 'yeah' && 'Approved' }
@@ -107,6 +126,36 @@ export function UserDropdown() {
                   </div>
                 </>
               )}
+              {/* uncomment the day before */}
+              {/* { status === 'authenticated' 
+                && session.user.uid
+                && session.user.qualified === 'yeah' &&
+                ( !session.user.checkedIn ?
+                  <>
+                    <span className='flex text-center font-semibold text-sub-bright text-sm'>
+                      You Haven&apos;t Checked-In
+                      <BiHelpCircle 
+                        className='text-sub-highlight hover:text-highlight cursor-pointer'
+                        onClick={() => triggerCheckInInfo()}
+                      />
+                    </span>
+                    <Link passHref href='/checkin'>
+                      <motion.button
+                        whileHover={{ scale: 1.05}} 
+                        whileTap={{ scale: 0.995 }}
+                        className='w-full py-1.5 rounded-md bg-highlight hover:bg-highlight-dark font-semibold'
+                        onClick={() => setOpen(!open)}
+                      >
+                        Check-In Now!
+                      </motion.button>
+                    </Link>
+                  </>
+                  :
+                  <div className='w-full py-1.5 text-center rounded-md bg-sub font-semibold'>
+                    Checked-In
+                  </div>
+                )
+              } */}
               { status === 'authenticated' 
                 && session.user.uid
                 && session.user.qualified === 'yeah' &&

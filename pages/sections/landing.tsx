@@ -43,7 +43,7 @@ export default function Landing() {
             objectFit='contain'
           />
         </motion.div>
-        <div className='lg:absolute flex flex-col left-4 2xl:left-0'>
+        <div className='lg:absolute flex flex-col left-4 2xl:left-0 items-center'>
           <div className='flex flex-col max-w-xl'>
             <div className='flex flex-col sm:flex-row items-center text-center sm:text-left sm:mb-10'>
               <Image
@@ -59,6 +59,9 @@ export default function Landing() {
             </div>
           </div>
           <CountdownWrapper date='2022-04-02T09:00:00' />
+          <p className='max-w-lg italic text-center font-medium'>
+            In-person sign-ups will close today at 5:30 PM PST, as we are reaching maximum capacity
+          </p>
           <span className='flex justify-center w-full mb-6'>
             <SignupCounter />
           </span>

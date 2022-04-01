@@ -127,7 +127,7 @@ export function UserDropdown() {
                 </>
               )}
               {/* uncomment the day before */}
-              {/* { status === 'authenticated' 
+              { status === 'authenticated' 
                 && session.user.uid
                 && session.user.qualified === 'yeah' &&
                 ( !session.user.checkedIn ?
@@ -155,7 +155,7 @@ export function UserDropdown() {
                     Checked-In
                   </div>
                 )
-              } */}
+              }
               { status === 'authenticated' 
                 && session.user.uid
                 && session.user.qualified === 'yeah' &&

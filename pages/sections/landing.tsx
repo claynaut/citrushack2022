@@ -88,29 +88,8 @@ export default function Landing() {
             </span>
           }
           <div className='flex flex-col gap-3'>
-            { status === 'authenticated' 
-              && session.user.uid
-              && session.user.qualified === 'yeah' &&
-              <>
-                <span className='flex justify-center w-full z-[200]'>
-                  <ButtonLink
-                    primary
-                    label='Join Our Discord'
-                    link={process.env.discord}
-                    external
-                  />
-                </span>
-                <span className='flex justify-center w-full z-[200]'>
-                  <ButtonLink
-                    primary
-                    label='Group Dashboard'
-                    link='/group/dashboard'
-                  />
-                </span>
-              </>
-            }
             {/* uncomment the day before */}
-            {/* { status === 'authenticated' 
+            { status === 'authenticated' 
               && session.user.uid
               && session.user.qualified === 'yeah'
               && !session.user.checkedIn &&
@@ -121,7 +100,28 @@ export default function Landing() {
                   link='/checkin'
                 />
               </span>
-            } */}
+            }
+            { status === 'authenticated' 
+              && session.user.uid
+              && session.user.qualified === 'yeah' &&
+              <>
+                <span className='flex justify-center w-full z-[200]'>
+                  <ButtonLink
+                    secondary
+                    label='Join Our Discord'
+                    link={process.env.discord}
+                    external
+                  />
+                </span>
+                <span className='flex justify-center w-full z-[200]'>
+                  <ButtonLink
+                    secondary
+                    label='Group Dashboard'
+                    link='/group/dashboard'
+                  />
+                </span>
+              </>
+            }
           </div>
         </div>
       </section>

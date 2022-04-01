@@ -91,6 +91,16 @@ const judges = [
     role: 'IEEE Vice President',
   },
   {
+    image: '/assets/judges/minsoo-kim.jpg',
+    name: 'Minsoo Kim',
+    role: 'Cyber@UCR Treasurer',
+  },
+  {
+    image: '/assets/judges/siddharta-dutta.jpg',
+    name: 'Siddharta Dutta',
+    role: 'Cyber@UCR Outreach Director',
+  },
+  {
     image: '/assets/judges/charles-hong.jpg',
     name: 'Charles Hong',
     role: 'Competitive Programming Chair',

@@ -52,7 +52,7 @@ export const firstTimeHacker = [
 ]
 
 export const participation = [
-  'In-Person',
+  // 'In-Person',
   'Online',
 ]
 

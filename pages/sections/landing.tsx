@@ -59,9 +59,9 @@ export default function Landing() {
             </div>
           </div>
           <CountdownWrapper date='2022-04-02T09:00:00' />
-          <p className='max-w-lg italic text-center font-medium'>
+          {/* <p className='max-w-lg italic text-center font-medium'>
             In-person sign-ups will close today at 5:30 PM PST, as we are reaching maximum capacity
-          </p>
+          </p> */}
           <span className='flex justify-center w-full mb-6'>
             <SignupCounter />
           </span>

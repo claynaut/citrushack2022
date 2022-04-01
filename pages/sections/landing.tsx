@@ -62,6 +62,12 @@ export default function Landing() {
           {/* <p className='max-w-lg italic text-center font-medium'>
             In-person sign-ups will close today at 5:30 PM PST, as we are reaching maximum capacity
           </p> */}
+          {
+            (status === 'unauthenticated' || (status === 'authenticated' && !Boolean(session.user.qualified))) &&
+            <p className='max-w-lg italic text-center font-medium'>
+              Applicatons will close tonight at 12 AM PST, so be sure to apply while you still can!
+            </p>
+          }
           <span className='flex justify-center w-full mb-6'>
             <SignupCounter />
           </span>

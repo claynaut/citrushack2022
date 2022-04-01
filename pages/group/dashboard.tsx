@@ -22,7 +22,7 @@ export default function GroupDashboard() {
   const { register, handleSubmit, control } = useForm()
   const { errors } = useFormState({ control })
   const { cache } = useSWRConfig()
-  const { data, error } = useSWR('/api/groups/query', fetcher, {
+  const { data, error, isValidating } = useSWR('/api/groups/query', fetcher, {
     onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
       // Never retry on 404.
       if (error.status === 404) return
@@ -195,8 +195,7 @@ export default function GroupDashboard() {
             <h3>
               Members
             </h3>
-            { (error || !data)
-              ?
+            { (error || !data) &&
               (cachedData
                 ?
                 <ul className='ml-5 list-disc text-lg'>
@@ -208,7 +207,9 @@ export default function GroupDashboard() {
                 </ul>
                 : 'Loading...'
               )
-              :
+            }
+            { (!error && data && !isValidating) 
+              ?
               <ul className='ml-5 list-disc text-lg'>
                 {data.members.map(({ name }) =>
                   <li key={name}>
@@ -216,6 +217,7 @@ export default function GroupDashboard() {
                   </li>
                 )}
               </ul>
+              : 'Loading...'
             }
           </div>
         )}
@@ -235,7 +237,7 @@ export default function GroupDashboard() {
             <motion.button
               whileHover={{ scale: 1.03}} 
               whileTap={{ scale: 0.995 }}
-              className='w-full max-w-lg py-1.5 rounded bg-highlight hover:bg-highlight-dark font-semibold'
+              className='w-full max-w-lg py-1.5 rounded bg-sub hover:bg-highlight font-semibold'
             >
               Go Back to Homepage
             </motion.button>

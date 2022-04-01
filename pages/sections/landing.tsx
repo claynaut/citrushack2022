@@ -65,7 +65,7 @@ export default function Landing() {
           {
             (status === 'unauthenticated' || (status === 'authenticated' && !Boolean(session.user.qualified))) &&
             <p className='max-w-lg italic text-center font-medium'>
-              Applicatons will close tonight at 12 AM PST, so be sure to apply while you still can!
+              Applications will close tonight at 12 AM PST, so be sure to apply while you still can!
             </p>
           }
           <span className='flex justify-center w-full mb-6'>

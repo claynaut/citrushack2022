@@ -204,8 +204,6 @@ const saturdaySchedule = {
       name: 'Intro to VR',
       startTime: '4',
       endTime: '5 PM',
-      hybrid: Boolean(true),
-      room: 'Bourns A125',
     },
     {
       name: 'What They Don\'t Tell You About Tech Interviews',
@@ -240,6 +238,8 @@ const saturdaySchedule = {
       name: 'Lunch with the Leads',
       startTime: '1',
       endTime: '1:30 PM',
+      hybrid: Boolean(true),
+      room: 'Bytes',
     },
     {
       name: 'Raffle',

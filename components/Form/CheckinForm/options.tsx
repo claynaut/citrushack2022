@@ -1,8 +1,8 @@
 import ExternalLink from '@/components/ExternalLink'
 
-export const participation = [
-  'In-Person',
-  'Online',
+export const inperson = [
+  'Yes',
+  'No',
 ]
 
 export const daily_wellness_completion = [

@@ -8,12 +8,16 @@ export default async function checkin(req: NextApiRequest, res: NextApiResponse)
   if (session) {
     const { 
       uid,
-      participation,
+      inperson,
+      daily_wellness,
+      photo_consent,
       MLH_code_of_conduct,
       address
     } = req.body
 
-    const dailyWellnessCheck = (participation === 'In-Person') ? 'Completed' : 'N/A'
+    const participation = (inperson === 'Yes') ? 'In-Person' : 'Online'
+    const dailyWellnessCheck = (inperson === 'Yes' && daily_wellness) ? 'Completed' : 'N/A'
+    const photoConsent = (inperson === 'Yes' && photo_consent) ? 'Consented' : 'N/A'
     const actualAddress = (address === '') ? 'Lives Outside the U.S.' : address
 
     await db.collection('users').updateOne(
@@ -21,6 +25,7 @@ export default async function checkin(req: NextApiRequest, res: NextApiResponse)
       { $set: { 
           participation,
           dailyWellnessCheck,
+          photoConsent,
           readMLHCodeOfConduct: Boolean(MLH_code_of_conduct),
           address: actualAddress,
           checkedIn: true

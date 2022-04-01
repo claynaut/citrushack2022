@@ -1,7 +1,9 @@
 import { UseFormRegister, FieldValues, UseFormWatch } from 'react-hook-form'
+import { useSession } from 'next-auth/react'
 import { Group, Input, Select, Radio, Checkbox } from '../components'
+import ExternalLink from '@/components/ExternalLink'
 import {
-  participation,
+  inperson,
   daily_wellness_completion,
   MLH,
   states
@@ -18,39 +20,61 @@ interface Props {
 }
 
 export function Confirmation({ register, errors, watch }: Props) {
-  const participation_confirmation = watch('participation')
+  const { data: session } = useSession()
+  const inperson_confirmation = watch('inperson')
   const lives_in_US = watch('lives_in_US')
 
   return (
     <>
       <Group title='Confirm Details'>
-        <Radio
-          label='Are you participating in-person or online?'
-          subtext={
-            <>
-            <div className='mb-2'>
-              <span className='font-medium'>Only UCR students can participate in-person. (Though exemptions may be made.)</span> In-person participants will also get free food, swag, and a chance to network with real engineers.
-            </div>
-            <div>
-              <span className='font-medium'>If you plan to participate in-person, please have your vaccine cards.</span> We will check for them.
-            </div>
-            </>
-          }
-          variable='participation'
-          options={participation}
-          register={register}
-          errors={errors}
-          required
-        />
-        { participation_confirmation === 'In-Person' &&
-          <Checkbox
-            label='Have you filled out the Daily Wellness Survey?'
-            variable='daily_wellness'
-            options={daily_wellness_completion[0]}
-            register={register}
-            errors={errors}
-            required
-          />
+        { session.user.participation === 'In-Person' &&
+          <>
+            <Radio
+              label='Are you still participating in-person?'
+              subtext={
+                <>
+                <div className='mb-2'>
+                  <span className='font-medium'>Only UCR students can participate in-person. (Though exemptions may be made.)</span> In-person participants will also get free food, swag, and a chance to network with real engineers.
+                </div>
+                <div>
+                  <span className='font-medium'>If you plan to participate in-person, please have your vaccine cards.</span> We will check for them.
+                </div>
+                </>
+              }
+              variable='inperson'
+              options={inperson}
+              register={register}
+              errors={errors}
+              required
+            />
+          </>
+        }
+        {
+          inperson_confirmation === 'Yes' &&
+          <>
+            <Checkbox
+              label='Have you filled out the Daily Wellness Survey?'
+              variable='daily_wellness'
+              options={daily_wellness_completion[0]}
+              register={register}
+              errors={errors}
+              required
+            />
+            <Checkbox
+              label='Do we have your permission to take pictures that may include you?'
+              subtext={
+                <>
+                  These photos will be posted on our Instagram and other social media. If you have a problem with this, please contact us
+                  at <ExternalLink name='citrushack@gmail.com' link='mailto:citrushack@gmail.com'/>.
+                </>
+              }
+              variable='photo_consent'
+              options={['Yes, I give you permission to take pictures that may include me.']}
+              register={register}
+              errors={errors}
+              required
+            />
+          </>
         }
         <Checkbox
           label='Have you read the MLH Code of Conduct?'

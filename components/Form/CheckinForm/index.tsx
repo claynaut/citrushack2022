@@ -15,8 +15,9 @@ export function CheckinForm() {
   const [clickedSubmitOnce, setClickedSubmitOnce] = useState(false)
 
   const onSubmit = async({
-    participation,
-    // daily_wellness,
+    inperson,
+    daily_wellness,
+    photo_consent,
     MLH_code_of_conduct,
     lives_in_US,
     address_line_1,
@@ -40,7 +41,9 @@ export function CheckinForm() {
 
     axios.post('/api/users/check-in', {
       uid: session.user.uid,
-      participation,
+      inperson,
+      daily_wellness,
+      photo_consent,
       MLH_code_of_conduct,
       address
     })

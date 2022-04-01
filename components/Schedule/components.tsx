@@ -4,9 +4,10 @@ interface EventBlockProps {
   endTime?: string
   hybrid?: boolean
   room?: string
+  note?: string
 }
 
-const EventBlock = ({ name, startTime, endTime, hybrid, room }: EventBlockProps) => (
+const EventBlock = ({ name, startTime, endTime, hybrid, room, note }: EventBlockProps) => (
   <div className='flex items-center bg-card p-3 rounded-md shadow-md text-left'>
     <div className='flex flex-col w-full max-w-[8.25rem] text-sub-bright font-medium'>
       <span>
@@ -21,6 +22,11 @@ const EventBlock = ({ name, startTime, endTime, hybrid, room }: EventBlockProps)
           <div>
             (In-Person @ {room})
           </div>
+        </div> 
+      }
+      { note &&
+        <div className='text-sm text-highlight font-medium italic'>
+          {note}
         </div> 
       }
     </div>
@@ -39,7 +45,7 @@ const EventStack = ({ title, subtitle, events }: EventStackProps) => (
       <h4 className='m-0 font-medium'>{title}</h4>
       { subtitle && <p>{subtitle}</p> }
     </div>
-    { events.map(({ name, startTime, endTime, hybrid, room }) =>
+    { events.map(({ name, startTime, endTime, hybrid, room, note }) =>
       <EventBlock
         key={name}
         name={name}
@@ -47,6 +53,7 @@ const EventStack = ({ title, subtitle, events }: EventStackProps) => (
         endTime={endTime}
         hybrid={hybrid}
         room={room}
+        note={note}
       />
     )}
   </div>
@@ -115,10 +122,12 @@ const saturdaySchedule = {
     {
       name: 'Lunch',
       startTime: '1 PM',
+      note: 'Distributed @ Bytes'
     },
     {
       name: 'Dinner',
       startTime: '6 PM',
+      note: 'Distributed @ Bytes'
     },
   ],
   workshops: [
@@ -294,6 +303,7 @@ const sundaySchedule = {
     {
       name: 'Breakfast',
       startTime: '9 AM',
+      note: 'Distributed @ Bytes'
     },
     {
       name: 'Judging',

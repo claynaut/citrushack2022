@@ -20,13 +20,13 @@ export function Overview({ data }) {
   const [sorted, setSorted] = useState(false)
 
   const viewOptions = [
-    'Pending',
-    'Not Applied',
+    'Approved',
     'Checked-In',
     'Not Checked-In',
-    'Approved',
     'Rejected',
     'All Users',
+    'Not Applied',
+    'Pending',
   ]
 
   const selectView = (view: string) => {

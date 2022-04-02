@@ -9,7 +9,7 @@ import { QueriedUsers } from './QueriedUsers'
 import { SearchBar } from '@/components/Admin'
 
 export function Overview({ data }) {
-  const [selectedView, setSelectedView] = useState('Approved')
+  const [selectedView, setSelectedView] = useState('Checked-In')
   const [selectedUsers, setSelectedUsers] = useState([])
   const [allSelected, setAllSelected] = useState(false)
   const [expandedUsers, setExpandedUsers] = useState([])
@@ -20,9 +20,9 @@ export function Overview({ data }) {
   const [sorted, setSorted] = useState(false)
 
   const viewOptions = [
-    'Approved',
     'Checked-In',
     'Not Checked-In',
+    'Approved',
     'All Users',
     'Rejected',
     'Not Applied',

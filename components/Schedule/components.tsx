@@ -281,6 +281,7 @@ const saturdaySchedule = {
       name: 'Improv Slides',
       startTime: '6:30',
       endTime: '7 PM',
+      note: 'In-Person @ WCH 202',
     },
     {
       name: 'Norm the Navel Photo Op',
@@ -292,8 +293,6 @@ const saturdaySchedule = {
       name: 'Gartic Phone',
       startTime: '11 PM',
       endTime: '12 AM',
-      hybrid: Boolean(true),
-      room: 'WCH 202',
     },
     {
       name: 'Community Hacking',

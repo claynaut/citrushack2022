@@ -131,6 +131,11 @@ const judges = [
     role: 'SDE @ Amazon',
   },
   {
+    image: '/assets/judges/danial-beg.jpg',
+    name: 'Danial Beg',
+    role: 'SWE @ BAE Systems',
+  },
+  {
     image: '/assets/judges/kanin-liang.jpg',
     name: 'Kanin Liang',
     role: 'Incoming SWE Intern @ Disney Streaming',
@@ -179,11 +184,6 @@ const judges = [
     image: '/assets/judges/jason-lin.jpg',
     name: 'Jason Lin',
     role: 'Former Cyber@UCR Board Member',
-  },
-  {
-    image: '/assets/judges/danial-beg.jpg',
-    name: 'Danial Beg',
-    role: 'Former Citrus Hack Director',
   },
 ]
 

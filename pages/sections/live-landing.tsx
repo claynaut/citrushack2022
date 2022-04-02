@@ -50,7 +50,7 @@ export default function Landing() {
               </div>
             </div>
           </div>
-          <HackerCountdownWrapper date='2022-04-03T09:00:00' />
+          <HackerCountdownWrapper date='2022-04-03T16:00:00Z' />
           <div className='flex flex-col gap-3'>
             {/* uncomment the day before */}
             { status === 'authenticated' 

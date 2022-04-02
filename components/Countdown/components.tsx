@@ -76,7 +76,12 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
         <h3 className='text-center sm:text-left font-bold'>
           Grow your potential in...
         </h3>
-        <div className='grid grid-cols-11 flex max-w-xl'>
+        <div 
+          className={
+            'grid flex max-w-xl '
+            + (days <= 0 ? (hours <= 0 ? (minutes <= 0 ? 'grid-cols-2' : 'grid-cols-5') : 'grid-cols-8') : 'grid-cols-11')
+          }
+        >
           <TimeBlock
             condition={Boolean(days > 0)}
             num={numDays}
@@ -155,7 +160,12 @@ const hackingRenderer = ({ days, hours, minutes, seconds, completed }) => {
         <h3 className='text-center sm:text-left font-bold'>
           Hacking ends in...
         </h3>
-        <div className='grid grid-cols-11 flex max-w-xl'>
+        <div 
+          className={
+            'grid flex max-w-xl '
+            + (days <= 0 ? (hours <= 0 ? (minutes <= 0 ? 'grid-cols-2' : 'grid-cols-5') : 'grid-cols-8') : 'grid-cols-11')
+          }
+        >
           <TimeBlock
             condition={Boolean(days > 0)}
             num={numDays}

@@ -120,6 +120,13 @@ const saturdaySchedule = {
       startTime: '9 AM',
     },
     {
+      name: 'Check-In (Cont\'d)',
+      startTime: '9',
+      endTime: '10:30 AM',
+      hybrid: Boolean(true),
+      room: 'MSE 116',
+    },
+    {
       name: 'Lunch',
       startTime: '1 PM',
       note: 'Distributed @ Bytes'
@@ -298,6 +305,12 @@ const saturdaySchedule = {
 
 const sundaySchedule = {
   event: [
+    {
+      name: 'Red Bull Giveaway',
+      startTime: '8 AM',
+      endTime: '1 PM',
+      note: 'In-Person @ WCH 205/206'
+    },
     {
       name: 'Hackathon End',
       startTime: '9 AM',

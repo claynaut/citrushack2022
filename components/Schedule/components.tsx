@@ -255,6 +255,7 @@ const saturdaySchedule = {
       name: 'Therapy Fluffies',
       startTime: '3',
       endTime: '3:30 PM',
+      note: 'In-Person',
     },
     {
       name: 'Trivia Kahoot',
@@ -275,6 +276,7 @@ const saturdaySchedule = {
       name: 'Norm the Navel Photo Op',
       startTime: '8',
       endTime: '9 PM',
+      note: 'In-Person @ Bytes',
     },
     {
       name: 'Gartic Phone',
@@ -308,19 +310,19 @@ const sundaySchedule = {
     {
       name: 'Judging',
       startTime: '11 AM',
-      endTime: '1:30 PM',
+      endTime: '2 PM',
     },
     {
       name: 'Closing Ceremony',
-      startTime: '2',
-      endTime: '3 PM',
+      startTime: '3',
+      endTime: '4 PM',
       hybrid: Boolean(true),
       room: 'MSE 116',
     },
   ],
   activities: [
     {
-      name: 'Minecraft',
+      name: 'Creative Building on Minecraft',
       startTime: '9',
       endTime: '10 AM',
     },

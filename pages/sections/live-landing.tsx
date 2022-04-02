@@ -65,6 +65,12 @@ export default function Landing() {
                 />
               </span>
             }
+            <ButtonLink
+              primary
+              link='https://citrus-hack-2022.devpost.com/'
+              label='Devpost'
+              external
+            />
             { status === 'authenticated' 
               && session.user.uid
               && session.user.qualified === 'yeah' &&

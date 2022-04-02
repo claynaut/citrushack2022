@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
+// import { useState, useEffect } from 'react'
+// import Link from 'next/link'
+// import { motion } from 'framer-motion'
 import { Element } from 'react-scroll'
 import { useSession } from 'next-auth/react'
 import { Page } from '@/components/Page'
-import Modal from '@/components/Modal'
+// import Modal from '@/components/Modal'
 import Landing from '@/pages/sections/landing'
 import About from '@/pages/sections/about'
 import Tracks from '@/pages/sections/tracks'
@@ -17,12 +17,12 @@ import { Wave } from '@/components/Wave'
 
 export default function Home() {
   const { data: session, status } = useSession()
-  const [modalOpen, setModalOpen] = useState(status === 'authenticated' && !session.user.uid)
+  // const [modalOpen, setModalOpen] = useState(status === 'authenticated' && !session.user.uid)
 
-  useEffect(() => {
-    if (status === 'authenticated') 
-      setModalOpen(!session.user.uid)
-  }, [session, status, setModalOpen])
+  // useEffect(() => {
+  //   if (status === 'authenticated') 
+  //     setModalOpen(!session.user.uid)
+  // }, [session, status, setModalOpen])
 
   return (
     <Page>
@@ -67,7 +67,7 @@ export default function Home() {
       <Element name='FAQ' className='flex justify-center px-4 w-full bg-gradient-to-b'>
         <Faq />
       </Element>
-      <Modal
+      {/* <Modal
         title='Apply for Citrus Hack 2022'
         description='It looks like you haven&apos;t applied to Citrus Hack yet! Be sure to apply before time runs out.'
         show={modalOpen}
@@ -83,7 +83,7 @@ export default function Home() {
             Apply Here
           </motion.button>
         </Link>
-      </Modal>
+      </Modal> */}
     </Page>
   )
 }

@@ -13,7 +13,6 @@ import {
   BiCategory
 } from 'react-icons/bi'
 import { FaDiscord } from 'react-icons/fa'
-import { ButtonLink } from '../ButtonLink'
 
 /** Dropdown for more user actions and info (e.g. app status, group page, etc.). */
 export function UserDropdown() {
@@ -93,7 +92,7 @@ export function UserDropdown() {
                 Signed in as <br/>
                 {session.user.email}
               </span>
-              { status === 'authenticated' 
+              {/* { status === 'authenticated' 
                 && (!session.user.uid ?
                 <Link passHref href='/apply'>
                   <motion.button
@@ -125,7 +124,7 @@ export function UserDropdown() {
                     { session.user.qualified === 'nope' && 'Rejected' }
                   </div>
                 </>
-              )}
+              )} */}
               {/* uncomment the day before */}
               { status === 'authenticated' 
                 && session.user.uid

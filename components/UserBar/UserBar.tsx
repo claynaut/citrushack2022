@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react'
 import { ThemeButton } from './ThemeButton'
 import { UserDropdown } from './UserDropdown'
@@ -10,7 +10,7 @@ import { SigninForm } from '@/components/Form'
 
 /** Wrapper containing user-action buttons (e.g. sign in, apply, user dropdown, theme button, etc.). */
 export function UserBar() {
-  const router = useRouter()
+  // const router = useRouter()
   const { data: session, status } = useSession()
   const [signinModalOpen, setSigninModalOpen] = useState(false)
 
@@ -21,7 +21,7 @@ export function UserBar() {
   return (
     <>
       <div className='z-[1000] fixed top-3 right-3 flex gap-3'>
-        { status === 'authenticated' && !session.user.uid && router.pathname !== '/apply' &&
+        {/* { status === 'authenticated' && !session.user.uid && router.pathname !== '/apply' &&
           <Link passHref href='/apply'>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -31,7 +31,7 @@ export function UserBar() {
               Apply
             </motion.button>
           </Link>
-        }
+        } */}
         { session ?
             <UserDropdown />
           :

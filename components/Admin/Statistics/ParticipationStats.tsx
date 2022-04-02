@@ -19,7 +19,7 @@ export function ParticipationStats({ users, ucrUsers }) {
   return (
     <div className='flex flex-col gap-4'>
       <div className='bg-sub-secondary rounded-2xl text-center'>
-        <h4 className='font-medium'>Participation</h4>
+        <h4 className='font-medium'>Participation (Approved)</h4>
       </div>
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 rounded-2xl'>
         <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 col-span-2'>

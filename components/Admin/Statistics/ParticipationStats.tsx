@@ -39,26 +39,28 @@ export function ParticipationStats({ users, ucrUsers }) {
             label='In-Person'
           />
         </div>
-        <StatsBlob
-          num={numUCR}
-          numTotal={numTotalQualified}
-          label='Total From UCR'
-        />
-        <StatsBlob
-          num={numInPersonUCR}
-          numTotal={numTotalQualified}
-          label='In-Person From UCR'
-        />
-        <StatsBlob
-          num={numOnlineCheckedIn}
-          numTotal={numTotalQualified}
-          label='Online Checked-In'
-        />
-        <StatsBlob
-          num={numInPersonCheckedIn}
-          numTotal={numTotalQualified}
-          label='In-Person Checked-In'
-        />
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 col-span-2'>
+          <StatsBlob
+            num={numUCR}
+            numTotal={numTotalQualified}
+            label='Total From UCR'
+          />
+          <StatsBlob
+            num={numInPersonUCR}
+            numTotal={numTotalQualified}
+            label='In-Person From UCR'
+          />
+          <StatsBlob
+            num={numOnlineCheckedIn}
+            numTotal={numTotalQualified}
+            label='Online Checked-In'
+          />
+          <StatsBlob
+            num={numInPersonCheckedIn}
+            numTotal={numTotalQualified}
+            label='In-Person Checked-In'
+          />
+        </div>
       </div>
     </div>
   )

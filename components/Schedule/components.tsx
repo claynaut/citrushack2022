@@ -1,10 +1,12 @@
+import ExternalLink from '../ExternalLink'
+
 interface EventBlockProps {
   name: string
   startTime: string
   endTime?: string
   hybrid?: boolean
   room?: string
-  note?: string
+  note?: string | React.ReactNode
 }
 
 const EventBlock = ({ name, startTime, endTime, hybrid, room, note }: EventBlockProps) => (
@@ -218,7 +220,7 @@ const saturdaySchedule = {
       endTime: '6 PM',
     },
     {
-      name: 'Python Workshop',
+      name: 'Python: Data Science Emojis',
       startTime: '5',
       endTime: '6 PM',
       hybrid: Boolean(true),
@@ -232,45 +234,46 @@ const saturdaySchedule = {
   ],
   activities: [
     {
+      name: 'CTF',
+      startTime: '12 PM',
+      endTime: '12 AM',
+      note: 
+      <>
+        <ExternalLink name='Via Cyber@UCR Website' link='https://ctf.ucrcyber.org/' />
+      </>
+    },
+    {
       name: 'CSSBattle',
       startTime: '12:30',
       endTime: '1 PM',
     },
     {
-      name: 'CTF',
-      startTime: '12',
-      endTime: '10:30 PM',
-    },
-    {
-      name: 'Lunch with the Leads',
-      startTime: '1',
-      endTime: '1:30 PM',
-      hybrid: Boolean(true),
-      room: 'Bytes',
-    },
-    {
       name: 'Raffle',
-      startTime: '1:30',
-      endTime: '2 PM',
+      startTime: '1',
+      endTime: '9 PM',
     },
     {
       name: 'Typeracer Tournament',
       startTime: '2',
       endTime: '3 PM',
+      hybrid: Boolean(true),
+      room: 'WCH 202',
     },
     {
       name: 'Therapy Fluffies',
       startTime: '3',
-      endTime: '3:30 PM',
-      note: 'In-Person',
+      endTime: '4 PM',
+      note: 'In-Person @ Grass Field in Front of MSE/WCH',
     },
     {
       name: 'Trivia Kahoot',
       startTime: '4',
       endTime: '4:30 PM',
+      hybrid: Boolean(true),
+      room: 'WCH 202',
     },
     {
-      name: 'Painting With Bob Ross',
+      name: 'Painting With Bob Ross w/ MLH',
       startTime: '5',
       endTime: '5:30 PM',
     },
@@ -289,6 +292,8 @@ const saturdaySchedule = {
       name: 'Gartic Phone',
       startTime: '11 PM',
       endTime: '12 AM',
+      hybrid: Boolean(true),
+      room: 'WCH 202',
     },
     {
       name: 'Community Hacking',
@@ -323,7 +328,7 @@ const sundaySchedule = {
     {
       name: 'Judging',
       startTime: '11 AM',
-      endTime: '2 PM',
+      endTime: '1:30 PM',
     },
     {
       name: 'Closing Ceremony',

@@ -34,12 +34,12 @@ export const TeamProfile = ({ link, image, name, role }: ProfileProps) => (
 )
 
 const staff = [
-  {
-    link: 'https://www.linkedin.com/in/audrey-kim-696922168/',
-    image: '/assets/leads/audrey.jpeg',
-    name: 'Audrey Kim',
-    role: 'Director',
-  },
+  // {
+  //   link: 'https://www.linkedin.com/in/audrey-kim-696922168/',
+  //   image: '/assets/leads/audrey.jpeg',
+  //   name: 'Audrey Kim',
+  //   role: 'Director',
+  // },
   {
     link: 'https://www.linkedin.com/in/rajbirjohar/',
     image: '/assets/leads/rajbir.jpeg',

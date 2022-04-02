@@ -92,18 +92,20 @@ export function UserDropdown() {
                 Signed in as <br/>
                 {session.user.email}
               </span>
-              {/* { status === 'authenticated' 
+              { status === 'authenticated' 
                 && (!session.user.uid ?
-                <Link passHref href='/apply'>
-                  <motion.button
-                    whileHover={{ scale: 1.05}} 
-                    whileTap={{ scale: 0.995 }}
-                    className='w-full py-1.5 rounded-md bg-highlight hover:bg-highlight-dark font-semibold'
-                    onClick={() => setOpen(!open)}
-                  >
-                    Apply Now!
-                  </motion.button>
-                </Link>
+                <>
+                  {/* <Link passHref href='/apply'>
+                    <motion.button
+                      whileHover={{ scale: 1.05}} 
+                      whileTap={{ scale: 0.995 }}
+                      className='w-full py-1.5 rounded-md bg-highlight hover:bg-highlight-dark font-semibold'
+                      onClick={() => setOpen(!open)}
+                    >
+                      Apply Now!
+                    </motion.button>
+                  </Link> */}
+                </>
                 :
                 <>
                   <span className='flex text-center font-semibold text-sub-bright text-sm'>
@@ -124,7 +126,7 @@ export function UserDropdown() {
                     { session.user.qualified === 'nope' && 'Rejected' }
                   </div>
                 </>
-              )} */}
+              )}
               {/* uncomment the day before */}
               { status === 'authenticated' 
                 && session.user.uid

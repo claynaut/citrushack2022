@@ -15,7 +15,7 @@ export function Statistics({ data }) {
   return (
     <div className='flex flex-col gap-4'>
       <ParticipationStats
-        users={qualifiedUsers}
+        users={data.users}
         ucrUsers={ucrUsers}
       />
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>

@@ -52,7 +52,7 @@ export default async function auth(req: NextApiRequest, res: NextApiResponse) {
     },
     pages: {
       verifyRequest: '/verify-signin', // Used for check email page
-      // newUser: '/apply' // Redirect new users to apply
+      newUser: '/' // Redirect new users to apply (replace to '/' when apps close)
     },
     secret: process.env.SECRET
   })
